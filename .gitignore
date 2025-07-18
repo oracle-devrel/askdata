@@ -31,3 +31,234 @@ Temporary Items
 .crt
 .csr
 .pem
+# Dependency directories
+/target
+/build
+/src/dist
+/my_package/dist
+/my_env
+/keys
+/curl
+
+/agent-adk/dist
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info
+
+# Images 
+*.png
+*.jpeg
+*.jpg
+*.gif
+*.webp
+*.ico
+
+# Config
+*.ini
+
+# Binaries
+*.xlsx
+*.zip
+
+# scan file
+.scannerwork/
+
+# Files with possible sensitive info 
+clientApp/ConfigFile.properties
+clientApp/autoprompt/ConfigFile.properties
+clientApp/autoprompt/semantic_suggest_runbook.md 
+
+# File with reference to orahub repo 
+mkdocs/mkdocs.yml
+
+# Reference to api gateway
+mkdocs/docs/deployment/adw_private.md
+
+# Reference to idcs discovery url 
+mkdocs/docs/deployment/business_api_gateway.md
+
+# Reference to oda instance 
+mkdocs/docs/deployment/business_idcs.md 
+
+# Reference to oracle redis 
+mkdocs/docs/deployment/nl2sql_engine.md 
+
+# Reference to API GW url 
+mkdocs/docs/deployment/oda.md 
+
+# Reference to OCI tenancy 
+mkdocs/docs/deployment/trust-service.c.md
+mkdocs/docs/deployment/trust-service.md
+
+# Reference to IDCS/API GW 
+mkdocs/docs/deployment/trust-ui.md 
+mkdocs/docs/deployment/validation.md 
+mkdocs/docs/deployment/VBCS.md 
+
+# ips 
+/mkdocs/docs/rest/nl2sql-trust/installation.md
+
+# Reference to OCIDs 
+/mkdocs/Finetune-DAC/finetune-dac-python.py
+
+# Binaries 
+/oda/callGenAiSQLEndPointv2(1.0).zip
+/oda/websdk2104-desktop.zip
+
+# Not sure about font files ... 
+/oda/websdk-apache-deploy/fonts/fonnts.com-aptos-semibold.ttf
+
+# node modules 
+/oda/websdk-apache-deploy/node_modules/
+
+# Random IPs 
+/oda/websdk-apache-deploy/scripts/settings.js
+
+# I think we should omit web sdk and provide a link to download from public website
+/oda/websdk-apache-deploy/scripts/support/*
+/oda/websdk-apache-deploy/scripts/web-sdk.js 
+/oda/websdk-apache-deploy/scripts/web-sdkVnew.js
+
+/oda/websdk2104-desktop/
+
+# Sensitive info 
+/promotion/
+
+# Random IPs 
+/rest/nl2sql-trust/conf/dev_trust_config.json
+/rest/nl2sql-trust/conf/metadata_v2.json
+/rest/nl2sql-trust/conf/trust_config.json
+
+# Sensitive info 
+/rest/nl2sql-trust/helpers/config_json_helper.py
+/rest/nl2sql-trust/helpers/config_json_helper.py
+
+# Reference to genai dedicated cluster 
+/rest/nl2sql-trust/helpers/finetune_helper.py
+
+# Couldn't find any reference upon first glance, but I imagine there might be if finetune helper has a reference 
+/rest/nl2sql-trust/helpers/finetune_db.py
+
+# Reference to OCIDs
+/rest/nl2sql-trust/helpers/llm_helper.py
+/rest/nl2sql-trust/helpers/oci_helper_boostrap.py
+/rest/nl2sql-trust/helpers/oci_helper_json.py
+
+/rest/nl2sql-trust/helpers/test_ca_creation.json 
+
+# wallet
+/rest/nl2sql-trust/wallet/
+
+# Do we need this ? 
+/rest/nl2sql-trust/htmlcov
+
+# keys 
+/rest/nl2sql-trust/openssl/
+
+# Wallet 
+/rest/nl2sql-trust/wallet/nl2sql-test/
+
+/rest/wallet/nl2sql-test
+
+# example ips in comments 
+/rest/nl2sql-trust/nl2sql_service.py
+
+# Reference to internal db 
+/rest/nl2sql-trust/README
+
+# devops sensitive info 
+/rest/script/devops
+
+# docker artifactory info 
+/rest/script/docker/artifacts 
+
+# oracle instant client reference?
+/rest/script/docker/oracle-instantclient-23ai-ol8.repo
+
+# tenancy name reference 
+/rest/script/docker/promote_dev.sh
+/rest/script/docker/run_dev.sh
+/rest/script/docker/run.sh
+
+/rest/script/docker_released/artifacts
+
+# another oracle instant client reference? Add link to public download instead?
+/rest/script/docker_released/oracle-instantclient-23ai-ol8.repo
+
+# tenancy name reference 
+/rest/script/docker_released/run_dev.sh
+/rest/script/docker_released/run.sh
+/rest/script/docker_released/Dockerfile
+
+# ubuntu image? Is this needed? Replace with olinux instead? 
+/rest/script/dockerssh/Dockerfile
+
+# Reference to google apis, twitter open source, do we need this? 
+/rest/script/html_client/
+
+# old docker I assume is unnecessary? 
+/rest/script/old_docker/
+
+# bash scripts from ruepprich.com, are these needed? 
+/rest/script/find_by_freeform.bash
+/rest/script/find_by_tags.bash 
+
+# log file 
+/rest/script/nl2sql_trust_rest.log 
+
+# sensitive info 
+/rest/script/os_upload.bash
+/rest/script/upload_os_trust_config.sh 
+
+# tenancy name reference 
+/rest/script/nl2sql_rest.service
+
+# ips 
+/rest/script/upload.sh 
+
+# Wallet 
+/rest/script/wallet/nl2sql-test 
+
+# lock file 
+/rest/poetry.lock 
+
+# tenancy namespace 
+/scripts/oci 
+
+# Reference to tenancy 
+/terraform/cloud-init/nl_engine_cloud_init.yml
+terraform/cloud-init/trust-cloud-init.yml
+
+# sensitive info 
+terraform/example/vm_nl_engine_cloud_init/terraform.tfvars 
+terraform/example/vm_trust_cloud_init/terraform.tfvars 
+/terraform/example/vm_nl_engine_cloud_init/nl_engine_cloud_init.yml.tpl
+/terraform/example/vm_nl_engine_cloud_init/variables.tf
+/terraform/example/vm_trust_cloud_init/variables.tf
+# NLSQL_v1 & NLSQL_V2 directories, I assume v1 is unnecessary? 
+terraform/NLSQL_v1
+
+# Secrets and binaries 
+terraform/NLSQL_V2/Deployment/config
+
+# ocids 
+terraform/NLSQL_V2/Deployment/modules/instances/gpu/main.tf
+terraform/NLSQL_V2/Deployment/modules/instances/gpu/main.tf
+
+# empty dir 
+terraform/NLSQL_V2/Deployment/scripts/
+
+# are these archives necessary? 
+vbcs_oda_archives
+
+# wallet 
+/wallet
+
+# tenancy reference
+/run.sh
+
+.DS_Store

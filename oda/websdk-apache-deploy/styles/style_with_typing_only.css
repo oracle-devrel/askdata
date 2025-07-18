@@ -1,0 +1,328 @@
+
+@font-face {
+    font-family: 'Aptos';
+    src: url('../fonts/fonnts.com-aptos-semibold.ttf') format('truetype');
+}
+
+@keyframes typing-cue {
+	0% {
+		opacity: 1
+	}
+
+	30% {
+		opacity: .1
+	}
+
+	50% {
+		opacity: 1
+	}
+
+	100% {
+		opacity: .1
+	}
+}
+
+.oda-chat-wrapper .oda-chat-conversation {
+    /* background-image: url(../images/backgroundChat.png)!important;
+    background-size: 180%; */
+    background-color: #1a2f44;
+}
+
+.oda-chat-wrapper .oda-chat-header {
+    background-color: #001b30!important;
+}
+
+.oda-chat-wrapper .oda-chat-footer {
+    background-color: #001b30!important;
+}
+
+.oda-chat-wrapper .oda-chat-timestamp-header {
+    color: white!important;
+}
+
+.oda-chat-wrapper .oda-chat-message-bubble {
+    color: black!important;
+    background: white!important;
+}
+
+.oda-chat-wrapper .oda-chat-conversation .oda-chat-conversation-pane .oda-chat-message-date, .oda-chat-wrapper .oda-chat-conversation .oda-chat-conversation-pane .oda-chat-relative-timestamp {
+    color: white!important;
+    text-align: start;
+}
+
+.oda-chat-widget{
+    width:60vw!important;
+    height: 75vh!important;
+}
+
+.oda-chat-wrapper.oda-chat-expanded .oda-chat-widget {
+    margin-right: 30vw!important;
+    margin-bottom: 5vh;
+}
+
+.oda-chat-wrapper .oda-chat-message-block.oda-chat-right .oda-chat-messages-wrapper .oda-chat-message:last-child .oda-chat-message-bubble:last-child {
+    background-color: white !important;
+    color: black !important;
+    font-weight: 500;
+}
+
+.oda-chat-wrapper .oda-chat-button:not(:disabled):hover, .oda-chat-wrapper .oda-chat-button:not(:disabled):focus, .oda-chat-wrapper .oda-chat-button:not(:disabled):active {
+    background-color: var(--color-launch-icon-background);
+
+}
+
+.oda-chat-wrapper .oda-chat-logo {
+    background-color: rgb(214, 214, 214);
+    width: 42px !important;
+    height: 42px !important;
+    max-height: 42px !important;
+    max-width: 42px !important;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.oda-chat-wrapper .oda-chat-header .oda-chat-header-info-wrapper .oda-chat-connection-status {
+    font-weight: unset!important;
+}
+.oda-chat-wrapper .oda-chat-icon-wrapper .oda-chat-message-icon {
+    border-radius: 50%;
+}
+
+.oda-chat-wrapper .oda-chat-footer-button.oda-chat-button-send {
+    background-color: rgb(214, 59, 37)!important;
+    border-radius: 50%;
+}
+
+/* Fix for the Typing Indicator animation */
+
+.oda-chat-wrapper .oda-chat-typing-cue-wrapper {
+	width: 32px;
+	margin: auto;
+	display: flex
+}
+
+.oda-chat-wrapper .oda-chat-typing-cue-wrapper .oda-chat-typing-cue {
+	position: relative;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background-color: #161513!important;
+	animation: typing-cue 1550ms infinite linear alternate;
+	animation-delay: 250ms;
+	opacity: .1
+}
+
+.oda-chat-wrapper .oda-chat-typing-cue-wrapper .oda-chat-typing-cue::before,
+.oda-chat-wrapper .oda-chat-typing-cue-wrapper .oda-chat-typing-cue::after {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background-color: #161513!important;
+	animation: typing-cue 1550ms infinite linear alternate;
+	opacity: .1
+}
+
+.oda-chat-wrapper .oda-chat-typing-cue-wrapper .oda-chat-typing-cue::before {
+	left: -12px;
+	animation-delay: 0s
+}
+
+.oda-chat-wrapper .oda-chat-typing-cue-wrapper .oda-chat-typing-cue::after {
+	left: 12px;
+	animation-delay: 500ms
+}
+
+/* .oda-chat-button {
+    display: flex!important;
+    justify-content: center!important;
+    align-items: center!important;
+    width: 80vw!important;
+} */
+
+body {
+    background-image: url(../images/Oracle-Ai.webp);
+    overflow: hidden;
+    background-repeat: no-repeat;
+    font-family: 'Aptos', sans-serif!important;
+    background-size: 100%;
+
+}
+
+#solutions{
+    position: absolute;
+    z-index: 10;
+    color: white;
+    margin-top: 10vh;
+    margin-left: 3.5vw;
+    font-family: 'Aptos', sans-serif;
+}
+
+#max {
+    height: 83.5vh;
+    margin-top: 16vh;
+    margin-left: 2.5vw;
+}
+
+#CloudPartner{
+    position: absolute;
+    z-index: 10;
+    margin-top: 5.5vh;
+    margin-left: 75vw;
+    height: 8vh;
+}
+
+#Maximage{
+    height: 0px;
+}
+
+.assistBox{
+    font-family: 'Aptos', sans-serif;
+    position: absolute;
+    z-index: 999;
+    margin-top: 17vh;
+    margin-left: 65vw;
+    width:35vw!important;
+    max-height: 75vh!important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#assistYou{
+    color: white;
+}
+
+.assistCard{
+    width:20vw!important;
+    /* height: 15vh!important; 1a2f44 */
+    background-color: #114068;
+    color: #FFFBF9;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin: 5px;
+    font-size: 0.8em;
+    word-break: break-word;
+    padding: 2%;
+    border-radius: 15px;
+}
+
+#powered {
+    font-family: 'Aptos', sans-serif;
+    /* position: absolute;
+    z-index: 999; */
+    /* margin-top: 17vh; */
+    /* margin-left: 65vw; */
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-direction: column;
+    color: #FFFBF9;
+    width: 100vw;
+    height: 96.5vh;
+    font-size: 0.8em;
+}
+
+#powered p{
+    /* margin-bottom: -2px; */
+}
+
+#powered .lad{
+    font-size: 0.7em!important;
+}
+
+.entity {
+    padding: 2px 4px;
+    margin: 0 1px;
+    border-radius: 3px;
+}
+/*
+PERSON: Names of people, including fictional characters (e.g., "Cristiano Ronaldo", "Sherlock Holmes").
+ORG: Organizations, companies, agencies, and institutions (e.g., "Google", "United Nations").
+GPE: Geopolitical entities such as countries, cities, and states (e.g., "USA", "Paris").
+LOC: Non-GPE locations like mountains, bodies of water (e.g., "Rocky Mountains", "Nile River").
+FAC: Facilities such as buildings, airports, highways, and bridges (e.g., "Eiffel Tower", "JFK Airport").
+PRODUCT: Objects, vehicles, foods (not services) (e.g., "iPhone", "Toyota Camry").
+EVENT: Named events like sports events, wars, and festivals (e.g., "World Cup", "Independence Day").
+WORK_OF_ART: Titles of creative works like books or songs (e.g., "Mona Lisa", "The Great Gatsby").
+NORP: Nationalities or religious/political groups (e.g., "American", "Muslim").
+DATE: Dates or periods (e.g., "January 1st, 2020", "last week").
+TIME: Time expressions (e.g., "2 PM", "morning").
+MONEY: Monetary values and currencies (e.g., "$100", "2 billion euros").
+PERCENT: Percentage values (e.g., "50%", "3 percent").
+QUANTITY: Measurements and quantities (e.g., "10 kg", "5 liters").
+ORDINAL: Ordinal numbers (e.g., "first", "second").
+CARDINAL: Numerals that do not fall under another type (e.g., "one", "200").
+#bfe1d9;
+*/
+.entity[data-entity="PERSON"],
+.entity[data-entity="ORG"] {
+    background-color: #7aecec;
+}
+.entity[data-entity="GPE"] { background-color: #feca74; }
+.entity[data-entity="LOC"],
+.entity[data-entity="FAC"] {
+    background-color: #e4e7d2;
+}
+.entity[data-entity="PRODUCT"] { background-color: #d2ffdf; }
+.entity[data-entity="EVENT"] { background-color: #d2dfff; }
+.entity[data-entity="WORK_OF_ART"] { background-color: #d5e3d8; }
+.entity[data-entity="NORP"] { background-color: #e8d9d5; }
+.entity[data-entity="DATE"],
+.entity[data-entity="TIME"] {
+    background-color: #efffd2;
+}
+.entity[data-entity="MONEY"] { background-color: #ffddd2; }
+.entity[data-entity="PERCENT"],
+.entity[data-entity="QUANTITY"],
+.entity[data-entity="ORDINAL"],
+.entity[data-entity="CARDINAL"] {
+    background-color: #dcf5ed;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Aptos', sans-serif;
+    border: 1px solid #ddd;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #1a2f44;
+    color: white;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+table tr:hover {
+    background-color: #ddd;
+    transition: background-color 0.3s ease;
+}
+
+
+#solutionsheader
+{
+    margin-left: 0;
+    text-align: left;
+    color: white;
+}

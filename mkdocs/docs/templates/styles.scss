@@ -1,0 +1,174 @@
+// Custom PDF styles that complement your site theme
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #1976d2;
+    font-weight: 600;
+}
+
+h1 {
+    border-bottom: 2px solid #1976d2;
+    padding-bottom: 10px;
+}
+
+// Code blocks
+pre, code {
+    font-family: 'Roboto Mono', monospace;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+}
+
+// Tables
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #1976d2;
+    color: white;
+}
+
+// Links
+a {
+    color: #1976d2;
+    text-decoration: none;
+}
+
+// Page breaks
+.page-break {
+    page-break-before: always;
+}
+// Image size control styles for MkDocs with-pdf plugin
+// Add these styles to your templates/styles.scss file
+
+// Base image styles
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+  page-break-inside: avoid;
+}
+
+img.small,
+.img-small img {
+  max-width: 25% !important;
+  width: 25% !important;
+  display: block !important;
+  margin: 1rem auto !important;
+}
+
+img.medium,
+.img-medium img {
+  max-width: 50% !important;
+  width: 50% !important;
+  display: block !important;
+  margin: 1rem auto !important;
+}
+
+img.large,
+.img-large img {
+  max-width: 75% !important;
+  width: 75% !important;
+  display: block !important;
+  margin: 1rem auto !important;
+}
+// Full width images (100% of container width)
+img.full,
+.img-full img {
+  max-width: 100%;
+  width: 100%;
+}
+
+// Additional size options
+img.tiny,
+.img-tiny img {
+  max-width: 15%;
+  width: 15%;
+}
+
+img.xl,
+.img-xl img {
+  max-width: 90%;
+  width: 90%;
+}
+
+// Alignment classes
+.img-left {
+  text-align: left;
+  
+  img {
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
+
+.img-right {
+  text-align: right;
+  
+  img {
+    margin-left: auto;
+    margin-right: 0;
+  }
+}
+
+.img-center {
+  text-align: center;
+  
+  img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// Responsive adjustments for PDF
+@media print {
+  img.small { max-width: 30%; width: 30%; }
+  img.medium { max-width: 55%; width: 55%; }
+  img.large { max-width: 80%; width: 80%; }
+  
+  // Ensure images don't break across pages
+  img {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+}
+
+// Figure captions styling
+figure {
+  margin: 1.5rem auto;
+  text-align: center;
+  page-break-inside: avoid;
+  
+  img {
+    margin-bottom: 0.5rem;
+  }
+  
+  figcaption {
+    font-size: 0.9em;
+    color: #666;
+    font-style: italic;
+    margin-top: 0.5rem;
+  }
+}
+
+// Inline images (for icons, etc.)
+img.inline {
+  display: inline;
+  margin: 0;
+  vertical-align: middle;
+  max-height: 1.2em;
+  width: auto;
+}

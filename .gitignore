@@ -57,18 +57,24 @@ __pycache__/
 *.webp
 *.ico
 
+*.docx 
+
 # Config
 *.ini
 
 # Binaries
 *.xlsx
 *.zip
+/rest/nl2sql-trust/.coverage
+
+# WebSDK should be included in VBCS Applications
+/oda/websdk-apache-deploy/
 
 # scan file
 .scannerwork/
 
 # Files with possible sensitive info 
-clientApp/ConfigFile.properties
+#clientApp/ConfigFile.properties # cleaned sensitive info
 clientApp/autoprompt/ConfigFile.properties
 clientApp/autoprompt/semantic_suggest_runbook.md 
 
@@ -129,9 +135,9 @@ mkdocs/docs/deployment/VBCS.md
 /promotion/
 
 # Random IPs 
-/rest/nl2sql-trust/conf/dev_trust_config.json
+/rest/nl2sql-trust/conf/dev_trust_config.json 
 /rest/nl2sql-trust/conf/metadata_v2.json
-/rest/nl2sql-trust/conf/trust_config.json
+#/rest/nl2sql-trust/conf/trust_config.json # added placeholders for sensitive info
 
 # Sensitive info 
 /rest/nl2sql-trust/helpers/config_json_helper.py
@@ -145,7 +151,7 @@ mkdocs/docs/deployment/VBCS.md
 
 # Reference to OCIDs
 /rest/nl2sql-trust/helpers/llm_helper.py
-/rest/nl2sql-trust/helpers/oci_helper_boostrap.py
+#/rest/nl2sql-trust/helpers/oci_helper_boostrap.py # cleaned up sensitive info 
 /rest/nl2sql-trust/helpers/oci_helper_json.py
 
 /rest/nl2sql-trust/helpers/test_ca_creation.json 
@@ -164,8 +170,8 @@ mkdocs/docs/deployment/VBCS.md
 
 /rest/wallet/nl2sql-test
 
-# example ips in comments 
-/rest/nl2sql-trust/nl2sql_service.py
+# Replaced given ips with placeholders
+#/rest/nl2sql-trust/nl2sql_service.py
 
 # Reference to internal db 
 /rest/nl2sql-trust/README
@@ -174,7 +180,7 @@ mkdocs/docs/deployment/VBCS.md
 /rest/script/devops
 
 # docker artifactory info 
-/rest/script/docker/artifacts 
+/rest/script/docker/artifacts/
 
 # oracle instant client reference?
 /rest/script/docker/oracle-instantclient-23ai-ol8.repo
@@ -243,7 +249,7 @@ terraform/example/vm_trust_cloud_init/terraform.tfvars
 terraform/NLSQL_v1
 
 # Secrets and binaries 
-terraform/NLSQL_V2/Deployment/config
+terraform/NLSQL_V2/Deployment/config/files
 
 # ocids 
 terraform/NLSQL_V2/Deployment/modules/instances/gpu/main.tf
@@ -252,8 +258,11 @@ terraform/NLSQL_V2/Deployment/modules/instances/gpu/main.tf
 # empty dir 
 terraform/NLSQL_V2/Deployment/scripts/
 
-# are these archives necessary? 
-vbcs_oda_archives
+# VBCS Applications 
+# cleaned up main vbcs-askdata app. Will need to provide instructions for certain inputs e.g. idcs endpoint, api gateway endpoints, etc.
+# The app is dependent on the images for the app. We can't include the images in the repo. Maybe we'd want to create an associated livelab for this section?
+# Still need to bloat and clean zip files for dependent VBCS apps
+# vbcs_oda_archives 
 
 # wallet 
 /wallet

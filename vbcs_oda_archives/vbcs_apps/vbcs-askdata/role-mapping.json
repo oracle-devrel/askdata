@@ -1,0 +1,51 @@
+{
+    "roleMapping": {
+        "idcsHostUrl": "<idcs-server>:443",
+        "roles": {
+            "askdata_nl2sql_grp_dev": {
+                "base_configuration": {
+                    "users": [ ],
+                    "groups": [
+                        {
+                            "id": "<group-id>",
+                            "displayName": "askdata_nl2sql_grp_dev"
+                        }
+                    ]
+                }
+            },
+            "askdata_nl2sql_user_grp1": {
+                "base_configuration": {
+                    "users": [ ],
+                    "groups": [
+                        {
+                            "id": "<group-id>",
+                            "displayName": "askdata_nl2sql_user_grp1"
+                        }
+                    ]
+                }
+            },
+            "askdata_nl2sql_user_grp2": {
+                "base_configuration": {
+                    "users": [ ],
+                    "groups": [
+                        {
+                            "id": "<group-id>",
+                            "displayName": "askdata_nl2sql_user_grp2"
+                        }
+                    ]
+                }
+            },
+            "askdata_nl2sql_admin": {
+                "base_configuration": {
+                    "users": [ ],
+                    "groups": [
+                        {
+                            "id": "<group-id>",
+                            "displayName": "askdata_nl2sql_admin"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

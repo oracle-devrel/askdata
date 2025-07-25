@@ -1,0 +1,131 @@
+/* Flex container should allow the table wrapper to take up full space */
+.oj-flex-item {
+  display: flex;
+  flex-grow: 1;  /* Ensure it expands to fill available space */
+  flex-direction: column; /* Ensure table grows vertically */
+}
+
+.table-wrapper {
+  padding: 16px; /* Add padding around the table */
+  box-sizing: border-box; /* Include padding in width calculation */
+  width: 100%; /* Ensure the wrapper takes up full width */
+}
+
+#dynamicTable {
+  width: 100%; /* Ensure the table fills the available space */
+  height: 100%; /* Allow the table to expand vertically */
+  table-layout: fixed; /* Fixed layout to ensure proper width distribution */
+  border-collapse: collapse; /* Ensure the borders collapse */
+  box-sizing: border-box; /* Include padding/border in total table width calculation */
+  border: 2px solid #ddd; /* Thin outer border for the entire table */
+}
+
+#dynamicTable th, #dynamicTable td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  border: 0.5px solid #f0f0f0; /* Lighter border color */
+  
+}
+
+#dynamicTable th {
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  
+}
+
+#dynamicTable tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+#dynamicTable tr:nth-child(even) {
+  background-color: #e9e9e9;
+}
+
+/* Hover effect */
+#dynamicTable tr:hover {
+  background-color: #d3d3d3;
+}
+
+/* Adjust font size and layout on smaller screens */
+@media screen and (max-width: 600px) {
+  .custom-column {
+    width: auto; /* Adjust column widths on small screens */
+  }
+
+  #dynamicTable th, #dynamicTable td {
+    font-size: 14px; /* Adjust font size */
+  }
+}
+
+#dynamicTable th {
+  padding: 8px;
+  text-align: left;
+  background-color: #f4f4f4;
+  border: 0.5px solid #ddd; /* Thin border for header cells */
+}
+#dynamicTable td {
+  padding: 8px;
+  text-align: left;
+  border: 0.5px solid #ddd; /* Thin border for table data cells */
+}
+
+/* Clean up all tables */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: white;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #807E74 !important;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+table tbody tr td {
+  color: #333;
+  font-size: 14px;
+}
+
+table caption {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.oj-collapsible-header-wrapper {
+  background-color:#312D2A !important;
+  padding-left: 10px;
+}
+
+.oj-default .oj-clickable-icon, .oj-default.oj-clickable-icon, .oj-default.oj-clickable-icon-nocontext, a .oj-clickable-icon, a.oj-clickable-icon, a.oj-clickable-icon-nocontext, a:visited .oj-clickable-icon, a:visited.oj-clickable-icon, a:visited.oj-clickable-icon-nocontext {
+    /* color: white; */
+}
+
+.oj-collapsible-header-wrapper .oj-collapsible-header-icon, .oj-collapsible-header-wrapper .oj-collapsible-header-icon:hover {
+    /* color: var(--oj-private-icon-color-default); */
+     color: white;
+}
+
+/* Paging controls - left/right/first/last buttons/arraows to be enables */
+
+/* .oj-default .oj-clickable-icon, .oj-default.oj-clickable-icon, .oj-default.oj-clickable-icon-nocontext, a .oj-clickable-icon, a.oj-clickable-icon, a.oj-clickable-icon-nocontext, a:visited .oj-clickable-icon, a:visited.oj-clickable-icon, a:visited.oj-clickable-icon-nocontext {
+    color: black !important;
+} */
+

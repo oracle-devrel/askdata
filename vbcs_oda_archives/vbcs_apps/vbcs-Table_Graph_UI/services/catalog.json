@@ -1,0 +1,23 @@
+{
+    "backends": {
+        "interactiveTables": {
+            "servers": [
+{
+                    "url": "<api-gateway>/v1",
+                    "description": "APIGW",
+                    "x-vb": {
+                        "authentication": {
+                            "authenticated": {
+                                "type": "oauth2_client_credentials",
+                                "clientIdCredentials": "<client-id>",
+                                "scope": "urn:opc:idm:__myscopes__",
+                                "authUrl": "<idcs-server>/oauth2/v1/token"
+                            }
+                        },
+                        "forceProxy": "cors"
+                    }
+                }
+            ]
+        }
+      }
+}

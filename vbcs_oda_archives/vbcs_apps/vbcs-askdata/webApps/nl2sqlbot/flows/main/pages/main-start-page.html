@@ -1,0 +1,31 @@
+<!-- <script src="resources/scripts/web-sdkVnew.js"></script> -->
+
+<!-- <link rel="stylesheet" href="resources/styles/style.css"> -->
+
+
+
+<!-- <script src="resources/native-client-sdk-js/web-sdk.js" onload="initSdk('Bots')" defer></script> -->
+<oj-bind-if test="[[ $application.variables.isAuthorized ]]">
+  <div style="display:flex" class="check">
+    <img alt="" :src='[[ $application.path + "resources/images/Oracle_LOGO_RED.png" ]]'>
+    <!-- <h1 class="heading">Oracle</h1>
+    <div> -->
+    <h1 style="display:inline;" id="heading"> AskData</h1>
+    <!-- </div> -->
+  </div>
+
+  <div class="left-aligned">
+    <!-- <h2 id="solutionsheader" textAlign="left">Ask Oracle</h2> -->
+  </div>
+  <div id="chat-container" class="chatbox" style="height: 600px; width: 1400px; padding: 0;
+            text-align: initial">
+  </div>
+</oj-bind-if>
+
+<oj-bind-if test="[[ !$application.variables.isAuthorized ]]">
+  <div style="display: flex; justify-content: center; align-items: center; height: 100vh; text-align: center;">
+    <oj-highlight-text text="You are NOT authorized to access this page. Please contact the System Administrator."
+      match-text="Highlight" style="color: red; font-weight: bold; font-size: 30px;">
+    </oj-highlight-text>
+  </div>
+</oj-bind-if>

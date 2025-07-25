@@ -1,0 +1,11 @@
+exportedRestServices:
+- endpoint: "<api-gateway-endpoint>/v1/feedbackmessage"
+  description: "REST API endpoint to persist Feedback message (.252)"
+  name: "feedbackMessageV3_apigw"
+  type: "REST"
+  authType: "bearerToken"
+  mock: false
+  restServiceMethods:
+  - restServiceMethodType: "POST"
+    contentType: "application/json"
+    restServiceParams: []

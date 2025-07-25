@@ -1,0 +1,91 @@
+{
+
+  "title": "Oracle AI Data Assistant",
+  "description": "",
+  "variables": {
+    "graphId": {
+      "type": "string",
+      "input": "fromUrl"
+    }
+  },
+  "metadata": {
+    "dynamicContainerMetadata": {
+      "type": "vb/ContainerMetadataProviderDescriptor"
+    }
+  },
+  "types": {},
+  "chains": {
+  },
+  "eventListeners": {
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chain": "getGraphData"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-checkboxset": {
+        "path": "ojs/ojcheckboxset"
+      },
+      "oj-dyn-container": {
+        "path": "oj-dyn/container/loader"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-menu": {
+        "path": "ojs/ojmenu"
+      }
+
+    }
+  },
+  "layouts": {
+    "containerLayout1": {
+      "label": "Container Rule Set 1",
+      "layoutType": "container",
+      "layouts": {
+        "case1": {
+          "label": "Case 1",
+          "layoutType": "container",
+          "layout": {
+            "sectionTemplateMap": {
+              "template1": "template1"
+            },
+            "displayProperties": [
+              "template1"
+            ]
+          }
+        }
+      },
+      "rules": [
+        "containerLayout1-rule1"
+      ]
+    },
+    "containerLayout1-rule1": {
+      "expression": "case1"
+    }
+  },
+  "templates": {
+    "template1": {
+      "title": "Interactive Graph",
+      "extensible": "byReference",
+      "@dt": {
+        "type": "section",
+        "layout": "containerLayout1"
+      }
+    }
+  },
+  "security": {
+    "access": {
+      "requiresAuthentication": false
+    }
+  }
+}

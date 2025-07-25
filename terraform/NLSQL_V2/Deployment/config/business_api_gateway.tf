@@ -1,0 +1,51 @@
+locals {
+  endpoint_type = "PUBLIC"
+  route1_backend_url = "http://${module.nlsql_engine_app.nlsql_engine_instance.private_ip}:8000"
+  route1_backend_path = "/prompt"
+  route2_backend_url = "http://${module.nlsql_engine_app.nlsql_engine_instance.private_ip}:8000/v1/feedbackupdown"
+  route2_backend_path = "/feedbackupdown"
+  route3_backend_url = "http://${module.nlsql_engine_app.nlsql_engine_instance.private_ip}:8000/v1/feedbackmessage"
+  route3_backend_path = "/feedbackmessage"
+  route4_backend_url = "http://${module.nlsql_engine_app.nlsql_engine_instance.private_ip}:8000/getdata/"
+  route4_backend_path = "/getdata/"
+  route5_backend_url = "http://${module.nlsql_engine_app.nlsql_engine_instance.private_ip}:8000/igraph"
+  route5_backend_path = "/igraph/"
+  gateway_display_name = "${var.object-prefix}-business-apigw"
+  deployment_display_name = "${var.object-prefix}-business-gwdep"
+  apigw_capp_vault_secret_version = 1
+  path_prefix = "/v1"
+  backend_type = "HTTP_BACKEND"
+  connect_timeout_in_seconds = 60
+  read_timeout_in_seconds = 10
+  send_timeout_in_seconds = 10
+}
+
+module "business_api_gw" {
+    source = "../modules/api_gw/business"
+    compartment_ocid = var.network-compartment-id
+    region = var.region
+    subnet_id = var.public_subnet
+    gateway_display_name = local.gateway_display_name
+    deployment_display_name = local.deployment_display_name
+    path_prefix = local.path_prefix
+    endpoint_type = local.endpoint_type
+    read_timeout_in_seconds = local.read_timeout_in_seconds
+    connect_timeout_in_seconds = local.connect_timeout_in_seconds
+    send_timeout_in_seconds = local.send_timeout_in_seconds
+    backend_type = local.backend_type
+    route1_backend_path = local.route1_backend_path
+    route1_backend_url = local.route1_backend_url
+    route2_backend_path = local.route2_backend_path
+    route2_backend_url = local.route2_backend_url
+    route3_backend_path = local.route3_backend_path
+    route3_backend_url = local.route3_backend_url
+    route4_backend_path = local.route4_backend_path
+    route4_backend_url = local.route4_backend_url
+    route5_backend_path = local.route5_backend_path
+    route5_backend_url = local.route5_backend_url
+    idcs_endpoint = var.idcs_endpoint
+    apigw_capp_client_id = module.idcs_confidential_app_apigw.apigw_idcs_capp.id
+    apigw_capp_vault_secret_id = module.apigw_vault_secret.apigw_capp_vault_secret.id
+    apigw_capp_vault_secret_version = local.apigw_capp_vault_secret_version
+    freeform_tags = var.resource_tags
+}

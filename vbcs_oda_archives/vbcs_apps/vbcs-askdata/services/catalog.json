@@ -1,0 +1,36 @@
+{
+    "backends": {
+        "IDCSBackend": {
+            "servers": [
+                {
+                    "url": "<idcs-server>/oauth2/v1",
+                    "description": "Oauth2 V1",
+                    "x-vb": {
+                        "authentication": {
+                            "authenticated": {
+                                "type": "basic",
+                                "credentials": "vb_<xyz>"
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "ics": {
+            "serviceType": "ics",
+            "servers": [
+                {
+                    "url": "vb-catalog://backends.tenant/ics",
+                    "description": "Overridden Integration Server",
+                    "x-vb": {
+                        "authentication": {
+                            "authenticated": {
+                                "type": "cloud"
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+      }
+}

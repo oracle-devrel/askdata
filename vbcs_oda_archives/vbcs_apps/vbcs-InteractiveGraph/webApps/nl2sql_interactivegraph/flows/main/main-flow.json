@@ -1,0 +1,15 @@
+{
+
+    "id": "main",
+    "description": "Flow main",
+    "defaultPage": "main-start",
+    "chains": {},
+    "services": {},
+    "types": {},
+    "variables": {},
+    "security": {
+        "access": {
+            "requiresAuthentication": false
+        }
+    }
+}

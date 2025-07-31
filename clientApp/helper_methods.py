@@ -18,8 +18,8 @@ logger = logging.getLogger("app_logger")
 config = configparser.RawConfigParser()
 config.read('ConfigFile.properties')
 
-rediscache = redis.StrictRedis(host=config.get('RedisSection', 'url'), charset='utf-8', ssl=True, decode_responses=True, port=config.get('RedisSection', 'port'))
-rediscache_obj = redis.StrictRedis(host=config.get('RedisSection', 'url'), charset='utf-8', ssl=True, decode_responses=False, port=config.get('RedisSection', 'port'))
+rediscache = redis.StrictRedis(host=config.get('RedisSection', 'url'), ssl=True, decode_responses=True, port=config.get('RedisSection', 'port'))
+rediscache_obj = redis.StrictRedis(host=config.get('RedisSection', 'url'), ssl=True, decode_responses=False, port=config.get('RedisSection', 'port'))
 queryttl=2*24*60*60
 
 def setup_logger(log_file_name='application.log'):

@@ -49,13 +49,21 @@ __pycache__/
 *.pyd
 *.egg-info
 
-# Images 
+# Images (trusted & untrusted.png are required for client server)
+# vbcs app requires the excepted images as well 
 *.png
+!clientApp/trusted.png
+!clientApp/untrusted.png 
+!/vbcs_oda_archives/vbcs_apps/vbcs-askdata/webApps/nl2sqlbot/resources/images/*
+!nl2sql-main/vbcs_oda_archives/vbcs_apps/vbcs-askdata/webApps/nl2sqlbot/resources/images
+
 *.jpeg
 *.jpg
+!/vbcs_oda_archives/vbcs_apps/vbcs-askdata/webApps/nl2sqlbot/resources/images/*
 *.gif
 *.webp
 *.ico
+!/vbcs_oda_archives/vbcs_apps/vbcs-askdata/webApps/nl2sqlbot/resources/images/*
 
 *.docx 
 
@@ -66,6 +74,7 @@ __pycache__/
 *.xlsx
 *.zip
 /rest/nl2sql-trust/.coverage
+*.tgz
 
 # WebSDK should be included in VBCS Applications
 /oda/websdk-apache-deploy/
@@ -179,8 +188,10 @@ mkdocs/docs/deployment/VBCS.md
 # devops sensitive info 
 /rest/script/devops
 
+/rest/script/docker/
 # docker artifactory info 
 /rest/script/docker/artifacts/
+/rest/script/docker/artifacts/promote_apex.sh
 
 # oracle instant client reference?
 /rest/script/docker/oracle-instantclient-23ai-ol8.repo
@@ -190,6 +201,7 @@ mkdocs/docs/deployment/VBCS.md
 /rest/script/docker/run_dev.sh
 /rest/script/docker/run.sh
 
+/rest/script/docker_released/
 /rest/script/docker_released/artifacts
 
 # another oracle instant client reference? Add link to public download instead?
@@ -202,6 +214,7 @@ mkdocs/docs/deployment/VBCS.md
 
 # ubuntu image? Is this needed? Replace with olinux instead? 
 /rest/script/dockerssh/Dockerfile
+/rest/script/dockerssh/
 
 # Reference to google apis, twitter open source, do we need this? 
 /rest/script/html_client/

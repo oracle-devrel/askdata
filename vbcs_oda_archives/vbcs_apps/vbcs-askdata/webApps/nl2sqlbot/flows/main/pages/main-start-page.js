@@ -166,7 +166,7 @@ define(['WebSDK'], function (WebSDK) {
   function setupWebSocket(application) {
     const token = application.variables.idcsToken;
 
-    socket = new WebSocket(`wss://<your-websocket-ip>.sslip.io:8004/wss/suggestions?token=${token}`);
+    socket = new WebSocket(`wss://test.sslip.io:8004/wss/suggestions?token=${token}`);
 
     socket.onopen = function () {
       console.log('WebSocket connection established !!!!!!!!');

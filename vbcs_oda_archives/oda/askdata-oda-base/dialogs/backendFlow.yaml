@@ -1,0 +1,540 @@
+name: "backendFlow"
+trackingId: "3B219488-05F2-4038-92BC-08925548E1E0"
+type: "task"
+version: "2.0"
+interface:
+  inputParameters:
+  - name: "hint"
+    description: ""
+    type: "string"
+    required: false
+    defaultValue: "${skill.system.event.value.intent.intentName}"
+    metadata:
+      isFreeMarker: true
+    trackingId: "925e4f27-80ea-4378-a261-72c7903c05f0"
+configuration:
+  requiresAuthorization: false
+  defaultApplicationContext: false
+  privateThread: false
+variables:
+- name: "response"
+  type: "string"
+  description: ""
+  metadata:
+    isFreeMarker: true
+  system: false
+- name: "badFbDetails"
+  type: "string"
+  description: ""
+  metadata:
+    isFreeMarker: true
+  system: false
+- name: "varFbGoodBad"
+  type: "string"
+  description: ""
+  metadata:
+    isFreeMarker: true
+  system: false
+- name: "badFbYesNo"
+  type: "string"
+  description: ""
+  metadata:
+    isFreeMarker: true
+  system: false
+- name: "varFbGoodBadRestResp"
+  type: "map"
+  description: ""
+  metadata:
+    isFreeMarker: false
+  system: false
+- name: "varFbMessageRestResp"
+  type: "map"
+  description: ""
+  metadata:
+    isFreeMarker: false
+  system: false
+- name: "varClear"
+  type: "entity"
+  entityName: "Clear"
+  description: ""
+  metadata:
+    isFreeMarker: false
+  system: false
+- name: "processLLMResponse"
+  type: "string"
+  description: ""
+  metadata:
+    isFreeMarker: true
+  system: false
+defaultTransitions:
+  actions:
+    system.authorizeUser: "callBackendSvc"
+    system.dialogError: "outputError"
+    system.startTaskFlow: "callBackendSvc"
+states:
+  moreFbAckFailureMsg:
+    description: "FYI"
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - text: "${rb('random.feedbackCaptureError.label')}"
+          type: "text"
+      keepTurn: true
+    transitions:
+      next: "moreFbAck"
+    metadata:
+      virtualComponent: "Virtual.Output"
+      propertySheetIsFreeMarkerMap:
+        requiresAuthorization: false
+  callRESTFbBad:
+    component: "System.CallRestService"
+    properties:
+      authConfigType: "bearerToken"
+      restService: "feedbackUpDownV3_apigw"
+      endpoint: "<api-gateway>/v1/feedbackupdown"
+      responseConfig: "apiResponse"
+      requestHeaders: []
+      method: "POST"
+      requestBody: "{\n    \"feedbackcode\": \"${varFbGoodBad?contains('Good')?string ('1', '-1')}\",\n    \"sessionid\": \"${system.message.channelConversation.sessionId}\"\n}"
+      requestParameters: []
+      tokenVariable: "user.userToken"
+      resultVariable: "varFbMessageRestResp"
+    transitions:
+      actions:
+        failure: "badFbAckFailureMsg"
+        success: "badFb"
+      next: "badFb"
+    metadata:
+      propertySheetIsFreeMarkerMap:
+        authConfigType: false
+        restService: false
+        endpoint: false
+        responseConfig: false
+        method: false
+        requestBody: true
+        apiKeyValueVariable: false
+        passwordVariable: false
+        tokenVariable: false
+        resultVariable: false
+        requiresAuthorization: false
+  callRESTFbMessage:
+    component: "System.CallRestService"
+    properties:
+      authConfigType: "bearerToken"
+      restService: "feedbackMessageV3_apigw"
+      endpoint: "<api-gateway>/v1/feedbackmessage"
+      responseConfig: "apiResponse"
+      requestHeaders: []
+      method: "POST"
+      requestBody: "{\n    \"feedback\": \"${badFbDetails?replace(\"[^\\\\w\\\\s]|dataToSubmit\", \"\", \"r\")}\",\n    \"sessionid\": \"${system.message.channelConversation.sessionId}\"\n}"
+      requestParameters: []
+      tokenVariable: "user.userToken"
+      resultVariable: "varFbMessageRestResp"
+    transitions:
+      actions:
+        failure: "moreFbAckFailureMsg"
+        success: "moreFbAck"
+      next: "moreFbAck"
+    metadata:
+      propertySheetIsFreeMarkerMap:
+        authConfigType: false
+        requestParameters--Item--type: false
+        restService: false
+        endpoint: false
+        responseConfig: false
+        method: false
+        requestBody: true
+        apiKeyValueVariable: false
+        passwordVariable: false
+        tokenVariable: false
+        resultVariable: false
+        requiresAuthorization: false
+  resetVariables:
+    component: "System.ResetVariables"
+    properties:
+      variableList: "processLLMResponse"
+    transitions:
+      next: "cleanupLLMResponse"
+    metadata:
+      propertySheetIsFreeMarkerMap:
+        variableList: false
+        requiresAuthorization: false
+  goodFbAckFailureMsg:
+    description: "FYI"
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - text: "${rb('random.feedbackCaptureError.label')}"
+          type: "text"
+      keepTurn: true
+    transitions:
+      next: "goodFbAck"
+    metadata:
+      virtualComponent: "Virtual.Output"
+      propertySheetIsFreeMarkerMap:
+        requiresAuthorization: false
+  skipFb:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - text: "Sounds good. Please continue with your next question."
+          type: "text"
+      keepTurn: true
+    transitions: {}
+    metadata:
+      virtualComponent: "Virtual.Output"
+      propertySheetIsFreeMarkerMap:
+        requiresAuthorization: false
+  outputError:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - text: "I am having trouble getting the data you requested. Could you rephrase your question so I can attempt to answer it again?"
+          type: "text"
+      keepTurn: true
+    transitions:
+      next: "endConversation"
+    metadata:
+      virtualComponent: "Virtual.Output"
+      propertySheetIsFreeMarkerMap:
+        requiresAuthorization: false
+  endConversation:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - separateBubbles: false
+          text: "If the issues persist, you can reset the session by closing and reopening the Assistant, or start a new conversation by clicking the button below."
+          type: "text"
+        globalActions:
+        - payload:
+            variables:
+              system.text: "Clear"
+            action: "system.textReceived"
+          label: "${rb('displayNewConv.button.label')}"
+          keyword: "Clear"
+          type: "postback"
+      processUserMessage: true
+      keepTurn: false
+    transitions: {}
+    metadata:
+      propertySheetIsFreeMarkerMap:
+        maxPrompts: false
+        useFullEntityMatches: false
+        cancelPolicy: true
+        variable: false
+        processUserMessage: false
+        keepTurn: false
+        multiValue: false
+        requiresAuthorization: false
+  outputLLMResponse:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - separateBubbles: false
+          text: "${processLLMResponse}"
+          type: "text"
+        globalActions:
+        - payload:
+            variables:
+              system.text: "Good"
+            action: "system.textReceived"
+          label: "${rb('displayGood.button.label')}"
+          keyword: "${rb('displayGood.button.keywords')}"
+          type: "postback"
+        - payload:
+            variables:
+              system.text: "Bad"
+            action: "system.textReceived"
+          label: "${rb('displaynotGood.button.label')}"
+          keyword: "${rb('displaynotGood.button.keywords')}"
+          type: "postback"
+        - payload:
+            variables:
+              system.text: "Clear"
+            action: "system.textReceived"
+          label: "${rb('displayNewConv.button.label')}"
+          keyword: "Clear"
+          type: "postback"
+      variable: "varFbGoodBad"
+      processUserMessage: true
+      keepTurn: false
+    transitions:
+      actions:
+        system.textReceived: "checkFb"
+    metadata:
+      propertySheetIsFreeMarkerMap:
+        maxPrompts: false
+        useFullEntityMatches: false
+        cancelPolicy: true
+        variable: false
+        processUserMessage: false
+        keepTurn: false
+        multiValue: false
+        requiresAuthorization: false
+  cleanupLLMResponse:
+    component: "System.SetVariable"
+    properties:
+      variable: "processLLMResponse"
+      value: "${response?replace('^\\\"|\\\"$', '', 'r')}"
+    transitions:
+      next: "cleanupGraphLink"
+    metadata:
+      propertySheetIsFreeMarkerMap:
+        variable: false
+        value: true
+        requiresAuthorization: false
+  checkRESTResponse:
+    component: "System.Switch"
+    properties:
+      source: "${response?replace('^\\\"|\\\"$', '', 'r')?contains('Database query')?string ('failure', response?replace('^\\\"|\\\"$', '', 'r')?contains('Done')?string ('clearCache', 'success'))}"
+    transitions:
+      actions:
+        failure: "outputError"
+        success: "resetVariables"
+        clearCache: "ackStartConv"
+    metadata:
+      propertySheetIsFreeMarkerMap:
+        variable: false
+        source: true
+        requiresAuthorization: false
+  callBackendSvc:
+    requiresAuthorization: true
+    component: "queryPromptBackendService:askdata.postPrompt"
+    properties:
+      groupName: "${(profile.properties.value['uiGroupName'])!}"
+      question: "${system.message.messagePayload.text}"
+      domain: "${skill.moduleVar.value.value?replace(' ', '')}"
+      variable: "response"
+      sessionId: "${system.message.channelConversation.sessionId}"
+      userName: "${(userId)!}"
+      url: "${skill.system.config.postQueryURL}"
+      token: "${(userToken)!}"
+    transitions:
+      actions:
+        failure: "outputError"
+        success: "checkRESTResponse"
+    metadata:
+      propertySheetIsFreeMarkerMap:
+        groupName: true
+        question: true
+        domain: true
+        variable: true
+        sessionId: true
+        userName: true
+        url: true
+        token: true
+        requiresAuthorization: false
+  cleanupGraphLink:
+    component: "System.SetVariable"
+    properties:
+      variable: "processLLMResponse"
+      value: "${processLLMResponse?replace('href=\\\\\"', 'href=\"')}"
+    transitions:
+      next: "cleanupGraphTailLink"
+    metadata:
+      propertySheetIsFreeMarkerMap:
+        variable: false
+        value: true
+        requiresAuthorization: false
+  badFb:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - text: "${rb('random.badfeedback.prompt')}"
+          type: "text"
+        globalActions:
+        - payload:
+            variables:
+              system.text: "Yes"
+            action: "system.textReceived"
+          label: "${rb('displayYes.button.label')}"
+          keyword: "${rb('displayYes.button.keywords')}"
+          type: "postback"
+        - payload:
+            variables:
+              system.text: "No"
+            action: "system.textReceived"
+          label: "${rb('displayNo.button.label')}"
+          keyword: "${rb('displayNo.button.keywords')}"
+          type: "postback"
+      variable: "badFbYesNo"
+      processUserMessage: true
+      keepTurn: false
+    transitions:
+      next: "moreFbYesNo"
+    metadata:
+      propertySheetIsFreeMarkerMap:
+        maxPrompts: false
+        useFullEntityMatches: false
+        cancelPolicy: true
+        variable: false
+        processUserMessage: false
+        keepTurn: false
+        multiValue: false
+        requiresAuthorization: false
+  moreFbAck:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - text: "Thank you for providing the feedback. Please continue with your next question."
+          type: "text"
+      keepTurn: true
+    transitions: {}
+    metadata:
+      virtualComponent: "Virtual.Output"
+      propertySheetIsFreeMarkerMap:
+        requiresAuthorization: false
+  callFbSPA:
+    component: "System.Webview"
+    properties:
+      linkLabel: "Feedback"
+      sourceVariableList: "badFbYesNo"
+      service: "NL2SQLFeedbackFormService"
+      variable: "badFbDetails"
+    transitions:
+      actions:
+        cancel: "skipFb"
+        unexpectedAction: "skipFb"
+      next: "callRESTFbMessage"
+    metadata:
+      propertySheetIsFreeMarkerMap:
+        webAppUrl: false
+        linkLabel: false
+        sourceVariableList: false
+        queryParams: false
+        service: false
+        imageUrl: false
+        authToken: false
+        variable: false
+        requiresAuthorization: false
+  moreFbYesNo:
+    component: "System.Switch"
+    properties:
+      variable: "badFbYesNo"
+    transitions:
+      actions:
+        "No": "skipFb"
+        "Yes": "callFbSPA"
+    metadata:
+      propertySheetIsFreeMarkerMap:
+        variable: false
+        source: true
+        requiresAuthorization: false
+  checkFb:
+    component: "System.Switch"
+    properties:
+      variable: "varFbGoodBad"
+    transitions:
+      actions:
+        Bad: "callRESTFbBad"
+        Good: "callRESTFbGood"
+    metadata:
+      propertySheetIsFreeMarkerMap:
+        variable: false
+        source: true
+        requiresAuthorization: false
+  nextPrompt:
+    component: "System.CommonResponse"
+    properties:
+      variable: "varClear"
+      processUserMessage: true
+      prompt: "If the issues persist, you can reset the session by closing and reopening the Assistant, typing 'Clear' in the message box below, or by clicking the Clear button"
+    transitions: {}
+    metadata:
+      virtualComponent: "Virtual.Question"
+      propertySheetIsFreeMarkerMap:
+        variable: false
+        prompt: true
+        requiresAuthorization: false
+  goodFbAck:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - text: "Thank you for your feedback. Please continue with your next question."
+          type: "text"
+      keepTurn: true
+    transitions: {}
+    metadata:
+      virtualComponent: "Virtual.Output"
+      propertySheetIsFreeMarkerMap:
+        requiresAuthorization: false
+  callRESTFbGood:
+    component: "System.CallRestService"
+    properties:
+      authConfigType: "bearerToken"
+      restService: "feedbackUpDownV3_apigw"
+      endpoint: "<api-gateway>/v1/feedbackupdown"
+      responseConfig: "apiResponse"
+      requestHeaders: []
+      method: "POST"
+      requestBody: "{\n    \"feedbackcode\": \"${varFbGoodBad?contains('Good')?string ('1', '-1')}\",\n    \"sessionid\": \"${system.message.channelConversation.sessionId}\"\n}"
+      requestParameters: []
+      tokenVariable: "user.userToken"
+      resultVariable: "varFbGoodBadRestResp"
+    transitions:
+      actions:
+        failure: "goodFbAckFailureMsg"
+        success: "goodFbAck"
+      next: "goodFbAck"
+    metadata:
+      propertySheetIsFreeMarkerMap:
+        authConfigType: false
+        restService: false
+        endpoint: false
+        responseConfig: false
+        method: false
+        requestBody: true
+        apiKeyValueVariable: false
+        passwordVariable: false
+        tokenVariable: false
+        resultVariable: false
+        requiresAuthorization: false
+  ackStartConv:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - text: "Sounds good. I'm starting a new conversation. Feel free to ask your next question."
+          type: "text"
+      keepTurn: true
+    transitions: {}
+    metadata:
+      virtualComponent: "Virtual.Output"
+      propertySheetIsFreeMarkerMap:
+        requiresAuthorization: false
+  cleanupGraphTailLink:
+    component: "System.SetVariable"
+    properties:
+      variable: "processLLMResponse"
+      value: "${processLLMResponse?replace('\\\\\"', '\"')}\n${processLLMResponse?contains('ODACLARIFY')?string ('Please ensure that the output aligns with your intended query. If it does not, feel free to provide additional clarification.','')}"
+    transitions:
+      next: "outputLLMResponse"
+    metadata:
+      propertySheetIsFreeMarkerMap:
+        variable: false
+        value: true
+        requiresAuthorization: false
+  badFbAckFailureMsg:
+    description: "FYI"
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - text: "${rb('random.feedbackCaptureError.label')}"
+          type: "text"
+      keepTurn: true
+    transitions:
+      next: "badFb"
+    metadata:
+      virtualComponent: "Virtual.Output"
+      propertySheetIsFreeMarkerMap:
+        requiresAuthorization: false

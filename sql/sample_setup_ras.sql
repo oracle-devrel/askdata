@@ -1,13 +1,13 @@
 As admin user
 
-create user app_data identified by H0tsummer2025
+create user app_data identified by <password>
 default tablespace data;
 
 grant connect, resource to app_data;
 alter user app_data quota unlimited on data;
 
 drop user ras_admin cascade;
-create user ras_admin identified by H0tsummer#2025
+create user ras_admin identified by <password>
 default tablespace data;
 grant connect, resource to ras_admin;
 alter user ras_admin quota unlimited on data;
@@ -57,20 +57,20 @@ grant nl2sql_role to inv_type_redact_role;
 
 SELECT STANDARD_HASH('test', 'SHA256') FROM dual;
 
-exec  sys.xs_principal.create_user(name => 'rajarora', schema => 'app_data');
-exec  sys.xs_principal.set_password('rajarora', 'G0ingtothest#rs');
-exec  sys.xs_principal.grant_roles('rajarora', 'XSCONNECT');
-exec  sys.xs_principal.grant_roles('rajarora', 'superuser_app_role');
+exec  sys.xs_principal.create_user(name => '<user>', schema => 'app_data');
+exec  sys.xs_principal.set_password('<user>', '<password>');
+exec  sys.xs_principal.grant_roles('<user>', 'XSCONNECT');
+exec  sys.xs_principal.grant_roles('<user>', 'superuser_app_role');
 
-exec  sys.xs_principal.create_user(name => 'rajarora1', schema => 'app_data');
-exec  sys.xs_principal.set_password('rajarora1', 'G0ingtothest#rs');
-exec  sys.xs_principal.grant_roles('rajarora1', 'XSCONNECT');
-exec  sys.xs_principal.grant_roles('rajarora1', 'inv_type_redact_role');
+exec  sys.xs_principal.create_user(name => '<user2>', schema => 'app_data');
+exec  sys.xs_principal.set_password('<user2>', '<password-user-2>');
+exec  sys.xs_principal.grant_roles('<user2>', 'XSCONNECT');
+exec  sys.xs_principal.grant_roles('<user2>', 'inv_type_redact_role');
 
-exec  sys.xs_principal.create_user(name => 'rajarora2', schema => 'app_data');
-exec  sys.xs_principal.set_password('rajarora2', 'G0ingtothest#rs');
-exec  sys.xs_principal.grant_roles('rajarora2', 'XSCONNECT');
-exec  sys.xs_principal.grant_roles('rajarora2', 'inv_type_limited_role');
+exec  sys.xs_principal.create_user(name => '<user3>', schema => 'app_data');
+exec  sys.xs_principal.set_password('<user3>', '<password-user-3>');
+exec  sys.xs_principal.grant_roles('<user3>', 'XSCONNECT');
+exec  sys.xs_principal.grant_roles('<user3>', 'inv_type_limited_role');
 
 
 

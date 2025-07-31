@@ -1,0 +1,172 @@
+name: "greetingsFlow"
+trackingId: "343063A8-FAD3-4B6B-A0A5-627B4A83E54E"
+type: "task"
+version: "2.0"
+interface: {}
+configuration:
+  requiresAuthorization: false
+  defaultApplicationContext: false
+  privateThread: false
+variables:
+- name: "ModuleVar"
+  type: "entity"
+  entityName: "Modules"
+  description: ""
+  metadata:
+    isFreeMarker: false
+  system: false
+- name: "Delete"
+  type: "map"
+  description: ""
+  metadata:
+    isFreeMarker: false
+  system: false
+defaultTransitions:
+  actions:
+    system.startTaskFlow: "Greetings"
+states:
+  checkUserIdExist:
+    component: "System.Switch"
+    properties:
+      source: "${(((userToken!)?length)?number > 0)?then('notempty', 'empty')}"
+    transitions:
+      actions:
+        notempty: "question"
+        empty: "oauth2AccountLink"
+      next: "question"
+    metadata:
+      propertySheetIsFreeMarkerMap:
+        variable: false
+        source: true
+        requiresAuthorization: false
+  question:
+    component: "System.CommonResponse"
+    properties:
+      variable: "skill.moduleVar"
+      processUserMessage: true
+      prompt: "Here are the domain areas you can pick from:"
+    transitions:
+      next: "switch"
+    metadata:
+      virtualComponent: "Virtual.Question"
+      propertySheetIsFreeMarkerMap:
+        variable: false
+        prompt: true
+        requiresAuthorization: false
+  outputPayables:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - text: "Sounds good. Let's get started, you can ask me questions like:\n• Show invoices with amount due\n• Show invoice number, amount due and invoice date\n• Show vendor name and total amount due\n• Show as bar graph"
+          type: "text"
+      keepTurn: true
+    transitions: {}
+    metadata:
+      virtualComponent: "Virtual.Output"
+      propertySheetIsFreeMarkerMap:
+        requiresAuthorization: false
+  outputOthers:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - text: "Please ask me a question"
+          type: "text"
+      keepTurn: true
+    transitions: {}
+    metadata:
+      virtualComponent: "Virtual.Output"
+      propertySheetIsFreeMarkerMap:
+        requiresAuthorization: false
+  outputReceivables:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - text: "You can ask me questions like,\n•\tShow receipts with highest amount due. \n•\tbreak it up by vendor name"
+          type: "text"
+      keepTurn: true
+    transitions: {}
+    metadata:
+      virtualComponent: "Virtual.Output"
+      propertySheetIsFreeMarkerMap:
+        requiresAuthorization: false
+  Greetings:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - text: "Welcome! I'm your friendly Data Assistant. I’m here to assist you with your financial inquiries. Feel free to ask me any questions, I’ll provide answers based on the data available in the system.\n\nFor follow-up questions, please start with phrases like:\n•  Also show [specific fields]…\n•  Include also…\n•  Narrow down to…\n•  Limit to…\n•  Just show…\n\nYou may reset this session anytime by simply closing and reopening the Assistant."
+          type: "text"
+      keepTurn: true
+    transitions:
+      next: "setUserId"
+    metadata:
+      virtualComponent: "Virtual.Output"
+      propertySheetIsFreeMarkerMap:
+        requiresAuthorization: false
+  oauth2AccountLink:
+    component: "System.OAuth2AccountLink"
+    properties:
+      authenticationService: "IDCSAuthcode"
+      showCancelOption: false
+      updateUserProfile: false
+      requiresAssociationConsent: "yes"
+      enableSingleSignOn: false
+      authenticatedUserVariableName: "user.userId"
+      accessTokenVariableName: "user.userToken"
+    transitions:
+      actions:
+        fail: "oauth2AccountLink"
+        pass: "question"
+      next: "oauth2AccountLink"
+    metadata:
+      propertySheetIsFreeMarkerMap:
+        redirectUri: true
+        showCancelOption: false
+        multiScopeAccessTokensVariableName: false
+        footerText: true
+        updateUserProfile: false
+        requiresAssociationConsent: true
+        enableSingleSignOn: false
+        authenticatedUserVariableName: false
+        accessTokenVariableName: false
+  setUserToken:
+    component: "System.SetVariable"
+    properties:
+      variable: "user.userToken"
+      value: "${(profile.properties.value['uiUserToken'])!}"
+    transitions:
+      next: "checkUserIdExist"
+    metadata:
+      propertySheetIsFreeMarkerMap:
+        variable: false
+        value: true
+        requiresAuthorization: false
+  switch:
+    component: "System.Switch"
+    properties:
+      variable: "skill.moduleVar"
+    transitions:
+      actions:
+        Receivables: "outputReceivables"
+        Others: "outputOthers"
+        Payables: "outputPayables"
+    metadata:
+      propertySheetIsFreeMarkerMap:
+        variable: false
+        source: true
+        requiresAuthorization: false
+  setUserId:
+    component: "System.SetVariable"
+    properties:
+      variable: "user.userId"
+      value: "${(profile.properties.value['uiUserId'])!}"
+    transitions:
+      next: "setUserToken"
+    metadata:
+      propertySheetIsFreeMarkerMap:
+        variable: false
+        value: true
+        requiresAuthorization: false

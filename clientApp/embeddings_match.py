@@ -1,3 +1,6 @@
+# Copyright (c) 2021, 2025 Oracle and/or its affiliates.
+# Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl/
+
 import pandas as pd
 import numpy as np
 from generate_embeddings import create_str_embedding, read_file

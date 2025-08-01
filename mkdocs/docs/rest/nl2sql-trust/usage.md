@@ -3,7 +3,7 @@
 Set the PYTHONPATH to the base of the code for example;
 
 ```
-export PYTHONPATH=/home/ubuntu/git/nl2sql/rest/nl2sql-trust/:$PYTHONPATH
+export PYTHONPATH=/home/usr/git/nl2sql/rest/nl2sql-trust/:$PYTHONPATH
 ```
 
 In both examples below, <b>`cd` to the rest directory</b>

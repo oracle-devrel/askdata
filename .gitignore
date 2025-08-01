@@ -55,13 +55,23 @@ __pycache__/
 !clientApp/trusted.png
 !clientApp/untrusted.png 
 !/vbcs_oda_archives/vbcs_apps/vbcs-askdata/webApps/nl2sqlbot/resources/images/*
-!nl2sql-main/vbcs_oda_archives/vbcs_apps/vbcs-askdata/webApps/nl2sqlbot/resources/images
+
+# Added images for documentation (redacted)
+!mkdocs/docs/deployment/business_media/media/*
+!mkdocs/docs/deployment/apex/media/*
+!mkdocs/docs/deployment/images/*
+!mkdocs/docs/deployment/lb/media/*
+!mkdocs/docs/deployment/terraform/*
 
 *.jpeg
+!mkdocs/docs/deployment/business_media/media/*
+
 *.jpg
 !/vbcs_oda_archives/vbcs_apps/vbcs-askdata/webApps/nl2sqlbot/resources/images/*
+
 *.gif
 *.webp
+
 *.ico
 !/vbcs_oda_archives/vbcs_apps/vbcs-askdata/webApps/nl2sqlbot/resources/images/*
 
@@ -91,31 +101,31 @@ clientApp/autoprompt/semantic_suggest_runbook.md
 mkdocs/mkdocs.yml
 
 # Reference to api gateway
-mkdocs/docs/deployment/adw_private.md
+# mkdocs/docs/deployment/adw_private.md # cleaned up sensitive info
 
 # Reference to idcs discovery url 
-mkdocs/docs/deployment/business_api_gateway.md
+#mkdocs/docs/deployment/business_api_gateway.md # cleaned up/masked sensitive data
 
 # Reference to oda instance 
-mkdocs/docs/deployment/business_idcs.md 
+# mkdocs/docs/deployment/business_idcs.md # cleaned/masked data
 
 # Reference to oracle redis 
-mkdocs/docs/deployment/nl2sql_engine.md 
+# mkdocs/docs/deployment/nl2sql_engine.md # removed sensitive data. There are a lot of references to websocket... maybe we can remove this in the near future
 
 # Reference to API GW url 
-mkdocs/docs/deployment/oda.md 
+# mkdocs/docs/deployment/oda.md  # masked sensitive data 
 
 # Reference to OCI tenancy 
-mkdocs/docs/deployment/trust-service.c.md
-mkdocs/docs/deployment/trust-service.md
+# mkdocs/docs/deployment/trust-service.c.md # cleaned sensitive data. There are a couple references to artifactory here
+# mkdocs/docs/deployment/trust-service.md # cleaned
 
 # Reference to IDCS/API GW 
-mkdocs/docs/deployment/trust-ui.md 
-mkdocs/docs/deployment/validation.md 
-mkdocs/docs/deployment/VBCS.md 
+# mkdocs/docs/deployment/trust-ui.md 
+# mkdocs/docs/deployment/validation.md # cleaned
+# mkdocs/docs/deployment/VBCS.md # masked
 
 # ips 
-/mkdocs/docs/rest/nl2sql-trust/installation.md
+# /mkdocs/docs/rest/nl2sql-trust/installation.md # masked ips 
 
 # Reference to OCIDs 
 /mkdocs/Finetune-DAC/finetune-dac-python.py

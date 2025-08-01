@@ -24,7 +24,7 @@
 
 # Network Configuration
 
-1.  Requires domain (ala nl2sql.dev)
+1.  Requires domain
 2.  Create containing  compartment for hosting the landing zone.
 
 # Included with the Landing Zone

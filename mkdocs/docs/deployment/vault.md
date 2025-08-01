@@ -8,22 +8,22 @@
 
 <br>
 
-![Configure Variable](./business_media/media/image8.png)
+![Configure Variable](./business_media/media/create-vault.png)
 
 2.  We assume that the master key already exists. If not, follow this link,
     <https://docs.oracle.com/en-us/iaas/Content/KeyManagement/Tasks/managingkeys_topic-To_create_a_new_key.htm>
 
 <br>
 
-![Configure Variable](./business_media/media/image9.png)
+![Configure Variable](./business_media/media/create-vault-2.png)
 
 <br>
 
-![Configure Variable](./business_media/media/image10.png)
+![Configure Variable](./business_media/media/create-vault-3.png)
 
 <br>
 
-![Configure Variable](./business_media/media/image11.png)
+![Configure Variable](./business_media/media/create-vault-4.png)
 
 ## Store an IDCS Client Secret in the Vault
 
@@ -37,20 +37,20 @@
 
 <br>
 
-![Configure Variable](./business_media/media/image12.png)
+![Configure Variable](./business_media/media/store-idcs-secret.png)
 
 5.  To store client secret in vault’s secret, navigate to vault page
     (for example, nl2sqlchgvault).
 
 <br>
 
-![Configure Variable](./business_media/media/image13.png)
+![Configure Variable](./business_media/media/store-vault-secret.png)
 
 6.  Navigate to **Secrets** tab, click ‘Create Secret’ button
 
 <br>
 
-![Configure Variable](./business_media/media/image14.png)
+![Configure Variable](./business_media/media/create-vault-secret.png)
 
 7.  Enter
     1.  Compartment: for example, genai-demos
@@ -65,6 +65,6 @@
 
 <br>
 
-![Configure Variable](./business_media/media/image15.png)
+![Configure Variable](./business_media/media/create-vault-secret-2.png)
 
 With this, you will have the IDCS client Secret store (and accessible) in the Vault.

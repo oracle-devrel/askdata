@@ -42,7 +42,7 @@ Select the file(AskData_Trust_AI-\<mmddyyyy\>.sql) from the artifact registry.
 ### Step 2: Update value of REST_API property to the proper endpoint and click Apply Changes.
 The REST API is the URL for the trust API gateway.
 
-![](./apex/media/image8.png)
+![](./apex/media/update-rest.png)
 
 ### Step 3: IDCS SSO Integration
 
@@ -69,7 +69,7 @@ update the values on both sides accordingly. Then click on Make Current Scheme.
 
 <https://docs.oracle.com/en/learn/apex-identitydomains-sso/index.html#introduction>
 
-![](./apex/media/image12.png)
+![](./apex/media/config-idcs.png)
 
 
 ## Run APEX application:

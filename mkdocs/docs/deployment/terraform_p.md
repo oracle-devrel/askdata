@@ -147,7 +147,7 @@ NL2SQL_V**_number_**
 
 <br>
 
-![terraform Plan](./terraform/image26.png)
+![terraform Plan](./terraform/terraform-plan.png)
 
 <span class="mark">NOTE: The plan output will be different when running the plan for the first time. Snapshot is for reference only.</span>
 
@@ -155,7 +155,7 @@ NL2SQL_V**_number_**
 
 <br>
 
-![Terraform Apply](./terraform/image27.png)
+![Terraform Apply](./terraform/terraform-apply.png)
 
 
 <span class="mark">NOTE: The apply output will be different when running the plan for the first time. Snapshot is for reference only.</span>
@@ -164,7 +164,7 @@ NL2SQL_V**_number_**
 
 <br>
 
-![Terraform final state](./terraform/image28.png)
+![Terraform final state](./terraform/final-state.png)
 
 
 <span class="mark">NOTE: The apply output will be different when running the plan for the first time. Snapshot is for reference only.</span>

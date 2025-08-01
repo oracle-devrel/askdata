@@ -1,3 +1,7 @@
+/**  Copyright (c) 2021, 2025 Oracle and/or its affiliates.
+* Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl/
+*/
+
 define(['ojs/ojcore', 'ojs/ojtable', 'ojs/ojarraydataprovider', 'ojs/ojpagingdataproviderview','knockout'], (ojcore, ojtable, ArrayDataProvider, PagingDataProviderView, ko) => {
   'use strict';
 var PageModule = function PageModule() {};

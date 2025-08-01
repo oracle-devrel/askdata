@@ -9,8 +9,6 @@ Gateway.
 So we are basing the configuration of the api gateway on this:
 <https://blogs.oracle.com/ateam/post/oci-api-gateway-routes-quickly-and-easily>
 
-![ ](./lb/media/image1.tmp)
-
 ------
 
 - Note:  
@@ -54,31 +52,31 @@ So we are basing the configuration of the api gateway on this:
 </ol>
 
 ## Create the load balancer
-![Creation](./lb/media/image2.tmp)
+![Creation](./lb/media/create-lb.png)
 
 ## Place it in the public subnet
-![Public Subnet ](./lb/media/image3.tmp)
+![Public Subnet ](./lb/media/public-subnet.png)
 
 ## Secure the load balancer
-![Secure the load balancer](./lb/media/image4.tmp)
+![Secure the load balancer](./lb/media/secure-lb.png)
 
 ## Add the environment tag
-![Environment tag](./lb/media/image5.tmp)
+![Environment tag](./lb/media/env-tag.png)
 
 ## Choose backend
 **Do not select a backend at this time.**
 
 ## health policy
-![Health Policy](./lb/media/image6.tmp)
+![Health Policy](./lb/media/health-policy.png)
 
 ## Session Persistence
-![Session Persistence](./lb/media/image7.tmp)
+![Session Persistence](./lb/media/session-persistence.png)
 
 ## Configure the listener for SSL
-![SSL Listener](./lb/media/image8.tmp)
+![SSL Listener](./lb/media/ssl-listener.png)
 
 ## SSL and cipher selection
-![Cypher](./lb/media/image9.tmp)
+![Cypher](./lb/media/cipher-select.png)
 
 ## Logging
 <p>Enable both error and access logs wih the system's log group</p>
@@ -88,25 +86,25 @@ So we are basing the configuration of the api gateway on this:
   **Expected Error**
 **We don't have a backend**
 
-![ ](./lb/media/image10.tmp)
+![ ](./lb/media/create-backend-1.png)
 
-![ ](./lb/media/image11.tmp)
+![ ](./lb/media/create-backend-2.png)
 
 ## Add a backend
 
-![Adding backend](./lb/media/image12.tmp)
+![Adding backend](./lb/media/backend.png)
 
 <p>Take the private address from the Database</p>
 
-![ ](./lb/media/image13.tmp)
+![ ](./lb/media/db-addr.png)
 
 <p>Add it as a backend for the load balancer.</p>
 
-![ ](./lb/media/image14.tmp)
+![ ](./lb/media/backend-lb.png)
 
 <p>Add the hostname to the load balancer.</p>
 
-![ ](./lb/media/image15.tmp)
+![ ](./lb/media/hostname.png)
 
 ## Using let's encrypt for the SSL certificate
 
@@ -122,7 +120,7 @@ This step depends on how you generate the certificate.
 
 ## DNS Entry
 Create the A record in the DNS matching the FQDN and the IP Address.
-![ ](./lb/media/image16.tmp)
+![ ](./lb/media/dns.png)
 
 <p>Certificate Bundle Registration in the central register</p>
 <p>Create a certificate bundle with the same certificate as the SSL publication. (Used for the propagation to the backend)</p>
@@ -130,7 +128,7 @@ Create the A record in the DNS matching the FQDN and the IP Address.
 
 <p>Enable the backend set SSL connection and disable the peer verification.</p>
 
-![ ](./lb/media/image17.tmp)
+![ ](./lb/media/backend-ssl.png)
 
 # Validation
 

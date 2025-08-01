@@ -55,7 +55,7 @@ well as the Custom Terraform script location.
 | **Artifact** | **Location** |
 |:---|:---|
 | Landing Zone Quick Start | <https://github.com/oci-landing-zones/terraform-oci-core-landingzone> |
-| Terraform for AskData | <https://orahub.oci.oraclecorp.com/nace-shared-services/nl2sql/-/tree/terraform/terraform?ref_type=heads> |
+| Terraform for AskData | <tbd-terraform-location> |
 
 . Artifact Location for Landing zone and Custom Terraform Script
 
@@ -78,7 +78,7 @@ NOTE: While deploying the Landing Zone, either use the tenancy administrator acc
 3. Login to your tenancy with tenancy admin account.
 <br>
 
-![Login to your tenancy](./terraform/image6.png)
+![Login to your tenancy](./terraform/tenancy-login.png)
 
 4. After logging in, you get to the Create stack page, On the create stack page you have to;
     1. Select the checkbox to accept the terms of use.
@@ -87,7 +87,7 @@ NOTE: While deploying the Landing Zone, either use the tenancy administrator acc
     4. Click Next.
 <br>
 
-![Stack Creation](./terraform/image7.png)
+![Stack Creation](./terraform/create-stack.png)
 
 5. On the Configure variables page provide the deployment details.
 6. In the general section, you need to;
@@ -161,17 +161,17 @@ NOTE: While deploying the Landing Zone, either use the tenancy administrator acc
 16. Provide the email address for the notifications in the Events and Notifications section.
 <br>
 
-![Configure Variable](./terraform/image18.png)
+![Configure Variable](./terraform/config-email.png)
 
 17. Click on **Next**.
 <br>
 
-![Configure Variable](./terraform/image19.png)
+![Configure Variable](./terraform/config-variables.png)
 
 18. On the **Review** page, make sure the **Run Apply** is selected and click on **Create**.
 <br>
 
-![Configure Variable](./terraform/image20.png)
+![Configure Variable](./terraform/finish-create-stack.png)
 
 
 19. After the apply job is completed, you will have the base landing zone ready for AskData Deployment.

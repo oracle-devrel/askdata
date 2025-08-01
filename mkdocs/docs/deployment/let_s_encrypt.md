@@ -2,7 +2,7 @@
 
 <p>This is an update on the let's encrypt original page.</p>
 
-The newer version of cerbot don't work with the oci-dns. Because of this, we need to fix the actual versions being used until it is fixed and works again. This is unlikely as oci-dns doesn't seem to be actively supported. Note that if you're using ports 80 or 443, then oci-dns may not be required.
+The newer version of cerbot doesn't work with the oci-dns. Because of this, we need to fix the actual versions being used until it is fixed and works again. This is unlikely as oci-dns doesn't seem to be actively supported. Note that if you're using ports 80 or 443, then oci-dns may not be required.
 
 # High-level Process
 

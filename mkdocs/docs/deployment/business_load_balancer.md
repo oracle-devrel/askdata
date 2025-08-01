@@ -11,7 +11,7 @@ Update the Access Control List to include the output IP address of VBCS instance
 [docs.oracle.com/en-us/iaas/tools/public_ip_ranges.json](https://docs.oracle.com/en-us/iaas/tools/public_ip_ranges.json)
 
 
-![ ](./business_media/media/image108.png)
+![ ](./business_media/media/ingress-1.png)
 
 
-![ ](./business_media/media/image109.png)
+![ ](./business_media/media/ingress-2.png)

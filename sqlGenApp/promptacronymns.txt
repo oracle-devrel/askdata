@@ -1,5 +1,0 @@
-{
-"Receivable"  : "Accounts receivable (AR)",
-"AR "  : "Accounts receivable (AR) ",
-"Period " : "GL Period "
-}

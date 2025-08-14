@@ -1,1 +1,0 @@
-Just to make sure the directory will be created from git.

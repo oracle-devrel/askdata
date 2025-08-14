@@ -100,33 +100,6 @@ clientApp/autoprompt/semantic_suggest_runbook.md
 # File with reference to orahub repo 
 deployment-docs/mkdocs.yml
 
-# Reference to api gateway
-# deployment-docs/docs/deployment/adw_private.md # cleaned up sensitive info
-
-# Reference to idcs discovery url 
-#deployment-docs/docs/deployment/business_api_gateway.md # cleaned up/masked sensitive data
-
-# Reference to oda instance 
-# deployment-docs/docs/deployment/business_idcs.md # cleaned/masked data
-
-# Reference to oracle redis 
-# deployment-docs/docs/deployment/nl2sql_engine.md # removed sensitive data. There are a lot of references to websocket... maybe we can remove this in the near future
-
-# Reference to API GW url 
-# deployment-docs/docs/deployment/oda.md  # masked sensitive data 
-
-# Reference to OCI tenancy 
-# deployment-docs/docs/deployment/trust-service.c.md # cleaned sensitive data. There are a couple references to artifactory here
-# deployment-docs/docs/deployment/trust-service.md # cleaned
-
-# Reference to IDCS/API GW 
-# deployment-docs/docs/deployment/trust-ui.md 
-# deployment-docs/docs/deployment/validation.md # cleaned
-# deployment-docs/docs/deployment/VBCS.md # masked
-
-# ips 
-# /deployment-docs/docs/rest/nl2sql-trust/installation.md # masked ips 
-
 # Reference to OCIDs 
 /deployment-docs/Finetune-DAC/finetune-dac-python.py
 
@@ -155,7 +128,7 @@ deployment-docs/mkdocs.yml
 
 # Adding entire rest trust directory for now, since there's a dependency on dotmap 
 # can maybe add delta review for next release
-/rest/
+rest/
 
 # Random IPs 
 /rest/nl2sql-trust/conf/dev_trust_config.json 
@@ -262,6 +235,14 @@ deployment-docs/mkdocs.yml
 
 # tenancy namespace 
 /scripts/oci 
+
+# Hiding terraform for now
+terraform/ 
+
+# Hiding sqlGenApp (used for finetuning) 
+sqlGenApp/ 
+
+scripts/
 
 # Reference to tenancy 
 /terraform/cloud-init/nl_engine_cloud_init.yml

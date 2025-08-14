@@ -1,5 +1,0 @@
-nav:
-  - Home: index.md
-  - Architecture: logging.md
-  - ... rest: deployment/
-  - ... rest: api/

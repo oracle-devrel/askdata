@@ -1,6 +1,0 @@
-[DEFAULT]
-Copy the content of your own config file here.
-Make sure to point the pem key file to
-/home/app/.oci/
-
-app is the user.

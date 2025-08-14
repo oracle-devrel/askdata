@@ -57,14 +57,14 @@ __pycache__/
 !/vbcs_oda_archives/vbcs_apps/vbcs-askdata/webApps/nl2sqlbot/resources/images/*
 
 # Added images for documentation (redacted)
-!mkdocs/docs/deployment/business_media/media/*
-!mkdocs/docs/deployment/apex/media/*
-!mkdocs/docs/deployment/images/*
-!mkdocs/docs/deployment/lb/media/*
-!mkdocs/docs/deployment/terraform/*
+!deployment-docs/docs/deployment/business_media/media/*
+!deployment-docs/docs/deployment/apex/media/*
+!deployment-docs/docs/deployment/images/*
+!deployment-docs/docs/deployment/lb/media/*
+!deployment-docs/docs/deployment/terraform/*
 
 *.jpeg
-!mkdocs/docs/deployment/business_media/media/*
+!deployment-docs/docs/deployment/business_media/media/*
 
 *.jpg
 !/vbcs_oda_archives/vbcs_apps/vbcs-askdata/webApps/nl2sqlbot/resources/images/*
@@ -98,37 +98,37 @@ clientApp/autoprompt/ConfigFile.properties
 clientApp/autoprompt/semantic_suggest_runbook.md 
 
 # File with reference to orahub repo 
-mkdocs/mkdocs.yml
+deployment-docs/mkdocs.yml
 
 # Reference to api gateway
-# mkdocs/docs/deployment/adw_private.md # cleaned up sensitive info
+# deployment-docs/docs/deployment/adw_private.md # cleaned up sensitive info
 
 # Reference to idcs discovery url 
-#mkdocs/docs/deployment/business_api_gateway.md # cleaned up/masked sensitive data
+#deployment-docs/docs/deployment/business_api_gateway.md # cleaned up/masked sensitive data
 
 # Reference to oda instance 
-# mkdocs/docs/deployment/business_idcs.md # cleaned/masked data
+# deployment-docs/docs/deployment/business_idcs.md # cleaned/masked data
 
 # Reference to oracle redis 
-# mkdocs/docs/deployment/nl2sql_engine.md # removed sensitive data. There are a lot of references to websocket... maybe we can remove this in the near future
+# deployment-docs/docs/deployment/nl2sql_engine.md # removed sensitive data. There are a lot of references to websocket... maybe we can remove this in the near future
 
 # Reference to API GW url 
-# mkdocs/docs/deployment/oda.md  # masked sensitive data 
+# deployment-docs/docs/deployment/oda.md  # masked sensitive data 
 
 # Reference to OCI tenancy 
-# mkdocs/docs/deployment/trust-service.c.md # cleaned sensitive data. There are a couple references to artifactory here
-# mkdocs/docs/deployment/trust-service.md # cleaned
+# deployment-docs/docs/deployment/trust-service.c.md # cleaned sensitive data. There are a couple references to artifactory here
+# deployment-docs/docs/deployment/trust-service.md # cleaned
 
 # Reference to IDCS/API GW 
-# mkdocs/docs/deployment/trust-ui.md 
-# mkdocs/docs/deployment/validation.md # cleaned
-# mkdocs/docs/deployment/VBCS.md # masked
+# deployment-docs/docs/deployment/trust-ui.md 
+# deployment-docs/docs/deployment/validation.md # cleaned
+# deployment-docs/docs/deployment/VBCS.md # masked
 
 # ips 
-# /mkdocs/docs/rest/nl2sql-trust/installation.md # masked ips 
+# /deployment-docs/docs/rest/nl2sql-trust/installation.md # masked ips 
 
 # Reference to OCIDs 
-/mkdocs/Finetune-DAC/finetune-dac-python.py
+/deployment-docs/Finetune-DAC/finetune-dac-python.py
 
 # Binaries 
 /oda/callGenAiSQLEndPointv2(1.0).zip
@@ -152,6 +152,10 @@ mkdocs/mkdocs.yml
 
 # Sensitive info 
 /promotion/
+
+# Adding entire rest trust directory for now, since there's a dependency on dotmap 
+# can maybe add delta review for next release
+/rest/
 
 # Random IPs 
 /rest/nl2sql-trust/conf/dev_trust_config.json 
@@ -244,7 +248,8 @@ mkdocs/mkdocs.yml
 /rest/script/upload_os_trust_config.sh 
 
 # tenancy name reference 
-/rest/script/nl2sql_rest.service
+# masked data, required for starting trust service
+# /rest/script/nl2sql_rest.service
 
 # ips 
 /rest/script/upload.sh 

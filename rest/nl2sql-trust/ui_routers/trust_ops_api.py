@@ -1,3 +1,6 @@
+# Copyright (c) 2021, 2025 Oracle and/or its affiliates.
+# Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl/
+
 from fastapi import APIRouter
 from service_controller import trust_ops_controller as controller
 import logging

@@ -100,12 +100,80 @@ Below are the various requirements and findings from deploying the infrastructur
     - Provided an example entry with sample embedding
 
 ### Trust REST Framework
-Haven't gotten this far, but the basic prompt endpoint does use the trust library table. 
+- Missing instructions for installing pip 
+
+sudo dnf install python3.11-pip
+sudo update-alternatives --install /usr/bin/pip pip /bin/pip3.11 40
+which pip
+pip --version
+
+curl command to install oci oci needs to be fixed 
+sudo bash -c "$(curl -L https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.sh)" \
+  --accept-all-defaults \
+  --install-dir /usr/local/bin \
+  --exec-dir /usr/local/bin
+
+Step 3 of firewall ports missing firewall reset command 
+sudo systemctl restart firewalld
+
+Instant Client Instructions are ambiguous 
+
+For Oracle Linux 8 
+sudo dnf install oracle-instantclient-release-23ai-el8
+
+For Oracle Linux 9 
+sudo dnf install oracle-instantclient-release-23ai-el9
+
+Current instructions instruct to follow the instructions according to the ADW version, but don't reference where to find 
+instrucitons according to ADW version 
+
+Install sql client (linux 8 & 9) 
+sudo yum install oracle-instantclient-sqlplus
+
+Install sql tools 
+sudo yum install oracle-instantclient-tools
+
+Step 5, possible to omit? 
+    - Only necessary if python not working as expected 
+
+Step 7 is included in step 6, pip install pytest 
+    - Can be omitted 
+
+Validation instruction for nl2sql getprompt method missing payload, endpoint expects POST 
+curl -vvv -X POST  "http://<nl2sql>:8002/getprompt" -H "Content-Type: application/json" -d '{"question": "Show me the project names"}'
+
+Also the default code in the clientApp directory in the repo exposes the trust helper on port 8001 by default, but the config in the trust-config.json expects port 8002 
+
+Step 8 references artifact repository to pull from, can't use for publishing. Need to use e.g. this repo instead 
+
+Step 9 requires wallet for version W21 or older 
+    - The artifact repo referenced doesn't have W22 version, not sure where to find it 
+
+Step 9 & 10 ask to configure trust_config.json, but ask to pull json from external repo. Trust_config.json is already included in repo under nl2sql-main/rest/nl2sql-trust/conf/
+
+Configure trust_config then upload to object storage bucket under <env>/config/
+
+Trust config expects dedicated ai cluster endpoint (dac) 
+    - provided on demand llama model endpoint instead (don't have dac on tenancy)
+
+Missing instructions to set up object storage (assumes the following structure)
+    - (env) e.g. dev
+        - wallet
+            - wallet.zip 
+        - config
+            - trust-config.json
+            - metadata_v2.json # instructions currently refer to "metadata.json" 
+
+Missing execute permission on restart bash script 
+chmod +x
 
 ## APEX
-tbd ...
+APEX app is in object storage
+Got sql from object storage
 
 ### Troubleshooting 
 
 1. Graph isn't showing in Table Graph VB App
     - Solution: Make sure to assign user role to idcs group in app settings 
+
+Developers choosing to distribute a binary implementation of this project are responsible for obtaining and providing all required licenses and copyright notices for the third-party code used in order to ensure compliance with their respective open source licenses.

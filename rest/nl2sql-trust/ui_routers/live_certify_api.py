@@ -1,3 +1,6 @@
+# Copyright (c) 2021, 2025 Oracle and/or its affiliates.
+# Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl/
+
 from fastapi import APIRouter, HTTPException
 from service_controller import life_certify_controller as controller
 from service_controller import administrative_controller as admin_controller

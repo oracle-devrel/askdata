@@ -1,3 +1,6 @@
+# Copyright (c) 2021, 2025 Oracle and/or its affiliates.
+# Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl/
+
 from fastapi import APIRouter, HTTPException
 from service_controller import llm_metrics_controller as controller
 from helpers.config_helper import nlp2sql_config as config

@@ -2,16 +2,13 @@
 
 ## Creating the Vault's Structure
 
-1.  This page assumes that the vault already exists. If it doesn't, then you can follow this link,
-    <https://docs.oracle.com/en-us/iaas/Content/KeyManagement/Tasks/managingvaults_topic-To_create_a_new_vault.htm#createnewvault>
-    to create it.
+1.  This page assumes that the vault already exists. If it doesn't, see [Create a New Vault](https://docs.oracle.com/en-us/iaas/Content/KeyManagement/Tasks/managingvaults_topic-To_create_a_new_vault.htm#createnewvault)
 
 <br>
 
 ![Configure Variable](./business_media/media/create-vault.png)
 
-2.  We assume that the master key already exists. If not, follow this link,
-    <https://docs.oracle.com/en-us/iaas/Content/KeyManagement/Tasks/managingkeys_topic-To_create_a_new_key.htm>
+2.  We assume that the master key already exists. To create a key, see [Create a New Key](https://docs.oracle.com/en-us/iaas/Content/KeyManagement/Tasks/managingkeys_topic-To_create_a_new_key.htm)
 
 <br>
 

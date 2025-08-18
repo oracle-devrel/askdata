@@ -1,5 +1,13 @@
 # VBCS Deployment
 
+### Prerequisites 
+
+This section assumes the following resources are configured: 
+* [IDCS Application](./business_idcs.md)
+* [Engine Application](./nl2sql_engine.md)
+* [API Gateway](./business_api_gateway.md)
+* [ODA](./oda.md)
+
 ### Setup Identity Group
 
 #### Create Group
@@ -31,11 +39,8 @@
 1. Open the OCI Console.
 
 2. In the upper-left corner, click **Navigation Menu**
-    
-<br>
 
 ![ ](./business_media/media/image68.png)
-
 
 3. Select **Developer Services** and then select **Visual Builder**.
 
@@ -109,6 +114,11 @@ Search keyword example: nl2sql
 ![ ](./business_media/media/image77.png)
 
 **(you may need to zip the above folder for the main app before importing)**
+
+- **Update** The VBCS application files are found in [vbcs_oda_archives](../../../vbcs_oda_archives/).
+    - Navigate to vbcs_oda_archives and zip the respective applications
+        - zip -r my-vb-app.zip ./<my-vb-app>
+    - Import the zip to VBCS
 
 ![ ](./business_media/media/image78.png)
 
@@ -195,11 +205,11 @@ Click on the pencil icon
 Verify/Edit the Instance URL. This points to APIGW. Therefore, this should match the APIGW url. 
 \[Example, <https://apigw-url.apigateway.us-chicago-1.oci.customer-oci.com/v1>\]
 
-Verify/Edit Authentication section. This should match the IDCS confidential app that was setup earlier.
+Verify/Edit Authentication section. This should match the [IDCS confidential app](./business_idcs.md) that was setup earlier.
 
 - Authentication: OAuth 2.0 Client Credentials
 - Client ID & Secret: \<click pencil icon to enter client id and secret\>
-- Scope: \<Example: urn:opc:idm:\_\_myscopes\_\_\>
+- Scope: \<Example: urn:opc:idm:\_\_myscopes\_\_\> (if using same instructions from IDCS App, odatest)
 - Token URL: \<Example:
 <https://idcs-server.identity.oraclecloud.com/oauth2/v1/token>\>
 
@@ -256,7 +266,19 @@ Make a note of URLs, especially Table_Graph app and InteractiveGraph app as you 
 >
 ![ ](./business_media/media/server-config.png)
 
+### Test Application
 
+Once engine config is updated to include the above vb applications, and everything is configured correctly, you should be able to converse with AskData: 
+
+![AskData](./images/askdata-app.png)
+
+![AskData](./images/askdata-app-2.png)
+
+> **Note** You can select "View Full Result Set" to open another visual interface 
+
+![AskData](./images/askdata-app-3.png)
+
+![AskData](./images/askdata-app-4.png)
 ## Private Resources
 
 This section is applicable only if the target APIs accessed by ODA and
@@ -311,3 +333,9 @@ If you don’t see the Private Endpoint enablement option or list of available p
 !["Select private endpoint for REST service"](./business_media/media/image107.jpeg)
 
 Note that the private endpoint feature is not supported by the custom component of ODA. Therefore, you may create a public load balancer is such cases.
+
+
+## Troubleshooting 
+
+1. Graph isn't showing in Table Graph VB App
+    - Solution: Make sure to assign user role to idcs group in app settings

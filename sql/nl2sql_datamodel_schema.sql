@@ -34,7 +34,7 @@ CREATE TABLE schema_version (
 );
 
 INSERT INTO schema_version(version_number, description, applied_by, script_name) 
-    VALUES ('2025W21', 'All recent modifications', 'Greg Keys', 'nl2sql_datamodel_schema.sql');
+    VALUES ('2025W21', 'All recent modifications', 'Demo user', 'nl2sql_datamodel_schema.sql');
 
 CREATE TABLE TRUST_LIBRARY (
     ID              NUMBER GENERATED ALWAYS AS IDENTITY MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 PRIMARY KEY,

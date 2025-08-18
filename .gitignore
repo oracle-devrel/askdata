@@ -97,6 +97,23 @@ __pycache__/
 clientApp/autoprompt/ConfigFile.properties
 clientApp/autoprompt/semantic_suggest_runbook.md 
 
+# Unnecessary instructions 
+deployment-docs/docs/deployment/nginx.md
+
+deployment-docs/docs/deployment/terraform_p.md
+deployment-docs/docs/deployment/trust-service.c.md 
+deployment-docs/docs/deployment/trust-ui.md  
+deployment-docs/docs/deployment/trust-service.md 
+deployment-docs/docs/deployment/let_s_encrypt.md 
+deployment-docs/docs/deployment/let_s_encrypt_orig.md
+
+deployment-docs/docs/rest/    
+deployment-docs/docs/templates/
+deployment-docs/docs/logging.md
+
+deployment-docs/docs/deployment/apex-trust.md
+deployment-docs/docs/deployment/apex-trust-lb.md
+
 # File with reference to orahub repo 
 deployment-docs/mkdocs.yml
 

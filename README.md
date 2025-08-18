@@ -4,53 +4,68 @@
 
 ## Introduction
 
-[Introduction](deployment-docs/docs/deployment/introduction.md)
+Oracle AskData is a conversational AI platform powered by Oracle Generative AI. With AskData, you can ask natural language questions like "Give me all past due invoices" or "Show me sales for last week over $100,000" and get instant, accurate results. 
+
+The solution empowers both non-technical users and SQL experts by simplifying complex queries and freeing up time for deeper analysis and decision-making.
+
 
 ## Getting Started
-Start with familiarizing yourself with the [Architecture](deployment-docs/docs/deployment/architecture.md) & [Introduction](deployment-docs/docs/deployment/introduction.md)
+Please see the [Introduction](deployment-docs/docs/deployment/introduction.md) & [Architecture](deployment-docs/docs/deployment/architecture.md) 
 
-For policies see [Defining Policies](deployment-docs/docs/deployment/generic.md)
-
-The CIS Landing Zone is optional but helps with providing a sandbox environment with best practices
-[Deploy CIS LZ](deployment-docs/docs/deployment/landing_zone.md)
+For policies see [Defining Policies](deployment-docs/docs/deployment/generic.md#dynamic-groups)
 
 ### Prerequisites
+The CIS Landing Zone is optional but helps with providing a sandbox environment with best practices
+
+- [Deploy CIS LZ](deployment-docs/docs/deployment/landing_zone.md)
+
+
 This solution assumes you have access to an OCI tenancy with the admin ability to provision the following resources: 
+
+- IDCS/IAM Confidential App 
+    - [Deploy IAM App](deployment-docs/docs/deployment/business_idcs.md)
+- Vault
+    - [Deploy Vault](deployment-docs/docs/deployment/vault.md)
+- Business (Client) ADB database
+    - [Deploy Database](deployment-docs/docs/deployment/database.md)
+- Trust ADB database
+    - [Deploy Database](deployment-docs/docs/deployment/database.md)
+- OCI Cache 
+    - [Deploy OCI Cache Cluster](https://docs.oracle.com/en-us/iaas/Content/ocicache/createcluster.htm#top) 
+- VCN 
+    - Private Subnet
+    - Public Subnet 
+    - [Deploy a VCN](https://docs.oracle.com/en-us/iaas/Content/Network/Tasks/quickstartnetworking.htm#Virtual_Networking_Quickstart)
+- Two VMs
+    - Engine 
+        - [Deploy Engine Documentation](deployment-docs/docs/deployment/nl2sql_engine.md)
+    - Bastion/jump host
+        - To access engine in private subnet
+- API Gateway
+    - [Deploy API Gateway](deployment-docs/docs/deployment/business_api_gateway.md)
+    - (Optional) If deploying API Gateway privately, see [ADW API Gateway Private Access](deployment-docs/docs/deployment/adw_private.md)
 - VBCS 
     - [Deploy VBCS](deployment-docs/docs/deployment/VBCS.md)
 - ODA
     - [Deploy ODA](deployment-docs/docs/deployment/oda.md)
-- IAM Confidential App 
-    - [Deploy IAM App](deployment-docs/docs/deployment/business_idcs.md)
-- Vault
-    - [Deploy Vault](deployment-docs/docs/deployment/vault.md)
-- API Gateway
-    - [Deploy API Gateway](deployment-docs/docs/deployment/business_api_gateway.md)
-- Business (client) ADW database
-    - [Deploy Database](deployment-docs/docs/deployment/database.md)
-- Trust ADB database
-    - [Deploy Database](deployment-docs/docs/deployment/database.md)
-- Redis Cache 
-- VCN 
-    - Two VMs, one for engine in private sn and one bastion/jump host 
-        - [Deploy Engine Documentation](deployment-docs/docs/deployment/nl2sql_engine.md)
-
 ## Deployment Steps
 
-1. Configure Business App
-    - Configure Business DB
-    - Configure Trust DB
-2. Configure IDCS App
-3. Configure API Gateway
-4. Configure ODA Skills
-5. Configure VB Apps 
+1. Configure Business DB
+2. Configure Trust DB
+3. Configure IDCS App
+4. Configure OCI Cache
+4. Configure Engine 
+5. Configure API Gateway
+6. Configure ODA Skills
+7. Configure VB Apps 
+
+### Validation 
+
+[Validation Testing](deployment-docs/docs/deployment/validation.md)
 
 ## Notes/Issues
 
-See [Troubleshooting](deployment-docs/docs/deployment/architecture.md)
-
-This first release is focused on deploying the NL Engine/ClientApp for the business user. The Trust Framework plans to be added next release. However, documentation is available under [Deployment](deployment-docs/docs/deployment/)
-if you'd like to get familiar. All documentation related to apex & trust service would be for the trust framework. 
+See [Troubleshooting](deployment-docs/docs/deployment/troubleshooting.md)
 
 ## URLs
 * Nothing at this time

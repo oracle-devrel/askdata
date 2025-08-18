@@ -3,8 +3,7 @@
 # 1. Introduction
 
 By default, ADW uses public endpoints for its communication to
-supporting services. As the API gateway deployments are not oAuth
-protected, it needs to be private.
+supporting services. For using ADW with a private API gateway, see below.
 
 For this to work, we will need the followings:
 

@@ -1,7 +1,9 @@
 # NL2SQL Database Deployment
 
 ## Creation
-Done by the Terraform script
+Manual 
+
+For basic instructions on deploying an autonomous database, see [Autonomous Database 15 Minute Quickstart](https://livelabs.oracle.com/pls/apex/r/dbpm/livelabs/run-workshop?p210_wid=928&p210_wec=&session=110849810147522)
 
 ## Minimal Configuration
 | Element | Size/Count| Comment |
@@ -11,13 +13,28 @@ Done by the Terraform script
 
 | Element |  Value  |
 |---------|-----------|
-| Workload type |Data Warehouse |
-| WMinimum Version | 23ai |
+| Workload type | Data Warehouse |
+| Minimum Version | 23ai |
 
-## Configuration Check
+## Configuration Steps 
+- Provision one database for client/business db 
+    - ACCOUNT_PAYABLES_TBL table 
+        - Execute [sql/demodata.sql](../../../sql/demodata.sql) for demo data 
+    - VENDORS table 
+        - [Vendors CSV](../../../clientApp/vendors-export.csv)
+        - Upload manually through sql developer
+- Provision one database for trust db 
+    - TRUST_LIBRARY table 
+    - Engine requires at least one entry in TRUST_LIBRARY table
+        - Sample entry given in [sql/nl2sql_datamodel_schema.sql](../../../sql/nl2sql_datamodel_schema.sql)
+    - Execute nl2sql_datamodel_schema.sql on trust db
+
+> **Note** Make sure to execute all commands in sql scripts on respective databases as mentioned above
+
+### Private Access (optional)
 - Should be private with public access (0.0.0.0/0 or more restrictive according to customer policy)
 - Should have the private endpoint access configured.
 - Should have APEX enabled
 
-## Access
+#### Access
 Should be done through a public load balancer

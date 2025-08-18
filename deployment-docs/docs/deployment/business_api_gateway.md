@@ -2,6 +2,12 @@
 
 ### Setup API Gateway
 
+### Prerequisites 
+
+This section assumes the following resources are configured: 
+* [Vault](./vault.md)
+* [Engine Application](./nl2sql_engine.md)
+
 #### Create Gateway
 
 1.  On the **Gateways** list page, select **Create Gateway**.
@@ -151,6 +157,7 @@ IDCS baseurl can be found at this location.
 (for example:
 
 > <https://identity.oraclecloud.com/>
+
 > <https://idcs-server.identity.oraclecloud.com>
 
 > Add each item on a separate line)
@@ -165,7 +172,7 @@ IDCS baseurl can be found at this location.
 
 
 - **Validation failure policy**
-  - Type: OAuth2.9 redirect client to identity provider
+  - Type: OAuth2.0 redirect client to identity provider
   - Scopes: openid
   - Response type: CODE
   - Use Oauth2 introspection endpoint client credentials: enabled
@@ -192,6 +199,8 @@ IDCS baseurl can be found at this location.
       <span class="mark">300</span>**
     - **Reading response timeout in seconds:
       <span class="mark">300</span>**
+
+> **Note** - The business app engine is exposed on an API Gateway with the main entry /prompt, which maps to <business-app-ip>:8000... this will be used by ODA app.
 
 <br>
 

@@ -2,6 +2,13 @@
 
 ### ODA Setup – Provision ODA Instance
 
+### Prerequisites 
+
+This section assumes the following resources are configured: 
+* [IDCS Application](./business_idcs.md)
+* [Engine Application](./nl2sql_engine.md)
+* [API Gateway](./business_api_gateway.md)
+
 #### Provision ODA Instance
 
 1. Sign in to your Oracle Cloud account.
@@ -46,7 +53,7 @@
 
 ![](./business_media/media/image39.png)
 
-##### Import the following REST services;
+##### Import the following REST services under nl2sql-main/vbcs_oda_archives/oda:
 
 ![](./business_media/media/image40.png)
 
@@ -79,24 +86,29 @@
 
 ![](./business_media/media/domain-hostname.png)
 
-> Grant Type: Authorization Code
->
-> Identity Provider: Oracle Identity Cloud Services
->
-> Token Endpoint URL: \<IDCS base url\>/oauth2/v1/token
-> Authorization Endpoint URL: \<IDCS base url\>/oauth2/v1/authorize
-> Client ID: \<Client Id from the IDCS confidential app\>
-> Client Secret: \<Client Secret from the confidential app\>
->
-> Scopes: urn:opc:idm:\_\_myscopes\_\_
-> Subject Claims: sub
-> Refresh Token Retention Period: 7
+```
+Grant Type: Authorization Code
+Identity Provider: Oracle Identity Cloud Services
+Token Endpoint URL: \<IDCS base url\>/oauth2/v1/token
+Authorization Endpoint URL: \<IDCS base url\>/oauth2/v1/authorize
+
+Client ID: \<Client Id from the IDCS confidential app\>
+Client Secret: \<Client Secret from the confidential app\>
+
+Scopes: urn:opc:idm:\_\_myscopes\_\_
+
+Subject Claims: sub
+
+Refresh Token Retention Period: 7
+```
 
 - Provide Client ID of IDCS & secret from IDCS confidential app below
 
 ![](./business_media/media/new-auth-service.png)
 
 ![](./business_media/media/new-auth-service-2.png)
+
+> **Note** The scope will be the audience + scope defined in [Deploy IDCS Application](./business_idcs.md#adding-scopes)
 
 ### Deploy ODA Code – Skill
 
@@ -114,8 +126,8 @@
 ![](./business_media/media/image48.png)
 
 
-> Import the skill provided in vbcs_oda archives folder in the code:
->
+> Zip and Import the skill provided in nl2sql-main/vbcs_oda_archives/oda/askdata-oda-base folder in the code:
+
 ![](./business_media/media/image49.png)
 
 
@@ -228,7 +240,7 @@
 
 ## Application Customization
 
-> **This is optional.**
+> **Note** This section is optional.
 
 ### Edit ODA Skill
 

@@ -31,7 +31,7 @@
     code, Authorization code, Implict, SAML2 assertion**, and **TLS
     client authentication**.
 
-Allow non-HTTPS URLs: Enabled (Disabled)
+Allow non-HTTPS URLs: Enabled 
 
  Redirect URL: \<oda url\> (for example,
  [https://<span class="mark">oda-instance.data.digitalassistant.oci.oraclecloud.com</span>/connectors/v1/callback](https://oda-instance.data.digitalassistant.oci.oraclecloud.com/connectors/v1/callback))
@@ -42,13 +42,15 @@ Allow non-HTTPS URLs: Enabled (Disabled)
 
  ***Format: https://\<oda-base-url\>connectors/v1/callback***
 
- Client type: Confidential
+ ### Adding Scopes
 
- Allowed operations: Introspect
+ 9. Add a resource server configuration with primary audience "oda" 
 
- Client IP address: \<either select nothing or select ‘Anywhere’\>
+ ![ ](./business_media/media/resource-server.png)
 
- Web tier policy: Skip and do later
+ 10. Add a scope e.g. "test" 
+
+ ![ ](./business_media/media/add-scope.png)
 
 <br>
 
@@ -56,11 +58,24 @@ Allow non-HTTPS URLs: Enabled (Disabled)
 
  *Pick introspect and other options as shown*
 
+Client type: Confidential
+
+ Allowed operations: Introspect
+
+ Client IP address: \<either select nothing or select ‘Anywhere’\>
+
 <br>
 
-![ ](./business_media/media/image5.png)
+![ ](./business_media/media/config-conf-app.png)
+
+Add the resource server (idcs server) as the resource 
+![ ](./business_media/media/add-resource.png)
+
+> **Note** If the resource server isn't appearing on the list, try submitting the configuration as is, editing the oauth config, and adding again.
 
 <br>
+
+ Web tier policy: Skip and do later
 
 ![ ](./business_media/media/image6.png)
 

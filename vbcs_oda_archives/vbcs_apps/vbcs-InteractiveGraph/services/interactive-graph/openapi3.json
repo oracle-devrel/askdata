@@ -1,0 +1,1428 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "207.211.183.34",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "vb-catalog://backends/interactive-graph"
+        }
+    ],
+    "paths": {
+        "/igraph/": {
+            "get": {
+                "operationId": "getIgraph",
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetIgraph"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getIgraph/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany",
+                    "queryParameters": {
+                        "graphId": "3c580381-cb64-4012-b5e5-caab09405ab5"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "GetIgraph": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "alignmentgroup": {
+                                    "type": "string"
+                                },
+                                "hovertemplate": {
+                                    "type": "string"
+                                },
+                                "legendgroup": {
+                                    "type": "string"
+                                },
+                                "marker": {
+                                    "type": "object",
+                                    "properties": {
+                                        "color": {
+                                            "type": "string"
+                                        },
+                                        "pattern": {
+                                            "type": "object",
+                                            "properties": {
+                                                "shape": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "offsetgroup": {
+                                    "type": "string"
+                                },
+                                "orientation": {
+                                    "type": "string"
+                                },
+                                "showlegend": {
+                                    "type": "boolean"
+                                },
+                                "textposition": {
+                                    "type": "string"
+                                },
+                                "x": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "xaxis": {
+                                    "type": "string"
+                                },
+                                "y": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "yaxis": {
+                                    "type": "string"
+                                },
+                                "type": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "layout": {
+                        "type": "object",
+                        "properties": {
+                            "template": {
+                                "type": "object",
+                                "properties": {
+                                    "data": {
+                                        "type": "object",
+                                        "properties": {
+                                            "histogram2dcontour": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "type": {
+                                                            "type": "string"
+                                                        },
+                                                        "colorbar": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "outlinewidth": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "ticks": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "colorscale": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "oneOf": [
+                                                                        {
+                                                                            "type": "integer"
+                                                                        },
+                                                                        {
+                                                                            "type": "string"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "choropleth": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "type": {
+                                                            "type": "string"
+                                                        },
+                                                        "colorbar": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "outlinewidth": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "ticks": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "histogram2d": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "type": {
+                                                            "type": "string"
+                                                        },
+                                                        "colorbar": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "outlinewidth": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "ticks": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "colorscale": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "oneOf": [
+                                                                        {
+                                                                            "type": "integer"
+                                                                        },
+                                                                        {
+                                                                            "type": "string"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "heatmap": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "type": {
+                                                            "type": "string"
+                                                        },
+                                                        "colorbar": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "outlinewidth": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "ticks": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "colorscale": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "oneOf": [
+                                                                        {
+                                                                            "type": "integer"
+                                                                        },
+                                                                        {
+                                                                            "type": "string"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "heatmapgl": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "type": {
+                                                            "type": "string"
+                                                        },
+                                                        "colorbar": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "outlinewidth": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "ticks": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "colorscale": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "oneOf": [
+                                                                        {
+                                                                            "type": "integer"
+                                                                        },
+                                                                        {
+                                                                            "type": "string"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "contourcarpet": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "type": {
+                                                            "type": "string"
+                                                        },
+                                                        "colorbar": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "outlinewidth": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "ticks": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "contour": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "type": {
+                                                            "type": "string"
+                                                        },
+                                                        "colorbar": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "outlinewidth": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "ticks": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "colorscale": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "oneOf": [
+                                                                        {
+                                                                            "type": "integer"
+                                                                        },
+                                                                        {
+                                                                            "type": "string"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "surface": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "type": {
+                                                            "type": "string"
+                                                        },
+                                                        "colorbar": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "outlinewidth": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "ticks": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "colorscale": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "oneOf": [
+                                                                        {
+                                                                            "type": "integer"
+                                                                        },
+                                                                        {
+                                                                            "type": "string"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "mesh3d": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "type": {
+                                                            "type": "string"
+                                                        },
+                                                        "colorbar": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "outlinewidth": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "ticks": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "scatter": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "fillpattern": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "fillmode": {
+                                                                    "type": "string"
+                                                                },
+                                                                "size": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "solidity": {
+                                                                    "type": "number"
+                                                                }
+                                                            }
+                                                        },
+                                                        "type": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "parcoords": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "type": {
+                                                            "type": "string"
+                                                        },
+                                                        "line": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "colorbar": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "outlinewidth": {
+                                                                            "type": "integer"
+                                                                        },
+                                                                        "ticks": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "scatterpolargl": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "type": {
+                                                            "type": "string"
+                                                        },
+                                                        "marker": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "colorbar": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "outlinewidth": {
+                                                                            "type": "integer"
+                                                                        },
+                                                                        "ticks": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "bar": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "error_x": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "color": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "error_y": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "color": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "marker": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "line": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "color": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "width": {
+                                                                            "type": "number"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "pattern": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "fillmode": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "size": {
+                                                                            "type": "integer"
+                                                                        },
+                                                                        "solidity": {
+                                                                            "type": "number"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "type": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "scattergeo": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "type": {
+                                                            "type": "string"
+                                                        },
+                                                        "marker": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "colorbar": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "outlinewidth": {
+                                                                            "type": "integer"
+                                                                        },
+                                                                        "ticks": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "scatterpolar": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "type": {
+                                                            "type": "string"
+                                                        },
+                                                        "marker": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "colorbar": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "outlinewidth": {
+                                                                            "type": "integer"
+                                                                        },
+                                                                        "ticks": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "histogram": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "marker": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "pattern": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "fillmode": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "size": {
+                                                                            "type": "integer"
+                                                                        },
+                                                                        "solidity": {
+                                                                            "type": "number"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "type": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "scattergl": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "type": {
+                                                            "type": "string"
+                                                        },
+                                                        "marker": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "colorbar": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "outlinewidth": {
+                                                                            "type": "integer"
+                                                                        },
+                                                                        "ticks": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "scatter3d": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "type": {
+                                                            "type": "string"
+                                                        },
+                                                        "line": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "colorbar": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "outlinewidth": {
+                                                                            "type": "integer"
+                                                                        },
+                                                                        "ticks": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "marker": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "colorbar": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "outlinewidth": {
+                                                                            "type": "integer"
+                                                                        },
+                                                                        "ticks": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "scattermapbox": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "type": {
+                                                            "type": "string"
+                                                        },
+                                                        "marker": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "colorbar": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "outlinewidth": {
+                                                                            "type": "integer"
+                                                                        },
+                                                                        "ticks": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "scatterternary": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "type": {
+                                                            "type": "string"
+                                                        },
+                                                        "marker": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "colorbar": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "outlinewidth": {
+                                                                            "type": "integer"
+                                                                        },
+                                                                        "ticks": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "scattercarpet": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "type": {
+                                                            "type": "string"
+                                                        },
+                                                        "marker": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "colorbar": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "outlinewidth": {
+                                                                            "type": "integer"
+                                                                        },
+                                                                        "ticks": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "carpet": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "aaxis": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "endlinecolor": {
+                                                                    "type": "string"
+                                                                },
+                                                                "gridcolor": {
+                                                                    "type": "string"
+                                                                },
+                                                                "linecolor": {
+                                                                    "type": "string"
+                                                                },
+                                                                "minorgridcolor": {
+                                                                    "type": "string"
+                                                                },
+                                                                "startlinecolor": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "baxis": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "endlinecolor": {
+                                                                    "type": "string"
+                                                                },
+                                                                "gridcolor": {
+                                                                    "type": "string"
+                                                                },
+                                                                "linecolor": {
+                                                                    "type": "string"
+                                                                },
+                                                                "minorgridcolor": {
+                                                                    "type": "string"
+                                                                },
+                                                                "startlinecolor": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "type": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "table": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "cells": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "fill": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "color": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "line": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "color": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "header": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "fill": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "color": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "line": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "color": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "type": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "barpolar": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "marker": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "line": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "color": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "width": {
+                                                                            "type": "number"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "pattern": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "fillmode": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "size": {
+                                                                            "type": "integer"
+                                                                        },
+                                                                        "solidity": {
+                                                                            "type": "number"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "type": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "pie": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "automargin": {
+                                                            "type": "boolean"
+                                                        },
+                                                        "type": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "layout": {
+                                        "type": "object",
+                                        "properties": {
+                                            "autotypenumbers": {
+                                                "type": "string"
+                                            },
+                                            "colorway": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "font": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "color": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            },
+                                            "hovermode": {
+                                                "type": "string"
+                                            },
+                                            "hoverlabel": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "align": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            },
+                                            "paper_bgcolor": {
+                                                "type": "string"
+                                            },
+                                            "plot_bgcolor": {
+                                                "type": "string"
+                                            },
+                                            "polar": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "bgcolor": {
+                                                        "type": "string"
+                                                    },
+                                                    "angularaxis": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "gridcolor": {
+                                                                "type": "string"
+                                                            },
+                                                            "linecolor": {
+                                                                "type": "string"
+                                                            },
+                                                            "ticks": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    },
+                                                    "radialaxis": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "gridcolor": {
+                                                                "type": "string"
+                                                            },
+                                                            "linecolor": {
+                                                                "type": "string"
+                                                            },
+                                                            "ticks": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "ternary": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "bgcolor": {
+                                                        "type": "string"
+                                                    },
+                                                    "aaxis": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "gridcolor": {
+                                                                "type": "string"
+                                                            },
+                                                            "linecolor": {
+                                                                "type": "string"
+                                                            },
+                                                            "ticks": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    },
+                                                    "baxis": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "gridcolor": {
+                                                                "type": "string"
+                                                            },
+                                                            "linecolor": {
+                                                                "type": "string"
+                                                            },
+                                                            "ticks": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    },
+                                                    "caxis": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "gridcolor": {
+                                                                "type": "string"
+                                                            },
+                                                            "linecolor": {
+                                                                "type": "string"
+                                                            },
+                                                            "ticks": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "coloraxis": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "colorbar": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "outlinewidth": {
+                                                                "type": "integer"
+                                                            },
+                                                            "ticks": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "colorscale": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "sequential": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "oneOf": [
+                                                                    {
+                                                                        "type": "integer"
+                                                                    },
+                                                                    {
+                                                                        "type": "string"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    },
+                                                    "sequentialminus": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "oneOf": [
+                                                                    {
+                                                                        "type": "integer"
+                                                                    },
+                                                                    {
+                                                                        "type": "string"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    },
+                                                    "diverging": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "oneOf": [
+                                                                    {
+                                                                        "type": "integer"
+                                                                    },
+                                                                    {
+                                                                        "type": "string"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "xaxis": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "gridcolor": {
+                                                        "type": "string"
+                                                    },
+                                                    "linecolor": {
+                                                        "type": "string"
+                                                    },
+                                                    "ticks": {
+                                                        "type": "string"
+                                                    },
+                                                    "title": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "standoff": {
+                                                                "type": "integer"
+                                                            }
+                                                        }
+                                                    },
+                                                    "zerolinecolor": {
+                                                        "type": "string"
+                                                    },
+                                                    "automargin": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "zerolinewidth": {
+                                                        "type": "integer"
+                                                    }
+                                                }
+                                            },
+                                            "yaxis": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "gridcolor": {
+                                                        "type": "string"
+                                                    },
+                                                    "linecolor": {
+                                                        "type": "string"
+                                                    },
+                                                    "ticks": {
+                                                        "type": "string"
+                                                    },
+                                                    "title": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "standoff": {
+                                                                "type": "integer"
+                                                            }
+                                                        }
+                                                    },
+                                                    "zerolinecolor": {
+                                                        "type": "string"
+                                                    },
+                                                    "automargin": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "zerolinewidth": {
+                                                        "type": "integer"
+                                                    }
+                                                }
+                                            },
+                                            "scene": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "xaxis": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "backgroundcolor": {
+                                                                "type": "string"
+                                                            },
+                                                            "gridcolor": {
+                                                                "type": "string"
+                                                            },
+                                                            "linecolor": {
+                                                                "type": "string"
+                                                            },
+                                                            "showbackground": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "ticks": {
+                                                                "type": "string"
+                                                            },
+                                                            "zerolinecolor": {
+                                                                "type": "string"
+                                                            },
+                                                            "gridwidth": {
+                                                                "type": "integer"
+                                                            }
+                                                        }
+                                                    },
+                                                    "yaxis": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "backgroundcolor": {
+                                                                "type": "string"
+                                                            },
+                                                            "gridcolor": {
+                                                                "type": "string"
+                                                            },
+                                                            "linecolor": {
+                                                                "type": "string"
+                                                            },
+                                                            "showbackground": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "ticks": {
+                                                                "type": "string"
+                                                            },
+                                                            "zerolinecolor": {
+                                                                "type": "string"
+                                                            },
+                                                            "gridwidth": {
+                                                                "type": "integer"
+                                                            }
+                                                        }
+                                                    },
+                                                    "zaxis": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "backgroundcolor": {
+                                                                "type": "string"
+                                                            },
+                                                            "gridcolor": {
+                                                                "type": "string"
+                                                            },
+                                                            "linecolor": {
+                                                                "type": "string"
+                                                            },
+                                                            "showbackground": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "ticks": {
+                                                                "type": "string"
+                                                            },
+                                                            "zerolinecolor": {
+                                                                "type": "string"
+                                                            },
+                                                            "gridwidth": {
+                                                                "type": "integer"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "shapedefaults": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "line": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "color": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "annotationdefaults": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "arrowcolor": {
+                                                        "type": "string"
+                                                    },
+                                                    "arrowhead": {
+                                                        "type": "integer"
+                                                    },
+                                                    "arrowwidth": {
+                                                        "type": "integer"
+                                                    }
+                                                }
+                                            },
+                                            "geo": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "bgcolor": {
+                                                        "type": "string"
+                                                    },
+                                                    "landcolor": {
+                                                        "type": "string"
+                                                    },
+                                                    "subunitcolor": {
+                                                        "type": "string"
+                                                    },
+                                                    "showland": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "showlakes": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "lakecolor": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            },
+                                            "title": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "x": {
+                                                        "type": "number"
+                                                    }
+                                                }
+                                            },
+                                            "mapbox": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "style": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "xaxis": {
+                                "type": "object",
+                                "properties": {
+                                    "anchor": {
+                                        "type": "string"
+                                    },
+                                    "domain": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "title": {
+                                        "type": "object",
+                                        "properties": {
+                                            "text": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "yaxis": {
+                                "type": "object",
+                                "properties": {
+                                    "anchor": {
+                                        "type": "string"
+                                    },
+                                    "domain": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "title": {
+                                        "type": "object",
+                                        "properties": {
+                                            "text": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "legend": {
+                                "type": "object",
+                                "properties": {
+                                    "tracegroupgap": {
+                                        "type": "integer"
+                                    }
+                                }
+                            },
+                            "title": {
+                                "type": "object",
+                                "properties": {
+                                    "text": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "barmode": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

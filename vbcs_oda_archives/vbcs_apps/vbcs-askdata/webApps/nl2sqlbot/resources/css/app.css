@@ -1,0 +1,224 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.chat-header {
+  width: 100%;
+  float: left;
+  display: inline-flex;
+  background-color: #FFFFFF;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.chat-content {
+  width: 100%;
+  min-height: 60vh;
+}
+.oj-inputtext-input {
+  color: #312D2A;
+  font-size: 16px;
+  padding: 0 20px; 
+  width: 100%;
+  height: 50px;
+  text-align: left; 
+  border-radius: 25px;
+}
+.voice-icon {
+  cursor: pointer;
+  position: absolute;
+  top: 38px;
+  right: 25px;
+}
+.bot-text {
+  text-align: left;
+  color: #56504B;
+  background-color: #FCFBFA;
+  max-width: 500px;
+  padding: 10px 10px 20px 10px;
+  margin: 5px 0;
+  border-radius: 25px;
+  float: left;
+  word-break: break-word;
+}
+.user-text {
+  text-align: left;
+  color: #FCFBFA;
+  background-color: #56504B;
+  max-width: 500px;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 25px;
+  float: right;
+  word-break: break-word;
+}
+.oj-listview {
+  display: block;
+  position: relative;
+  border-width: 0 !important;
+  border-style: solid;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  min-height: 2.28571rem;
+}
+.oj-listview-item {
+  padding: 0 !important;
+  background-image: none !important;
+  border: 0 !important;
+}
+.oj-listview-item.oj-hover {
+  border: 0 !important;
+}
+.oj-listview-item.oj-focus {
+  border: 0 !important;
+}
+.oj-listview-focused-element {
+  border: 0 !important;
+}
+.status-text {
+  color: #8B8580;
+  font-size: 12px;
+  padding: 0 5px;
+}
+.status-icon-online {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #ABFF00;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #304701 0 -1px 9px, #ABFF00 0 0 5px;
+}
+.status-icon-offline {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #FF4136;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 0 5px;
+}
+.full-width-container{
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+#chat-test.full-width-container{
+  position: relative;
+}
+
+#chat-test.chat-header{
+  position: fixed;
+  top: 0
+}
+
+
+
+/* New changes */
+
+/* Global Page Styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif; 
+ /*font-family: "OracleSansVF", "OracleSansVFCyGr", "OracleSansFB", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif; */
+ /*background:  #fff2df; /* Dark background */
+/* background-image: url("https://education.oracle.com/file/general/welcome-banner-bg-sm.png?v2"); */
+background: url(../images/redwood_bg.jpg);
+  color: red;
+}
+
+/* Landing Page Wrapper */
+.landing-page-wrapper {
+  background: linear-gradient(135deg, #2d2d2d, #1c1c1c); /* Dark gradient background */
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Header Section (optional) */
+.header-container {
+  margin-bottom: 50px;
+}
+
+.chat-header {
+  background-color: #333;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.atom-logo {
+  margin-top: 20px;
+}
+
+.atom-logo img {
+  max-width: 100px;
+  height: auto;
+}
+
+/* Main Content */
+.main-content {
+  background: #333; /* Slightly lighter dark background */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 1200px;
+}
+
+.content-header h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #d32f2f; /* Red accent for the heading */
+}
+
+.content-header p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #bbb;
+}
+
+/* Call to Action Buttons */
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.cta-button {
+  background: linear-gradient(45deg, #d32f2f, #c2185b); /* Red gradient */
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+  background: linear-gradient(45deg, #c2185b, #d32f2f); /* Button hover effect */
+  transform: translateY(-3px); /* Slight lift effect */
+}
+
+.cta-button:active {
+  background: #b71c1c; /* Darker color on click */
+  transform: translateY(2px); /* Button press effect */
+}
+
+/* Footer (Optional) */
+footer {
+  background: #111;
+  padding: 20px;
+  color: #bbb;
+  text-align: center;
+  margin-top: 50px;
+  width: 100%;
+}
+

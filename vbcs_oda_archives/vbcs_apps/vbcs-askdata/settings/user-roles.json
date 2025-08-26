@@ -1,0 +1,28 @@
+{
+  "userroles":[
+    {
+      "name": "askdata_nl2sql_admin",
+      "description": "",
+      "id": "askdata_nl2sql_admin",
+      "defaultMapping": {}
+    },
+    {
+      "name": "askdata_nl2sql_grp_dev",
+      "description": "",
+      "id": "askdata_nl2sql_grp_dev",
+      "defaultMapping": {}
+    }    ,
+    {
+      "name": "askdata_nl2sql_user_grp1",
+      "description": "",
+      "id": "askdata_nl2sql_user_grp1",
+      "defaultMapping": {}
+    }    ,
+    {
+      "name": "askdata_nl2sql_user_grp2",
+      "description": "",
+      "id": "askdata_nl2sql_user_grp2",
+      "defaultMapping": {}
+    }
+  ]
+}

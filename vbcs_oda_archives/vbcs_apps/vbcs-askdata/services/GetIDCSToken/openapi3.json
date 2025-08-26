@@ -1,0 +1,91 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Oauth2 V1",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "vb-catalog://backends/IDCSBackend"
+        }
+    ],
+    "paths": {
+        "/token": {
+            "post": {
+                "operationId": "postToken",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostTokenRequest"
+                            },
+                            "examples": {
+                                "vb": {
+
+                                    "externalValue": "./examples/postToken/request_application_x-www-form-urlencoded_vb.json"
+                                }
+                            }
+                        },
+                        "application/octet-stream": {}
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostTokenResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/postToken/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+               },
+                "x-vb": {
+                    "actionHint": "getMany",
+                    "headers": {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "PostTokenRequest": {
+                "type": "object",
+                "properties": {
+                    "scope": {
+                        "type": "string"
+                    },
+                    "grant_type": {
+                        "type": "string"
+                    },
+                    "audience": {
+                        "type": "string"
+                    }
+                }
+            },
+            "PostTokenResponse": {
+                "type": "object",
+                "properties": {
+                    "access_token": {
+                        "type": "string"
+                    },
+                    "token_type": {
+                        "type": "string"
+                    },
+                    "expires_in": {
+                        "type": "integer"
+                    }
+                }
+            }
+        }
+    }
+}

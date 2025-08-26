@@ -1,0 +1,40 @@
+{
+    "defaultPage": "shell",
+    "types": {},
+    "variables": {},
+    "security": {
+        "access": {
+            "requiresAuthentication": false
+        }
+    },
+    "chains": {},
+    "translations": {
+        "app": {
+            "path": "./resources/strings/app/nls/app-strings"
+        }
+    },
+    "description": "A new VB app",
+    "id": "starter",
+    "userConfig": {
+        "type": "vb/DefaultSecurityProvider",
+        "configuration": {
+            "authentication": {
+                "type": "oraclecloud"
+            }
+        },
+        "embedding": "deny"
+    },
+    "imports": {
+        "components": {
+            "oj-validation-base": {
+                "path": "ojs/ojvalidation-base"
+            },
+            "oj-validation-datetime": {
+                "path": "ojs/ojvalidation-datetime"
+            },
+            "oj-validation-number": {
+                "path": "ojs/ojvalidation-number"
+            }
+        }
+    }
+}

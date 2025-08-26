@@ -1,0 +1,34 @@
+<!DOCTYPE html> <html> <head> <meta http-equiv="x-ua-compatible" content="IE=edge"> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width,initial-scale=1"> <link rel="preconnect" href="https://static.oracle.com"> <link rel="stylesheet" href="https://static.oracle.com/cdn/jet/16.1.4/default/css/alta/oj-alta-min.css" id="css" type="text/css"> <link type="text/css" rel="stylesheet" href="version_1745416778965/resources/css/app.css"> </head> <body class="oj-web-applayout-body"> <script type="text/javascript"> window.CALLBACK_URL = "webview.onDone";
+ 
+   const postbackURL = window.CALLBACK_URL;
+   
+   window.vbInitParams = { postbackURL
+   }; </script> <oj-vb-content config="[[vbApplication]]"></oj-vb-content> <!-- application built by grunt-vb-build version 2410.0.19 at 2025-04-23T13:59:38.966Z --> <noscript> <div style="font-size: 18px; font-family: -apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif; width: 80%; margin:20% auto;"> <p>We've detected that JavaScript is disabled in your browser. Visual Builder applications cannot run without JavaScript. Please enable JavaScript in your browser.</p> </div> </noscript> <script type="text/javascript"> window.vbInitConfig = {
+        JET_URL: 'https://static.oracle.com/cdn/jet/16.1.4',
+        JET_CDN_PATH: 'https://static.oracle.com/cdn/jet/16.1.4',
+        JET_CDN_VERSION: '',
+        DEBUG: false,
+        CONTEXT_ROOT: '%{env.vbServer.context}%',
+        APP_ID: '%{env.application.id}%',
+        APP_VERSION: '%{env.application.version}%',
+        APP_URL_PREFIX: 'rt',
+        IS_DT_MODE: false,
+        VB_SERVER: '%{env.vbServer.url}%',
+        APP_PATH: 'webApps/nl2sql_feedback_spa',
+        TRACE_CONFIG: {},
+        BASE_URL_TOKEN: 'version_1745416778965',
+        INJECTED: {
+            security: {}
+        },
+
+    } </script> <script type="text/javascript"> var html = document.documentElement;
+
+      // Set the locale on initParams
+      window.vbInitParams = window.vbInitParams || {};
+      window.vbInitParams.locale = html.lang; </script> <script type="text/javascript" src="https://static.oracle.com/cdn/jet/16.1.4/3rdparty/require/require.js"></script> <script type="text/javascript" src="https://static.oracle.com/cdn/jet/16.1.4/default/js/bundles-config.js"></script> <script type="text/javascript" src="https://static.oracle.com/cdn/vb/2410.2.0/lib/third-party-libs.js" charset="UTF-8"></script> <script id="vb-require-bundles-config">
+        const getBundlesType = (url) => { const m = /[?&]vb.bundles(=([^&#]*)|&|#|$)/.exec(url); return m ? m[2] : 'default'; }
+        const bundlesType = getBundlesType(window.location.href);
+        if (bundlesType === 'plain') { require.config({ paths: { bundles: 'bundles/plain'}}); }
+        if (bundlesType !== 'none') { require.config({"bundles":{"bundles/vb-app-bundle":["app-flow","text!app-flow.json","flows/main/main-flow","text!flows/main/main-flow.json","text!flows/main/pages/main-start-page.html","flows/main/pages/main-start-page","text!flows/main/pages/main-start-page.json","text!flows/main/pages/main-start_copy-page.html","flows/main/pages/main-start_copy-page","text!flows/main/pages/main-start_copy-page.json","text!flows/main/pages/main-thanks-page.html","flows/main/pages/main-thanks-page","text!flows/main/pages/main-thanks-page.json","pages/resources/strings/shell/nls/root/shell-strings","pages/resources/strings/shell/nls/shell-strings","text!pages/shell-page.html","pages/shell-page","text!pages/shell-page.json","css!resources/css/app","resources/strings/app/nls/app-strings","resources/strings/app/nls/root/app-strings","text!services/catalog.json","text!settings/dependencies.json"]},"paths":{},"map":{}}); }
+</script>
+<script id="vbrt" type="text/javascript" src="https://static.oracle.com/cdn/vb/2410.2.0/visual-runtime.js"></script> </body> </html> 

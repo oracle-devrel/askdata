@@ -1,0 +1,95 @@
+<oj-collapsible expanded="true" id="tableCollapsible">
+
+  <div class="oj-flex oj-sm-flex-direction-row oj-sm-margin-5x-top oj-flex-item oj-sm-flex-initial">
+    <!-- Left Column (Filter) -->
+    <div class="oj-flex oj-sm-12 oj-sm-flex-wrap-nowrap oj-sm-justify-content-space-between">
+      <div class="oj-flex-item oj-sm-9 oj-sm-flex-initial">
+        <oj-bind-if test="[[false]]">
+          <oj-combobox-one label-hint="Entries per page" value="{{ $variables.rowsPerPage }}"
+            options="[[ $variables.rowsPerPageOptions ]]" on-value-changed="[[$listeners.comboValue]]"
+            class="oj-combobox oj-complete oj-component oj-enabled oj-form-control oj-sm-padding-4x-start oj-text-field oj-text-field-label-inside">
+          </oj-combobox-one>
+        </oj-bind-if>
+        <!-- Paging control section -->
+        <div class="oj-md-margin-2x-top">
+          <!-- Paging Controls -->
+          <oj-paging-control data="[[ $variables.myPDP ]]" page-size="10"></oj-paging-control>
+        </div>
+      </div>
+      <oj-input-text id="filterText" label-hint="Search" value="{{ $variables.inputFilterText }}"
+         on-keyup="[[$listeners.filterTextKeyup]]"
+        class="oj-complete oj-component oj-flex-item oj-has-no-value oj-inputtext oj-sm-3 oj-sm-flex-initial oj-sm-padding-4x-end oj-text-field oj-text-field-label-inside oj-form-control">
+      </oj-input-text>
+    </div>
+    <div class="oj-flex-item oj-flex oj-sm-12">
+      <div class="table-wrapper">
+        <oj-table scroll-policy="loadMoreOnScroll"
+          class="oj-table-data-cell-padding oj-table-hide-vertical-scrollbar oj-flex-item oj-sm-flex-initial"
+          id="dynamicTable" data="[[ $variables.tableData ]]" columns="[[ $variables.tableColumns ]]"></oj-table>
+      </div>
+
+      <!-- Paging control section -->
+      <!-- <div class="oj-md-margin-2x-top">
+      <!-- Paging Controls 
+      <oj-paging-control data="[[ $variables.myPDP ]]" page-size="10"></oj-paging-control>
+
+    </div> -->
+    </div>
+  </div>
+  <h4 class="oj-header oj-color-invert" slot="header">Table View</h4>
+  <!-- <span class="oj-ux-ico-tables-basic" slot="header"></span> -->
+
+</oj-collapsible>
+
+
+<oj-collapsible id="graphCollapsible" class="oj-sm-margin-10x-top oj-sm-margin-10x-bottom oj-sm-padding-10x-bottom">
+
+  <div>
+
+
+
+
+<!-- <oj-chart type="bar" data="[[ $functions.getSampleChartData() ]]" 
+    series="[[ $functions.getSampleChartAxis() ]]">
+</oj-chart> -->
+
+<!-- <oj-chart type="bar" data="[[ $functions.getSampleChartData() ]]" series="[[ $functions.getSampleChartAxis() ]]"
+  x-axis="[[ { 'categories': '[[ $functions.getSampleChartData().categories ]]' } ]]" class="oj-sm-margin-10x-top">
+</oj-chart> -->
+
+
+<div class="oj-flex" style="padding-top: 20px;">
+  <oj-highlight-text text="[[ $variables.titleText ]]" match-text="Highlight" class="oj-flex-item oj-sm-12 oj-md-12"></oj-highlight-text>
+</div>
+
+
+<div class="oj-flex-bar oj-sm-align-items-center">
+  <oj-chart type="bar" class="oj-sm-flex-initial oj-flex-bar-middle oj-sm-justify-content-center" id="barGraph1"
+    stack="on" slot="middle" animation-on-data-change="auto" animation-on-display="auto"
+    data="[[ $variables.graphBARDataADP ]]" x-axis.title="[[ $variables.xAxisLabel ]]"
+    y-axis.title="[[ $variables.yAxisLabel ]]" legend.rendered="[[ $variables.showLegend? 'on': 'off' ]]"
+    value-formats.group.tooltip-label="[[ $variables.xAxisLabel ]]"
+    value-formats.value.tooltip-label="[[ $variables.yAxisLabel ]]"
+    value-formats.series.tooltip-label="[[ $variables.yAxisLabel === 'Amount Due'? 'Past Due Days': 'Group' ]]">
+    
+    <template slot="itemTemplate">
+      <oj-chart-item 
+      value="[[ $current.data.value ]]" 
+      group-id="[[ [$current.data.group] ]]"
+      series-id="[[ $current.data.series ]]">
+      </oj-chart-item>
+    </template>
+  </oj-chart>
+</div>
+
+
+
+
+
+
+
+
+  </div>
+
+  <h4 class="oj-header oj-color-invert" slot="header">Graph View</h4>
+</oj-collapsible>

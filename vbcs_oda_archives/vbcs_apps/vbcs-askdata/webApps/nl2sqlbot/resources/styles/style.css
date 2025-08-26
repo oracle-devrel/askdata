@@ -1,0 +1,526 @@
+@font-face {
+  font-family: 'Aptos';
+  src: url('../fonts/fonnts.com-aptos-semibold.ttf') format('truetype');
+}
+
+@keyframes typing-cue {
+  0% {
+    opacity: 1;
+  }
+
+  30% {
+    opacity: .1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: .1;
+  }
+}
+
+.oda-chat-wrapper.oda-chat-expanded .oda-chat-widget {
+    /* margin-right: 6vw !important; */
+    /* margin-bottom: 5vh; */
+    /* Transform: translateX(-20%) !important; */
+    position: fixed;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%) !important;
+    width: 70vw !important;
+    height: 100vh !important;
+    max-width: 90% !important;
+    z-index: 1000;
+    margin: 0 auto;
+}
+
+.oda-chat-wrapper .oda-chat-conversation {
+    /* background-color: lightgoldenrodyellow; */
+    padding: 20px;
+    /* border-radius: 15px; */
+    background: url(../images/redwood_bg.jpg);
+    /* border: black; */
+    /* border-width: thick; */
+    border-style: groove;
+}
+
+/* Header & Footer */
+.oda-chat-wrapper .oda-chat-header {
+  background-color: #312D2A !important;
+  /* Dark, elegant header */
+}
+
+.oda-chat-wrapper .oda-chat-footer {
+  background-color: #001b30 !important;
+  /* Dark footer background */
+}
+
+/* Typing Indicator */
+.oda-chat-wrapper .oda-chat-typing-cue-wrapper .oda-chat-typing-cue {
+  background-color: #FF8C00 !important;
+  /* Bright, vibrant color for typing cue */
+  animation: typing-cue 1550ms infinite linear alternate;
+}
+
+/* Header and Footer Buttons */
+.oda-chat-wrapper .oda-chat-footer-button.oda-chat-button-send i {
+  font-family: "Font Awesome 5 Free";
+  content: "\f1d8";
+  /* Paper plane icon */
+  font-weight: 900;
+  font-size: 20px;
+  color: #fff;
+}
+
+/* Chatbot Messages */
+.oda-chat-wrapper .oda-chat-message-block.oda-chat-right .oda-chat-message-bubble {
+  background-color: #d0f4e2 !important;
+  /* Light Green for bot's message */
+  color: #1a2f44 !important;
+  /* Dark text for readability */
+  border-radius: 15px;
+  padding: 10px;
+  margin: 8px 0;
+}
+
+.oda-chat-wrapper .oda-chat-message-block.oda-chat-left .oda-chat-message-bubble {
+  background-color: #6C8FBF !important;
+  /* Soft Blue for User's message */
+  /*color: white !important; */
+  font-weight: 500;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 8px 0;
+}
+
+/* Chat Content Section */
+#solutions {
+  color: #FFFBF9;
+  font-size: 2.5rem;
+  /* Slightly larger font for impact */
+  margin-top: 10vh;
+  margin-left: 5vw;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  /* Soft shadow for emphasis */
+}
+
+#solutionsheader {
+  font-size: 3rem;
+  color: #FFFBF9;
+  text-align: left;
+  margin-left: 2vw;
+}
+
+/* Chat Bubbles and User Message */
+.oda-chat-wrapper .oda-chat-message-bubble {
+  background-color: #d2f4d2 !important;
+  /* Light Green for bot's response bubble */
+  color: #1a2f44 !important;
+  /* Dark text for readability */
+  border-radius: 15px;
+  padding: 10px;
+  margin: 8px 0;
+  }
+
+.oda-chat-wrapper .oda-chat-message-block.oda-chat-right .oda-chat-message-bubble:last-child {
+  background-color: floralwhite  !important;
+  /* Soft Blue for user's message */
+  /* color: white !important; */
+  font-weight: 500;
+  border-radius: 15px;
+  padding: 10px;
+  border-style: ridge;
+  border-width: initial;
+  margin: 8px 0;
+  font-size: 17px;
+  font-family: "OracleSansVF", "OracleSansVFCyGr", "OracleSansFB", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
+}
+
+.oda-chat-wrapper .oda-chat-message-block.oda-chat-left .oda-chat-message-bubble:last-child {
+  background-color: floralwhite !important;
+  /* Soft Blue for user message */
+ /* color: white !important; */
+  font-weight: 500;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 8px 0;
+  border-style: ridge;
+  border-width: initial;
+  font-size: 17px;
+  font-family: "OracleSansVF", "OracleSansVFCyGr", "OracleSansFB", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
+}
+
+/* Entity Highlights */
+.entity[data-entity="PERSON"],
+.entity[data-entity="ORG"] {
+  background-color: #7aecec;
+}
+
+.entity[data-entity="GPE"] {
+  background-color: #feca74;
+}
+
+.entity[data-entity="LOC"],
+.entity[data-entity="FAC"] {
+  background-color: #e4e7d2;
+}
+
+.entity[data-entity="PRODUCT"] {
+  background-color: #d2ffdf;
+}
+
+.entity[data-entity="EVENT"] {
+  background-color: #d2dfff;
+}
+
+.entity[data-entity="WORK_OF_ART"] {
+  background-color: #d5e3d8;
+}
+
+.entity[data-entity="NORP"] {
+  background-color: #e8d9d5;
+}
+
+.entity[data-entity="DATE"],
+.entity[data-entity="TIME"] {
+  background-color: #efffd2;
+}
+
+.entity[data-entity="MONEY"] {
+  background-color: #ffddd2;
+}
+
+.entity[data-entity="PERCENT"],
+.entity[data-entity="QUANTITY"],
+.entity[data-entity="ORDINAL"],
+.entity[data-entity="CARDINAL"] {
+  background-color: #dcf5ed;
+}
+
+/* Chat Typing Indicator */
+.oda-chat-wrapper .oda-chat-typing-cue-wrapper {
+  width: 32px;
+  margin: auto;
+  display: flex;
+}
+
+.oda-chat-wrapper .oda-chat-typing-cue-wrapper .oda-chat-typing-cue {
+  position: relative;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #161513 !important;
+  animation: typing-cue 1550ms infinite linear alternate;
+  animation-delay: 250ms;
+  opacity: .1;
+}
+
+.oda-chat-wrapper .oda-chat-typing-cue-wrapper .oda-chat-typing-cue::before,
+.oda-chat-wrapper .oda-chat-typing-cue-wrapper .oda-chat-typing-cue::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #161513 !important;
+  animation: typing-cue 1550ms infinite linear alternate;
+  opacity: .1;
+}
+
+.oda-chat-wrapper .oda-chat-typing-cue-wrapper .oda-chat-typing-cue::before {
+  left: -12px;
+  animation-delay: 0s;
+}
+
+.oda-chat-wrapper .oda-chat-typing-cue-wrapper .oda-chat-typing-cue::after {
+  left: 12px;
+  animation-delay: 500ms;
+}
+
+/* Footer Buttons */
+.oda-chat-wrapper .oda-chat-footer-button.oda-chat-button-send {
+  background-color: #008CBA !important;
+  /* Light blue button */
+  color: white;
+  border-radius: 50%;
+}
+
+.oda-chat-wrapper .oda-chat-footer-button.oda-chat-button-send:hover {
+  background-color: #005f73 !important;
+  /* Darker blue on hover */
+}
+
+/* Custom Styling for Assist Section */
+.assistCard {
+  background-color: #2b3e59;
+  /* Softer dark background */
+  color: #D1D9E6;
+  /* Lighter color for text */
+  padding: 20px;
+  border-radius: 12px;
+  font-size: 1rem;
+  margin: 10px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+#assistYou {
+  font-size: 1.5rem;
+  color: #FFFBF9;
+  font-weight: bold;
+}
+
+/* Assist Box */
+.assistBox {
+  font-family: 'Aptos', sans-serif;
+  position: absolute;
+  z-index: 999;
+  margin-top: 17vh;
+  margin-left: 65vw;
+  width: 35vw !important;
+  max-height: 75vh !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Clean up all tables */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  /* margin: 20px 0; */
+  background-color: white;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #807E74;
+  color: white;
+   font-size: 18px !important;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+table tbody tr td {
+  color: #333;
+ /* font-size: 16px; */
+ /* font-family: "OracleSansVF","OracleSansVFCyGr","OracleSansFB",-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",sans-serif; */
+}
+
+table caption {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Clean up chart or graph appearance */
+.chart-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+canvas {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+
+
+/* Buttons */
+/* Style the button container */
+.oda-chat-message-actions {
+  display: flex;
+  gap: 12px;
+  /* Space between buttons */
+  justify-content: center;
+  /* Center buttons */
+  margin-top: 15px;
+}
+
+/* Style the buttons */
+.oda-chat-action-postback {
+  padding: 12px 25px;
+  /* Adequate padding */
+  font-size: 16px;
+  font-weight: 600;
+  /* Bold text for better visibility */
+  background: repeating-linear-gradient(45deg, black, transparent 100px);
+  /* Example gradient */
+  color: white !important;
+  /* Set text color to white */
+  border: 2px solid #008CBA;
+  /* Matching border color */
+  border-radius: 8px;
+  /* Slightly rounded corners */
+  cursor: pointer;
+
+  text-transform: uppercase;
+  /* Uppercase for button text */
+}
+
+/* Hover effect */
+.oda-chat-action-postback:hover {
+  background-color: #005f73;
+  /* Darker shade of blue for hover */
+  border-color: #005f73;
+  /* Border color matches the background */
+  transform: translateY(-2px);
+  /* Lift effect */
+}
+
+/* Active effect when clicked */
+.oda-chat-action-postback:active {
+  background-color: #004c56;
+  /* Even darker blue */
+  border-color: #004c56;
+  transform: translateY(0);
+  /* Removes the lift effect */
+}
+
+/* Focus style */
+.oda-chat-action-postback:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 140, 186, 0.7);
+  /* Blue outline for accessibility */
+}
+
+/* Button text should be centered */
+.oda-chat-action-postback div {
+  text-align: center;
+  /* Centers text */
+}
+
+/* Optional: Add custom colors for specific buttons */
+.oda-chat-action-postback:nth-child(1) {
+  background-color: #4CAF50;
+  /* Green for Payables */
+  border-color: #4CAF50;
+}
+
+.oda-chat-action-postback:nth-child(2) {
+  background-color: #FF9800;
+  /* Orange for Receivables */
+  border-color: #FF9800;
+}
+
+.oda-chat-action-postback:nth-child(3) {
+  background-color: #F44336;
+  /* Red for Supply Chain */
+  border-color: #F44336;
+}
+
+/* Hover effect for specific buttons */
+.oda-chat-action-postback:nth-child(1):hover {
+  background-color: #45a049;
+  border-color: #45a049;
+}
+
+.oda-chat-action-postback:nth-child(2):hover {
+  background-color: #e68900;
+  border-color: #e68900;
+}
+
+.oda-chat-action-postback:nth-child(3):hover {
+  background-color: #d32f2f;
+  border-color: #d32f2f;
+}
+
+.oda-chat-wrapper .oda-chat-action-postback {
+  /*background: repeating-linear-gradient(45deg, black, transparent 100px) !important; */
+ background: #315357 !important;
+  color: white !important; /* Set text color to white */
+  border: 1px solid #388E3C; /* Optional: Update border to match the gradient */
+  padding: 10px 20px; /* Optional: Adjust button padding */
+  border-radius: 4px; /* Optional: Make button edges rounded */
+  font-weight: bold; /* Optional: Make the text bold */
+  font-size: 13px !important;
+}
+
+/* Optional: Hover effect 
+.oda-chat-wrapper .oda-chat-action-postback:hover {
+  background: repeating-linear-gradient(45deg, #388E3C, #388E3C 10px, #4CAF50 10px, #4CAF50 20px) !important;
+} */
+
+
+/* Graphs */
+
+.oda-chat-message-text img {
+    width: 100% !important; 
+    height: auto !important;  
+}
+
+/* textarea */
+
+.oda-chat-wrapper .oda-chat-user-input {
+    flex-grow: 1;
+    min-height: 44px;
+    padding: 10px;
+    margin: 0;
+    font-size: 17px !important;
+    /* font-family: inherit; */
+    line-height: 24px;
+    outline: 1px solid rgba(0, 0, 0, 0);
+    resize: none;
+    border: none;
+    border-radius: 6px;
+    background-color: rgba(0, 0, 0, 0);
+    color: var(--color-input-text);
+    font-family: "OracleSansVF", "OracleSansVFCyGr", "OracleSansFB", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif !important;
+}
+
+/*heading*/
+.heading {
+    font-size: 38px;
+    font-weight: 600;
+    background-color:#FF033E;
+    color: transparent;
+    background-clip: text;
+   -webkit-background-clip: text;
+   -webkit-font-smoothing: antialiased;
+   margin-left: 1em;
+   font-family:  "Georgia", "Times", "Garamond", serif;
+   
+   /*  font-family:"OracleSansVF", "OracleSansVFCyGr", "OracleSansFB", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif !important;*/
+}
+
+
+
+#trustedIcon {
+  width:20px !important; 
+  height: 20px !important; 
+
+}
+
+
+.oda-chat-wrapper .oda-chat-webview-container .oda-chat-webview-header button {
+    color: #fff !important;
+}
+
+#heading{
+  color: red;
+}

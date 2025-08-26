@@ -1,0 +1,110 @@
+{
+    "displayLabel": "data",
+    "fields": [
+        {
+            "displayLabel": "Id",
+            "key": true,
+            "name": "id",
+            "oid": "<id>",
+            "required": true,
+            "type": "number",
+            "unique": true
+        },
+        {
+            "displayLabel": "Created",
+            "name": "creationDate",
+            "oid": "<id>",
+            "type": "datetime",
+            "historyType": "timeCreated"
+        },
+        {
+            "displayLabel": "Last Updated",
+            "name": "lastUpdateDate",
+            "oid": "<id>",
+            "type": "datetime",
+            "historyType": "timeUpdated"
+        },
+        {
+            "displayLabel": "Created By",
+            "name": "createdBy",
+            "oid": "<id>",
+            "type": "string",
+            "historyType": "createdBy"
+        },
+        {
+            "displayLabel": "Last Updated By",
+            "name": "lastUpdatedBy",
+            "oid": "<id>",
+            "type": "string",
+            "historyType": "updatedBy"
+        },
+        {
+            "displayLabel": "Version Number",
+            "name": "abcsChangeNumber",
+            "oid": "<id>",
+            "type": "number",
+            "historyType": "versionNumber"
+        },
+        {
+            "name": "answer1",
+            "oid": "<id>",
+            "displayLabel": "answer1",
+            "type": "string"
+        },
+        {
+            "name": "answer2",
+            "oid": "<id>",
+            "displayLabel": "answer2",
+            "type": "string"
+        }
+    ],
+    "name": "Data",
+    "oid": "<id>",
+    "security": {
+        "type": "local",
+        "acl": [
+            {
+                "roleId": "approle.anonymous.user",
+                "privileges": [
+                    {
+                        "name": "view",
+                        "value": true
+                    },
+                    {
+                        "name": "create",
+                        "value": true
+                    },
+                    {
+                        "name": "update",
+                        "value": false
+                    },
+                    {
+                        "name": "delete",
+                        "value": false
+                    }
+                ]
+            },
+            {
+                "roleId": "approle.authenticated.user",
+                "privileges": [
+                    {
+                        "name": "view",
+                        "value": true
+                    },
+                    {
+                        "name": "create",
+                        "value": true
+                    },
+                    {
+                        "name": "update",
+                        "value": true
+                    },
+                    {
+                        "name": "delete",
+                        "value": true
+                    }
+                ]
+            }
+        ]
+    }
+}

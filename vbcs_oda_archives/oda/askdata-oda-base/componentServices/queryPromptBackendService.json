@@ -1,0 +1,14 @@
+{
+  "type" : "HOSTED",
+  "name" : "queryPromptBackendService",
+  "packageFileName" : "queryBackendSvc-1.0.0.tgz",
+  "packageChecksum" : "300dae48e2ac6ecdd425c47dee89ac9e",
+  "runtime" : "node",
+  "status" : {
+    "code" : "created",
+    "message" : "The service is created but not ready."
+  },
+  "loggingEnabled" : true,
+  "enabled" : true,
+  "trackingId" : "503CD325-98AD-4DED-88B3-BCCB22340552"
+}

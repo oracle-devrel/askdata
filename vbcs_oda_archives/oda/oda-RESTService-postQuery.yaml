@@ -1,0 +1,12 @@
+exportedRestServices:
+- endpoint: "<api-gateway-endpoint>/v1/prompt"
+  description: "pointing to (.252)"
+  name: "postQueryV3_apigw"
+  type: "REST"
+  authType: "bearerToken"
+  mock: false
+  restServiceMethods:
+  - restServiceMethodType: "POST"
+    contentType: "application/json"
+    requestBody: "{\n    \"question\": \"Show as bar graph\",\n    \"sessionid\": \"${system.message.channelConversation.sessionId}\"\n}"
+    restServiceParams: []

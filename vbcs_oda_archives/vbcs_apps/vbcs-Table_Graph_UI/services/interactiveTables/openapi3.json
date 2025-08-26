@@ -1,0 +1,77 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "interactiveTables",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "vb-catalog://backends/interactiveTables"
+        }
+    ],
+    "paths": {
+        "/getdata/": {
+            "get": {
+                "operationId": "getGetdata",
+                "parameters": [
+                    {
+                        "name": "idataId",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "x-vb": {
+                            "defaultValue": "default-value"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetGetdata"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getGetdata/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany",
+                    "queryParameters": {}
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "GetGetdata": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "Invoice Number": {
+                            "type": "string"
+                        },
+                        "Amount Due": {
+                            "type": "integer"
+                        },
+                        "Due Date": {
+                            "type": "integer"
+                        },
+                        "Past Due Days": {
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

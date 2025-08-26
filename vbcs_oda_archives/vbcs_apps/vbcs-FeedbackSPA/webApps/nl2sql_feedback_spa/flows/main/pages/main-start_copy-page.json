@@ -1,0 +1,146 @@
+{
+
+  "title": "Enter Information",
+  "description": "",
+  "variables": {
+    "data": {
+      "type": {
+        "postbackURL": "string"
+      },
+      "defaultValue": {
+        "postbackURL": "{{ $application.initParams.postbackURL}}"
+      }
+    },
+    "feedbackDetail": {
+      "type": "string"
+    },
+    "feedbackReason": {
+      "type": "string",
+      "defaultValue": "null"
+    },
+    "cancelFeedback": {
+      "type": "string",
+      "defaultValue": "Feedback was not submitted."
+    }
+
+  },
+  "metadata": {},
+  "types": {},
+  "chains": {
+    "submitFeedbackFn": {
+      "description": "",
+      "variables": {
+        "detail": {
+          "required": true,
+          "type": "any",
+          "input": "fromCaller"
+        }
+      },
+      "root": "submitFeedbackCallModuleFn",
+      "actions": {
+        "submitFeedbackCallModuleFn": {
+          "module": "vb/action/builtin/callModuleFunctionAction",
+          "parameters": {
+            "module": "{{$flow.functions}}",
+            "functionName": "submitFeedbackToDA",
+            "params": [
+              "{{ $page.variables.data.postbackURL }}",
+              "{{ $page.variables.feedbackDetail }}"
+            ]
+          },
+          "outcomes": {
+            "success": "navigateToPage1"
+          }
+        },
+        "navigateToPage1": {
+          "module": "vb/action/builtin/navigateAction",
+          "parameters": {
+            "page": "main-thanks"
+          }
+        }
+      }
+    },
+    "CancelButtonFn": {
+      "description": "",
+      "variables": {
+        "detail": {
+          "required": true,
+          "type": "any",
+          "input": "fromCaller"
+        }
+      },
+      "root": "callModuleFunction1",
+      "actions": {
+        "callModuleFunction1": {
+          "module": "vb/action/builtin/callModuleFunctionAction",
+          "parameters": {
+            "module": "{{$flow.functions}}",
+            "functionName": "submitFeedbackToDA",
+            "params": [
+              "{{ $page.variables.data.postbackURL }}",
+              "{{ $page.variables.cancelFeedback }}"
+            ]
+          },
+          "outcomes": {
+            "success": "navigateToPage1"
+          }
+        },
+        "navigateToPage1": {
+          "module": "vb/action/builtin/navigateAction",
+          "parameters": {
+            "page": "main-thanks"
+          }
+        }
+      }
+    }
+  },
+  "eventListeners": {
+
+    "ojButton4366295771OjAction2": {
+      "chains": [
+        {
+          "chainId": "CancelButtonFn",
+          "parameters": {
+            "detail": "{{ $event.detail }}"
+          }
+        }
+      ]
+    },
+    "ojButton10080968061OjAction2": {
+      "chains": [
+        {
+          "chainId": "submitFeedbackFn",
+          "parameters": {
+            "detail": "{{ $variables.feedbackReason }}"
+          }
+        }
+      ]
+    }
+  },
+  "imports": {
+    "components": {
+      "oj-checkboxset": {
+        "path": "ojs/ojcheckboxset"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-label": {
+        "path": "ojs/ojlabel"
+      },
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-text-area": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-menu": {
+        "path": "ojs/ojmenu"
+      }
+
+    }
+  }
+}

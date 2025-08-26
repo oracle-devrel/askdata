@@ -1,0 +1,11 @@
+exportedRestServices:
+- endpoint: "<api-gateway-endpoint>/v1/feedbackupdown"
+  description: "REST API endpoint to persist Feedback Like and Dislike (.252)"
+  name: "feedbackUpDownV3_apigw"
+  type: "REST"
+  authType: "bearerToken"
+  mock: false
+  restServiceMethods:
+  - restServiceMethodType: "POST"
+    contentType: "application/json"
+    restServiceParams: []

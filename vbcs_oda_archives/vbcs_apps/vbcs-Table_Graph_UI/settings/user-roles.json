@@ -1,0 +1,10 @@
+{
+  "userroles":[
+    {
+      "name": "chart-viewer",
+      "description": "",
+      "id": "chart-viewer",
+      "defaultMapping": {}
+    }
+  ]
+}

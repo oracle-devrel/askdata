@@ -1,0 +1,18 @@
+/* Custom styles that complement the PDF output */
+.md-typeset h1 {
+    border-bottom: 2px solid var(--md-primary-fg-color);
+    padding-bottom: 0.5rem;
+}
+
+/* Ensure consistent code styling */
+.md-typeset code {
+    font-family: 'Roboto Mono', monospace;
+}
+
+/* Custom admonitions that work in both formats */
+.admonition {
+    border-left: 4px solid #1976d2;
+    margin: 1rem 0;
+    padding: 0.5rem 1rem;
+    background: rgba(25, 118, 210, 0.1);
+}

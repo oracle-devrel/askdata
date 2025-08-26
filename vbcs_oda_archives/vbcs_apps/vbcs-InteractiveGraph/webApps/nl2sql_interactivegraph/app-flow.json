@@ -1,0 +1,142 @@
+{
+    "defaultPage": "shell",
+    "types": {},
+    "variables": {
+        "showGraph": {
+            "type": "boolean"
+        }
+      },
+    "security": {
+        "access": {
+            "requiresAuthentication": false
+        }
+    },
+    "chains": {},
+    "translations": {
+        "app": {
+            "path": "./resources/strings/app/nls/app-strings"
+        }
+    },
+    "description": "A new VB app",
+    "id": "starter",
+    "userConfig": {
+        "type": "vb/DefaultSecurityProvider",
+        "configuration": {
+            "authentication": {
+                "type": "oraclecloud"
+            }
+        },
+        "embedding": "any"
+    },
+    "imports": {
+        "components": {
+            "oj-validation-base": {
+                "path": "ojs/ojvalidation-base"
+            },
+            "oj-validation-datetime": {
+                "path": "ojs/ojvalidation-datetime"
+            },
+            "oj-validation-number": {
+                "path": "ojs/ojvalidation-number"
+            }
+        }
+    },
+    "requirejs": {
+        "paths": {
+            "interactivegraph-component": "resources/components/interactivegraph-component",
+            "oj-dyn": "https://static.oracle.com/cdn/jet/packs/oj-dyn/16.1.6/min/",
+            "oj-dynamic": "https://static.oracle.com/cdn/jet/packs/oj-dynamic/16.1.6/min/"
+        },
+        "bundles": {
+            "oj-dyn/component-bundle": [
+                "oj-dyn/bind-field/loader",
+                "oj-dyn/bind-section/loader",
+                "oj-dyn/container/loader",
+                "oj-dyn/form/loader",
+                "oj-dyn/form/resources/nls"
+            ],
+            "oj-dynamic/common-bundle": [
+                "oj-dynamic/providers/AdfBCExtension",
+                "oj-dynamic/providers/ComponentLayoutProvider",
+                "oj-dynamic/providers/ContainerLayoutProvider",
+                "oj-dynamic/providers/ContainerMetadataProviderFactory",
+                "oj-dynamic/providers/DefaultFetchable",
+                "oj-dynamic/providers/DynamicDataProvider",
+                "oj-dynamic/providers/DynamicLayoutMetadataProvider",
+                "oj-dynamic/providers/DynamicLayoutMetadataProviderFactory",
+                "oj-dynamic/providers/DynamicLayoutProvider",
+                "oj-dynamic/providers/Explodable",
+                "oj-dynamic/providers/Extension",
+                "oj-dynamic/providers/Fetchable",
+                "oj-dynamic/providers/HeterogeneousMetadataProvider",
+                "oj-dynamic/providers/HeterogeneousMetadataProviderFactory",
+                "oj-dynamic/providers/JsonFetchable",
+                "oj-dynamic/providers/JsonMetadataProvider",
+                "oj-dynamic/providers/JsonMetadataProviderFactory",
+                "oj-dynamic/providers/JsonMetadataSchema",
+                "oj-dynamic/providers/LocalMetadataProvider",
+                "oj-dynamic/providers/LocalMetadataProviderFactory",
+                "oj-dynamic/providers/MetadataContentManager",
+                "oj-dynamic/providers/MetadataDrivenLayoutProviderMixin",
+                "oj-dynamic/providers/MetadataHelpers",
+                "oj-dynamic/providers/MetadataProviderFactory",
+                "oj-dynamic/providers/MetadataProviderManager",
+                "oj-dynamic/providers/MetadataTransformer",
+                "oj-dynamic/providers/OpenAPISchema",
+                "oj-dynamic/providers/ResolvedLayoutCachingMetadataProvider",
+                "oj-dynamic/providers/ResolvedLayoutCachingMetadataProviderFactory",
+                "oj-dynamic/providers/ServiceFetchable",
+                "oj-dynamic/providers/ServiceMetadataProvider",
+                "oj-dynamic/providers/ServiceMetadataProviderFactory",
+                "oj-dynamic/providers/TransformState",
+                "oj-dynamic/providers/TypeDefinitions",
+                "oj-dynamic/shared/ComponentFetchAttribute",
+                "oj-dynamic/shared/DataProviderFactory",
+                "oj-dynamic/shared/DataProviderFactoryManager",
+                "oj-dynamic/shared/DefaultRestDataProvider",
+                "oj-dynamic/shared/DynamicDataProviderFactory",
+                "oj-dynamic/shared/DynamicInputContacts",
+                "oj-dynamic/shared/DynamicInputRegistry",
+                "oj-dynamic/shared/DynamicLayout",
+                "oj-dynamic/shared/DynamicLayoutContextProperty",
+                "oj-dynamic/shared/DynamicUIMetadata",
+                "oj-dynamic/shared/ExpressionManager",
+                "oj-dynamic/shared/ExtensibleMetadata",
+                "oj-dynamic/shared/JsonMetadata",
+                "oj-dynamic/shared/LayoutProvider",
+                "oj-dynamic/shared/MetadataProvider",
+                "oj-dynamic/shared/polyfills",
+                "oj-dynamic/shared/ProviderFeatures",
+                "oj-dynamic/shared/RestUtils",
+                "oj-dynamic/shared/SharedTypes",
+                "oj-dynamic/shared/UriTemplateUtils",
+                "oj-dynamic/shared/vbHelperCacheManager",
+                "oj-dynamic/utils/BusinessRuleEngine",
+                "oj-dynamic/utils/CommonUtils",
+                "oj-dynamic/utils/DynamicComponentUtil",
+                "oj-dynamic/utils/DynamicContainerUtils",
+                "oj-dynamic/utils/DynamicFormRenderUtils",
+                "oj-dynamic/utils/DynamicFormUtils",
+                "oj-dynamic/utils/DynamicInputFactory",
+                "oj-dynamic/utils/DynamicLOVUtil",
+                "oj-dynamic/utils/DynamicLayoutEngine",
+                "oj-dynamic/utils/JetUtils",
+                "oj-dynamic/utils/KeyConversionDataProvider",
+                "oj-dynamic/utils/LayoutExpressionUtils",
+                "oj-dynamic/utils/MacroTaskQueue",
+                "oj-dynamic/utils/MetadataUtils",
+                "oj-dynamic/utils/MicroTaskQueue",
+                "oj-dynamic/utils/UtilTypes"
+            ],
+            "oj-dynamic/component-bundle": [
+                "oj-dynamic/bind-field/loader",
+                "oj-dynamic/bind-section/loader",
+                "oj-dynamic/container/loader",
+                "oj-dynamic/form/loader",
+                "oj-dynamic/table/loader",
+                "oj-dynamic/table/resources/nls",
+                "oj-dynamic/form/resources/nls"
+            ]
+        }
+    }
+}

@@ -1,0 +1,79 @@
+{
+    "applicationType": "web",
+    "builder": {
+        "time": "2025-04-23T13:59:38.966Z",
+        "type": "grunt-vb-build",
+        "version": "2410.0.19"
+    },
+    "bundles": {},
+    "bundles-extra": {
+        "pathsToResources": {
+            "bundles/vb-app-bundle": {
+                "app-flow": "app-flow.js",
+                "css!resources/css/app": "resources/css/app.css",
+                "flows/main/main-flow": "flows/main/main-flow.js",
+                "flows/main/pages/main-start-page": "flows/main/pages/main-start-page.js",
+                "flows/main/pages/main-start_copy-page": "flows/main/pages/main-start_copy-page.js",
+                "flows/main/pages/main-thanks-page": "flows/main/pages/main-thanks-page.js",
+                "pages/resources/strings/shell/nls/root/shell-strings": "pages/resources/strings/shell/nls/root/shell-strings.js",
+                "pages/resources/strings/shell/nls/shell-strings": "pages/resources/strings/shell/nls/shell-strings.js",
+                "pages/shell-page": "pages/shell-page.js",
+                "resources/strings/app/nls/app-strings": "resources/strings/app/nls/app-strings.js",
+                "resources/strings/app/nls/root/app-strings": "resources/strings/app/nls/root/app-strings.js",
+                "text!app-flow.json": "app-flow.json",
+                "text!flows/main/main-flow.json": "flows/main/main-flow.json",
+                "text!flows/main/pages/main-start-page.html": "flows/main/pages/main-start-page.html",
+                "text!flows/main/pages/main-start-page.json": "flows/main/pages/main-start-page.json",
+                "text!flows/main/pages/main-start_copy-page.html": "flows/main/pages/main-start_copy-page.html",
+                "text!flows/main/pages/main-start_copy-page.json": "flows/main/pages/main-start_copy-page.json",
+                "text!flows/main/pages/main-thanks-page.html": "flows/main/pages/main-thanks-page.html",
+                "text!flows/main/pages/main-thanks-page.json": "flows/main/pages/main-thanks-page.json",
+                "text!pages/shell-page.html": "pages/shell-page.html",
+                "text!pages/shell-page.json": "pages/shell-page.json",
+                "text!services/catalog.json": "services/catalog.json",
+                "text!settings/dependencies.json": "settings/dependencies.json"
+            }
+        }
+    },
+    "extendableResources": [],
+    "internalResources": [],
+    "requirePaths": {},
+    "resources": [
+        "build-info.json",
+        "index.html",
+        "version_1745416778965/app-flow.js",
+        "version_1745416778965/app-flow.json",
+        "version_1745416778965/bundles/plain/vb-app-bundle.js",
+        "version_1745416778965/bundles/plain/vb-app-bundle.js.map",
+        "version_1745416778965/bundles/vb-app-bundle.js",
+        "version_1745416778965/bundles/vb-app-bundle.js.map",
+        "version_1745416778965/flows/main/main-flow.js",
+        "version_1745416778965/flows/main/main-flow.json",
+        "version_1745416778965/flows/main/pages/main-start-page.html",
+        "version_1745416778965/flows/main/pages/main-start-page.js",
+        "version_1745416778965/flows/main/pages/main-start-page.json",
+        "version_1745416778965/flows/main/pages/main-start_copy-page.html",
+        "version_1745416778965/flows/main/pages/main-start_copy-page.js",
+        "version_1745416778965/flows/main/pages/main-start_copy-page.json",
+        "version_1745416778965/flows/main/pages/main-thanks-page.html",
+        "version_1745416778965/flows/main/pages/main-thanks-page.js",
+        "version_1745416778965/flows/main/pages/main-thanks-page.json",
+        "version_1745416778965/pages/resources/strings/shell/nls/root/shell-strings.js",
+        "version_1745416778965/pages/resources/strings/shell/nls/shell-strings.js",
+        "version_1745416778965/pages/shell-page.html",
+        "version_1745416778965/pages/shell-page.js",
+        "version_1745416778965/pages/shell-page.json",
+        "version_1745416778965/resources/css/app.css",
+        "version_1745416778965/resources/strings/app/nls/app-strings.js",
+        "version_1745416778965/resources/strings/app/nls/root/app-strings.js",
+        "version_1745416778965/settings/dependencies.json"
+    ],
+    "schemaVersion": 2,
+    "themeLink": "https://static.oracle.com/cdn/jet/16.1.4/default/css/alta/oj-alta-min.css",
+    "version-info": {
+        "jet": "https://static.oracle.com/cdn/jet/16.1.4",
+        "source.version": "2410",
+        "visualRuntime": "https://static.oracle.com/cdn/vb/2410.2.0"
+    },
+    "versionHash": "version_1745416778965"
+}

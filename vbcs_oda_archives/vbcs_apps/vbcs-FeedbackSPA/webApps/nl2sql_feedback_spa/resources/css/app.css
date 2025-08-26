@@ -1,0 +1,27 @@
+.oj-collapsible-header-wrapper {
+  background-color:#312D2A !important;
+  padding-left: 10px;
+}
+
+.oj-button-confirm.oj-button-toggle.oj-default.oj-button-full-chrome, .oj-button-confirm.oj-button-toggle.oj-focus-only.oj-button-full-chrome, .oj-button-confirm.oj-button.oj-default.oj-button-full-chrome .oj-button-button, .oj-button-confirm.oj-button.oj-focus-only.oj-button-full-chrome .oj-button-button, .oj-button-confirm.oj-buttonset .oj-button-toggle.oj-default.oj-button-full-chrome, .oj-button-confirm.oj-buttonset .oj-button-toggle.oj-focus-only.oj-button-full-chrome {
+    /* background-color: #008230; */
+    /* background-image: none; */
+    /* border-color: transparent; */
+    /* color: #fff; */
+    /* text-shadow: none; */
+    background: #315357 !important;
+    color: white !important;
+    border: 1px solid #388E3C;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 13px !important;
+}
+
+.oj-button, .oj-button-nocomp {
+    height: 3.28571rem !important;
+    margin-bottom: 4px;
+    font-size: 1rem;
+    display: inline-flex;
+    vertical-align: middle;
+}

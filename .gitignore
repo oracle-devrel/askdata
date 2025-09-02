@@ -101,9 +101,7 @@ clientApp/autoprompt/semantic_suggest_runbook.md
 deployment-docs/docs/deployment/nginx.md
 
 deployment-docs/docs/deployment/terraform_p.md
-deployment-docs/docs/deployment/trust-service.c.md 
-deployment-docs/docs/deployment/trust-ui.md  
-deployment-docs/docs/deployment/trust-service.md 
+
 deployment-docs/docs/deployment/let_s_encrypt.md 
 deployment-docs/docs/deployment/let_s_encrypt_orig.md
 
@@ -111,8 +109,6 @@ deployment-docs/docs/rest/
 deployment-docs/docs/templates/
 deployment-docs/docs/logging.md
 
-deployment-docs/docs/deployment/apex-trust.md
-deployment-docs/docs/deployment/apex-trust-lb.md
 
 # File with reference to orahub repo 
 deployment-docs/mkdocs.yml
@@ -143,37 +139,16 @@ deployment-docs/mkdocs.yml
 # Sensitive info 
 /promotion/
 
-# Adding entire rest trust directory for now, since there's a dependency on dotmap 
-# can maybe add delta review for next release
-rest/
-
 # Random IPs 
 /rest/nl2sql-trust/conf/dev_trust_config.json 
-/rest/nl2sql-trust/conf/metadata_v2.json
+
 #/rest/nl2sql-trust/conf/trust_config.json # added placeholders for sensitive info
-
-# Sensitive info 
-/rest/nl2sql-trust/helpers/config_json_helper.py
-/rest/nl2sql-trust/helpers/config_json_helper.py
-
-# Reference to genai dedicated cluster 
-/rest/nl2sql-trust/helpers/finetune_helper.py
-
-# Couldn't find any reference upon first glance, but I imagine there might be if finetune helper has a reference 
-/rest/nl2sql-trust/helpers/finetune_db.py
-
-# Reference to OCIDs
-/rest/nl2sql-trust/helpers/llm_helper.py
-#/rest/nl2sql-trust/helpers/oci_helper_boostrap.py # cleaned up sensitive info 
-/rest/nl2sql-trust/helpers/oci_helper_json.py
 
 /rest/nl2sql-trust/helpers/test_ca_creation.json 
 
 # wallet
 /rest/nl2sql-trust/wallet/
 
-# Do we need this ? 
-/rest/nl2sql-trust/htmlcov
 
 # keys 
 /rest/nl2sql-trust/openssl/

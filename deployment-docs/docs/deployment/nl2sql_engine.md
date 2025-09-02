@@ -5,11 +5,12 @@
 ### Prerequisites 
 
 This section assumes the following resources are configured: 
+* [Policies & Dynamic Groups](./generic.md#dynamic-groups)
 * [Business & Trust ADBs](./database.md)
 * [OCI Cache Cluster](https://docs.oracle.com/en-us/iaas/Content/ocicache/createcluster.htm#top) 
 * [VCN](https://docs.oracle.com/en-us/iaas/Content/Network/Tasks/quickstartnetworking.htm#Virtual_Networking_Quickstart)
     - Ingress rules are added to security list allow traffic from public/private subnet on port 8000 & 8002 
-* [Policies & Dynamic Groups](./generic.md#dynamic-groups)
+
 
 > **Note** There is a partial dependency on the VB apps in the configuration file; however you can proceed for now without the VB apps and return later to populate the VB app endpoints. 
 

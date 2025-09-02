@@ -18,13 +18,16 @@ For basic instructions on deploying an autonomous database, see [Autonomous Data
 
 ## Configuration Steps 
 - Provision one database for client/business db 
-    - ACCOUNT_PAYABLES_TBL table 
+    - [Create ACCOUNT_PAYABLES_TBL](../../../sql/tbl_ddl.sql)
+    - Populate ACCOUNT_PAYABLES_TBL table 
         - Execute [sql/demodata.sql](../../../sql/demodata.sql) for demo data 
     - VENDORS table 
         - [Vendors CSV](../../../clientApp/vendors-export.csv)
         - Upload manually through sql developer
+            - **Note** Any example data that coincides with real businesses is coincidental. 
 - Provision one database for trust db 
-    - TRUST_LIBRARY table 
+    - [Create Trust DB Tables](../../../sql/nl2sql_datamodel_schema.sql)
+    - TRUST_LIBRARY table will be used by business and trust applications
     - Engine requires at least one entry in TRUST_LIBRARY table
         - Sample entry given in [sql/nl2sql_datamodel_schema.sql](../../../sql/nl2sql_datamodel_schema.sql)
     - Execute nl2sql_datamodel_schema.sql on trust db
@@ -37,4 +40,4 @@ For basic instructions on deploying an autonomous database, see [Autonomous Data
 - Should have APEX enabled
 
 #### Access
-Should be done through a public load balancer
+Should be done through a public load balancer. See [Private LB for ADW](../deployment/apex-private-adw-lb.md)

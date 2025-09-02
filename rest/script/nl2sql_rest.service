@@ -1,0 +1,28 @@
+[Unit]
+Description=NL2SQL REST Application
+After=network.target
+
+[Service]
+Environment=PYTHONUNBUFFERED=1
+Environment=NL2SQL_ENV=dev
+Environment=NL2SQL_HOST=0.0.0.0
+Environment=NL2SQL_PORT=8000
+Environment=NL2SQL_OCI_MODE=instance
+Environment=NL2SQL_OCI_NS=idb6enfdcxbl
+Environment=NL2SQL_OCI_BUCKET=askdata-dev
+Environment=PYTHONPATH=/home/opc/:.
+Environment=TNS_ADMIN=/home/opc/.../trustdb
+
+User=opc
+Group=opc
+
+WorkingDirectory=/home/opc/rest/nl2sql-trust
+ExecStart=/usr/bin/python3.11 /home/opc/rest/nl2sql-trust/nl2sql_service.py --inst $NL2SQL_ENV --host $NL2SQL_HOST --port $NL2SQL_PORT
+
+Restart=always
+
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

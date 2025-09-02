@@ -31,7 +31,7 @@ Note that the Bearer token is the same as above.
 
 | cURL Command |
 |--------------|
-| `curl -X POST "https://<apigw url>/v1/prompt" -H "Content-Type: application/json" -H "Authorization: Bearer <token>" -d "{\"question\" : \"Show invoices amount\", \"sessionid\": \"9876543210161\", \"userName\" : \"rizwan.appees@oracle.com\", \"domain\" : \"Payables\"}"` |
+| `curl -X POST "https://<apigw url>/v1/prompt" -H "Content-Type: application/json" -H "Authorization: Bearer <token>" -d "{\"question\" : \"Show invoices amount\", \"sessionid\": \"9876543210161\", \"userName\" : \"john.doe@example.com\", \"domain\" : \"Payables\"}"` |
 | |
 | **Example:** |
 | |
@@ -129,7 +129,7 @@ Response: Look for 200 OK
 
 1.  **nl2sql_app.py** – Runs on port **8000**
 
-2.  **trusthelper_ep.py** – Runs on port **8001**
+2.  **trusthelper_ep.py** – Runs on port **8002**
 
 Both services are located in the \<approot\> directory and can be started using nohup to run in the background.
 

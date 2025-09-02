@@ -207,4 +207,4 @@ def test_against_oracle(query):
     
 
 if __name__ == '__main__':
-    uvicorn.run(app, host='0.0.0.0', port=8001, workers=1)
+    uvicorn.run(app, host='0.0.0.0', port=8002, workers=1)

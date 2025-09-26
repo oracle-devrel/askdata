@@ -24,13 +24,13 @@ This section assumes the following resources are configured:
 >**Note** It can be helpful to use a VS Code extension like 'SSH - Remote' to connect to your instance in your private subnet. This assumes you have an ssh config entry in your local .ssh/config file such as below: 
 
 ```
-Host a2c-askdata-dev2-host
+Host askdata-dev-host
     HostName <private-engine-host-ip>
     User opc
     IdentityFile <path-to-engine-key>
     ProxyJump askdata-dev-jump
 
-Host a2c-askdata-dev
+Host askdata-dev-jump
     HostName <askdata-jump-public-ip>
     User opc
     IdentityFile <path-to-jump-host-key>

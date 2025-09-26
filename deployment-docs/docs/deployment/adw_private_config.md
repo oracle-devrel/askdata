@@ -139,9 +139,7 @@ END;
 from
 <https://support.oracle.com/knowledge/Oracle%20Cloud/2950076_1.html>  
 
-![Create Workspace](../deployment/adw/image.png)
-
-![Alt text](../deployment/adw/image-3.png)
+![Create Workspace](../deployment/adw/image-3.png)
 
 ```sql 
 BEGIN  

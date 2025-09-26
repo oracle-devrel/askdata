@@ -34,7 +34,7 @@ As needed per components.
 |nl2sql_env value | nl2sql_env is a freeform tag used to be able to query all resources used in a single nl2sql deployment. ||
 |Trust Application Users | Need to gather the names and emails of the expert users to use the trust application. They need to be part of XXX group. The users need to receive an email telling them how to authenticate with the application in their environment.||
 | Business User Identity Integration| We need to define how the business users will have their identity serviced. ||
-| Customer Readyness |The customer requirement and information pertaining to this system needs to be defined and documented prior to any deployment.(Refer to customer facing configuration) ||
+| Customer Readiness |The customer requirement and information pertaining to this system needs to be defined and documented prior to any deployment.(Refer to customer facing configuration) ||
 
 # Validation
 

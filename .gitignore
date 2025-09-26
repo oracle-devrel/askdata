@@ -56,6 +56,9 @@ __pycache__/
 !clientApp/untrusted.png 
 !/vbcs_oda_archives/vbcs_apps/vbcs-askdata/webApps/nl2sqlbot/resources/images/*
 !deployment-docs/docs/deployment/function/*
+!deployment-docs/docs/deployment/trust-api-gw/*
+!deployment-docs/docs/deployment/adw/*
+!deployment-docs/docs/deployment/oda/*
 
 # Added images for documentation (redacted)
 !deployment-docs/docs/deployment/business_media/media/*

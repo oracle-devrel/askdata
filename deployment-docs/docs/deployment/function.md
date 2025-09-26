@@ -105,6 +105,7 @@ We will use Cloud Shell for deploying functions
 1.	Open Cloud Shell 
  
  ![Cloud Shell](../deployment/function/cloud-shell.png)
+
  ![Cloud Shell](../deployment/function/cloud-shell-2.png)
 
 2.	Download Oracle function custom component code from code repository

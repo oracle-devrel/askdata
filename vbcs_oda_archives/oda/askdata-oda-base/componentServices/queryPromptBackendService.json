@@ -2,7 +2,7 @@
   "type" : "HOSTED",
   "name" : "queryPromptBackendService",
   "packageFileName" : "queryBackendSvc-1.0.0.tgz",
-  "packageChecksum" : "300dae48e2ac6ecdd425c47dee89ac9e",
+  "packageChecksum" : "84c7d7a248b028d0b40e4236e3df7abe",
   "runtime" : "node",
   "status" : {
     "code" : "created",
@@ -10,5 +10,5 @@
   },
   "loggingEnabled" : true,
   "enabled" : true,
-  "trackingId" : "503CD325-98AD-4DED-88B3-BCCB22340552"
+  "trackingId" : "30ff0936-774e-4004-a152-5b120c555612"
 }

@@ -10,13 +10,24 @@ import sseclient
 import json
 import logging
 import os
+from dynamic_prompt_injection import get_hints4llm
 
 logger = logging.getLogger("app_logger")
 config = configparser.RawConfigParser()
 config.read('ConfigFile.properties')
 
 CONFIG_PROFILE = "DEFAULT"
-ociconfig = oci.config.from_file('~/.oci/config', CONFIG_PROFILE)
+#ociconfig = oci.config.from_file('~/.oci/config', CONFIG_PROFILE)
+
+try:
+    ociconfig = oci.config.from_file('~/.oci/config', CONFIG_PROFILE)
+    oci.config.validate_config(ociconfig)
+except Exception as e:
+    ociconfig = None 
+    print("Error loading OCI configuration:", e)
+    signer = oci.auth.signers.InstancePrincipalsSecurityTokenSigner()
+
+
 active_endpoint = config.get('OCI', 'serviceendpoint.active')
 dac_endpt = ""
 compartment_id = ""
@@ -60,13 +71,18 @@ def create_message(role, text):
     return message
 
 def ds_llm(messages):
-    logger.debug("***************** ds_llm *****************")
-    auth = Signer(
-            tenancy=ociconfig['tenancy'],
-            user=ociconfig['user'],
-            fingerprint=ociconfig['fingerprint'],
-            private_key_file_location=ociconfig['key_file'],
-            pass_phrase=ociconfig['pass_phrase'])
+    logger.debug("***************** data science llm *****************")
+    
+    if signer is None: 
+        auth = Signer(
+                tenancy=ociconfig['tenancy'],
+                user=ociconfig['user'],
+                fingerprint=ociconfig['fingerprint'],
+                private_key_file_location=ociconfig['key_file'],
+                pass_phrase=ociconfig['pass_phrase'])
+    else: 
+        auth = signer
+
     if isinstance(messages, str):
         # For instruct mode where str will be passed
         transformed_messages = [
@@ -115,12 +131,27 @@ def chat_with_llm(messages):
     if active_endpoint == 'DS':
         return ds_llm(messages)
     else:
-        generative_ai_inference_client = oci.generative_ai_inference.GenerativeAiInferenceClient(
-                config=ociconfig,
-                service_endpoint=endpoint,
-                retry_strategy=oci.retry.NoneRetryStrategy(),
+        if ociconfig is not None: 
+            generative_ai_inference_client = oci.generative_ai_inference.GenerativeAiInferenceClient(
+                config=ociconfig, service_endpoint=endpoint, 
+                retry_strategy=oci.retry.NoneRetryStrategy(), 
                 timeout=(10,240)
                 )
+        else:
+            signer = oci.auth.signers.InstancePrincipalsSecurityTokenSigner()
+            generative_ai_inference_client = oci.generative_ai_inference.GenerativeAiInferenceClient(
+                        config={},
+                        signer = signer,
+                        service_endpoint=endpoint,
+                        retry_strategy=oci.retry.NoneRetryStrategy(),
+                        timeout=(10,240)
+                        )
+        # generative_ai_inference_client = oci.generative_ai_inference.GenerativeAiInferenceClient(
+        #         config=ociconfig,
+        #         service_endpoint=endpoint,
+        #         retry_strategy=oci.retry.NoneRetryStrategy(),
+        #         timeout=(10,240)
+        #         )
         chat_detail = oci.generative_ai_inference.models.ChatDetails()
         chat_request = oci.generative_ai_inference.models.GenericChatRequest()
         chat_request.api_format = oci.generative_ai_inference.models.BaseChatRequest.API_FORMAT_GENERIC
@@ -142,14 +173,30 @@ def chat_with_llm(messages):
                     )
         chat_detail.chat_request = chat_request
         chat_detail.compartment_id = compartment_id
-        return generative_ai_inference_client.chat(chat_detail)
+        llm_response = generative_ai_inference_client.chat(chat_detail)
+        return llm_response.data.chat_response.choices[0].message.content[0].text
 
 def chat_instructmode_llm(llmqry: str ):
     logger.debug("*****************chat_instructmode_llm**************************")
     if active_endpoint == 'DS':
         return ds_llm(llmqry)
     else:
-        generative_ai_inference_client = oci.generative_ai_inference.GenerativeAiInferenceClient(config=ociconfig, service_endpoint=endpoint, retry_strategy=oci.retry.NoneRetryStrategy(), timeout=(10,240))
+        if ociconfig is not None: 
+            generative_ai_inference_client = oci.generative_ai_inference.GenerativeAiInferenceClient(
+                config=ociconfig, service_endpoint=endpoint, 
+                retry_strategy=oci.retry.NoneRetryStrategy(), 
+                timeout=(10,240)
+                )
+        else:
+            signer = oci.auth.signers.InstancePrincipalsSecurityTokenSigner()
+            generative_ai_inference_client = oci.generative_ai_inference.GenerativeAiInferenceClient(
+                        config={},
+                        signer = signer,
+                        service_endpoint=endpoint,
+                        retry_strategy=oci.retry.NoneRetryStrategy(),
+                        timeout=(10,240)
+                        )
+        #generative_ai_inference_client = oci.generative_ai_inference.GenerativeAiInferenceClient(config=ociconfig, service_endpoint=endpoint, retry_strategy=oci.retry.NoneRetryStrategy(), timeout=(10,240))
         chat_detail = oci.generative_ai_inference.models.ChatDetails()
         content = oci.generative_ai_inference.models.TextContent()
         content.text = llmqry
@@ -261,7 +308,7 @@ def followup_prompt(userprompt: str):
     """
     return msg.format(userprompt)
 
-def get_sql_prompt(metadata,question,dialect):
+def get_sql_prompt(metadata,question,dialect,hints):
     prmpt = """
     Using the METADATA and the INSTRUCTIONS provided, create a SQL query for the user prompt given below.
     User prompt: {1}
@@ -269,7 +316,7 @@ def get_sql_prompt(metadata,question,dialect):
     Your query should be syntactically correct sql in {2} dialect.
 
     INSTRUCTIONS:
-       -   If what the prompt is asking for does not clearly relate to the below metadata tables or columns or to the below business rules, do not generate a SQL query.  Instead answer: 'Please clarify.'
+        -  If what the prompt is asking for does not clearly relate to the below metadata tables or columns or to the below business rules, do not generate a SQL query.  Instead answer: 'Please clarify.'
         -  Use column names from the metadata below with no exceptions.
         -  Do not provide any explanations. Only output query.
         -  Make the query explict and readable.  Use table aliases
@@ -284,12 +331,12 @@ def get_sql_prompt(metadata,question,dialect):
 
     Business Rules:
         -  critical invoice: amount due is > $1000 and days past due > 7
-
+    {3}
     METADATA:
     {0}
     """
-    prmpt = prmpt.format(metadata,question,dialect)
-    #logger.debug(prmpt)
+    prmpt = prmpt.format(metadata,question,dialect,hints)
+    logger.debug(f"New Prompt:\n {prmpt}")
     return prmpt
 
 def seek_explanation(convoprompt,sql,domain):
@@ -341,27 +388,24 @@ def chat_conversion(msg, prompt_conversation):
         user_message = create_message("USER", msg)
     prompt_conversation.append(user_message)
     response = chat_with_llm(prompt_conversation)
-    if active_endpoint == 'DS':
-        assistant_response = create_message("ASSISTANT", response)
-        prompt_conversation.append(assistant_response)
-        logger.debug("reworded prompt: " +response)
-        return response, prompt_conversation
-    else:
-        response_content = response.data.chat_response.choices[0].message.content[0].text
-        assistant_response = create_message("ASSISTANT", response_content)
-        prompt_conversation.append(assistant_response)
-        logger.debug("reworded prompt: " + response_content)
-        return response_content, prompt_conversation
+    assistant_response = create_message("ASSISTANT", response)
+    prompt_conversation.append(assistant_response)
+    logger.debug("reworded prompt: " +response)
+    return response, prompt_conversation
 
-def create_user_message(prmpt,conversation,domain):
+
+def create_user_message(prmpt,conversation,domain,dynamic_prompt=None):
+    dynamic_prompt_text = dynamic_prompt if dynamic_prompt else ""
     if len(conversation) == 0:
         metadata  = get_domain_filename(domain)
         logger.debug(f"Domain filename is: {metadata}")
         schemaddl = read_file_to_string(metadata)
-        sqlprompt = get_sql_prompt(schemaddl,prmpt,dialect)
+        sqlprompt = get_sql_prompt(schemaddl,prmpt,dialect,dynamic_prompt_text)
         user_message = create_message("USER", sqlprompt)
     else:
-        user_message = create_message("USER", prmpt)
+        final_prmpt = prmpt+dynamic_prompt_text
+        logger.debug(f"follow-up message with dynamic prompt:\n{final_prmpt}")
+        user_message = create_message("USER", final_prmpt)
     return user_message
 
 def create_assistant_message(prmpt):
@@ -370,12 +414,7 @@ def create_assistant_message(prmpt):
 
 def get_llm_sql(conversation):
     response = chat_with_llm(conversation)
-    if active_endpoint == 'DS':
-        #response_json = json.loads(response.text)
-        #response_json['choices'][0]['message']['content']
-        parse_output = parse_select_query(response)
-    else:
-        parse_output = parse_select_query(response.data.chat_response.choices[0].message.content[0].text)
+    parse_output = parse_select_query(response)
     if parse_output ==  "SQL not found":
         return "Please clarify."
     else:
@@ -411,9 +450,102 @@ def check_graphing_request(prompt: str):
     else:
         return False
 
+def classify_iprompt_request(prompt: str):
+    msg = f"""
+    ## Instructions
+    You are given a user request. Your job is to:
+
+    1. Classify the request into one of the following query types:
+       - "data": The user only asks for data processing, not for a chart or graph.
+       - "graph": The request must contain the word 'graph' or 'chart'.
+       - "both": The user asks for data processing and also wants the result to be shown as a graph.
+
+    2. Generate two rewritten prompts:
+       - query_prompt: Reword the request to only describe the data processing needed.
+       - graph_prompt: Reword the request to only describe the graph to generate.
+         - For "data": Return a generic graph prompt like "generate a graph for this data."
+         - For "graph": Use the user prompt as-is.
+         - For "both": Reword to focus only on the graph (e.g., emphasize chart type and what to plot).
+
+    ### Output Format:
+    query_type: <data|graph|both>
+    query_prompt: <rewritten prompt for processing>
+    graph_prompt: <rewritten or reused prompt for graphing>
+
+    ### User Request:
+    {prompt}
+    """
+
+    ret = chat_instructmode_llm(msg)
+
+    lines = ret.strip().splitlines()
+    qtype = next((l.split(":", 1)[1].strip() for l in lines if l.lower().startswith("query_type:")), "data")
+    query_prompt = next((l.split(":", 1)[1].strip() for l in lines if l.lower().startswith("query_prompt:")), prompt)
+    graph_prompt = next((l.split(":", 1)[1].strip() for l in lines if l.lower().startswith("graph_prompt:")), "generate a graph for this data.")
+
+    return qtype, query_prompt, graph_prompt
+
 def parse_select_query(sql):
     match = re.search(r"(?i)(select\s+.*?)(;|```|$)", sql, re.DOTALL)
     if match:
         return match.group(1).strip()
     logger.debug("SQL not found")
     return "SQL not found"
+
+def evaluate_equivalence_prompt(user_prompt, user_sql, df, domain):
+    normalized_user_sql = " ".join(user_sql.split())
+    candidate_blocks = []
+    for idx, row in df.iterrows():
+        candidate_blocks.append(f"           {idx + 1}. CANDIDATE PROMPT: {row['prompt']}\n           CANDIDATE SQL: {' '.join(row['query'].split())}\n")
+    candidates_text = '\n'.join(candidate_blocks)
+    
+    logger.debug("retrieving metadata...")
+    metadata_path  = get_domain_filename(domain)
+    metadata = read_file_to_string(metadata_path)
+
+    msg = f"""
+    You will be given a USER prompt/SQL and a list of CANDIDATE prompt/SQL pairs.
+    For EACH candidate (by index), evaluate:
+    - PROMPT_EQUIVALENT: Are the user prompt and candidate prompt semantically equivalent?
+    - SQL_EQUIVALENT: Are the user SQL and candidate SQL semantically equivalent?
+    
+    Return your answer as two values per candidate, PROMPT_EQUIVALENT and then SQL_EQUIVALENT separated by a pipe symbol (`|`), like:
+    1. YES | YES
+    2. NO | YES
+    3. YES | NO
+    
+    Use only YES or NO in uppercase. Do not provide explanations.
+    Make sure there are no LLM hallucinations.
+    
+    Rules:
+    - To evaulate if User SQL and Candidate SQL are semantically equivalant, use the following rules. 
+        - SELECT clauses: aggregations must be identical
+        - SELECT clauses: ignore differences in alias names
+        - SELECT clauses: allow different numbers of columns
+        - WHERE clauses: must have identical logic but allow difference in value of number, date or text and allow differences in comparison operators such as <, <=, >, >
+        - WHERE clauses: allow for associativity in AND OR operands
+        - FROM clauses: must be identical
+        - JOIN clauses: must be identical
+        - GROUP BY clauses: must be identical
+        - ORDER BY clauses: ignore this difference
+        - FETCH or LIMIT clauses: ignore this difference
+    - These are natural language prompts to be converted to sql. To evaulate if User Prompt and Candidate Prompt are semantically equivalent, use the following rules. 
+        - Tell me if these two prompts will return similar results
+        - Allow differences in values of variables
+        - Ignore comparisons (e.g. less than vs greater than)
+        - Ignore differences in sorting
+        - Ignore differences in requests for number of rows to return (e.g. top, bottom, first 20)
+        - Do not allow differences in aggregations, filtering etc
+        - Use the following database schema metadata to help recognize business terminology. 
+        - Answer only: yes, no, or not sure and do not provide explanations.  If there is a doubt, answer not sure.
+      
+    schema metadata:
+        {metadata}
+    
+    Data to be evaluated:
+        USER PROMPT: {user_prompt}
+        USER SQL: {normalized_user_sql}
+        CANDIDATES: 
+{candidates_text}
+    """
+    return msg

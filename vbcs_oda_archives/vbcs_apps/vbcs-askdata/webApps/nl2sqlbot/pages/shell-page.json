@@ -64,5 +64,6 @@
       "/resources/css/shell.css"
     ]
   },
-  "translations": {}
+  "translations": {},
+  "events": {}
 }

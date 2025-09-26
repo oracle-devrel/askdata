@@ -1,3 +1,11 @@
 {
-  "component-dependencies": {}
+  "component-dependencies": {
+    "oj-sample": {
+      "version": "8.0.0",
+      "components": {
+        "export-data": "8.0.0",
+        "visualization-exporter": "8.0.0"
+      }
+    }
+  }
 }

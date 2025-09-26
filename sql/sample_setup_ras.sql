@@ -1,3 +1,6 @@
+-- Copyright (c) 2021, 2025 Oracle and/or its affiliates.
+-- Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl/
+
 As admin user
 
 create user app_data identified by <password>
@@ -114,7 +117,7 @@ DECLARE
   sessionid RAW(16);
   attrib_out_val VARCHAR2(4000);
 BEGIN
-  SYS.DBMS_XS_SESSIONS.CREATE_SESSION('rajarora', sessionid);
+  SYS.DBMS_XS_SESSIONS.CREATE_SESSION('<username>', sessionid);
   SYS.DBMS_XS_SESSIONS.ATTACH_SESSION(sessionid);
   SYS.DBMS_XS_SESSIONS.CREATE_NAMESPACE('ns1');
   SYS.DBMS_XS_SESSIONS.SET_ATTRIBUTE('ns1', 'attr1', 'val13');
@@ -146,7 +149,7 @@ END;
 
 grant execute on get_xs_attribute to nl2sql_role;
 
--- exec  sys.xs_principal.grant_roles('rajarora, 'XSNAMESPACEADMIN');
+-- exec  sys.xs_principal.grant_roles('username, 'XSNAMESPACEADMIN');
 
 declare
 begin

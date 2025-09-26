@@ -85,3 +85,5 @@ Add the resource server (idcs server) as the resource
 <br>
 
 ![ ](./business_media/media/image7.png)
+
+## [Return home](../../../README.md)

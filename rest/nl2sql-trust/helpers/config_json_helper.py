@@ -48,10 +48,6 @@ def test_climb():
             {
             "namespace":"A",
             "os":{
-                "finetune":{
-                        "os_path":"B",
-                        "local_path":"C"
-                        },
                 "metadata":{
                         "os_path":"D",
                         "local_path":"E"
@@ -69,7 +65,6 @@ def test_climb():
         }
     
     base["oci"]["os"]["p"] = base["oci"]
-    base["oci"]["os"]["finetune"]["p"] = base["oci"]["os"]
     base["oci"]["os"]["metadata"]["p"] = base["oci"]["os"]
 
     print("base----------")
@@ -79,11 +74,6 @@ def test_climb():
     print(walkback_d(base["oci"],"namespace"))
     print("base.oci.os.ns----------")
     print(walkback_d(base["oci"]["os"],"namespace"))
-    print("base.oci.os.finetune.namespace----------")
-    # print(base["oci"]["os"]["finetune"]["namespace"])
-    print(walkback_d(base["oci"]["os"]["finetune"],"namespace"))
-    print(walkback_d(base["oci"]["os"]["finetune"],"namespace"))
-
 
 class  config_boostrap:
 
@@ -129,11 +119,8 @@ class  config_boostrap:
         cls.dconfig["oci"]["engine"]["p"] = cls.dconfig["oci"]
         cls.dconfig["oci"]["ai"]["p"] = cls.dconfig["oci"]
         cls.dconfig["oci"]["vault"]["p"] = cls.dconfig["oci"]
-        cls.dconfig["oci"]["finetune"]["p"] = cls.dconfig["oci"]
         cls.dconfig["oci"]["os"]["p"] = cls.dconfig["oci"]
-        cls.dconfig["oci"]["os"]["finetune"]["p"] = cls.dconfig["oci"]["os"]
         cls.dconfig["oci"]["os"]["metadata"]["p"] = cls.dconfig["oci"]["os"]
-
         
     @classmethod
     def trace(cls):

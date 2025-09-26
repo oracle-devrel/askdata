@@ -1,31 +1,230 @@
-<!-- <script src="resources/scripts/web-sdkVnew.js"></script> -->
+<!-- <script src="resources/scripts /web-sdkVnew.js"></script> -->
 
 <!-- <link rel="stylesheet" href="resources/styles/style.css"> -->
 
 
 
 <!-- <script src="resources/native-client-sdk-js/web-sdk.js" onload="initSdk('Bots')" defer></script> -->
-<oj-bind-if test="[[ $application.variables.isAuthorized ]]">
-  <div style="display:flex" class="check">
-    <img alt="" :src='[[ $application.path + "resources/images/Oracle_LOGO_RED.png" ]]'>
-    <!-- <h1 class="heading">Oracle</h1>
+<div style="display:flex" class="check">
+  <div class="oj-sm-padding-12x-end">
+    <oj-button id="toggleIconButton" class="toggle-icon-button" display="icons"
+      on-oj-action="[[$listeners.toggleIconButtonAction]]">
+      <span slot="startIcon" class="oj-ux-ico-menu"></span>
+    </oj-button>
+  </div>
+  <img alt="" :src='[[ $application.path + "resources/images/Oracle_LOGO_RED.png" ]]'>
+  <!-- <h1 class="heading">Oracle</h1>
     <div> -->
-    <h1 style="display:inline;" id="heading"> AskData</h1>
-    <!-- </div> -->
-  </div>
+  <h1 style="display:inline;" id="heading"> AskData</h1>
+  <!-- </div> -->
+</div>
+<div class="left-aligned">
+  <!-- <h2 id="solutionsheader" textAlign="left">Ask Oracle</h2> -->
+</div>
 
-  <div class="left-aligned">
-    <!-- <h2 id="solutionsheader" textAlign="left">Ask Oracle</h2> -->
-  </div>
-  <div id="chat-container" class="chatbox" style="height: 600px; width: 1400px; padding: 0;
-            text-align: initial">
-  </div>
-</oj-bind-if>
 
-<oj-bind-if test="[[ !$application.variables.isAuthorized ]]">
-  <div style="display: flex; justify-content: center; align-items: center; height: 100vh; text-align: center;">
-    <oj-highlight-text text="You are NOT authorized to access this page. Please contact the System Administrator."
-      match-text="Highlight" style="color: red; font-weight: bold; font-size: 30px;">
-    </oj-highlight-text>
+<!-- <oj-button label="Click Me" on-oj-action="[[$listeners.buttonAction]]">
+</oj-button> -->
+<div class="oj-flex">
+
+</div>
+
+
+
+<div class="oj-flex">
+
+
+<!-- New LEFT Panel  -->
+  <oj-bind-if test="[[ $variables.showLeftPanel ]]">
+    <!-- <oj-collapsible expanded="true" id="collapsible-panel"> -->
+
+
+
+    <div id="chat-container" style="padding: 0;
+            text-align: initial" class="oj-flex">
+      <div id="panelPage" class="oj-flex">
+
+        <div class="oj-flex-item oj-panel oj-sm-padding-2x oj-bg-neutral-10 side-panel">
+          <!-- Header -->
+          <!-- <div class="side-panel-header">
+            <h3 class="side-title">History</h3>
+          </div> -->
+
+          <oj-bind-if test="[[$page.variables.recentArr ]]">
+            <oj-collapsible id="recent" class="oj-sm-margin-2x-bottom" expanded>
+              <span slot="header" class="oj-typography-body-md">RECENT</span>
+              <ul class="history-list">
+                <oj-bind-for-each data="[[ $page.variables.recentArr ]]">
+                  <template>
+                    <li class="history-item" on-click="[[$listeners.ulClick2]]">
+                      <oj-bind-text value="[[ $current.data.description ]]"></oj-bind-text>
+                    </li>
+                  </template>
+                </oj-bind-for-each>
+              </ul>
+            </oj-collapsible>
+          </oj-bind-if>
+
+          <oj-bind-if test="[[ $page.variables.freqUsedArr ]]">
+            <oj-collapsible id="frequent" class="oj-sm-margin-2x-bottom" expanded>
+              <span slot="header" class="oj-typography-body-md">Frequently Used</span>
+              <ul class="history-list">
+                <oj-bind-for-each data="[[ $page.variables.freqUsedArr ]]">
+                  <template>
+                    <li class="history-item" on-click="[[$listeners.ulClick2]]">
+                      <oj-bind-text value="[[ $current.data.description ]]"></oj-bind-text>
+                    </li>
+                  </template>
+                </oj-bind-for-each>
+              </ul>
+            </oj-collapsible>
+          </oj-bind-if>
+
+          <oj-bind-if test="[[ $page.variables.bookMarkedArr ]]">
+            <oj-collapsible id="bookmarked" class="oj-sm-margin-2x-bottom" expanded>
+              <span slot="header" class="oj-typography-body-md">Bookmarked</span>
+              <ul class="history-list">
+                <oj-bind-for-each data="[[ $page.variables.bookMarkedArr ]]">
+                  <template>
+                    <li class="history-item" on-click="[[$listeners.ulClick2]]">
+                      <oj-bind-text value="[[ $current.data.description ]]"></oj-bind-text>
+                    </li>
+                  </template>
+                </oj-bind-for-each>
+              </ul>
+            </oj-collapsible>
+          </oj-bind-if>
+
+          <oj-bind-if test="[[$page.variables.agentActionsArr ]]">
+            <oj-collapsible id="AgentActions" class="oj-sm-margin-2x-bottom" expanded>
+              <span slot="header" class="oj-typography-body-md">Agent Actions</span>
+              <ul class="history-list">
+                <oj-bind-for-each data="[[ $page.variables.agentActionsArr ]]">
+                  <template>
+                    <li class="history-item" on-click="[[$listeners.ulClick2]]">
+                      <oj-bind-text value="[[ $current.data.description ]]"></oj-bind-text>
+                    </li>
+                  </template>
+                </oj-bind-for-each>
+              </ul>
+            </oj-collapsible>
+          </oj-bind-if>
+
+
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+    <!-- <h4 class="oj-typography-heading-sm oj-color-invert" slot="header">
+        <oj-bind-text value="[[ $variables.showLeftPanel?'Conversations':'' ]]"></oj-bind-text>
+      </h4> -->
+    <!-- </oj-collapsible> -->
+
+  </oj-bind-if>
+
+
+  <!-- New Right Panel style="display:none;" -->
+  <oj-collapsible expanded="{{ $variables.rightPanelCollapsible }}" id="right-collapsible-panel"
+    class="right-panel-fixed" style="display:none;">
+
+    <div id="insights-loader">
+      <oj-progress-circle size="md" value="-1" class="custom-blue-loader"></oj-progress-circle>
+    </div>
+
+    <div slot="header"
+      style="display: flex; justify-content: space-between; align-items: center;height: 56px;font-size: 24px">
+      <h2 slot="header" class="oj-color-invert" style="font-size: large; margin: 0;">
+        <oj-bind-text value='[[ $application.variables.getDetailedInsights? "View Insights": "View Auto Insights" ]]'>
+        </oj-bind-text>
+      </h2>
+      <span slot="header" class="oj-ux-ico-close-circle oj-color-invert" style="cursor: pointer;"
+      on-click="[[$listeners.iconClick]]"></span>
+    </div>
+
+
+    <div id="right-chat-container" style="padding: 0; text-align: initial" class="oj-flex">
+      <div id="right-panelPage"
+        style="width: 24vw !important; height: 100vh !important; display: flex; flex-direction: column;"
+        class="oj-flex">
+        <div class="oj-flex-item oj-panel oj-sm-padding-2x oj-bg-neutral-10 side-panel" id="questions"
+          style="margin-top: auto;">
+
+          <oj-bind-if test="[[ $application.variables.getDetailedInsights ]]">
+
+            <div class="input-container oj-sm-padding-10x-top">
+              <oj-text-area id="user-input" placeholder="Type your question here..."
+                value="{{ $variables.viewInsightsText }}"></oj-text-area>
+              <oj-button class="oj-md-margin-4x-top oj-sm-padding-3x-end" id="submit-btn" chroming="callToAction"
+                on-oj-action="[[$listeners.submitBtnAction]]">Send
+              </oj-button>
+              <oj-button class="oj-md-margin-4x-top" id="clear-chat-btn" chroming="callToAction"
+                on-oj-action="[[$listeners.clearChatBtnAction]]">Reset</oj-button>
+            </div>
+            <oj-bind-if test="[[ $variables.insightsHistory.length > 0]]">
+              <div class="oj-bg-info-10 oj-sm-padding-2x oj-sm-margin-1x-top" style="border-radius: 6px;">
+                <div class="oj-typography-body-sm oj-text-color-secondary oj-sm-margin-1x-top">
+                <strong>Insights History:</strong>      
+                <ul style="list-style: none; padding-left: 0; margin-top: 0.5rem;">
+                  <oj-bind-for-each data="[[ $variables.insightsHistory ]]">
+                    <template>
+                      <li style="margin: 0.25rem 0;">
+                        <span class="oj-ux-ico-subdirectory-arrow-down-right oj-sm-margin-1x-top" style="font-size: 1.40rem; vertical-align: middle;"></span>
+                        <!-- Clicked link -->
+                        <oj-bind-if test="[[ $current.index === $variables.lastClickedLinkId ]]">
+                          <a href="#" data-id="[[ $current.data.id ]]" data-label="[[ $current.data.question ]]" style="margin-left: 0.5rem; color: #6c757d; cursor: default; font-size: 0.95rem; font-weight: bold;">
+                            <oj-bind-text value="[[ $current.data.question ]]"></oj-bind-text>
+                          </a>
+                        </oj-bind-if>
+                        <!-- clickable link -->
+                        <oj-bind-if test="[[ $current.index !== $variables.lastClickedLinkId ]]">
+                          <a href="javascript:void(0)" data-id="[[ $current.data.id ]]" data-label="[[ $current.data.question ]]" style="margin-left: 0.5rem; color: #0275d8; cursor: pointer; text-decoration: underline; font-size: 0.9rem;" on-click="[[$listeners.hyperlinkClick0]]">
+                            <oj-bind-text value="[[ $current.data.question ]]"></oj-bind-text>
+                          </a>
+                        </oj-bind-if>
+                      </li>
+                    </template>
+                  </oj-bind-for-each>
+                </ul>
+                </div>
+              </div>
+            </oj-bind-if>
+        
+          
+          </oj-bind-if>
+
+          <div class="input-container">
+
+            <div id="htmlContainer"
+              style="white-space: normal;overflow: visible;height: auto;padding-bottom: 200px;"></div>
+            
+    
+            <!-- <oj-text-area id="user-input-response" placeholder="Data insights here..." class="oj-sm-padding-10x-top"
+              disabled="true" value="{{ $variables.viewInsightsResponse }}" rows="1000" >
+            </oj-text-area> -->
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </oj-collapsible>
+
+
+
+
+</div>
+
+<oj-dialog id="oj-dialog-page-load-auto-insights" cancel-behavior="icon" resize-behavior="resizable"
+  class="custom-dialog">
+  <div slot="body">
+    <div class="oj-flex">
+      <h6 id="loading-text" class="oj-header oj-flex-item oj-sm-12 oj-md-12">Fetching insights, please wait
+        ...</h6>
+
+    </div>
   </div>
-</oj-bind-if>
+</oj-dialog>

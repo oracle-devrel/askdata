@@ -21,6 +21,23 @@
   }
 }
 
+/* ODA Chat Wrapper */
+
+ /* changes for the center aligned - chat bot - 18th feb 2025 - Starts*/
+
+/* ODA Chat Wrapper */
+/* .oda-chat-widget {
+  width: 70vw !important;
+  height: 100vh !important;
+} */
+
+/* .oda-chat-wrapper.oda-chat-expanded .oda-chat-widget {
+  margin-right: 6vw !important;
+  margin-bottom: 5vh;
+} */
+ 
+ /* changes for the center aligned - chat bot - 18th feb 2025 */
+
 .oda-chat-wrapper.oda-chat-expanded .oda-chat-widget {
     /* margin-right: 6vw !important; */
     /* margin-bottom: 5vh; */

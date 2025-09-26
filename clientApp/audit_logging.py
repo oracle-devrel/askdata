@@ -1,8 +1,7 @@
 # Copyright (c) 2021, 2025 Oracle and/or its affiliates.
 # Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl/
 
-import datetime
-from connect_vector_db import create_db_connection, load_config, close_db_connection
+from connect_vector_db import create_db_connection, load_config_db, close_db_connection
 import logging
 
 logger = logging.getLogger("app_logger")
@@ -14,7 +13,8 @@ def log_audit_test_insert(CERTIFIED_SCORE, PROMPT_TXT, SQL_QUERY, DB_RESPONSE_CO
     try:
         # Load the database configuration
         config_file = 'ConfigFile.properties'
-        db_config = load_config(config_file)
+        #db_config = load_config(config_file)
+        db_config = load_config_db('trust', config_file)
 
         # Create a database connection using the shared function
         connection = create_db_connection(db_config)

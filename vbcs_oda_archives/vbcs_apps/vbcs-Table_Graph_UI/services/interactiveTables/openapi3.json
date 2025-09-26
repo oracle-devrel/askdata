@@ -21,7 +21,7 @@
                             "type": "string"
                         },
                         "x-vb": {
-                            "defaultValue": "default-value"
+                            "defaultValue": "399bd767-2e8c-4844-9063-a623198c900c"
                         }
                     }
                 ],
@@ -48,6 +48,209 @@
                     "queryParameters": {}
                 }
             }
+        },
+        "/getojet": {
+            "post": {
+                "operationId": "postGetojet",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostGetojetRequest"
+                            },
+                            "examples": {
+                                "vb": {
+                                    "externalValue": "./examples/postGetojet/request_application_json_vb.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Default response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostGetojetResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "externalValue": "./examples/postGetojet/response_default_application_json_vb.json",
+                                        "summary": "Example stored by VB User"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/iprompt": {
+            "post": {
+                "operationId": "postIprompt2",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostIpromptRequest"
+                            },
+                            "examples": {
+                                "vb": {
+                                    "externalValue": "./examples/postIprompt/request_application_json_vb.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Default response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostIpromptResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "externalValue": "./examples/postIprompt/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/agent/submit": {
+            "post": {
+                "operationId": "postAgentSubmit",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostAgentSubmitRequest"
+                            },
+                            "examples": {
+                                "vb": {
+                                    "externalValue": "./examples/postAgentSubmit/request_application_json_vb.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostAgentSubmitResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/postAgentSubmit/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/iprompt/graph": {
+            "post": {
+                "operationId": "postIpromptGraph",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostRequest"
+                            },
+                            "examples": {
+                                "vb": {
+                                    "externalValue": "./examples/postIpromptGraph/request_application_json_vb.json"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostIpromptGraphResponse"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/postIpromptGraph/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
+        },
+        "/iprompt/data": {
+            "get": {
+                "operationId": "getIpromptData",
+                "parameters": [
+                    {
+                        "name": "idataId",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "stepNumber",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Response for default",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetIpromptData"
+                                },
+                                "examples": {
+                                    "vb": {
+                                        "summary": "Example stored by VB User",
+                                        "externalValue": "./examples/getIpromptData/response_default_application_json_vb.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "getMany"
+                }
+            }
         }
     },
     "components": {
@@ -61,13 +264,277 @@
                             "type": "string"
                         },
                         "Amount Due": {
-                            "type": "integer"
+                            "type": "string"
                         },
                         "Due Date": {
-                            "type": "integer"
+                            "type": "string"
                         },
                         "Past Due Days": {
-                            "type": "integer"
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "PostGetojetRequest": {
+                "type": "object",
+                "properties": {
+                    "idataId": {
+                        "type": "string"
+                    },
+                    "graphType": {
+                        "type": "string"
+                    },
+                    "xAxis": {
+                        "type": "string"
+                    },
+                    "yAxis": {
+                        "type": "string"
+                    },
+                    "groupBy": {
+                        "type": "string"
+                    }
+                }
+            },
+            "PostGetojetResponse": {
+                "type": "object",
+                "properties": {
+                    "chartType": {
+                        "type": "string"
+                    },
+                    "chartDesc": {
+                        "type": "string"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "series": {
+                                    "type": "string"
+                                },
+                                "data": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "group": {
+                                                "type": "string"
+                                            },
+                                            "value": {
+                                                "type": "integer"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            },
+            "PostIpromptRequest": {
+                "type": "object",
+                "properties": {
+                    "prompt": {
+                        "type": "string"
+                    },
+                    "idataId": {
+                        "type": "string"
+                    }
+                }
+            },
+            "PostIpromptResponse": {
+                "type": "object",
+                "properties": {
+                    "response": {
+                        "type": "string"
+                    },
+                    "tabData": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "invoice_number": {
+                                    "type": "string"
+                                },
+                                "amount_due": {
+                                    "type": "number"
+                                },
+                                "invoice_date": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "chartType": {
+                        "type": "string"
+                    },
+                    "chartDesc": {
+                        "type": "string"
+                    },
+                    "chartData": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "series": {
+                                    "type": "string"
+                                },
+                                "data": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "group": {
+                                                "type": "string"
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "PostAgentSubmitRequest": {
+                "type": "object",
+                "properties": {
+                    "idataId": {
+                        "type": "string"
+                    },
+                    "userId": {
+                        "type": "string"
+                    },
+                    "prompt": {
+                        "type": "string"
+                    }
+                }
+            },
+            "PostAgentSubmitResponse": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            },
+            "PostRequest": {
+                "type": "object",
+                "properties": {
+                    "iGraphPrompt": {
+                        "type": "string"
+                    },
+                    "idataId": {
+                        "type": "string"
+                    }
+                }
+            },
+            "PostIpromptGraphResponse": {
+                "type": "object",
+                "properties": {
+                    "chartType": {
+                        "type": "string"
+                    },
+                    "chartDesc": {
+                        "type": "string"
+                    },
+                    "xLabel": {
+                        "type": "string"
+                    },
+                    "yLabel": {
+                        "type": "string"
+                    },
+                    "chartData": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "series": {
+                                    "type": "string"
+                                },
+                                "data": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "series": {
+                                                "type": "string"
+                                            },
+                                            "group": {
+                                                "type": "string"
+                                            },
+                                            "value": {
+                                                "type": "integer"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "GetIpromptData": {
+                "type": "object",
+                "properties": {
+                    "response": {
+                        "type": "string"
+                    },
+                    "tabData": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "Vendor Name": {
+                                    "type": "string"
+                                },
+                                "Total Amount Due": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "chartType": {
+                        "type": "string"
+                    },
+                    "chartDesc": {
+                        "type": "string"
+                    },
+                    "xLabel": {
+                        "type": "string"
+                    },
+                    "yLabel": {
+                        "type": "string"
+                    },
+                    "chartData": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "series": {
+                                    "type": "string"
+                                },
+                                "data": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "series": {
+                                                "type": "string"
+                                            },
+                                            "group": {
+                                                "type": "string"
+                                            },
+                                            "value": {
+                                                "type": "integer"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }

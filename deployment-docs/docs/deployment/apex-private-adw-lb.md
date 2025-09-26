@@ -1,21 +1,15 @@
 # 2. APEX ADW Load Balancer
 
-These instructions are for fronting a private ADW with a load balancer. For fronting the Trust VM with a load balancer, see [Deploy Trust Load Balancer](../deployment/trust-lb.md)
+These instructions are for fronting a private ADW with a load balancer. 
 
-**NOTE**:
-
-At this point, there is an issue with the load balancer (because APEX
-doesn't like self-signed certificates). So we fall back on using the API
-Gateway.
+> **NOTE**: At this point, there is an issue with the load balancer (because APEX doesn't like self-signed certificates). So we fall back on using the API Gateway.
 
 So we are basing the configuration of the api gateway on this:
 <https://blogs.oracle.com/ateam/post/oci-api-gateway-routes-quickly-and-easily>
 
 ------
 
-- **Note**:  
-  This page is inspired by the excellent blog
-  <https://mattmulvaney.hashnode.dev/an-apex-vanity-url-for-load-balanced-oracle-managed-ords-for-adb-on-oci>
+> - **Note**: This page is inspired by the excellent blog <https://mattmulvaney.hashnode.dev/an-apex-vanity-url-for-load-balanced-oracle-managed-ords-for-adb-on-oci>
   - We are capturing here the sequence as relevant to this project.
 
 - This page is a work in progress.
@@ -30,8 +24,6 @@ So we are basing the configuration of the api gateway on this:
 6.  Update the load balancer with the SSL Certificate
 7.  Ensure the backend health is green
 8.  Validate the load balancer.
-
-> **Note** If using public ADW for a POC, only the Trust VM will need to be fronted with a load balancer. 
 
 # Dependency List
 
@@ -140,3 +132,5 @@ Use the same validations API as with the trust service, but on the load
 balancer address.
 
 also from a browser access https://\<load balancer IP\>/
+
+## [Return home](../../../README.md)

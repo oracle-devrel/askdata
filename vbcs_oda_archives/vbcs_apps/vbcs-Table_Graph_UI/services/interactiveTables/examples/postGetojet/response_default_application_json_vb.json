@@ -1,0 +1,383 @@
+{
+    "chartType": "bar",
+    "chartDesc": "Vendor Total Amount Due",
+    "data": [
+        {
+            "series": "Total Amount Due",
+            "data": [
+                {
+                    "group": "Advanced Network Devices",
+                    "value": 101470624.58
+                },
+                {
+                    "group": "Advantage Corp",
+                    "value": 24059553.37
+                },
+                {
+                    "group": "Allied Manufacturing",
+                    "value": 38034826.85
+                },
+                {
+                    "group": "American Telephone and Telegraph",
+                    "value": 14266933.5
+                },
+                {
+                    "group": "Apt, Peter M.",
+                    "value": 3158.56
+                },
+                {
+                    "group": "Bailey, Sara",
+                    "value": 3752.97
+                },
+                {
+                    "group": "Bastid, Alain",
+                    "value": 113
+                },
+                {
+                    "group": "Bechtel",
+                    "value": 24062506.89
+                },
+                {
+                    "group": "Becker Supply and Services",
+                    "value": 72244.88
+                },
+                {
+                    "group": "Beckman, Lisa",
+                    "value": 2940
+                },
+                {
+                    "group": "Beckmann, Lisa",
+                    "value": 4492
+                },
+                {
+                    "group": "Beckworth, Mark Andrew",
+                    "value": 3572.72
+                },
+                {
+                    "group": "Berkelaar, Rob",
+                    "value": 467.7
+                },
+                {
+                    "group": "Berthier, Alain",
+                    "value": 102
+                },
+                {
+                    "group": "Bloemers, Piet",
+                    "value": 1475.4
+                },
+                {
+                    "group": "Blok, Angela",
+                    "value": 14467.52
+                },
+                {
+                    "group": "Bogini, Samuel",
+                    "value": 3326.42
+                },
+                {
+                    "group": "Boise Cascade",
+                    "value": 89035.8
+                },
+                {
+                    "group": "Boursin, Elisabeth",
+                    "value": 976
+                },
+                {
+                    "group": "Brown, Casey",
+                    "value": 3439.69
+                },
+                {
+                    "group": "Brown, Jane",
+                    "value": 8079.04
+                },
+                {
+                    "group": "Building Management Inc.",
+                    "value": 65071076.44
+                },
+                {
+                    "group": "Burnett, Mark",
+                    "value": 3326.34
+                },
+                {
+                    "group": "CDS, Inc",
+                    "value": 4529
+                },
+                {
+                    "group": "Cagliastro, Joanne Lisa",
+                    "value": 4513.64
+                },
+                {
+                    "group": "Capp Consulting",
+                    "value": 5164
+                },
+                {
+                    "group": "Caroline, Bruno",
+                    "value": 878
+                },
+                {
+                    "group": "Compusa Management Company",
+                    "value": 1617416
+                },
+                {
+                    "group": "Consolidated Electric",
+                    "value": 42961180.06
+                },
+                {
+                    "group": "Consolidated Supplies",
+                    "value": 93606785.94
+                },
+                {
+                    "group": "Corporate Express Office Supply",
+                    "value": 299547.42
+                },
+                {
+                    "group": "Depardon, Raymond",
+                    "value": 2131
+                },
+                {
+                    "group": "Dupont, Alain",
+                    "value": 1568
+                },
+                {
+                    "group": "Eastern Industrial Products",
+                    "value": 10981719
+                },
+                {
+                    "group": "Erickson, Barry",
+                    "value": 4104.06
+                },
+                {
+                    "group": "Exelon Electric and Gas",
+                    "value": 2296687
+                },
+                {
+                    "group": "Faro, Patrick",
+                    "value": 13143.56
+                },
+                {
+                    "group": "Fernandez, Manny",
+                    "value": 4527.8
+                },
+                {
+                    "group": "GE Capital",
+                    "value": 23431241.25
+                },
+                {
+                    "group": "GE Plastics",
+                    "value": 1781403.85
+                },
+                {
+                    "group": "Gasquet, Christelle Elisabeth",
+                    "value": 159
+                },
+                {
+                    "group": "General Electric",
+                    "value": 33835323.71
+                },
+                {
+                    "group": "Goldman, Pamela",
+                    "value": 3257
+                },
+                {
+                    "group": "Grainger",
+                    "value": 246700
+                },
+                {
+                    "group": "Heib, Christiane",
+                    "value": 23849
+                },
+                {
+                    "group": "Home Depot, Inc.",
+                    "value": 1240370.41
+                },
+                {
+                    "group": "Huber, Birgit",
+                    "value": 23905
+                },
+                {
+                    "group": "Industrial Dressler",
+                    "value": 35429283.85
+                },
+                {
+                    "group": "Internal-Vision Services",
+                    "value": 140117.18
+                },
+                {
+                    "group": "Internal-Vision Svcs R",
+                    "value": 70214.78
+                },
+                {
+                    "group": "Jackson, Kwame",
+                    "value": 4753.9
+                },
+                {
+                    "group": "Janse, Pieter",
+                    "value": 12902
+                },
+                {
+                    "group": "Jones, Gray, and Associates",
+                    "value": 36735.21
+                },
+                {
+                    "group": "Kasbergen, Cor",
+                    "value": 37700.08
+                },
+                {
+                    "group": "Katzberg, Susan",
+                    "value": 3626.54
+                },
+                {
+                    "group": "Kievit, Rolf",
+                    "value": 15063.5
+                },
+                {
+                    "group": "Kruithof, Piet",
+                    "value": 2913
+                },
+                {
+                    "group": "Lacroix, Armand",
+                    "value": 341
+                },
+                {
+                    "group": "Lamaury, Thibault",
+                    "value": 2273
+                },
+                {
+                    "group": "Lang, Inga R",
+                    "value": 3820.99
+                },
+                {
+                    "group": "Lewis, David",
+                    "value": 10083
+                },
+                {
+                    "group": "Lion, Sam",
+                    "value": 805
+                },
+                {
+                    "group": "MCI",
+                    "value": 3407.58
+                },
+                {
+                    "group": "Marjolet, Didier Alain",
+                    "value": 1325
+                },
+                {
+                    "group": "Marsh, Chris",
+                    "value": 3524.86
+                },
+                {
+                    "group": "Martin, Fabienne",
+                    "value": 964
+                },
+                {
+                    "group": "Marty, Frederic",
+                    "value": 206
+                },
+                {
+                    "group": "McGwire, Patrick",
+                    "value": 4313.91
+                },
+                {
+                    "group": "Next Generation Graphix (DBA, Art Wilde)",
+                    "value": 78425118.75
+                },
+                {
+                    "group": "Office Depot, Inc",
+                    "value": 1836964.5
+                },
+                {
+                    "group": "Office Max",
+                    "value": 2770991.38
+                },
+                {
+                    "group": "Office Supplies, Inc.",
+                    "value": 2179265.6
+                },
+                {
+                    "group": "Penguin Publisher",
+                    "value": 60750
+                },
+                {
+                    "group": "Pratt, John",
+                    "value": 635.4
+                },
+                {
+                    "group": "Providence Property and Casualty",
+                    "value": 12803779.69
+                },
+                {
+                    "group": "Rich, Lawrence Joseph",
+                    "value": 5143.66
+                },
+                {
+                    "group": "Ruijter, Eveline",
+                    "value": 15595.1
+                },
+                {
+                    "group": "Senaux, Martine Mirelle",
+                    "value": 2323
+                },
+                {
+                    "group": "Staffing Services Inc.",
+                    "value": 7000.8
+                },
+                {
+                    "group": "Staples",
+                    "value": 4013207.74
+                },
+                {
+                    "group": "Star Gate Ltd",
+                    "value": 15063633.63
+                },
+                {
+                    "group": "TT Services",
+                    "value": 6449699.1
+                },
+                {
+                    "group": "Ulrich, Jeffery",
+                    "value": 9345
+                },
+                {
+                    "group": "United Parcel Service",
+                    "value": 1341367.39
+                },
+                {
+                    "group": "Valencia, Marianne",
+                    "value": 1036
+                },
+                {
+                    "group": "Valérian, Pierre",
+                    "value": 293
+                },
+                {
+                    "group": "Vioget, Oliver Xavier",
+                    "value": 2009
+                },
+                {
+                    "group": "Vision",
+                    "value": 2996939.96
+                },
+                {
+                    "group": "Walcher, Bernhard",
+                    "value": 24572
+                },
+                {
+                    "group": "Webb, Jean",
+                    "value": 737
+                },
+                {
+                    "group": "Weinberg, Jerry",
+                    "value": 2930
+                },
+                {
+                    "group": "Williams, Harrold",
+                    "value": 3579
+                },
+                {
+                    "group": "iPrint",
+                    "value": 6935412.15
+                }
+            ]
+        }
+    ]
+}

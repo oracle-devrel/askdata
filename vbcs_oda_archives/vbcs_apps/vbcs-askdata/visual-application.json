@@ -1,5 +1,5 @@
 {
-    "vbcs.dt.version": "20240618-24.10.9",
+    "vbcs.dt.version": "20240618-24.10.11",
     "dependencies": {
         "upgrade": "micro",
         "paths": {

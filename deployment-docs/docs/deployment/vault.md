@@ -65,3 +65,5 @@
 ![Configure Variable](./business_media/media/create-vault-secret-2.png)
 
 With this, you will have the IDCS client Secret store (and accessible) in the Vault.
+
+## [Return home](../../../README.md)

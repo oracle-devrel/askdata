@@ -8,7 +8,7 @@ Environment=NL2SQL_ENV=dev
 Environment=NL2SQL_HOST=0.0.0.0
 Environment=NL2SQL_PORT=8000
 Environment=NL2SQL_OCI_MODE=instance
-Environment=NL2SQL_OCI_NS=idb6enfdcxbl
+Environment=NL2SQL_OCI_NS=xxx
 Environment=NL2SQL_OCI_BUCKET=askdata-dev
 Environment=PYTHONPATH=/home/opc/:.
 Environment=TNS_ADMIN=/home/opc/.../trustdb

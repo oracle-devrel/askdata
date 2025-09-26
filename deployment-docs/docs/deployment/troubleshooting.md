@@ -61,3 +61,5 @@ When users encounter access-related errors when opening VBCS applications:
 **User Permission Verification:**
 - Confirm that the user has been added to the appropriate IDCS group
 - Refer to the "End-user access to VBCS application" section in the documentation for proper group assignment procedures
+
+## [Return home](../../../README.md)

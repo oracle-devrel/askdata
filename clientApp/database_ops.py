@@ -1,18 +1,25 @@
 # Copyright (c) 2021, 2025 Oracle and/or its affiliates.
 # Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl/
 
-from connect_vector_db import create_db_connection, load_config, close_db_connection
-from helper_methods import is_valid_email
+from connect_vector_db import create_db_connection, load_config_db, close_db_connection
+from helper_methods import is_valid_email, apply_formatting, format_column_name
+from sqlalchemy import create_engine, text
+import configparser
 import oracledb
 import logging
+import pandas as pd
+import json
 
+config = configparser.RawConfigParser()
+config.read('ConfigFile.properties')
 logger = logging.getLogger("app_logger")
 
 def get_user_id_by_email(email_address):
     connection,cursor,user_id = None, None, -9
     try:
         config_file = 'ConfigFile.properties'
-        db_config = load_config(config_file)
+        #db_config = load_config(config_file)
+        db_config = load_config_db('trust', config_file)
         connection = create_db_connection(db_config)
         cursor = connection.cursor()
 
@@ -38,23 +45,24 @@ def get_user_id_by_email(email_address):
             close_db_connection(connection)
     return user_id
 
-def create_app_user(email_address):
+def create_app_user(email_address, user_group):
     connection, cursor, user_id = None, None, -9
     try:
         if not is_valid_email(email_address):
             logger.error(f"Invalid email address: {email_address}")
             return -9
         config_file = 'ConfigFile.properties'
-        db_config = load_config(config_file)
+        #db_config = load_config(config_file)
+        db_config = load_config_db('trust', config_file)
         connection = create_db_connection(db_config)
         cursor = connection.cursor()
         insert_sql = """
-            INSERT INTO APP_USERS (EMAIL_ADDRESS)
-            VALUES (:1)
-            RETURNING ID INTO :2
+            INSERT INTO APP_USERS (EMAIL_ADDRESS, USER_GROUP)
+            VALUES (:1, :2)
+            RETURNING ID INTO :3
         """
         user_id_out = cursor.var(int)
-        cursor.execute(insert_sql, (email_address, user_id_out))
+        cursor.execute(insert_sql, (email_address, user_group, user_id_out))
         connection.commit()
         temp = user_id_out.getvalue()
         user_id = temp[0] if temp else -9
@@ -73,7 +81,8 @@ def get_model_id(llm_type):
     connection,cursor,model_id = None, None, -9
     try:
         config_file = 'ConfigFile.properties'
-        db_config = load_config(config_file)
+        #db_config = load_config(config_file)
+        db_config = load_config_db('trust', config_file)
         connection = create_db_connection(db_config)
         cursor = connection.cursor()
         #'GEN-PURPOSE-LMM'
@@ -101,69 +110,80 @@ def get_model_id(llm_type):
             close_db_connection(connection)
     return model_id
 
-def persist_log_data(actiontype, llm_id, user_id, trust_id, trust_score, user_prompt, convo_prompt, convo_id, convo_seq_num, generated_sql, is_trusted, is_prompt_equiv, is_template_equiv, executed_sql, db_error_code, db_error_txt, is_authorized, is_clarify, is_action, action_type, parentid, user_feedback_code, user_feedback_txt):
+
+
+
+def persist_log_data(actiontype, parentid=None, **fields):
     connection = None
     cursor = None
     returnedid = 0
-    trust_id = int(trust_id)
     # action type L - new log record, R - Retry , LU - Log Upd, UFT - User Feedback Thumbs up/down, UFM - user feedback message
     try:
         config_file = 'ConfigFile.properties'
-        db_config = load_config(config_file)
+        #db_config = load_config(config_file)
+        db_config = load_config_db('trust', config_file)
         connection = create_db_connection(db_config)
         cursor = connection.cursor()
 
         if actiontype == "L":
             new_id = cursor.var(oracledb.NUMBER)
-            if trust_id == 0:
-                trust_id = None
-            insert_sql = """
-                INSERT INTO EXECUTION_LOG(llm_id, user_id, trust_id, trust_score, user_prompt, convo_prompt, convo_id, convo_seq_num, generated_sql,
-                                              is_trusted, is_prompt_equiv, is_template_equiv, executed_sql, db_error_code, db_error_txt, is_authorized,
-                                              is_clarify, is_action, action_type)
-                VALUES (:1, :2, :3, :4, :5, :6, :7, :8,:9,:10,:11,:12,:13,:14,:15,:16,:17,:18,:19)  RETURNING id INTO :new_id
-            """
-            cursor.execute(insert_sql,
-                           (llm_id, user_id, trust_id, trust_score, user_prompt, convo_prompt, convo_id, convo_seq_num, generated_sql,
-                            is_trusted, is_prompt_equiv, is_template_equiv, executed_sql, db_error_code, db_error_txt, is_authorized,
-                            is_clarify, is_action, action_type,new_id))
-            logger.debug("new id **" + str(new_id))
+            columns = ", ".join(fields)
+            placeholders = ", ".join(f":{k}" for k in fields)
+            insert_sql = (
+                f"INSERT INTO EXECUTION_LOG ({columns}) "
+                f"VALUES ({placeholders}) RETURNING id INTO :new_id"
+            )
+            params = {**fields, "new_id": new_id}
+            cursor.execute(insert_sql, params)
             value = new_id.getvalue()
             returnedid = value[0] if value else 0
-            logger.debug("row id **" + str(returnedid))
             connection.commit()
-            logger.debug("User action parent logging successful.")
+            logger.debug(f"User action parent logging successful with action '{actiontype}' and id: '{returnedid}'.")
+
+        elif actiontype == "LU":
+            set_clause = ", ".join(f"{k} = :{k}" for k in fields)
+            upd_sql = f"UPDATE EXECUTION_LOG SET {set_clause} WHERE id = :parentid"
+            params = {**fields, "parentid": parentid}
+            cursor.execute(upd_sql, params)
+            connection.commit()
+            returnedid = parentid
+            logger.debug(f"User action parent logging successful with action '{actiontype}' and id: '{returnedid}'.")
+
         elif actiontype == "R":
-            executed_sql = "- RETRY SUCCESS SQL:-" + executed_sql
+            executed_sql = "- RETRY SUCCESS SQL:-" + fields["executed_sql"]
             upd_sql = """
                 UPDATE EXECUTION_LOG Set
-                DB_ERROR_TXT = DB_ERROR_TXT || :1
-                WHERE ID = :2
+                DB_ERROR_TXT = SUBSTR(DB_ERROR_TXT || :executed_sql  , 1, 2000)
+                WHERE ID = :parentid
             """
-            cursor.execute(upd_sql,
-                           ( executed_sql,parentid))
+            cursor.execute(upd_sql,{"executed_sql":executed_sql, "parentid":parentid})
             connection.commit()
-            logger.debug("User action logging retry successful.")
+            returnedid = parentid
+            logger.debug(f"User action parent logging successful with action '{actiontype}' and id: '{returnedid}'.")
+
         elif actiontype == "UFT":
             upd_sql = """
                 UPDATE EXECUTION_LOG Set
-                USER_FEEDBACK_CODE = :1
-                WHERE ID = :2
+                USER_FEEDBACK_CODE = :user_feedback_code
+                WHERE ID = :parentid
             """
-            cursor.execute(upd_sql,
-                           (user_feedback_code,parentid))
+            cursor.execute(upd_sql, {"user_feedback_code": fields["user_feedback_code"], "parentid": parentid})
             connection.commit()
-            logger.debug("User feedback thumps up-down logging successful.")
+            returnedid = parentid
+            logger.debug(f"User action parent logging successful with action '{actiontype}' and id: '{returnedid}'.")
+
         elif actiontype == "UFM":
+            if not parentid or "user_feedback_txt" not in fields:
+                raise ValueError("Need parentid and user_feedback_txt for UFM")
             upd_sql = """
                 UPDATE EXECUTION_LOG Set
-                USER_FEEDBACK_TXT = :1
-                WHERE ID = :2
+                USER_FEEDBACK_TXT = :user_feedback_txt
+                WHERE ID = :parentid
             """
-            cursor.execute(upd_sql,
-                           (user_feedback_txt,parentid))
+            cursor.execute(upd_sql, {"user_feedback_txt": fields["user_feedback_txt"], "parentid": parentid})
             connection.commit()
-            logger.debug("User feedback message logging successful.")
+            returnedid = parentid
+            logger.debug(f"User action parent logging successful with action '{actiontype}' and id: '{returnedid}'.")
 
     except Exception as e:
         logger.error(f"Error logging audit data: {e}")
@@ -174,13 +194,88 @@ def persist_log_data(actiontype, llm_id, user_id, trust_id, trust_score, user_pr
             close_db_connection(connection)
     return returnedid
 
+
+#def persist_log_data(actiontype, llm_id, user_id, trust_id, trust_score, user_prompt, convo_prompt, convo_id, convo_seq_num, generated_sql, is_trusted, is_prompt_equiv, is_template_equiv, executed_sql, db_error_code, db_error_txt, is_authorized, is_clarify, is_action, action_type, parentid, user_feedback_code, user_feedback_txt):
+#    connection = None
+#    cursor = None
+#    returnedid = 0
+#    trust_id = int(trust_id)
+    # action type L - new log record, R - Retry , LU - Log Upd, UFT - User Feedback Thumbs up/down, UFM - user feedback message
+#    try:
+#        config_file = 'ConfigFile.properties'
+#        db_config = load_config(config_file)
+#        connection = create_db_connection(db_config)
+#        cursor = connection.cursor()
+
+#        if actiontype == "L":
+#            new_id = cursor.var(oracledb.NUMBER)
+#            if trust_id == 0:
+#                trust_id = None
+#            insert_sql = """
+#                INSERT INTO EXECUTION_LOG(llm_id, user_id, trust_id, trust_score, user_prompt, convo_prompt, convo_id, convo_seq_num, generated_sql,
+#                                              is_trusted, is_prompt_equiv, is_template_equiv, executed_sql, db_error_code, db_error_txt, is_authorized,
+#                                              is_clarify, is_action, action_type)
+#                VALUES (:1, :2, :3, :4, :5, :6, :7, :8,:9,:10,:11,:12,:13,:14,:15,:16,:17,:18,:19)  RETURNING id INTO :new_id
+#            """
+#            cursor.execute(insert_sql,
+#                           (llm_id, user_id, trust_id, trust_score, user_prompt, convo_prompt, convo_id, convo_seq_num, generated_sql,
+#                           is_trusted, is_prompt_equiv, is_template_equiv, executed_sql, db_error_code, db_error_txt, is_authorized,
+#                            is_clarify, is_action, action_type,new_id))
+#            logger.debug("new id **" + str(new_id))
+#            value = new_id.getvalue()
+#            returnedid = value[0] if value else 0
+#            logger.debug("row id **" + str(returnedid))
+#            connection.commit()
+#            logger.debug("User action parent logging successful.")
+#        elif actiontype == "R":
+#            executed_sql = "- RETRY SUCCESS SQL:-" + executed_sql
+#            upd_sql = """
+#                UPDATE EXECUTION_LOG Set
+#                DB_ERROR_TXT = DB_ERROR_TXT || :1
+#                WHERE ID = :2
+#            """
+#            cursor.execute(upd_sql,
+#                           ( executed_sql,parentid))
+#            connection.commit()
+#            logger.debug("User action logging retry successful.")
+#        elif actiontype == "UFT":
+#            upd_sql = """
+#                UPDATE EXECUTION_LOG Set
+#                USER_FEEDBACK_CODE = :1
+#                WHERE ID = :2
+#            """
+#            cursor.execute(upd_sql,
+#                           (user_feedback_code,parentid))
+#            connection.commit()
+#            logger.debug("User feedback thumps up-down logging successful.")
+#        elif actiontype == "UFM":
+#            upd_sql = """
+#                UPDATE EXECUTION_LOG Set
+#                USER_FEEDBACK_TXT = :1
+#                WHERE ID = :2
+#            """
+#            cursor.execute(upd_sql,
+#                           (user_feedback_txt,parentid))
+#            connection.commit()
+#            logger.debug("User feedback message logging successful.")
+
+#    except Exception as e:
+#        logger.error(f"Error logging audit data: {e}")
+#    finally:
+#        if cursor:
+#            cursor.close()
+#        if connection:
+#            close_db_connection(connection)
+#    return returnedid
+
 def persist_app_debug(parentid,debugdata):
     connection = None
     cursor = None
     # action type L - new log record, R - Retry , LU - Log Upd, UFT - User Feedback Thumbs up/down, UFM - user feedback message
     try:
         config_file = 'ConfigFile.properties'
-        db_config = load_config(config_file)
+        #db_config = load_config(config_file)
+        db_config = load_config_db('trust', config_file)
         connection = create_db_connection(db_config)
         cursor = connection.cursor()
         insert_sql = """
@@ -204,10 +299,13 @@ def log_user_action(certified_score, prompt_txt, sql_query, db_response_code, db
     connection = None
     cursor = None
     returnedid = 0
+    if db_err_txt is not None:
+        db_err_txt = db_err_txt.strip()[:2000]
     # action type L - new log record, R - Retry , LU - Log Upd, UFT - User Feedback Thumbs up/down, UFM - user feedback message
     try:
         config_file = 'ConfigFile.properties'
-        db_config = load_config(config_file)
+        #db_config = load_config(config_file)
+        db_config = load_config_db('trust', config_file)
         connection = create_db_connection(db_config)
         cursor = connection.cursor()
 
@@ -278,3 +376,4 @@ def log_user_action(certified_score, prompt_txt, sql_query, db_response_code, db
         if connection:
             close_db_connection(connection)
     return returnedid
+

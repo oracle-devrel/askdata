@@ -1,7 +1,3 @@
-/**  Copyright (c) 2021, 2025 Oracle and/or its affiliates.
-* Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl/
-*/
-
 /* global Plotly */
 define([
   'vb/action/actionChain',
@@ -44,7 +40,7 @@ define([
 
       var config = {
         showLink: false,
-        plotlyServerURL: "http://<plotly-server>:8050/",
+        plotlyServerURL: "http://207.211.183.34:8050/",
         displaylogo: false,
         responsive: true
         };

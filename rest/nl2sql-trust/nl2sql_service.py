@@ -27,7 +27,7 @@ from fastapi.responses import FileResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 import uvicorn
 import constants
-from ui_routers import bootstrap_api, finetune_api, live_certify_api, trust_metrics_api, trust_ops_api, administrative_api,engine_api
+from ui_routers import bootstrap_api, live_certify_api, trust_metrics_api, trust_ops_api, administrative_api,engine_api
 from helpers import trust_metrics
 from helpers.config_json_helper import config_boostrap
 
@@ -63,7 +63,7 @@ app.include_router(bootstrap_api.router, prefix="",  tags=["Bootstrap"])
 app.include_router(live_certify_api.router, prefix="", tags=["Live Certify"])
 app.include_router(trust_ops_api.router, prefix="", tags=["Trust Operations"])
 app.include_router(trust_metrics_api.router, prefix="", tags=["Trust Operations / Trust Metrics"])
-app.include_router(finetune_api.router, prefix="")
+#app.include_router(finetune_api.router, prefix="")
 # app.include_router(engine_api.router, prefix="", tags=["Engine"])
 app.include_router(administrative_api.router, prefix="", tags=["Administration"])
 
@@ -155,7 +155,7 @@ def main():
 
     if args.ssl:
         # This is using a self-signed certificate. This is only useful for 
-        # limited local development. sblais 22 Nov 2024
+        # limited local development. 22 Nov 2024
         uvicorn.run(app,
                     # threads = 5,
                     workers = 1,

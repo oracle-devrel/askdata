@@ -1,5 +1,5 @@
 name: "backendFlow"
-trackingId: "3B219488-05F2-4038-92BC-08925548E1E0"
+trackingId: "150fbe77-e1e2-4475-b7df-90b434e7357e"
 type: "task"
 version: "2.0"
 interface:
@@ -92,13 +92,12 @@ states:
     properties:
       authConfigType: "bearerToken"
       restService: "feedbackUpDownV3_apigw"
-      endpoint: "<api-gateway>/v1/feedbackupdown"
+      endpoint: "https://xxx.apigateway.us-chicago-1.oci.customer-oci.com/v2/feedbackupdown"
       responseConfig: "apiResponse"
       requestHeaders: []
       method: "POST"
       requestBody: "{\n    \"feedbackcode\": \"${varFbGoodBad?contains('Good')?string ('1', '-1')}\",\n    \"sessionid\": \"${system.message.channelConversation.sessionId}\"\n}"
       requestParameters: []
-      tokenVariable: "user.userToken"
       resultVariable: "varFbMessageRestResp"
     transitions:
       actions:
@@ -123,13 +122,12 @@ states:
     properties:
       authConfigType: "bearerToken"
       restService: "feedbackMessageV3_apigw"
-      endpoint: "<api-gateway>/v1/feedbackmessage"
+      endpoint: "https://xxx.apigateway.us-chicago-1.oci.customer-oci.com/v2/feedbackmessage"
       responseConfig: "apiResponse"
       requestHeaders: []
       method: "POST"
       requestBody: "{\n    \"feedback\": \"${badFbDetails?replace(\"[^\\\\w\\\\s]|dataToSubmit\", \"\", \"r\")}\",\n    \"sessionid\": \"${system.message.channelConversation.sessionId}\"\n}"
       requestParameters: []
-      tokenVariable: "user.userToken"
       resultVariable: "varFbMessageRestResp"
     transitions:
       actions:
@@ -472,13 +470,12 @@ states:
     properties:
       authConfigType: "bearerToken"
       restService: "feedbackUpDownV3_apigw"
-      endpoint: "<api-gateway>/v1/feedbackupdown"
+      endpoint: "https://xxx.apigateway.us-chicago-1.oci.customer-oci.com/v1/feedbackupdown"
       responseConfig: "apiResponse"
       requestHeaders: []
       method: "POST"
       requestBody: "{\n    \"feedbackcode\": \"${varFbGoodBad?contains('Good')?string ('1', '-1')}\",\n    \"sessionid\": \"${system.message.channelConversation.sessionId}\"\n}"
       requestParameters: []
-      tokenVariable: "user.userToken"
       resultVariable: "varFbGoodBadRestResp"
     transitions:
       actions:

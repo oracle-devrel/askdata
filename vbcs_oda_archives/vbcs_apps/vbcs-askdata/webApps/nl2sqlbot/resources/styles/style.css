@@ -21,20 +21,66 @@
   }
 }
 
+/* ODA Chat Wrapper */
+
+ /* changes for the center aligned - chat bot - 18th feb 2025 - Starts*/
+
+/* ODA Chat Wrapper */
+/* .oda-chat-widget {
+  width: 70vw !important;
+  height: 100vh !important;
+} */
+
+/* .oda-chat-wrapper.oda-chat-expanded .oda-chat-widget {
+  margin-right: 6vw !important;
+  margin-bottom: 5vh;
+} */
+ 
+ /* changes for the center aligned - chat bot - 18th feb 2025 */
+
 .oda-chat-wrapper.oda-chat-expanded .oda-chat-widget {
+    margin-right: 1vw !important;
+    /* margin-bottom: 5vh; */
+    /* Transform: translateX(-20%) !important; */
+    position: fixed;
+    bottom: 5px;
+    /* left: 61.5%; */
+    /* transform: translateX(-50%) !important; */
+    width: 75vw !important;
+    height: 100vh !important;
+    /* max-width: 90% !important; */
+    z-index: 1000;
+    /* margin: 0 auto; */
+    top: 84px;
+}
+
+
+.leftPanelVisible .oda-chat-wrapper.oda-chat-expanded .oda-chat-widget {
     /* margin-right: 6vw !important; */
     /* margin-bottom: 5vh; */
     /* Transform: translateX(-20%) !important; */
     position: fixed;
     bottom: 5px;
-    left: 50%;
+    left: 61.5%;
     transform: translateX(-50%) !important;
-    width: 70vw !important;
+    width: 75vw !important;
     height: 100vh !important;
     max-width: 90% !important;
     z-index: 1000;
-    margin: 0 auto;
+    /* margin: 0 auto; */
+    top: 84px;
 }
+
+/* changes for the center aligned - chat bot - 18th feb 2025 - Ends*/
+
+/* Chat Wrapper - Conversation */
+/* .oda-chat-wrapper .oda-chat-conversation {
+  background-color: #FAF0E6 !important;
+  /* #F9F8FB  !important;*/
+  /* Light pastel blue for the chat background 
+  padding: 20px;
+  border-radius: 15px;
+} */
 
 .oda-chat-wrapper .oda-chat-conversation {
     /* background-color: lightgoldenrodyellow; */
@@ -522,5 +568,5 @@ canvas {
 }
 
 #heading{
-  color: red;
+  color: red !important;
 }

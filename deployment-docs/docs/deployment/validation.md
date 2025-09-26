@@ -80,9 +80,9 @@ POST http://<backend vm ipaddress>/getsql
 
 `curl -X POST "http://<backend_vm_ipaddress>/getsql" -H "Content-Type: application/json" -d "{\"question\":\"Show invoices with amount due\"}"`
 <br>
-[Example: http://207.xxx.xxx.xx:8002/getsql](http://207.xxx.xxx.xx:8002/getsql)
+[Example: http://207.xxx.xxx.xx:8001/getsql](http://207.xxx.xxx.xx:8001/getsql)
 
-`curl -X POST "http://207.xxx.xxx.xx:8002/getsql" -H "Content-Type: application/json" -d "{\"question\":\"Show invoices with amount due\"}"`
+`curl -X POST "http://207.xxx.xxx.xx:8001/getsql" -H "Content-Type: application/json" -d "{\"question\":\"Show invoices with amount due\"}"`
 
 Response: Look for 200 OK
 
@@ -113,9 +113,9 @@ Response:
 POST http://<backend vm ipaddress>/getprompt
 `curl -X POST "http://<backend_vm_ipaddress>/getprompt" -H "Content-Type: application/json" -d "{\"question\":\"show invoices with amount due of type CREDIT\"}"`
 
-[Example: http://207.xxx.xxx.xx:8002/getprompt](http://207.xxx.xxx.xx:8002/getprompt) 
+[Example: http://207.xxx.xxx.xx:8001/getprompt](http://207.xxx.xxx.xx:8001/getprompt) 
 
-`curl -X POST "http:// 207.xxx.xxx.xx:8002/getprompt" -H "Content-Type: application/json" -d "{\"question\":\"show invoices with amount due of type CREDIT\"}"`
+`curl -X POST "http:// 207.xxx.xxx.xx:8001/getprompt" -H "Content-Type: application/json" -d "{\"question\":\"show invoices with amount due of type CREDIT\"}"`
 
 Response: Look for 200 OK
 
@@ -129,7 +129,7 @@ Response: Look for 200 OK
 
 1.  **nl2sql_app.py** – Runs on port **8000**
 
-2.  **trusthelper_ep.py** – Runs on port **8002**
+2.  **trusthelper_ep.py** – Runs on port **8001**
 
 Both services are located in the \<approot\> directory and can be started using nohup to run in the background.
 
@@ -178,3 +178,5 @@ The following command to kill/stop the service
 6.  Add user to the group
     
   ![ ](./business_media/media/group-2.png)
+
+  ## [Return home](../../../README.md)

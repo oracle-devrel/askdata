@@ -35,7 +35,7 @@ This solution assumes you have access to an OCI tenancy with the admin ability t
 6. [Deploy Engine Documentation](deployment-docs/docs/deployment/nl2sql_engine.md)
 7. [Deploy Vault](deployment-docs/docs/deployment/vault.md)
 8. [Deploy Business API Gateway](deployment-docs/docs/deployment/business_api_gateway.md)
-    - (Optional) If deploying API Gateway privately, see [ADW API Gateway Private Access](deployment-docs/docs/deployment/adw_private.md)
+    - (Optional) If deploying API Gateway privately, see [ADW API Gateway Private Access](deployment-docs/docs/deployment/adw_private_config.md)
 9. [Deploy ODA](deployment-docs/docs/deployment/oda.md)
 10. [Deploy VBCS](deployment-docs/docs/deployment/VBCS.md)
 

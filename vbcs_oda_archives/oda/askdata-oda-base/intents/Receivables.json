@@ -13,7 +13,7 @@
     "exampleEntities" : [ ],
     "nativeLanguageTag" : "en",
     "sentence" : "account receivables",
-    "trackingId" : "DC712B64-1004-4BB6-A5DE-433F7B5CDC67",
+    "trackingId" : "7ff183fa-055c-47cf-87be-f7e48313c981",
     "translated" : null,
     "translatedBy" : null,
     "translatedLanguage" : null
@@ -27,7 +27,7 @@
     "exampleEntities" : [ ],
     "nativeLanguageTag" : "en",
     "sentence" : "display the receipts",
-    "trackingId" : "3521B090-C4E7-4402-8088-1E6DC674781D",
+    "trackingId" : "0a7aa6d7-a237-4c8d-af46-ffe9561c39d5",
     "translated" : null,
     "translatedBy" : null,
     "translatedLanguage" : null
@@ -41,13 +41,13 @@
     "exampleEntities" : [ ],
     "nativeLanguageTag" : "en",
     "sentence" : "show me payment terms",
-    "trackingId" : "F0840FD0-D10F-4BAB-99E3-AFE24AAEE782",
+    "trackingId" : "85365655-5494-4873-9b13-365de0da3e3c",
     "translated" : null,
     "translatedBy" : null,
     "translatedLanguage" : null
   } ],
   "intentParameters" : [ ],
   "name" : "Receivables",
-  "trackingId" : "5562800F-97BE-460B-80C4-A3158D13CE9D",
+  "trackingId" : "586b97b2-ab95-48f2-9008-b74df068c6ec",
   "type" : "NLPIntent"
 }

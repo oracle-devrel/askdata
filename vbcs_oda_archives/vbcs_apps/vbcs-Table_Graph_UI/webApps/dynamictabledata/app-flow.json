@@ -153,5 +153,49 @@
   },
   "@dt": {
     "applicationTemplateType": "redwood"
+  },
+  "logConfig": {
+    "level": "fine"
+  },
+  "requirejs": {
+    "paths": {
+      "oj-sample": "https://static.oracle.com/cdn/jet/packs/oj-sample/8.0.0/min"
+    },
+    "bundles": {
+      "oj-sample/calendar-bundle": [
+        "oj-sample/calendar/loader",
+        "oj-sample/calendar-event/loader",
+        "oj-sample/calendar-provider/loader"
+      ],
+      "oj-sample/controls-bundle": [
+        "oj-sample/checkbox-switch/loader",
+        "oj-sample/copy-text/loader",
+        "oj-sample/country-picker/loader",
+        "oj-sample/export-data/loader",
+        "oj-sample/highlight-text/loader",
+        "oj-sample/input-email/loader",
+        "oj-sample/input-text-typeahead/loader",
+        "oj-sample/input-url/loader",
+        "oj-sample/metric/loader",
+        "oj-sample/organization-tree/loader",
+        "oj-sample/organization-tree-item/loader",
+        "oj-sample/qr-code/loader",
+        "oj-sample/tooltip/loader",
+        "oj-sample/utils/validators/emailValidatorFactory",
+        "oj-sample/utils/validators/urlValidatorFactory",
+        "oj-sample/utils/validators/countryValidatorFactory",
+        "oj-sample/utils/export/dataCollectionExporter",
+        "oj-sample/utils/export/visualizationExporter",
+        "oj-sample/visualization-exporter/loader"
+      ],
+      "oj-sample/layout-bundle": [
+        "oj-sample/drawer/loader",
+        "oj-sample/flip-card/loader",
+        "oj-sample/online-detector/loader",
+        "oj-sample/orientation-detector/loader",
+        "oj-sample/show-when-ready/loader",
+        "oj-sample/timed-event/loader"
+      ]
+    }
   }
 }

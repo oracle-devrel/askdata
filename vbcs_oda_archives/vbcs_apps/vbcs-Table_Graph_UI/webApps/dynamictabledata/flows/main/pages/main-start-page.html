@@ -1,95 +1,206 @@
-<oj-collapsible expanded="true" id="tableCollapsible">
+<div class="oj-panel oj-bg-neutral-0 oj-sm-padding-4x-top"
+  style="border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); ">
+  <div class="oj-flex oj-sm-margin-0" style="align-items: center;">
+    <oj-input-search class="oj-flex-item oj-sm-flex-1" value="{{ $variables.iPrompt }}"
+      placeholder="Explore your data..." on-oj-value-action="[[$listeners.inputSearchValueAction]]">
+    </oj-input-search>
+    <h4 class="oj-typography-subheading-sm oj-text-color-primary oj-flex oj-sm-align-items-center oj-sm-flex-initial">
+      <oj-bind-if test="[[false]]">
+        <span>Explore your data</span>
+      </oj-bind-if>
+      <oj-button display="icons" chroming="borderless" class="oj-button-sm oj-sm-margin-1x-start" title="Refresh"
+        on-oj-action="[[$listeners.resetAction]]">
+        <span slot="startIcon" class="oj-ux-ico-refresh"></span>
+      </oj-button>
+      <oj-button display="icons" chroming="borderless" class="oj-button-sm oj-sm-margin-1x-start" title="Auto Insights"
+        on-oj-action="[[$listeners.buttonAction]]">
+        <span slot="startIcon" class="oj-ux-ico-analytics-play"></span>
+      </oj-button>
+      <oj-button display="icons" chroming="borderless" class="oj-button-sm oj-sm-margin-1x-start"
+        title="Get Detailed Insights" on-oj-action="[[$listeners.buttonAction2]]">
+        <span slot="startIcon" class="oj-ux-ico-blog-post-detail" ></span>
+      </oj-button>
+      <oj-sample-export-data chroming="borderless" display="icons" data="[[ $variables.exportExcelDataProvider ]]"
+        max-rows="10000" style="position: relative;top: -2px;">
+        <span slot="startIcon" class="oj-ux-ico-download"></span>
+        <span>Export to CSV</span>
+      </oj-sample-export-data>
+    </h4>
+  </div>
+  <!-- Response Area -->
+  <div class="oj-bg-info-10 oj-sm-padding-2x oj-sm-margin-1x-top" style="border-radius: 6px;">
+    <div class="oj-typography-body-sm oj-text-color-secondary oj-sm-margin-1x-top">
+      <strong>Dataset for:</strong>
+      <!-- non-clickable link by default --> 
+      <oj-bind-if test="[[ $variables.lastClickedLinkId === -1 ]]">
+        <a href="#" style="margin-left: 0.5rem; color: #6c757d; cursor: default; font-size: 0.95rem; font-weight: bold;">
+          <oj-bind-text value="[[ $variables.pPrompt ]]"></oj-bind-text>
+        </a>
+      </oj-bind-if>
+      <!-- clickable link when lastClickedLinkId != -1 -->
+      <oj-bind-if test="[[ $variables.lastClickedLinkId !== -1 ]]">
+        <a href="javascript:void(0)" on-click="[[$listeners.hyperlinkClick0]]"
+          style="margin-left: 0.5rem; color: #0275d8; cursor: pointer; text-decoration: underline; font-size: 0.9rem;">
+          <oj-bind-text value="[[ $variables.pPrompt ]]"></oj-bind-text>
+        </a>
+      </oj-bind-if>
 
-  <div class="oj-flex oj-sm-flex-direction-row oj-sm-margin-5x-top oj-flex-item oj-sm-flex-initial">
-    <!-- Left Column (Filter) -->
-    <div class="oj-flex oj-sm-12 oj-sm-flex-wrap-nowrap oj-sm-justify-content-space-between">
-      <div class="oj-flex-item oj-sm-9 oj-sm-flex-initial">
-        <oj-bind-if test="[[false]]">
-          <oj-combobox-one label-hint="Entries per page" value="{{ $variables.rowsPerPage }}"
-            options="[[ $variables.rowsPerPageOptions ]]" on-value-changed="[[$listeners.comboValue]]"
-            class="oj-combobox oj-complete oj-component oj-enabled oj-form-control oj-sm-padding-4x-start oj-text-field oj-text-field-label-inside">
-          </oj-combobox-one>
-        </oj-bind-if>
-        <!-- Paging control section -->
-        <div class="oj-md-margin-2x-top">
-          <!-- Paging Controls -->
-          <oj-paging-control data="[[ $variables.myPDP ]]" page-size="10"></oj-paging-control>
-        </div>
-      </div>
-      <oj-input-text id="filterText" label-hint="Search" value="{{ $variables.inputFilterText }}"
-         on-keyup="[[$listeners.filterTextKeyup]]"
-        class="oj-complete oj-component oj-flex-item oj-has-no-value oj-inputtext oj-sm-3 oj-sm-flex-initial oj-sm-padding-4x-end oj-text-field oj-text-field-label-inside oj-form-control">
-      </oj-input-text>
-    </div>
-    <div class="oj-flex-item oj-flex oj-sm-12">
-      <div class="table-wrapper">
-        <oj-table scroll-policy="loadMoreOnScroll"
-          class="oj-table-data-cell-padding oj-table-hide-vertical-scrollbar oj-flex-item oj-sm-flex-initial"
-          id="dynamicTable" data="[[ $variables.tableData ]]" columns="[[ $variables.tableColumns ]]"></oj-table>
-      </div>
+      <ul style="list-style: none; padding-left: 0; margin-top: 0.5rem;">
+        <oj-bind-for-each data="[[ $variables.searchTree ]]">
+          <template>
+            <li style="margin: 0.25rem 0;">
+              <span class="oj-ux-ico-subdirectory-arrow-down-right oj-sm-margin-1x-top" style="font-size: 1.40rem; vertical-align: middle;"></span>
+              <!-- Clicked link -->
+              <oj-bind-if test="[[ $current.index === $variables.lastClickedLinkId ]]">
+                <a href="#" data-id="[[ $current.data.id ]]" data-label="[[ $current.data.label ]]"
+                  style="margin-left: 0.5rem; color: #6c757d; cursor: default; font-size: 0.95rem; font-weight: bold;">
+                  <oj-bind-text value="[[ $current.data.label ]]"></oj-bind-text>
+                </a>
+              </oj-bind-if>
+              <!-- clickable link -->
+              <oj-bind-if test="[[ $current.index !== $variables.lastClickedLinkId ]]">
+                <a href="javascript:void(0)" data-id="[[ $current.data.id ]]" data-label="[[ $current.data.label ]]"
+                  style="margin-left: 0.5rem; color: #0275d8; cursor: pointer; text-decoration: underline; font-size: 0.9rem;"
+                  on-click="[[$listeners.hyperlinkClick]]">
+                  <oj-bind-text value="[[ $current.data.label ]]"></oj-bind-text>
+                </a>
+              </oj-bind-if>
 
-      <!-- Paging control section -->
-      <!-- <div class="oj-md-margin-2x-top">
-      <!-- Paging Controls 
-      <oj-paging-control data="[[ $variables.myPDP ]]" page-size="10"></oj-paging-control>
-
-    </div> -->
+              <!-- Conditionally show cancel icon only for the last item -->
+              <!--oj-bind-if test="[[ $current.index === $variables.searchTree.length - 1 ]]">
+                <span class="oj-ux-ico-cancel-s oj-sm-margin-start" style="margin-left: 0.5rem; cursor: pointer; font-size: 1.40rem; vertical-align: middle;" 
+                      on-click="[[$listeners.cancelClick]]"></span>
+              </oj-bind-if-->
+            </li>
+          </template>
+        </oj-bind-for-each>
+      </ul>
     </div>
   </div>
-  <h4 class="oj-header oj-color-invert" slot="header">Table View</h4>
-  <!-- <span class="oj-ux-ico-tables-basic" slot="header"></span> -->
-
-</oj-collapsible>
-
-
-<oj-collapsible id="graphCollapsible" class="oj-sm-margin-10x-top oj-sm-margin-10x-bottom oj-sm-padding-10x-bottom">
-
-  <div>
-
-
-
-
-<!-- <oj-chart type="bar" data="[[ $functions.getSampleChartData() ]]" 
-    series="[[ $functions.getSampleChartAxis() ]]">
-</oj-chart> -->
-
-<!-- <oj-chart type="bar" data="[[ $functions.getSampleChartData() ]]" series="[[ $functions.getSampleChartAxis() ]]"
-  x-axis="[[ { 'categories': '[[ $functions.getSampleChartData().categories ]]' } ]]" class="oj-sm-margin-10x-top">
-</oj-chart> -->
-
-
-<div class="oj-flex" style="padding-top: 20px;">
-  <oj-highlight-text text="[[ $variables.titleText ]]" match-text="Highlight" class="oj-flex-item oj-sm-12 oj-md-12"></oj-highlight-text>
+  <oj-bind-if test="[[ $variables.iPromptResponseMessage ]]">
+    <div class="oj-sm-margin-2x-top oj-bg-info-20 oj-sm-padding-2x" style="border-radius: 6px;">
+      <div class="oj-typography-body-md oj-text-color-secondary">
+        <oj-bind-text value="[[ $variables.iPromptResponseMessage ]]"></oj-bind-text>
+      </div>
+    </div>
+  </oj-bind-if>
+  <!-- Loading Indicator -->
+  <oj-bind-if test="[[$variables.isLoading]]">
+    <div class="oj-flex oj-sm-justify-content-center oj-sm-align-items-center oj-sm-padding-4x">
+      <oj-progress-circle value="-1" size="md"></oj-progress-circle>
+      <span class="oj-sm-margin-2x-start oj-typography-body-md">
+        <oj-bind-text value="[[$variables.loadingMessage]]"></oj-bind-text>
+      </span>
+    </div>
+  </oj-bind-if>
+</div>
+<div>
+  <oj-collapsible expanded="true" id="tableCollapsible" class="oj-sm-margin-2x-top">
+    <h4 class="oj-typography-heading-sm oj-color-invert" slot="header">Table View</h4>
+    <div class="oj-panel oj-bg-neutral-10"
+      style="border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.03); padding: 0;">
+      <oj-table scroll-policy="loadMoreOnScroll" class="oj-table-data-cell-padding oj-flex-item" id="dynamicTable"
+        data="[[ $variables.myPDP ]]" columns="[[ $variables.tableColumns ]]" style="width: 100%; max-height: 400px;">
+      </oj-table>
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 2px;">
+        <oj-collapsible class="small-collapsible oj-sm-3">
+          <h4 class=" oj-typography-body-1 oj-color-invert" slot="header">Additional Tools</h4>
+        <oj-input-text id="filterText" label-hint="quick search" value="{{ $variables.inputFilterText }}"
+          class="filter-input oj-complete oj-component oj-flex-item oj-has-no-value oj-inputtext oj-sm-12 oj-sm-flex-initial oj-text-field oj-text-field-label-inside oj-form-control oj-sm-padding-2x-top oj-sm-padding-2x-bottom"
+          on-keyup="[[$listeners.filterTextKeyup]]">
+        </oj-input-text>
+        </oj-collapsible>
+        <oj-paging-control data="[[ $variables.myPDP ]]" page-size="10"
+          page-options='{"layout":["nav","pages","rangeText"],"type":"number"}'>
+        </oj-paging-control>
+      </div>
+    </div>
+  </oj-collapsible>
 </div>
 
-
-<div class="oj-flex-bar oj-sm-align-items-center">
-  <oj-chart type="bar" class="oj-sm-flex-initial oj-flex-bar-middle oj-sm-justify-content-center" id="barGraph1"
-    stack="on" slot="middle" animation-on-data-change="auto" animation-on-display="auto"
-    data="[[ $variables.graphBARDataADP ]]" x-axis.title="[[ $variables.xAxisLabel ]]"
-    y-axis.title="[[ $variables.yAxisLabel ]]" legend.rendered="[[ $variables.showLegend? 'on': 'off' ]]"
-    value-formats.group.tooltip-label="[[ $variables.xAxisLabel ]]"
-    value-formats.value.tooltip-label="[[ $variables.yAxisLabel ]]"
-    value-formats.series.tooltip-label="[[ $variables.yAxisLabel === 'Amount Due'? 'Past Due Days': 'Group' ]]">
-    
-    <template slot="itemTemplate">
-      <oj-chart-item 
-      value="[[ $current.data.value ]]" 
-      group-id="[[ [$current.data.group] ]]"
-      series-id="[[ $current.data.series ]]">
-      </oj-chart-item>
-    </template>
-  </oj-chart>
-</div>
-
-
-
-
-
-
-
-
+<oj-collapsible id="graphCollapsible" class="oj-sm-margin-4x-top oj-sm-margin-4x-bottom">
+  <h4 class="oj-typography-heading-sm oj-color-invert" slot="header">Graph View</h4>
+  <div class="oj-panel oj-bg-neutral-0" style="border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
+    <div class="oj-flex oj-sm-align-items-center oj-sm-margin-2x-top oj-sm-margin-2x-bottom oj-sm-flex-wrap-nowrap">
+      
+      <!-- Orientation Buttonset -->
+      <oj-buttonset-one value="{{$page.variables.chartOrientation}}" class="oj-button-half-chrome"
+        disabled="[[ !($page.variables.dynamicChartType === 'bar' || 
+                      $page.variables.dynamicChartType === 'line' || 
+                      $page.variables.dynamicChartType === 'area') ]]">
+        <oj-option value="vertical" title="Vertical">
+          <span slot="startIcon" class="oj-ux-ico-chart-bar-v"></span>
+        </oj-option>
+        <oj-option value="horizontal" title="Horizontal">
+          <span slot="startIcon" class="oj-ux-ico-chart-bar-h"></span>
+        </oj-option>
+      </oj-buttonset-one>
+      <span role="separator" aria-orientation="vertical" class="oj-toolbar-separator"></span>
+      <!-- Chart Type Radioset -->
+      <div class="oj-flex-item" style="flex: 0 0 auto; padding-left: 12px;">
+        <oj-radioset id="chartTypeRadioset" value="{{ $page.variables.dynamicChartType }}"
+          class="oj-choice-direction-row oj-choice-row oj-flex-item"
+          on-value-changed="[[$listeners.chartTypeRadiosetValue]]">
+          <oj-option value="area" disabled="[[ $page.variables.isXYAvailable ]]">Area</oj-option>
+          <oj-option value="bar" disabled="[[ $page.variables.isXYAvailable ]]">Bar</oj-option>
+          <oj-option value="line" disabled="[[ $page.variables.isXYAvailable ]]">Line</oj-option>
+          <oj-option value="pie" disabled="[[ $page.variables.isXYAvailable ]]">Pie</oj-option>
+          <oj-option value="funnel" disabled="[[ $page.variables.isXYAvailable ]]">Funnel</oj-option>
+          <oj-option value="bubble" disabled="[[ !$page.variables.isXYAvailable ]]">Bubble</oj-option>
+          <oj-option value="scatter" disabled="[[ !$page.variables.isXYAvailable ]]">Scatter</oj-option>
+        </oj-radioset>
+      </div>
+      <span role="separator" aria-orientation="vertical" class="oj-toolbar-separator"></span>
+      <div class="oj-flex-item oj-sm-flex-1" style="padding-left: 12px;">
+        <oj-input-search value="{{ $variables.iGraphPrompt }}"
+          placeholder="Interact with the graph..."
+          on-oj-value-action="[[$listeners.inputSearchValueAction2]]">
+        </oj-input-search>
+      </div>
+      <oj-button display="icons" chroming="borderless" class="oj-button-sm oj-sm-margin-1x-start" title="Refresh"
+        on-oj-action="[[$listeners.resetGraphAction]]">
+        <span slot="startIcon" class="oj-ux-ico-refresh"></span>
+      </oj-button>
+      <oj-bind-if test="[[$page.variables.dynamicChartType && $page.variables.dynamicChartType !== '']]">
+        <oj-sample-visualization-exporter id="chartExporter" export-component="dynamicChart" 
+          chroming="borderless" display="icons" class="oj-button-sm" title="Download Chart">
+          <span slot="startIcon" class="oj-ux-ico-download"></span>
+        </oj-sample-visualization-exporter>
+      </oj-bind-if>
+    </div>
+    <!-- Loading Indicator -->
+    <oj-bind-if test="[[$variables.isGraphLoading]]">
+      <div class="oj-flex oj-sm-justify-content-center oj-sm-align-items-center oj-sm-padding-4x">
+        <oj-progress-circle value="-1" size="md"></oj-progress-circle>
+        <span class="oj-sm-margin-2x-start oj-typography-body-md">
+          <oj-bind-text value="[[$variables.loadingMessage]]"></oj-bind-text>
+        </span>
+      </div>
+    </oj-bind-if>
   </div>
-
-  <h4 class="oj-header oj-color-invert" slot="header">Graph View</h4>
+  <!--oj-input-search class="oj-flex-item oj-sm-flex-1" value="{{ $variables.iGraphPrompt }}"
+    placeholder="Interact with the graph..." on-oj-value-action="[[$listeners.inputSearchValueAction2]]">
+  </oj-input-search-->
+  <div id="chart-container" style="position: relative; max-height: 380px; margin-bottom: 60px;">
+    <oj-bind-if test="[[$page.variables.dynamicChartType && $page.variables.dynamicChartType !== '']]">
+      <oj-chart id="dynamicChart" type="[[ $page.variables.dynamicChartType ]]"
+        orientation="[[ $page.variables.chartOrientation ]]" data="[[ $page.variables.chartDataProvider ]]"
+        animation-on-display="auto" animation-on-data-change="auto" hover-behavior="dim"
+        x-axis.title="[[ $page.variables.xAxisLabel ]]" x-axis.title-style={"fontStyle":"italic","color":"#6070C7"}
+        y-axis.title="[[ $page.variables.yAxisLabel ]]" y-axis.title-style={"fontStyle":"italic","color":"#6070C7"}>
+        <template slot="itemTemplate" data-oj-as="item">
+          <oj-chart-item x="[[item.data.x]]" y="[[item.data.y]]" z="[[item.data.z]]" group-id="[[ [item.data.group] ]]"
+            series-id="[[item.data.series]]" value="[[item.data.value]]">
+          </oj-chart-item>
+        </template>
+      </oj-chart>
+    </oj-bind-if>
+  </div>
+  <div class="oj-flex oj-lg-justify-content-center" style="padding: 0 0 30px 0;">
+    <h5 class="oj-typography-body-lg oj-text-color-primary">
+      <oj-highlight-text text="[[ $variables.dynamicChartDescription ]]" match-text="Highlight">
+      </oj-highlight-text>
+    </h5>
+  </div>
+  </div>
 </oj-collapsible>

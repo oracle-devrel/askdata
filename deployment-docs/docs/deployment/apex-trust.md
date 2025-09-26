@@ -119,5 +119,9 @@ If your application is not displaying, double check the following
     - Logout URL set correctly 
 - Trust API working 
 
+If the APEX app stops working/lags after uploading a sample prompt file, try restarting the trust server. 
+See [Trust Deployment](../deployment/trust-service.c.md#11-setup-the-nl2sql-service)
 
 **NOTE** APEX does not support calling external APIs with self-signed certificates. If your Trust LB is using a self-signed cert, the APEX app will fail. For now we are using the API Gateway to get around this. This will fail with redirect errors when invoking the API Gateway/load balancer endpoint from APEX.
+
+## [Return home](../../../README.md)

@@ -1,0 +1,53 @@
+{
+  "annotations" : [ ],
+  "autoCompleteData" : [ ],
+  "description" : "Receivables",
+  "enabled" : true,
+  "exampleData" : [ {
+    "annotations" : [ ],
+    "contributor" : null,
+    "crowdJobId" : null,
+    "detectedLanguage" : null,
+    "developerId" : null,
+    "developerTag" : null,
+    "exampleEntities" : [ ],
+    "nativeLanguageTag" : "en",
+    "sentence" : "account receivables",
+    "trackingId" : "DC712B64-1004-4BB6-A5DE-433F7B5CDC67",
+    "translated" : null,
+    "translatedBy" : null,
+    "translatedLanguage" : null
+  }, {
+    "annotations" : [ ],
+    "contributor" : null,
+    "crowdJobId" : null,
+    "detectedLanguage" : null,
+    "developerId" : null,
+    "developerTag" : null,
+    "exampleEntities" : [ ],
+    "nativeLanguageTag" : "en",
+    "sentence" : "display the receipts",
+    "trackingId" : "3521B090-C4E7-4402-8088-1E6DC674781D",
+    "translated" : null,
+    "translatedBy" : null,
+    "translatedLanguage" : null
+  }, {
+    "annotations" : [ ],
+    "contributor" : null,
+    "crowdJobId" : null,
+    "detectedLanguage" : null,
+    "developerId" : null,
+    "developerTag" : null,
+    "exampleEntities" : [ ],
+    "nativeLanguageTag" : "en",
+    "sentence" : "show me payment terms",
+    "trackingId" : "F0840FD0-D10F-4BAB-99E3-AFE24AAEE782",
+    "translated" : null,
+    "translatedBy" : null,
+    "translatedLanguage" : null
+  } ],
+  "intentParameters" : [ ],
+  "name" : "Receivables",
+  "trackingId" : "5562800F-97BE-460B-80C4-A3158D13CE9D",
+  "type" : "NLPIntent"
+}

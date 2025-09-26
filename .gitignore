@@ -55,6 +55,7 @@ __pycache__/
 !clientApp/trusted.png
 !clientApp/untrusted.png 
 !/vbcs_oda_archives/vbcs_apps/vbcs-askdata/webApps/nl2sqlbot/resources/images/*
+!deployment-docs/docs/deployment/function/*
 
 # Added images for documentation (redacted)
 !deployment-docs/docs/deployment/business_media/media/*
@@ -74,6 +75,7 @@ __pycache__/
 
 *.ico
 !/vbcs_oda_archives/vbcs_apps/vbcs-askdata/webApps/nl2sqlbot/resources/images/*
+!/rest/nl2sql-trust/static/*
 
 *.docx 
 
@@ -84,8 +86,10 @@ __pycache__/
 *.xlsx
 *.zip
 /rest/nl2sql-trust/.coverage
-*.tgz
 
+*.tgz
+# webview binary required to import 
+!/vbcs_oda_archives/oda/askdata-oda-base/webviewPackages/NL2SQLFeedbackFormService/nl2sql_feedback_spa_form.tgz 
 # WebSDK should be included in VBCS Applications
 /oda/websdk-apache-deploy/
 
@@ -205,8 +209,9 @@ deployment-docs/mkdocs.yml
 /rest/script/find_by_freeform.bash
 /rest/script/find_by_tags.bash 
 
-# log file 
-/rest/script/nl2sql_trust_rest.log 
+# log files
+*.log
+*.out
 
 # sensitive info 
 /rest/script/os_upload.bash

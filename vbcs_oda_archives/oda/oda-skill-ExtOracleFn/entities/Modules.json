@@ -1,0 +1,41 @@
+{
+  "botPrompts" : [ {
+    "text" : "Please enter Modules",
+    "type" : "DEFAULT"
+  } ],
+  "enumValues" : [ {
+    "type" : "StaticEntityValue",
+    "canonicalName" : "Payables",
+    "extensionType" : null,
+    "nativeLanguageTag" : "en",
+    "primaryLanguageCanonicalName" : "Payables",
+    "scopeValue" : null,
+    "synonyms" : null,
+    "trackingId" : "85A90D7B-F7A2-4493-B46B-120CF63B4A12"
+  }, {
+    "type" : "StaticEntityValue",
+    "canonicalName" : "Receivables",
+    "extensionType" : null,
+    "nativeLanguageTag" : "en",
+    "primaryLanguageCanonicalName" : "Receivables",
+    "scopeValue" : null,
+    "synonyms" : null,
+    "trackingId" : "F0FAB2CB-9CA8-4845-98D0-0B761C78E97E"
+  }, {
+    "type" : "StaticEntityValue",
+    "canonicalName" : "Supply Chain",
+    "extensionType" : null,
+    "nativeLanguageTag" : "en",
+    "primaryLanguageCanonicalName" : "Supply Chain",
+    "scopeValue" : null,
+    "synonyms" : null,
+    "trackingId" : "04BD20F7-E8AB-42E7-A9D1-0B532D8720A0"
+  } ],
+  "fuzzyMatch" : false,
+  "multiValue" : false,
+  "name" : "Modules",
+  "promptForDisambiguation" : true,
+  "trackingId" : "F1B9E5E4-D781-412B-80BF-B227DD7CD5AD",
+  "type" : "ENUMVALUES",
+  "validationRules" : [ ]
+}

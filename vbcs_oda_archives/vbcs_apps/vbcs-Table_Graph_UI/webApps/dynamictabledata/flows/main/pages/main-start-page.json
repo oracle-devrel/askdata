@@ -2,16 +2,40 @@
   "title": "main",
   "description": "",
   "variables": {
+
+    "chartDataProvider": {
+      "type": "vb/ArrayDataProvider2"
+    },
+    "chartOrientation": {
+      "type": "string",
+      "defaultValue": "vertical"
+    },
+    "chartViewMode": {
+      "type": "string",
+      "defaultValue": "series"
+    },
+    "dynamicChartDescription": {
+      "type": "string"
+    },
+    "dynamicChartType": {
+      "type": "string"
+    },
+    "exportExcelDataProvider": {
+      "type": "any"
+    },
     "graphId": {
       "type": "string",
       "input": "none"
     },
-    "htmlInput": {
-      "type": "any",
-      "defaultValue": "<html>    <head>       <style> table { border-collapse: collapse; width: 100%;} th { text-align: center; padding: 4px;font-family: Arial !important; font-size: 12px !important;} td {text-align: left !important;padding: 4px !important;font-family: Arial !important; font-size: 12px !important;color: black !important;} tr:nth-child(even){background-color: #eee} tr:nth-child(odd){background-color: #fff} th {background-color: #fff;color: black;}</style>    </head>    <table border=\\\\\\\"1\\\\\\\" class=\\\\\\\"dataframe\\\\\\\">       <thead>          <tr style=\\\\\\\"text-align: right;\\\\\\\">                <th>Vendor Name</th>          <th>Total Amount Due</th>          <th>Invoice Number</th>          <th>Amount Due</th>          <th>Invoice Date</th>          </tr>         </thead>       <tbody>          <tr>             <td>Advanced Network Devices</td>             <td>14,017.45</td>             <td>ERS-11977-229825</td>             <td>14,017.45</td>             <td>2024-03-08</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>107,611.51</td>             <td>ERS-11979-230063</td>             <td>107,611.51</td>             <td>2024-03-07</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>14,017.45</td>             <td>ERS-11980-230104</td>             <td>14,017.45</td>             <td>2024-03-08</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>87,546.31</td>             <td>ERS-11982-230344</td>             <td>87,546.31</td>             <td>2024-03-12</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>9,150.12</td>             <td>ERS-12222-214659</td>             <td>9,150.12</td>             <td>2023-10-07</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>22,989.78</td>             <td>ERS-12225-214698</td>             <td>22,989.78</td>             <td>2023-10-10</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>76,251.00</td>             <td>ERS-12227-214736</td>             <td>76,251.00</td>             <td>2023-10-06</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>44,225.58</td>             <td>ERS-12234-215022</td>             <td>44,225.58</td>             <td>2023-10-08</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>4,575.06</td>             <td>ERS-12235-215028</td>             <td>4,575.06</td>             <td>2023-10-09</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>14,199.57</td>             <td>ERS-12235-215029</td>             <td>14,199.57</td>             <td>2023-10-11</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>3,050.04</td>             <td>ERS-12239-215035</td>             <td>3,050.04</td>             <td>2023-10-10</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>76,251.00</td>             <td>ERS-12241-215174</td>             <td>76,251.00</td>             <td>2023-10-07</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>89,976.18</td>             <td>ERS-12243-215179</td>             <td>89,976.18</td>             <td>2023-10-10</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>2,232.44</td>             <td>ERS-12260-215598</td>             <td>2,232.44</td>             <td>2023-10-17</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>5,634.75</td>             <td>ERS-12276-215942</td>             <td>5,634.75</td>             <td>2023-10-19</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>12,171.06</td>             <td>ERS-12278-215999</td>             <td>12,171.06</td>             <td>2023-10-21</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>99,029.94</td>             <td>ERS-12301-216421</td>             <td>99,029.94</td>             <td>2023-10-28</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>1,352.34</td>             <td>ERS-12312-217002</td>             <td>1,352.34</td>             <td>2023-11-06</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>232,676.17</td>             <td>ERS-12316-217030</td>             <td>232,676.17</td>             <td>2023-11-05</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>4,575.06</td>             <td>ERS-12316-217031</td>             <td>4,575.06</td>             <td>2023-11-07</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>6,100.08</td>             <td>ERS-12319-217038</td>             <td>6,100.08</td>             <td>2023-11-06</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>4,575.06</td>             <td>ERS-12321-217101</td>             <td>4,575.06</td>             <td>2023-11-07</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>4,507.80</td>             <td>ERS-12321-217102</td>             <td>4,507.80</td>             <td>2023-11-08</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>82,351.08</td>             <td>ERS-12322-217117</td>             <td>82,351.08</td>             <td>2023-11-04</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>10,675.14</td>             <td>ERS-12322-217118</td>             <td>10,675.14</td>             <td>2023-11-05</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>232,676.17</td>             <td>ERS-12324-217120</td>             <td>232,676.17</td>             <td>2023-11-05</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>4,507.80</td>             <td>ERS-12324-217121</td>             <td>4,507.80</td>             <td>2023-11-08</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>6,310.92</td>             <td>ERS-12328-217139</td>             <td>6,310.92</td>             <td>2023-10-21</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>11,494.89</td>             <td>ERS-12331-217306</td>             <td>11,494.89</td>             <td>2023-11-08</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>4,958.58</td>             <td>ERS-12331-217307</td>             <td>4,958.58</td>             <td>2023-11-09</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>18,031.20</td>             <td>ERS-12333-217309</td>             <td>18,031.20</td>             <td>2023-11-09</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>232,676.17</td>             <td>ERS-12335-217314</td>             <td>232,676.17</td>             <td>2023-11-05</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>14,199.57</td>             <td>ERS-12335-217315</td>             <td>14,199.57</td>             <td>2023-11-09</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>232,676.17</td>             <td>ERS-12337-217322</td>             <td>232,676.17</td>             <td>2023-11-05</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>18,031.20</td>             <td>ERS-12337-217323</td>             <td>18,031.20</td>             <td>2023-11-09</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>99,126.30</td>             <td>ERS-12343-217411</td>             <td>99,126.30</td>             <td>2023-11-08</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>6,100.08</td>             <td>ERS-12347-217425</td>             <td>6,100.08</td>             <td>2023-11-06</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>91,501.20</td>             <td>ERS-12351-217489</td>             <td>91,501.20</td>             <td>2023-11-07</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>6,100.08</td>             <td>ERS-12354-217505</td>             <td>6,100.08</td>             <td>2023-11-06</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>99,126.30</td>             <td>ERS-12354-217506</td>             <td>99,126.30</td>             <td>2023-11-08</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>6,100.08</td>             <td>ERS-12357-217614</td>             <td>6,100.08</td>             <td>2023-11-05</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>4,575.06</td>             <td>ERS-12357-217615</td>             <td>4,575.06</td>             <td>2023-11-07</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>18,031.20</td>             <td>ERS-12357-217616</td>             <td>18,031.20</td>             <td>2023-11-10</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>13,523.40</td>             <td>ERS-12367-217733</td>             <td>13,523.40</td>             <td>2023-11-11</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>2,243.15</td>             <td>ERS-12388-218311</td>             <td>2,243.15</td>             <td>2023-11-21</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>103,225.39</td>             <td>ERS-12417-219372</td>             <td>103,225.39</td>             <td>2023-12-05</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>9,015.60</td>             <td>ERS-12428-219711</td>             <td>9,015.60</td>             <td>2023-12-07</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>9,015.60</td>             <td>ERS-12429-219717</td>             <td>9,015.60</td>             <td>2023-12-07</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>8,790.21</td>             <td>ERS-12442-220136</td>             <td>8,790.21</td>             <td>2023-12-08</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>2,219.35</td>             <td>ERS-12464-220670</td>             <td>2,219.35</td>             <td>2023-12-22</td>          </tr>          <tr>             <td>Advanced Network Devices</td>             <td>9,150.12</td>             <td>ERS-12470-220766</td>             <td>9,150.12</td>             <td>2023-12-21</td>          </tr>       </tbody>    </table> </html>"
+    "hasSwappedChartData": {
+      "type": "boolean"
     },
-    "htmlInput1": {
-      "type": "any"
+    "iDataStepNumber": {
+      "type": "number",
+      "defaultValue": 0
+    },
+    "iGraphPrompt": {
+      "type": "string"
     },
     "inputDataId": {
       "type": "string"
@@ -19,80 +43,65 @@
     "inputFilterText": {
       "type": "string"
     },
+    "iPrompt": {
+      "type": "string"
+    },
+    "iPromptResponseMessage": {
+      "type": "string"
+    },
+    "isGraphLoading": {
+      "type": "boolean"
+    },
+    "isGroupView": {
+      "type": "boolean",
+      "defaultValue": false,
+      "onValueChanged": {
+        "chains": [
+          {
+            "parameters": {
+              "event": "{{ $event }}"
+            },
+            "chain": "switchViewModeChanged"
+          }
+        ]
+      }
+    },
+    "isLoading": {
+      "type": "boolean"
+    },
+    "isXYAvailable": {
+      "type": "boolean",
+      "defaultValue": false
+    },
+    "lastClickedLinkId": {
+      "type": "number",
+      "defaultValue": -1
+    },
+    "lastSearchPrompt": {
+      "type": "string"
+    },
+    "loadingMessage": {
+      "type": "string"
+    },
     "myPDP": {
       "type": "any"
     },
-    "rowsPerPage": {
-      "type": "any"
-    },
-    "rowsPerPageOptions": {
-      "type": "object[]",
-      "defaultValue": [
-        {
-          "value": 10,
-          "label": "10"
-        },
-        {
-          "value": 20,
-          "label": "20"
-        },
-        {
-          "value": 30,
-          "label": "30"
-        },
-        {
-          "value": 40,
-          "label": "40"
-        },
-        {
-          "value": 50,
-          "label": "50"
-        },
-        {
-          "value": 60,
-          "label": "60"
-        },
-        {
-          "value": 70,
-          "label": "70"
-        },
-        {
-          "value": 80,
-          "label": "80"
-        },
-        {
-          "value": 90,
-          "label": "90"
-        }
-      ]
-    },
-    "tableColumns": {
-      "type": "any"
-    },
-    "tableData": {
-      "type": "any"
-    },
-    "graphBARDataADP": {
-      "type": "vb/ArrayDataProvider2",
-      "defaultValue": {
-        "itemType": "graphDataType",
-        "keyAttributes": "@value"
-      }
-    },
-    "graphPieDataADP": {
-      "defaultValue": {
-        "itemType": "graphDataType",
-        "keyAttributes": "@value"
-      },
-      "type": "vb/ArrayDataProvider2"
-    },
-    "showLegend": {
-      "type": "boolean"
-    },
-    "titleText": {
+    "pPrompt": {
       "type": "string"
     },
-    "tooltipRenderer": {
+    "rawChartData": {
+      "type": "any"
+    },
+    "regularChartDataCache": {
+      "type": "any"
+    },
+    "searchTree": {
+      "type": "any[]"
+    },
+    "swappedChartDataCache": {
+      "type": "any"
+    },
+    "tableColumns": {
       "type": "any"
     },
     "xAxisLabel": {
@@ -101,22 +110,31 @@
     "yAxisLabel": {
       "type": "string"
     }
+
   },
   "metadata": {},
   "types": {
 
-    "graphDataType": {
-      "group": "string",
-      "series": "string",
-      "value": "number"
-    }
   },
   "eventListeners": {
-    "comboValue": {
+    "buttonAction": {
       "chains": [
         {
-          "parameters": {},
-          "chain": "rowsPerPageComboValueChangeChain"
+          "chain": "autoInsightsButtonActionChain"
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chain": "getDetailedInsightsButtonActionChain"
+        }
+      ]
+    },
+    "filterTextClick": {
+      "chains": [
+        {
+          "chain": "InputTextClickChain"
         }
       ]
     },
@@ -124,6 +142,73 @@
       "chains": [
         {
           "chain": "InputTextKeyupChain"
+        }
+      ]
+    },
+    "hyperlinkClick0": {
+      "chains": [
+        {
+          "chain": "hyperlinkClickChain",
+          "parameters": {
+            "id": "0",
+            "label": "[[ $variables.pPrompt ]]"
+          }
+        }
+      ]
+    },
+    "hyperlinkClick": {
+      "chains": [
+        {
+          "chain": "hyperlinkClickChain",
+          "parameters": {
+            "id": "[[ $current.index + 1 ]]",
+            "label": "[[ $current.data.label ]]"
+          }
+        }
+      ]
+    },
+    "inputSearchValueAction2": {
+      "chains": [
+        {
+          "chain": "iGraphActionChain",
+          "parameters": {
+            "value": "{{$event.detail.value}}",
+            "itemContext": "{{$event.detail.itemContext}}"
+      }
+        }
+      ]
+    },
+    "resetAction": {
+      "chains": [
+        {
+          "chain": "ResetActionChain"
+        }
+      ]
+    },
+    "chartTypeRadiosetValue": {
+      "chains": [
+        {
+          "chain": "RadiosetValueChangeChain",
+          "parameters": {
+            "value": "[[ $event.detail.value ]]"
+          }
+        }
+      ]
+    },
+    "inputSearchValueAction": {
+      "chains": [
+        {
+          "chain": "onSearchTriggered",
+          "parameters": {
+            "value": "{{$event.detail.value}}",
+            "itemContext": "{{$event.detail.itemContext}}"
+      }
+        }]
+    },
+    "resetGraphAction": {
+      "chains": [
+        {
+          "chain": "ResetGraphActionChain"
         }
       ]
     },
@@ -147,6 +232,12 @@
   },
   "imports": {
     "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-buttonset-one": {
+        "path": "ojs/ojbutton"
+      },
       "oj-chart": {
         "path": "ojs/ojchart"
       },
@@ -162,17 +253,50 @@
       "oj-highlight-text": {
         "path": "ojs/ojhighlighttext"
       },
+      "oj-input-search": {
+        "path": "ojs/ojinputsearch"
+      },
       "oj-input-text": {
         "path": "ojs/ojinputtext"
       },
       "oj-label": {
         "path": "ojs/ojlabel"
       },
+      "oj-message": {
+        "path": "ojs/ojmessage"
+      },
+      "oj-option": {
+        "path": "ojs/ojoption"
+      },
       "oj-paging-control": {
         "path": "ojs/ojpagingcontrol"
       },
+      "oj-progress-circle": {
+        "path": "ojs/ojprogress-circle"
+      },
+      "oj-radioset": {
+        "path": "ojs/ojradioset"
+      },
+      "oj-sample-export-data": {
+        "path": "oj-sample/export-data/loader"
+      },
+      "oj-sample-visualization-exporter": {
+        "path": "oj-sample/visualization-exporter/loader"
+      },
+      "oj-select-single": {
+        "path": "ojs/ojselectsingle"
+      },
+      "oj-switch": {
+        "path": "ojs/ojswitch"
+      },
       "oj-table": {
         "path": "ojs/ojtable"
+      },
+      "oj-toolbar": {
+        "path": "ojs/ojtoolbar"
+      },
+      "oj-tree-view": {
+        "path": "ojs/ojtreeview"
       }
 
    }

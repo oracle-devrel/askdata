@@ -1,0 +1,11 @@
+{
+  "enabled" : true,
+  "hosted" : true,
+  "name" : "NL2SQLFeedbackFormService",
+  "packageChecksum" : "f5fb343ea3f0a39c19d8e7e65ba17d45",
+  "packageFileName" : "nl2sql_feedback_spa_form.tgz",
+  "status" : {
+    "code" : "awaitingDeployment",
+    "message" : "The webview service is waiting to be deployed."
+  }
+}

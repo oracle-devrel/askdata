@@ -21,12 +21,11 @@
                             },
                             "examples": {
                                 "vb": {
-
+                                    "summary": "Example stored by VB User",
                                     "externalValue": "./examples/postToken/request_application_x-www-form-urlencoded_vb.json"
                                 }
                             }
-                        },
-                        "application/octet-stream": {}
+                        }
                     }
                 },
                 "responses": {
@@ -65,9 +64,6 @@
                         "type": "string"
                     },
                     "grant_type": {
-                        "type": "string"
-                    },
-                    "audience": {
                         "type": "string"
                     }
                 }

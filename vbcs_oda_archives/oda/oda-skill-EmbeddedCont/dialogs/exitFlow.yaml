@@ -1,0 +1,28 @@
+name: "exitFlow"
+trackingId: "8046CF27-C13B-4A3D-B020-FE6027FECF85"
+type: "task"
+version: "2.0"
+interface: {}
+configuration:
+  requiresAuthorization: false
+  defaultApplicationContext: false
+  privateThread: false
+defaultTransitions:
+  actions:
+    system.startTaskFlow: "Exit"
+states:
+  Exit:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - text: "Thank you for using Oracle AskData Assistant."
+          type: "text"
+        - text: "Good Bye!"
+          type: "text"
+      keepTurn: true
+    transitions: {}
+    metadata:
+      virtualComponent: "Virtual.Output"
+      propertySheetIsFreeMarkerMap:
+        requiresAuthorization: false

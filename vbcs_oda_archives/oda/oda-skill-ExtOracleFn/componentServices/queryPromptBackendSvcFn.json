@@ -1,0 +1,9 @@
+{
+  "type" : "CUSTOM_FN",
+  "name" : "queryPromptBackendSvcFn",
+  "version" : "2.7.3",
+  "url" : "https://xxx.functions.us-chicago-1.oci.oraclecloud.com/20181201/functions/ocid1.fnfunc.oc1.us-chicago-1.xxx/actions/invoke",
+  "headers" : [ ],
+  "enabled" : true,
+  "trackingId" : "D18ED42C-C1A0-4436-8C3C-CF8EC9037833"
+}

@@ -1,0 +1,11 @@
+{
+  "botPrompts" : [ ],
+  "entityGazetteers" : [ ],
+  "fuzzyMatch" : false,
+  "multiValue" : false,
+  "name" : "LOCATION",
+  "promptForDisambiguation" : true,
+  "trackingId" : "22E1563D-BA8E-49C3-8314-CA76B73A0D99",
+  "type" : "SYSTEM",
+  "validationRules" : [ ]
+}

@@ -1,7 +1,3 @@
-/**  Copyright (c) 2021, 2025 Oracle and/or its affiliates.
-* Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl/
-*/
-
 'use strict';
 
 /**
@@ -42,7 +38,7 @@ var currentTypedText;
 }*/
 
 function setupWebSocket() {
-  socket = new WebSocket('wss://<your-websocket-ip>.sslip.io:8004/ws/suggestions');
+  socket = new WebSocket('wss://207.211.161.208.sslip.io:8004/ws/suggestions');
 
   socket.onopen = function () {
     console.log('WebSocket connection established');
@@ -219,6 +215,101 @@ function hideSuggestionContainer() {
   }
 }
 
+/*
+var _delegateObject = {
+    beforeDisplay(message) {
+        if (message.messagePayload.type == 'text' && message.messagePayload.actions.length == 3 && message.messagePayload.actions[0].postback.target == 'SystemIntentsRoutingAction.cancel'){
+
+        //remove last button
+        message.messagePayload.actions.pop();
+
+      }
+        console.log('beforeDisplay: ' + JSON.stringify(message));
+
+        // Handle custom channel extensions
+         
+        if (message.messagePayload.type == 'text' && message.messagePayload.channelExtensions && message.messagePayload.channelExtensions.alert) {
+            //print the message
+            alert(message.messagePayload.channelExtensions.alert);
+        }
+
+        // User session time-out reminder
+        
+        resetTimer();  //all messages reset the timer
+
+        if (message.messagePayload.channelExtensions) {
+          if (message.messagePayload.channelExtensions.lastState) {
+            //ONLY RESPONSES WITH A LAST STATE PROPERTY SET THE TIMER
+            setTimer(message.messagePayload.channelExtensions.lastState,
+            message.messagePayload.channelExtensions.botId,
+            message.messagePayload.channelExtensions.goToState);
+          }
+        }
+
+        // split long text messages
+        
+        if (message.messagePayload.type == 'text') {
+            message.messagePayload.text = splitParagraph(message.messagePayload.text);
+        }
+
+        //
+         // Handling System.Webview component.
+         // 1. webview components are rendered as cards layout with single card
+         // 2. url contains ODA host URL and /webviews/
+         //
+        if (message.messagePayload.cards) {
+
+            //cards must have at least a single action. So its save to access the
+            //first card directly
+            if (message.messagePayload.cards[0].actions[0].url.includes('/connectors/v2/webviews/')) {
+                //change type "url" to type "webview". This then renders the webview in the
+                //messenger's iFrame, not relying on "linkHandler" property to point to the
+                //embedded iFrame
+                message.messagePayload.cards[0].actions[0].type = "webview";
+            }
+        }
+        return message;
+    },
+    beforeSend(message) {
+        return message;
+    },
+    beforePostbackSend(postback) {
+        return postback;
+    }
+} */
+
+/*
+function showHideParagraphs(lidx) {
+    var dots = document.getElementById("dots" + lidx);
+    var moreText = document.getElementById("more" + lidx);
+    var btnText = document.getElementById("myBtn" + lidx);
+    if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        btnText.innerHTML = "Read more";
+        moreText.style.display = "none";
+    } else {
+        dots.style.display = "none";
+        btnText.innerHTML = "Read less";
+        moreText.style.display = "inline";
+    }
+}
+
+var gidx = 0;
+
+function splitParagraph(txt) {
+    var paragraphs = txt.split("\n\n");
+    console.log(paragraphs);
+    if (paragraphs.length > 1) {
+        var html = "<p>"+paragraphs[0]+'<span id="dots'+gidx+'">...</span></p><span id="more'+gidx+'"class="more">';
+        for (var idx = 1; idx < paragraphs.length; idx++) {
+            html += "<p>" + paragraphs[idx] + "</p>";
+        }
+        html += '</span><button class="readMore" onclick="showHideParagraphs('+gidx+')" id="myBtn'+gidx+'">Read more</button>';
+        gidx++;
+        return html;
+    } else
+        return txt;
+} */
 /**
  * Initializes the SDK and sets a global field with passed name for it the can
  * be referred later
@@ -241,6 +332,20 @@ function initSdk(name) {
   var Bots;
   setTimeout(function () {
 
+
+
+    // fetch user name from session
+
+    //sessionStorage.setItem("username: ", $application.variables.currentuser);
+
+    
+
+    // document.addEventListener("DOMContentLoaded", function () {
+    //   const username = sessionStorage.getItem('username');
+    //   console.log("in the settings file -> username: " + username);
+     
+    // });
+
     let user = "";
 
     document.addEventListener("DOMContentLoaded", function() {
@@ -252,6 +357,26 @@ function initSdk(name) {
         // Use the username as needed
     });
 });
+
+
+
+
+// // Ensure the variable is declared correctly.
+// let loggedInUserName = ""; // Declare the variable before using it.
+
+// // Now, retrieve the username from the body tag data attribute
+// loggedInUserName = document.body.getAttribute('data-username');
+
+// if (loggedInUserName) {
+//     console.log('Username!!! in settings.js: ' + loggedInUserName);
+//     // You can now use loggedInUserName for ODA integration or other purposes
+// } else {
+//     console.log('Username!!! not found');
+// }
+
+
+
+
 
     /**
     * SDK configuration settings
@@ -358,7 +483,7 @@ function initSdk(name) {
  * use for the APP_NAME.
  */
 const APP_NAME = 'webSdkAuth'
-const TOKEN_SERVER_ENDPOINT = '<token-server-endpoint>/jwt/token'
+const TOKEN_SERVER_ENDPOINT = 'https://axm3taxqtrgepo5eyp3vbhsrly.apigateway.us-chicago-1.oci.customer-oci.com/jwt/token'
 /**
  * Function to generate JWT tokens. It returns a Promise to provide tokens.
  * The function is passed to SDK which uses it to fetch token whenever it needs
@@ -425,9 +550,9 @@ function clear() {
 }
 
 function getUri() {
-  return "<your-oda-instance>";
+  return "oda-3259ee5123c349feae0c5a062ba9ea97-da6f7264.data.digitalassistant.oci.oraclecloud.com";
 }
 
 function getChannelId() {
-    return "<your-channel-id>"
+    return "d81b8968-bf16-4852-84c6-d0ee52e2bef9"
 }

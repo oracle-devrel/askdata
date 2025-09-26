@@ -64,37 +64,6 @@ async def users_number_prompts(start_date=None, end_date=None, domain=None ):
 async def users_number(start_date=None, end_date=None, domain=None ):
     return ctrl.users_number(start_date=start_date,end_date=end_date, domain=domain )
 
-@router.get("/size_trust_library_user_prompts_trust")
-async def size_trust_library_user_prompts_trust(start_date=None, end_date=None, domain=None ):
-    return ctrl.size_trust_library_user_prompts_trust(start_date=start_date,end_date=end_date, domain=domain  )
-
-@router.get("/accuracy_semitrusted", deprecated=True)
-async def accuracy_semitrusted(start_date=None, end_date=None, domain=None ):
-    warnings.warn(
-        "accuracy_semitrusted is deprecated API and will be removed in a future version.",
-        DeprecationWarning, stacklevel=2
-    )
-    return ctrl.accuracy_semitrusted(start_date=start_date,end_date=end_date, domain=domain )
-
-@router.get("/accuracy_untrusted", deprecated=True)
-async def accuracy_untrusted(start_date=None, end_date=None, domain=None ):
-    warnings.warn(
-        "accuracy_untrusted is deprecated API and will be removed in a future version.",
-        DeprecationWarning, stacklevel=2
-    )
-    return ctrl.accuracy_untrusted(start_date=start_date,end_date=end_date, domain=domain  )
-
-@router.get("/accuracy_by_trust_level")
-async def accuracy_by_trust_level(start_date, end_date, domain=None):
-    metric_gatekeeper(start_date=start_date, end_date=end_date)
-    return ctrl.accuracy_by_trust_level(start_date=start_date,end_date=end_date, domain=domain  )
-
-@router.get("/accuracy_by_week")
-async def accuracy_by_week(start_date=None, end_date=None, domain=None):
-    metric_gatekeeper(start_date=start_date, end_date=end_date)
-    return ctrl. accuracy_by_week(start_date=start_date,end_date=end_date, domain=domain)
-
-
 @router.get("/accuracy_cumulative")
 async def accuracy_cumulative(start_date=None, end_date=None, domain=None):
     metric_gatekeeper(start_date=start_date, end_date=end_date)

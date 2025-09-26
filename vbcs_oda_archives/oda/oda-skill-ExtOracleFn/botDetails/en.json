@@ -1,0 +1,8 @@
+{
+  "fullDescription" : null,
+  "invocationName" : "callGenAiSQLEndPointv5k",
+  "nativeLanguageTag" : "en",
+  "sampleInvocations" : [ "An example utterance" ],
+  "shortDescription" : "MVP1(from v5h - APIGW(.252), auth, group, domain, odaclarify, EH+, FBFmtd, CC, dm_spc, FnCC)",
+  "trackingId" : "462F3F34-2ACB-4CE5-BC4B-010FDB150A50"
+}

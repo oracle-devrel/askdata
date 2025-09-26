@@ -40,6 +40,16 @@
 
 ### Dynamic Groups
 
+Add all trust and business vms to your dynamic group. An instance can be added with the following: 
+
+```md
+instance.id = 'ocid1.instance.oc1.us-chicago-1.xxx'
+```
+
+### Policies
+
+Once the resources are added to the dynamic group, add the following policies.
+
 The compartment name is the compartment where the resource resides.
 
 - nl2sql-instance_principle, the application requires access to multiple services to obtain the information it requires to work.
@@ -80,3 +90,5 @@ The compartment name is the compartment where the resource resides.
 # Validation
 
 Not at this time.
+
+## [Return home](../../../README.md)

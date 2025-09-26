@@ -43,13 +43,16 @@
     }
   },
   "variables": {
-    "baseUrl": {
-      "type": "string",
-      "defaultValue": "[[ $application.profile ]]"
+    "currentSideNavSelection": {
+      "type": "string"
     },
     "currentTheme": {
       "type": "string",
       "description": "Current UI theme used in the application"
+    },
+    "getDetailedInsights": {
+      "type": "boolean",
+      "defaultValue": true
     },
     "globalHeadersADP": {
       "type": "vb/ArrayDataProvider2",
@@ -63,10 +66,6 @@
     "idcsToken": {
       "type": "any",
       "defaultValue": "sample123"
-    },
-    "isAuthorized": {
-      "type": "boolean",
-      "defaultValue": true
     },
     "navigationADP": {
       "type": "vb/ArrayDataProvider2",
@@ -110,6 +109,22 @@
     "navigationData": {
       "type": "navigationItem[]",
       "defaultValue": []
+    },
+    "sideNavData": {
+      "type": "any",
+      "defaultValue": "[[ {\n            \"RECENT\": [\n                \"Show invoices with amount due\",\n                \"Show invoice number,amount due and invoice date\",\n                \"Show vendor name and total amount due\",\n                \"Show as bar graph\"\n            ],\n            \"FREQUENTLY_USED\": [\n                \"Show invoices with amount due\",\n                \"Show invoice type ID & type for payables > 1\"\n            ],\n            \"BOOKED_MARKED\": [\n                \"Invoice summary by region\",\n                \"Top‑selling products\"\n            ],\n            \"AGENT_ACTIONS\": [\n                \"Data sync complete\",\n                \"Report Aging Analysis generated\"\n            ]\n        } ]]"
+    },
+    "sideNavData_copy": {
+      "defaultValue": "[[ {\n                    \"RECENT\": [\n                        \"Show invoices with amount due\",\n                        \"Show invoice number,amount due and invoice date\",\n                        \"Show vendor name and total amount due\",\n                        \"Show as bar graph\"\n                    ],\n                    \"FREQUENTLY_USED\": [\n                        \"1. Show invoices with amount due\",\n                        \"2. Show invoice type ID & type for payables > 1\"\n                    ],\n                    \"BOOKED_MARKED\": [\n                        \"3. Invoice summary by region\",\n                        \"4. Top‑selling products\"\n                    ],\n                    \"AGENT_ACTIONS\": [\n                        \"5. Data sync complete\",\n                        \"6. Report Aging Analysis generated\"\n                    ]\n                } ]]",
+      "type": "any"
+    },
+    "webUserId": {
+      "type": "string",
+      "defaultValue": "[[ $application.user.username !== 'anonymous' ? $application.user.userId : 'anonymous@example.com' ]]"
+    },
+    "webUserName": {
+      "type": "string",
+      "defaultValue": "[[ $application.user.username !== 'anonymous' ? $application.user.username : 'anonymous@example.com' ]]"
     }
 
   },
@@ -130,13 +145,9 @@
           "parameters": {},
           "chain": "initCurrentTheme"
         },
-{
-          "parameters": {},
-          "chain": "vbEnterListener"
-        },
         {
           "parameters": {},
-          "chain": "isAuthorizedActionChain"
+          "chain": "vbEnterListener"
         }
       ]
     },

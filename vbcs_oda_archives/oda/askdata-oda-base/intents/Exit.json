@@ -12,7 +12,7 @@
     "exampleEntities" : [ ],
     "nativeLanguageTag" : "en",
     "sentence" : "Bye",
-    "trackingId" : "5F4AECAE-1ACB-4A4B-9A32-01004425D7BC",
+    "trackingId" : "f990a8c3-70d7-44da-afdf-6764991bdbd7",
     "translated" : null,
     "translatedBy" : null,
     "translatedLanguage" : null
@@ -26,7 +26,7 @@
     "exampleEntities" : [ ],
     "nativeLanguageTag" : "en",
     "sentence" : "Exit",
-    "trackingId" : "737270F9-371B-4AE7-914D-873BBEF9453F",
+    "trackingId" : "1ffa0eeb-03bb-4df6-b626-7335ee7fd82e",
     "translated" : null,
     "translatedBy" : null,
     "translatedLanguage" : null
@@ -40,13 +40,13 @@
     "exampleEntities" : [ ],
     "nativeLanguageTag" : "en",
     "sentence" : "Thank you",
-    "trackingId" : "F23A4920-05D9-4047-AEC6-ABC41C3D57E5",
+    "trackingId" : "d3b0d4c0-2c24-42b0-b64f-620d9bfb8576",
     "translated" : null,
     "translatedBy" : null,
     "translatedLanguage" : null
   } ],
   "intentParameters" : [ ],
   "name" : "Exit",
-  "trackingId" : "C9C91B60-BB09-4545-9F8E-4382D6E9F0A7",
+  "trackingId" : "67c6b594-39e9-4c87-8578-cceb96828acb",
   "type" : "NLPIntent"
 }

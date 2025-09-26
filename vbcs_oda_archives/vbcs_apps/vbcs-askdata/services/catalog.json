@@ -3,31 +3,48 @@
         "IDCSBackend": {
             "servers": [
                 {
-                    "url": "<idcs-server>/oauth2/v1",
+                    "url": "https://idcs-xxx.identity.oraclecloud.com/oauth2/v1",
                     "description": "Oauth2 V1",
                     "x-vb": {
                         "authentication": {
                             "authenticated": {
-                                "type": "basic",
-                                "credentials": "vb_<xyz>"
+                                "type": "basic"
                             }
                         }
                     }
                 }
             ]
         },
-        "ics": {
-            "serviceType": "ics",
+        "Conversations": {
+            "description": "Conversations",
             "servers": [
                 {
-                    "url": "vb-catalog://backends.tenant/ics",
-                    "description": "Overridden Integration Server",
+                    "url": "https://xxx.apigateway.us-chicago-1.oci.customer-oci.com/v2/conversations",
+                    "description": "Conversations",
                     "x-vb": {
                         "authentication": {
                             "authenticated": {
-                                "type": "cloud"
+                                "type": "oauth2_client_credentials"
                             }
-                        }
+                        },
+                        "forceProxy": "cors"
+                    }
+                }
+            ]
+        },
+        "AgentActions": {
+            "description": "AgentActions",
+            "servers": [
+                {
+                    "url": "https://xxx.apigateway.us-chicago-1.oci.customer-oci.com/v2/agent",
+                    "description": "Agent",
+                    "x-vb": {
+                        "authentication": {
+                            "authenticated": {
+                                "type": "oauth2_client_credentials"
+                            }
+                        },
+                        "forceProxy": "cors"
                     }
                 }
             ]

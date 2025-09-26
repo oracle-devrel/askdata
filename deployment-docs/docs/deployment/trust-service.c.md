@@ -44,7 +44,7 @@ The configuration file is json based and lives on the object store
 - Image:
   - To use: Oracle Linux 8, developer image. 
   - Legacy:: nl2sql-custom-image
-
+- Deployed on private subnet
 - 250 Gb boot drive
 - VM.Standard.E4.Flex
 - 32 Gb RAM
@@ -60,6 +60,7 @@ Here we describe the main steps to set the trust service vm
 1. Create the Oracle Linux Machine (VM, Docker, etc...)
     1. Make it part of the OCI instance principal/dynamic group
     2. ssh key
+    3. Deployed on private subnet
 2. Setup the .bashrc
     1. Add the required environment variables
     2. Run source .bashrc after setting env variables
@@ -116,7 +117,7 @@ export PATH="/usr/local/bin/oci-cli/bin:\$PATH"
 | oci object store | oci os get <bucket list> and make sure your bucket is in it. |
 | oci vault | oci vault <db secret> |
 | oci dac | <future> |
-| nl2sql engine | `curl -vvv http://NLSQL_ENGINE_IP:PORT/getsql -H "Content-Type: application/json" -d '{"question": "Show me the project names"}'` <br>  `curl -vvv -X POST  "http://<nl2sql>:8002/getprompt" -H "Content-Type: application/json" -d '{"question": "Show me the project names"}'` |
+| nl2sql engine | `curl -vvv http://NLSQL_ENGINE_IP:PORT/getsql -H "Content-Type: application/json" -d '{"question": "Show me the project names"}'` <br>  `curl -vvv -X POST  "http://<nl2sql>:8001/getprompt" -H "Content-Type: application/json" -d '{"question": "Show me the project names"}'` |
 | llm engine | |
 | Database Validation | In the admin user _SELECT USER FROM DUAL;_ |
 
@@ -358,7 +359,7 @@ look for an oci config file.
 | `oci os object list -bn nl2sql --namespace-name <ns> --region <region> --auth instance_principal` | List the content of the bucket where the configurations are |
 | `oci secrets secret-bundle get --secret-id <secret ocid> --auth instance_principal` | Obtain the databse secret |
 | `sqlplus username/password@MYDB_ALIAS` | Connect to the trust database. |
-| `curl -vvv http://<engine-ip>:8002/getsql -H "Content-Type: application/json" -d '{"question": "Show me the project names"}'` | Connect to the nl engine and provide a test sql |
+| `curl -vvv http://<engine-ip>:8001/getsql -H "Content-Type: application/json" -d '{"question": "Show me the project names"}'` | Connect to the nl engine and provide a test sql |
 | `curl -vvv prompt` | Connect to the engine and test prompt vectorization. |
 
 ## API Validation
@@ -419,6 +420,8 @@ curl -X POST 'http://localhost:8000/process_sql' \
      -d '{"source": "auto"}'
 ```
 
+If the APEX app stops working/lags after uploading a sample prompt file, try restarting the trust server. 
+
 Problem: Graphs and charts not showing up in APEX Live Cert/ other pages
 
 **Solution**: Trust LB must NOT have self-signed cert and REST_API variable should NOT have trailing "/"
@@ -426,3 +429,5 @@ Problem: Graphs and charts not showing up in APEX Live Cert/ other pages
 Problem: ORA-12154: Cannot connect to database. Cannot find alias <adb>_low in /usr/lib/oracle/23/client64/lib/network/admin/tnsnames.ora.
 
 **Solution**: Make sure your wallet directory is correct (ie, directory with tnsnames.ora).
+
+## [Return home](../../../README.md)

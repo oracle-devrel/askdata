@@ -11,7 +11,7 @@ import constants
 from helpers import database_util as db
 from helpers.config_json_helper import config_boostrap as confb
 from helpers.oci_helper_boostrap import oci_boostrap as ocib
-from helpers.finetune_db import ModelUsageDAO
+# from helpers.finetune_db import ModelUsageDAO
 
 database_date_format:str
 python_format:str
@@ -96,10 +96,10 @@ def get_format_dates(boundaries_list):
     end_date = boundaries_list[1]
 
     if start_date is None:
-        read_models = ModelUsageDAO()
 
         try:
-            latest_date = read_models.latest_model(constants.MODEL_PURPOSE)
+            connection = db.db_get_connection()
+            latest_date = db.latest_model(connection, constants.MODEL_PURPOSE)
         except TypeError:
             latest_date = confb.dconfig["metrics"]["start_date"]
 
@@ -345,292 +345,6 @@ def percentage_prompts_trust_level(start_date=None, end_date=None,domain=None):
     logging.debug(trust_dict)
     return trust_dict
 
-def accuracy_untrusted(start_date=None, end_date=None,domain=None):
-    """
-    ## UNTRUSTED_PROMPTS_ACCURACY                         #
-    | Property         |   Description                                      |
-    |------------------|----------------------------------------------------|
-    |                  |                                                    |
-    """
-    logging.info("metrics : untrusted_prompts_accuracy entry")
-    # Dictionary initialization to match JSON
-    trust_dict = {
-        "title": "Prompt Accuracy: Untrusted",
-        "y-title": "Accuracy",
-        "x-title": "Week",
-        "series": [
-            {"name": "auto",
-             "data": []
-             },
-            {"name": "upload",
-             "data": []
-             },
-            {"name": "user",
-             "data": []
-             }
-        ]
-    }
-
-    # Get interpolated date range
-    boundaries_list = [start_date, end_date]
-    date_list = get_series_weeks(boundaries_list)
-
-    # Execute sql
-    sql = f"""  select trunc(prompt_proc_date, 'IW') as week, 
-
-                    count(case when prompt_source = 'auto' and pass_fail = 'Pass' then 1 end) as auto_pass,
-                    count(case when prompt_source = 'upload' and pass_fail = 'Pass'  then 1 end) as upload_pass,
-                    count(case when prompt_source = 'user' and pass_fail = 'Pass' then 1 end) as user_pass,
-
-                    count(case when prompt_source = 'auto' then 1 end) as auto_count,
-                    count(case when prompt_source = 'upload' then 1 end) as upload_count,
-                    count(case when prompt_source = 'user'  then 1 end) as user_count
-
-                from
-                    certify_state c
-                left outer join execution_log e on c.user_execution_id = e.id
-                where
-                    is_cert_proc = 1 
-                    and ((prompt_source = 'user' and is_trusted = 0 and is_prompt_equiv = 0 and is_template_equiv = 0) 
-                    or prompt_source in ('auto', 'upload'))
-                group by trunc(prompt_proc_date, 'IW')
-                order by trunc(prompt_proc_date, 'IW')"""
-
-    # note: this series is represented by week integers, i.e. 1, 2, 3 represent week 1, 2, 3
-    # python post-processing:
-    # for each series, the day value is (<series>_pass / <series>_count) * 100.  Round to 1 decimal place
-    # thus, all values should be between 0.0-1.0 inclusive
-    # there is no relation across series
-    # note: if <series>_count = 0, then the calculated value is 0.0 (to prevent divide by 0)
-
-    connection = db.db_get_connection()
-    sql_ret = db.db_select(connection=connection, select_statement=sql)
-    connection.close()
-
-    # Post-processing to populate trust_dict with series sequence (1, 2, 3...) and cumulative sum of counts
-    series_index = 0
-    series_pass = 1
-    series_count = 4
-
-    while series_index < len(trust_dict["series"]):
-        series_data = []
-        arr = np.asarray(date_list).T
-        index = 0
-
-        for date in range(len(date_list)):
-            series_data.append([date_list[date][1], 0])
-
-        # Compare SQL_RET dates to dates in data_list. If there is a match, update series list with math
-        for val in sql_ret:
-            str_data = datetime.datetime.strftime(val[0], python_format)
-            if np.argwhere(arr == str_data).size != 0:
-                series_idx = np.argwhere(arr == str_data)[0][1]
-                if val[series_count] == 0:
-                    series_data[series_idx] = [date_list[series_idx][1], round((0 / 1) * 100, 1)]
-                else:
-                    series_data[series_idx] = [date_list[series_idx][1], round((val[series_pass] / val[series_count]) * 100, 1)]
-
-        # If first index is 0, set to 0. If index is 0, set to previous value
-        # i.e. [[1, 0.0], [2, 0.0], [3, 55.5]]
-        #  or  [1, 10.0], [2,55.5], [3, 55.5]]
-        for index, data in enumerate(series_data):
-            if index == 0 and data[1] == 0:
-                pass
-            elif int(data[1]) == 0:
-                series_data[index][1] = round(series_data[index - 1][1], 1)
-
-        trust_dict["series"][series_index]["data"] = series_data
-        series_index += 1
-        series_pass += 1
-        series_count += 1
-
-    logging.debug(trust_dict)
-    return trust_dict
-
-def accuracy_semitrusted(start_date=None, end_date=None, domain=None):
-    """
-    ## SEMI_TRUSTED_PROMPT_ACCURACY                         #
-    | Property         |   Description                                      |
-    |------------------|----------------------------------------------------|
-    |                  |                                                    |
-    """
-    logging.info("metrics : semi_trusted_prompts_accuracy entry")
-    # Dictionary initialization to match JSON
-    trust_dict = {
-        "title": "Prompt Accuracy: Semi-trusted",
-        "y-title": "Accuracy",
-        "x-title": "Week",
-        "series": [
-            {"name": "semi-trusted",
-             "data": []
-             }
-        ]
-    }
-
-    # Get interpolated date range
-    boundaries_list = [start_date, end_date]
-    date_list = get_series_weeks(boundaries_list)
-
-    # Execute sql
-    sql = f"""  select trunc(prompt_proc_date, 'IW') as week, 
-                    count(case when prompt_source = 'user' and pass_fail = 'Pass' then 1 end) as user_pass,
-                    count(case when prompt_source = 'user'  then 1 end) as user_count
-                from
-                    certify_state c
-                left outer join execution_log e on c.user_execution_id = e.id
-                where
-                    is_cert_proc = 1 
-                    and (prompt_source = 'user' and is_trusted = 0 and (is_prompt_equiv = 1 or is_template_equiv = 1))
-                group by trunc(prompt_proc_date, 'IW')
-                order by trunc(prompt_proc_date, 'IW')"""
-
-    # note: this series is represented by week integers, i.e. 1, 2, 3 represent week 1, 2, 3
-    # python post-processing:
-    # for each series, the day value is (<series>_pass / <series>_count) * 100.  Round to 1 decimal place
-    # thus, all values should be between 0.0-1.0 inclusive
-    # there is no relation across series
-    # note: if <series>_count = 0, then the calculated value is 0.0 (to prevent divide by 0)
-
-    connection = db.db_get_connection()
-    sql_ret = db.db_select(connection=connection, select_statement=sql)
-    connection.close()
-
-    # Post-processing to populate trust_dict with series sequence (1, 2, 3...) and cumulative sum of counts
-    series_data = []
-    arr = np.asarray(date_list).T
-    index = 0
-
-    for date in range(len(date_list)):
-        series_data.append([date_list[date][1], 0])
-
-    # Compare SQL_RET dates to dates in data_list. If there is a match, update series list with math
-    for val in sql_ret:
-        str_data = datetime.datetime.strftime(val[0], python_format)
-        if np.argwhere(arr == str_data).size != 0:
-            series_idx = np.argwhere(arr == str_data)[0][1]
-            if val[2] == 0:
-                series_data[series_idx] = [date_list[series_idx][1], round((0 / 1) * 100, 1)]
-            else:
-                series_data[series_idx] = [date_list[series_idx][1], round((val[1] / val[2]) * 100, 1)]
-
-    # If first index is 0, set to 0. If index is 0, set to previous value
-    # i.e. [[1, 0.0], [2, 0.0], [3, 55.5]]
-    #  or  [1, 10.0], [2,55.5], [3, 55.5]]
-    for index, data in enumerate(series_data):
-        if index == 0 and data[1] == 0:
-            pass
-        elif data[1] == 0:
-            series_data[index][1] = series_data[index - 1][1]
-
-    trust_dict["series"][0]["data"] = series_data
-
-    logging.debug(trust_dict)
-    return trust_dict
-
-def accuracy_by_trust_level(start_date=None, end_date=None,domain=None):
-    """
-    ## ACCURACY_OF_USER_PROMPTS_BY_TRUST_LEVEL METHOD                        #
-    | Parameter        |   Description                                      |
-    |------------------|----------------------------------------------------|
-    | start_date       |                                                    |
-    | end_date         |                                                    |
-    """
-    logging.info("metrics : user_prompt_accuracy_by_trust_level entry")
-    # Dictionary initialization to match JSON
-    trust_dict = {
-        "title": "Accuracy of User Prompts by Trust Level",
-        "y-title": "Accuracy",
-        "x-title": "Week",
-        "series": [
-            {"name": "untrusted",
-            "data": []
-            },
-            {"name": "semitrusted",
-            "data": []
-            }
-        ]
-    }
-
-    # Get interpolated date range
-    boundaries_list = [start_date, end_date]
-    date_list = get_series_dates(boundaries_list)
-
-    # Execute sql
-    sql = f"""
-        select 
-            to_char(t.certified_date, '{database_date_format}') as day, 
-            count(case when (is_prompt_equiv != 1 and is_template_equiv != 1) and pass_fail = 'Pass' then 1 end) as untrusted_pass,
-            count(case when (is_prompt_equiv != 1 and is_template_equiv != 1)  then 1 end) as untrusted_count,
-            count(case when (is_prompt_equiv = 1 or is_template_equiv = 1) and pass_fail = 'Pass' then 1 end) as semi_trusted_pass,
-            count(case when (is_prompt_equiv = 1 or is_template_equiv = 1)  then 1 end) as semi_trusted_count
-        from trust_library t
-        join certify_state c on t.certify_state_id = c.id
-        join execution_log e on c.user_execution_id = e.id
-        where c.prompt_source = 'user'
-        group by day
-        order by to_date(day, '{database_date_format}')"""
-
-    connection = db.db_get_connection()
-    sql_ret = db.db_select(connection=connection, select_statement=sql)
-    connection.close()
-
-    # Method-specific post-processing
-    series_index = 0
-    series_pass = 1
-    series_count = 2
-
-    # GK: change to make accuracy cumulative over weeks (not per week as original design)
-    cum_pass = [0, 0]
-    cum_count = [0, 0]
-
-    series_index = 0
-    while series_index < len(trust_dict["series"]):
-        series_data = []
-        arr = np.asarray(date_list).T
-
-        if series_index > 0:
-            series_data.clear()
-
-        for date in range(len(date_list)):
-            series_data.append([date_list[date][1], 0])
-
-        # Compare SQL_RET dates to dates in data_list. If there is a match, update series list with math
-        for val in sql_ret:
-            logging.info(f"arr value {arr}")
-            logging.info(f"sql return value {val}")
-            #sql return value ('12-FEB-2025', 7, 7, 0, 0)
-            arr_idx = np.argwhere(arr == val[0])[0][1]
-
-            if np.argwhere(arr == val[0]).size != 0:
-                if val[series_count] == 0:
-                    # GK series_data[series_idx] = [date_list[series_idx][1], round((0 / 1) * 100, 1)]
-                    print(arr_idx)
-                else:
-                    # GK: change to make accuracy cumulative and over days (not per each week as original design)
-
-                    cum_pass[series_index] += val[series_pass]
-                    cum_count[series_index] += val[series_count]
-                    print(f"{arr_idx}    {cum_pass[series_index]}     {cum_count[series_index]}    {round((cum_pass[series_index] / cum_count[series_index]) * 100, 1)}")
-                    series_data[arr_idx] = [date_list[arr_idx][1], round((cum_pass[series_index] / cum_count[series_index]) * 100, 1)]
-
-        # If first index is 0, set to 0. If index is 0, set to previous value
-        # i.e. [[1, 0.0], [2, 0.0], [3, 55.5]]
-        #  or  [1, 10.0], [2,55.5], [3, 55.5]]
-        for index, data in enumerate(series_data):
-            if index == 0 and data[1] == 0:
-                pass
-            elif int(data[1]) == 0:
-                series_data[index][1] = round(series_data[index - 1][1], 1)
-
-        trust_dict["series"][series_index]["data"] = series_data
-        series_index += 1
-        series_pass += 2
-        series_count += 2
-
-    logging.debug(trust_dict)
-    return trust_dict
-
-
 ############################################
 #               USER METRICS               #
 ############################################
@@ -816,82 +530,6 @@ def users_number_prompts_trust_level(start_date=None, end_date=None,domain=None)
     logging.debug(trust_dict)
     return trust_dict
 
-def size_trust_library_user_prompts_trust(start_date=None, end_date=None,domain=None):
-    """
-    ## SIZE_OF_TRUST_LIBRARY_BY_USER_PROMPTS_TRUST_LEVEL METHOD                        #
-    | Property         |   Description                                      |
-    |------------------|----------------------------------------------------|
-    |                  |                                                |
-    """
-    logging.info("metrics : size_trust_library_user_prompts_trust entry")
-    # Dictionary initialization to match JSON
-    trust_dict = {
-        "title": "Size of Trust Library by User Prompt Trust Level",
-        "y-title": "Number",
-        "x-title": "Day",
-        "series": [
-            {"name": "semi-trusted",
-             "data": []
-             },
-            {"name": "untrusted",
-             "data": []
-             }
-        ]
-    }
-    # Get interpolated date range
-    boundaries_list = [start_date, end_date]
-    date_list = get_series_dates(boundaries_list)
-
-    # Execute sql
-    sql = f"""  
-            select 
-                to_char(execution_date, '{database_date_format}') as day, 
-                count(case when (is_prompt_equiv = 1 or is_template_equiv = 1) then 1 end) as "semi-trusted",
-                count(case when (is_trusted = 0 and is_prompt_equiv = 0 and is_template_equiv = 0) then 1 end) as untrusted
-            from
-                trust_library t
-            join certify_state w on t.certify_state_id = w.id
-            join execution_log e on e.id = w.user_execution_id
-            where
-                is_action = 0
-            group by day
-            order by to_date(day, '{database_date_format}')
-        """
-
-    connection = db.db_get_connection()
-    sql_ret = db.db_select(connection=connection, select_statement=sql)
-    connection.close()
-
-    # Post-Processing
-    series_index = 0
-    while series_index < len(trust_dict["series"]):
-        series_data = []
-        total_count = 0
-
-        for index in range(len(date_list)):
-            series_data.append([date_list[index][1], 0])
-
-        for idx, data in enumerate(date_list):
-            for jdx, val in enumerate(sql_ret):
-                if data[0] == val[0]:
-                    series_data[idx] = ([date_list[idx][1], sql_ret[jdx][series_index + 1]])
-                    break
-
-        for index, data in enumerate(series_data):
-            series_data[index] = [index + 1, data[1]]
-
-        for index, data in enumerate(series_data):
-            total_count += data[1]
-            series_data[index] = [index + 1, total_count]
-
-        trust_dict["series"][series_index]["data"] = series_data
-
-        series_index += 1
-
-    logging.debug(trust_dict)
-    return trust_dict
-
-
 ############################################
 #              METHOD TEMPLATE             #
 ############################################
@@ -926,92 +564,6 @@ def method_name_like_service_name(start_date=None, end_date=None):
 
     return trust_dict
 
-def accuracy_by_week(start_date=None, end_date=None, domain=None):
-
-    logging.info("metrics : accuracy_by_week entry")
-    # Dictionary initialization to match JSON
-    trust_dict = {
-        "title": "Accuracy By Week",
-        "y-title": "Accuracy",
-        "x-title": "Week",
-        "series": [
-            {"name": "",
-             "data": []
-             }
-        ]
-    }
-
-    # Get interpolated date range
-    boundaries_list = [start_date, end_date]
-    date_list = get_series_weeks(boundaries_list)
-
-    # Execute sql
-    sql = f"""  select trunc(prompt_proc_date, 'IW') as week, 
-
-                    count(case when prompt_source = 'user' and pass_fail = 'Pass' then 1 end) as user_pass,
-                    count(case when prompt_source = 'user'  then 1 end) as user_count
-                from
-                    certify_state c
-                left outer join execution_log e on c.user_execution_id = e.id
-                where
-                    is_cert_proc = 1 
-                    and ((prompt_source = 'user' and is_trusted = 0 and is_prompt_equiv = 0 and is_template_equiv = 0) 
-                    or prompt_source in ('auto', 'upload'))
-                group by trunc(prompt_proc_date, 'IW')
-                order by trunc(prompt_proc_date, 'IW')"""
-
-    # note: this series is represented by week integers, i.e. 1, 2, 3 represent week 1, 2, 3
-    # python post-processing:
-    # for each series, the day value is (<series>_pass / <series>_count) * 100.  Round to 1 decimal place
-    # thus, all values should be between 0.0-1.0 inclusive
-    # there is no relation across series
-    # note: if <series>_count = 0, then the calculated value is 0.0 (to prevent divide by 0)
-
-    connection = db.db_get_connection()
-    sql_ret = db.db_select(connection=connection, select_statement=sql)
-    connection.close()
-
-    # Post-processing to populate trust_dict with series sequence (1, 2, 3...) and cumulative sum of counts
-    series_index = 0
-    pass_index = 1
-    count_index = 2
-
-    while series_index < len(trust_dict["series"]):
-        series_data = []
-        arr = np.asarray(date_list).T
-        index = 0
-
-        for date in range(len(date_list)):
-            series_data.append([date_list[date][1], 0])
-
-        # Compare SQL_RET dates to dates in data_list. If there is a match, update series list with math
-        for val in sql_ret:
-            str_data = datetime.datetime.strftime(val[0], python_format)
-            if np.argwhere(arr == str_data).size != 0:
-                series_idx = np.argwhere(arr == str_data)[0][1]
-
-                if val[count_index] == 0:
-                    series_data[series_idx] = [date_list[series_idx][1], round((0 / 1) * 100, 1)]
-                else:
-                    series_data[series_idx] = [date_list[series_idx][1], round((val[pass_index] / val[count_index]) * 100, 1)]
-
-        # If first index is 0, set to 0. If index is 0, set to previous value
-        # i.e. [[1, 0.0], [2, 0.0], [3, 55.5]]
-        #  or  [1, 10.0], [2,55.5], [3, 55.5]]
-        for index, data in enumerate(series_data):
-            if index == 0 and data[1] == 0:
-                pass
-            elif int(data[1]) == 0:
-                series_data[index][1] = round(series_data[index - 1][1], 1)
-
-        trust_dict["series"][series_index]["data"] = series_data
-        series_index += 1
-        pass_index += 1
-        count_index += 1
-
-    logging.debug(trust_dict)
-    return trust_dict
-
 def accuracy_cumulative(start_date=None, end_date=None, domain=None):
 
     logging.info("metrics : accuracy_cumulative entry")
@@ -1032,18 +584,17 @@ def accuracy_cumulative(start_date=None, end_date=None, domain=None):
     date_list = get_series_dates(boundaries_list)
 
     # Execute sql
-    sql = f"""  select
-                    to_char(execution_date, '{database_date_format}') as day, 
-                    count(case when prompt_source = 'user' and pass_fail = 'Pass' then 1 end) as row_pass,
-                    count(case when prompt_source = 'user'  then 1 end) as row_count
+    sql = f"""    select
+                    to_char(cert_proc_date, 'DD-MON-YYYY') as day, 
+                    count(case when pass_fail = 'Pass' then 1 end) as row_pass,
+                    count(case when prompt_source in ('user','auto', 'upload')  then 1 end) as row_count
                 from
                     certify_state c
-                left outer join execution_log e on c.user_execution_id = e.id
                 where
                     is_cert_proc = 1 
                     and prompt_source in ('user','auto', 'upload')
             group by day
-            order by to_date(day, '{database_date_format}')
+            order by to_date(day, 'DD-MON-YYYY')
         """
 
     connection = db.db_get_connection()

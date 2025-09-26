@@ -1,5 +1,5 @@
 name: "greetingsFlow"
-trackingId: "343063A8-FAD3-4B6B-A0A5-627B4A83E54E"
+trackingId: "8319d3a3-25e1-4928-b391-4d53cf131dc3"
 type: "task"
 version: "2.0"
 interface: {}
@@ -66,12 +66,12 @@ states:
       virtualComponent: "Virtual.Output"
       propertySheetIsFreeMarkerMap:
         requiresAuthorization: false
-  outputOthers:
+  outputSupplyChain:
     component: "System.CommonResponse"
     properties:
       metadata:
         responseItems:
-        - text: "Please ask me a question"
+        - text: "You can ask me questions like:\n• Which inventory organizations currently have more than 100 units of any item on hand?\n• How many purchase orders are currently open by organization?\n• How many different item types are there in the inventory?\n• Show all items stocked by each organization"
           type: "text"
       keepTurn: true
     transitions: {}
@@ -109,7 +109,7 @@ states:
   oauth2AccountLink:
     component: "System.OAuth2AccountLink"
     properties:
-      authenticationService: "IDCSAuthcode"
+      authenticationService: "AskData_a2c_idcs_auth_code"
       showCancelOption: false
       updateUserProfile: false
       requiresAssociationConsent: "yes"
@@ -151,7 +151,7 @@ states:
     transitions:
       actions:
         Receivables: "outputReceivables"
-        Others: "outputOthers"
+        Supply Chain: "outputSupplyChain"
         Payables: "outputPayables"
     metadata:
       propertySheetIsFreeMarkerMap:

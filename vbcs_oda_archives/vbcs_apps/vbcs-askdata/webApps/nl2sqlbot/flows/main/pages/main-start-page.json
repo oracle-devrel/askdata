@@ -1,10 +1,205 @@
 {
   "title": "main",
   "description": "",
-  "variables": {},
+  "variables": {
+    "agentActionsArr": {
+      "type": "object[]"
+    },
+    "autoInsights_Prompt": {
+      "type": "boolean",
+      "description": "used for auto insights prompt to be sent or not",
+      "defaultValue": false
+    },
+    "bookMarkedArr": {
+      "type": "object[]"
+    },
+    "freqUsedArr": {
+      "type": "object[]"
+    },
+    "htmlResponseInsights": {
+      "type": "any"
+    },
+    "idataID": {
+      "type": "string",
+      "defaultValue": "12345",
+      "persisted": "session"
+    },
+    "insightsHistory": {
+      "type": [
+        {
+          "answer": "string",
+          "idataID": "string",
+          "question": "string"
+
+        }
+      ]
+    },
+    "lastClickedLinkId": {
+      "type": "number",
+      "defaultValue": -1
+    },
+    "leftPanelCollapsibleData": {
+      "type": "object"
+    },
+    "recentArr": {
+      "type": "object[]"
+    },
+    "rightPanelCollapsible": {
+      "type": "boolean",
+      "defaultValue": true
+    },
+    "showLeftPanel": {
+      "type": "boolean",
+      "description": "This is for show/hide left conversations panel",
+      "defaultValue": true
+    },
+    "structuredCollapsible": {
+      "type": "object"
+    },
+    "userId": {
+      "type": "string"
+    },
+    "viewInsightsResponse": {
+      "type": "string"
+    },
+    "viewInsightsText": {
+      "type": "string"
+    }
+
+  },
   "metadata": {},
   "types": {},
   "eventListeners": {
+    "autoInsights_ServiceCall": {
+      "chains": [
+        {
+          "parameters": { 
+            "event": "{{ $event }}"
+          },
+          "chain": "autoInsights_ServiceCallListener"
+        }
+      ]
+    },
+    "buttonAction": {
+      "chains": [
+        {
+          "chain": "ButtonActionChain"
+        }
+      ]
+    },
+    "clearautoinsights": {
+      "chains": [
+        {
+          "parameters": {},
+          "chain": "clearautoinsightsListener"
+        }
+      ]
+    },
+    "clearChatBtnAction": {
+      "chains": [
+        {
+          "chain": "ButtonActionChain1"
+        }
+      ]
+    },
+    "fetchConversationsEvent": {
+      "chains": [
+        {
+          "parameters": {
+            "event": "{{ $event }}"
+          },
+          "chain": "fetchConversationsEventListener"
+        }
+      ]
+    },
+    "hyperlinkClick0": {
+      "chains": [
+        {
+          "chain": "HyperlinkClickChain",
+          "parameters": {
+            "id": "[[ $current.index + 1 ]]",
+            "question": "[[ $current.data.question ]]"
+          }
+        }
+      ]
+    },
+    "iconClick": {
+      "chains": [
+        {
+          "chain": "IconClickViewInsightsChain"
+        }
+      ]
+    },
+    "iconClick2": {
+      "chains": [
+        {
+          "chain": "leftPanelIconClickChain"
+        }
+      ]
+    },
+    "insightsClickleftPanelChainEvent": {
+      "chains": [
+        {
+          "parameters": {},
+          "chain": "insightsClickleftPanelChain"
+        }
+      ]
+    },
+    "refreshSessionVar_ViewInsights": {
+      "chains": [
+        {
+          "parameters": {
+            "event": "{{ $event }}",
+            "calledFrom": "{{ $event.calledFrom }}"
+          },
+          "chain": "refreshSessionVar_ViewInsightsActionChain"
+        }
+      ]
+    },
+    "submitBtnAction": {
+      "chains": [
+        {
+          "chain": "viewInsightsSendButtonAction"
+        }
+      ]
+    },
+    "toggleButton": {
+      "chains": [
+        {
+          "parameters": {
+            "event": "{{ $event }}"
+          },
+          "chain": "leftPanelIconClickChain"
+        }
+      ]
+    },
+    "toggleIconButtonAction": {
+      "chains": [
+        {
+          "chain": "leftPanelIconClickChain"
+        }
+      ]
+    },
+    "ulClick": {
+      "chains": [
+        {
+          "chain": "ulClickChain",
+          "parameters": {
+            "input": "[[ $event.detail ]]"
+          }
+        }
+      ]
+    },
+    "ulClick2": {
+      "chains": [
+        {
+          "chain": "recentPanelClickChain",
+          "parameters": {
+            "selectedItem": "[[ $current.data.description ]]"
+          }
+        }
+      ]
+    },
     "vbEnter": {
       "chains": [
         {
@@ -13,12 +208,64 @@
         }
       ]
     }
+
   },
   "imports": {
     "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-collapsible": {
+        "path": "ojs/ojcollapsible"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
       "oj-highlight-text": {
         "path": "ojs/ojhighlighttext"
+      },
+      "oj-label": {
+        "path": "ojs/ojlabel"
+      },
+      "oj-list-view": {
+        "path": "ojs/ojlistview"
+      },
+      "oj-navigation-list": {
+        "path": "ojs/ojnavigationlist"
+      },
+      "oj-progress-circle": {
+        "path": "ojs/ojprogress-circle"
+      },
+      "oj-text-area": {
+        "path": "ojs/ojinputtext"
       }
+
    }
+  },
+  "events": {
+    "autoInsights_ServiceCall": {
+      "payloadType": {
+        "payload": "any"
+      }
+    },
+    "clearautoinsights": {},
+    "fetchConversationsEvent": {
+      "payloadType": {
+        "payload": "any"
+      }
+    },
+    "insightsClickleftPanelChainEvent": {},
+    "refreshSessionVar_ViewInsights": {
+      "payloadType": {
+        "payload": "any",
+        "calledFrom": "any"
+      }
+    },
+    "toggleButton": {
+      "payloadType": {
+        "payload": "any"
+      }
+    }
+
   }
 }

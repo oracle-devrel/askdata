@@ -20,3 +20,5 @@ AskData Solution.
 This view shows the architecture, regardless of the underlying infrastructure.
 
 ![AskData Solution architecture](./terraform/image3.png)
+
+## [Return home](../../../README.md)

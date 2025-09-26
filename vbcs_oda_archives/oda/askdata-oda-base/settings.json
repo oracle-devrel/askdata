@@ -11,7 +11,7 @@
       "name" : "postQueryURL",
       "description" : "The URL value passed to the Custom Component - postQuery",
       "type" : "string",
-      "value" : "<api-gateway>/v1/prompt"
+      "value" : "https://xxx.apigateway.us-chicago-1.oci.customer-oci.com/v2/prompt"
     }, {
       "displayName" : "Use Enhanced Slot Filling",
       "name" : "system.useEnhancedSlotFilling",

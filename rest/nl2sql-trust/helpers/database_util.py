@@ -2,7 +2,7 @@
 # Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl/
 
 import json
-
+import oracledb
 import os
 import logging
 from datetime import datetime
@@ -15,8 +15,6 @@ from helpers.oci_helper_json import oci_helper as ocij
 from helpers.util import format_sql_view as format_sql
 from helpers.llm_helper import llm_create_str_embedding
 import constants
-
-import oracledb
 
 logger = logging.getLogger(constants.IO_LAYER)
 
@@ -66,8 +64,6 @@ def db_get_connection( ):
     pwd = cached_db_pwd
 
     logger.info(f"Connecting to Oracle Database wallet=[{wallet}], user=[{user}], pwd=[{pwd}], dns=[{dns}]")
-    logger.info("TNS_ADMIN\n", wallet)
-    print("TNS_ADMIN\n", wallet)
     os.environ["TNS_ADMIN"] = wallet
     oracledb.init_oracle_client(config_dir=os.environ["TNS_ADMIN"])
     connection = oracledb.connect(
@@ -259,7 +255,7 @@ def db_update_process_sql(connection, row_list):
 
     with connection.cursor() as cursor:
         for row in row_list:
-            # sblais: refactored to allow for multi-threading
+            # refactored to allow for multi-threading
             db_update_process_sql_row(connection,row)
 
     connection.commit()
@@ -373,7 +369,7 @@ def db_unstage_certify(connection, id_list: list,domain):
 def db_process_certify(connection, record_list, control, domain):
 
     # DEPENDENCIES: This uses certify_state
-    # NOTE: This doesn't work with a parametrized query because of the list being passed. sblais - 11Feb2025
+    # NOTE: This doesn't work with a parametrized query because of the list being passed. - 11Feb2025
 
     logger.info(f"Starting insert: db_process_certify {len(record_list)}")
     certified_date = get_sysdate()
@@ -1249,6 +1245,21 @@ def deprecate_in_trust_library(connection, template_id):
         logger.debug("*After update execute")
 
     logger.info("Completed: deprecate_in_trust_library")
+
+def latest_model(connection, model_purpose: str):
+    """
+    Select most recent records from the MODEL_USAGE table given provided model_purpose.
+    """
+    sql = """SELECT MODEL_PURPOSE, MAX(USAGE_START) AS LATEST
+            FROM MODEL_USAGE WHERE MODEL_PURPOSE = :MODEL_PURPOSE
+            GROUP BY MODEL_PURPOSE"""
+
+    cursor = connection.cursor()
+    cursor.execute(sql, {'MODEL_PURPOSE': model_purpose})
+    latest_model_date = cursor.fetchone()
+
+    return latest_model_date[1]
+
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)

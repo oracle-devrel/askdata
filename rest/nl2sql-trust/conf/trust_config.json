@@ -15,40 +15,18 @@
             "dac_endpoint_model": "meta.llama-3.3-70b-instruct"
         },
         "engine": {
-            "get_sql_url": "http://<engine-ip>:8002/getsql",
-            "llm_prompt_url": "http://<engine-ip>:8002/getprompt"
+            "get_sql_url": "http://<engine-ip>:8001/getsql",
+            "llm_prompt_url": "http://<engine-ip>:8001/getprompt",
+            "sqlparse": {
+                "enable": false
+            }
         },
         "vault": {
             "db_secret_ocid": "ocid1.vaultsecret.oc1.us-chicago-1.xxx",
             "region": "us-chicago-1"
         },
-        "finetune": {
-            "max_regression": 100,
-            "max_corrected": 100,
-            "keep_local_jsonl": true,
-            "base_model_id": "ocid1.generativeaimodel.oc1.us-chicago-1.xxx",
-            "unit_count": 2,
-            "unit_shape": "LARGE_GENERIC",
-            "dataset_type": "OBJECT_STORAGE",
-            "training_dataset": {
-                "early_stopping_patience": 6,
-                "early_stopping_threshold": 0.01,
-                "learning_rate": 5e-05,
-                "log_model_metrics_interval_in_steps": 10,
-                "lora_alpha": 32,
-                "lora_dropout": 0.1,
-                "lora_r": 8,
-                "total_training_epochs": 3,
-                "training_batch_size": 8,
-                "training_config_type": "LORA_TRAINING_CONFIG"
-            }
-        },
         "os": {
             "bucket": "bucket-name",
-            "finetune": {
-                "os_path": "finetune/jsonl/",
-                "local_path": "./upload"
-            },
             "metadata": {
                 "file_name": "metadata_v2.json",
                 "os_path": "config/",
@@ -66,7 +44,7 @@
         "date_format": "DD-MON-YYYY"
     },
     "metrics": {
-        "start_date": "10-FEB-2025",
+        "start_date": "<DD-MON-YYYY>",
         "python_format": "%d-%b-%Y"
     }
 }

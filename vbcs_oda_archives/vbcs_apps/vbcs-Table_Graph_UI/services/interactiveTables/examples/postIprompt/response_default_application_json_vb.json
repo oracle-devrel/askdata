@@ -1,0 +1,59 @@
+{
+    "response": "5 records found for this criterion",
+    "tabData": [
+        {
+            "invoice_number": "ERS-30-AUG-10-224972",
+            "amount_due": 5139843.75,
+            "invoice_date": "2024-01-31T00:00:00"
+        },
+        {
+            "invoice_number": "ERS-13618-228762",
+            "amount_due": 4585934.96,
+            "invoice_date": "2024-02-29T00:00:00"
+        },
+        {
+            "invoice_number": "ERS-13578-224817",
+            "amount_due": 4585934.96,
+            "invoice_date": "2024-01-31T00:00:00"
+        },
+        {
+            "invoice_number": "ERS-13588-224994",
+            "amount_due": 4585934.96,
+            "invoice_date": "2024-01-31T00:00:00"
+        },
+        {
+            "invoice_number": "ERS-13617-228742",
+            "amount_due": 4585934.95,
+            "invoice_date": "2024-02-29T00:00:00"
+        }
+    ],
+    "chartType": "line",
+    "chartDesc": "Top 5 Invoices in 2024",
+    "chartData": [
+        {
+            "series": "Series 1",
+            "data": [
+                {
+                    "group": "Top 5 Invoices",
+                    "value": 5139843.75
+                },
+                {
+                    "group": "Top 5 Invoices",
+                    "value": 4585934.96
+                },
+                {
+                    "group": "Top 5 Invoices",
+                    "value": 4585934.96
+                },
+                {
+                    "group": "Top 5 Invoices",
+                    "value": 4585934.96
+                },
+                {
+                    "group": "Top 5 Invoices",
+                    "value": 4585934.95
+                }
+            ]
+        }
+    ]
+}

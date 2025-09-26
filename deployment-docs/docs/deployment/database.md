@@ -18,13 +18,39 @@ For basic instructions on deploying an autonomous database, see [Autonomous Data
 
 ## Configuration Steps 
 - Provision one database for client/business db 
-    - [Create ACCOUNT_PAYABLES_TBL](../../../sql/tbl_ddl.sql)
+    - [Create ACCOUNT_PAYABLES_TBL](../../../clientApp/metadata/payables.sql)
     - Populate ACCOUNT_PAYABLES_TBL table 
-        - Execute [sql/demodata.sql](../../../sql/demodata.sql) for demo data 
-    - VENDORS table 
-        - [Vendors CSV](../../../clientApp/vendors-export.csv)
-        - Upload manually through sql developer
-            - **Note** Any example data that coincides with real businesses is coincidental. 
+        - Execute [sql/demodata_account_payable.sql](../../../sql/payables/demodata_account_payables.sqldemodata_account_payables.sql) for sample data 
+    - [Create VENDORS & INVOICE_TYPE_LOOKUP TABLES](../../../clientApp/metadata/metadata.sql)
+        - Sign in to sql developer
+        - Run the following to insert sample data into VENDORS
+
+```sql
+INSERT INTO VENDORS (VENDOR_ID, VENDOR_NAME, VENDOR_SITE_DETAILS) VALUES
+  (1, 'Big Computers', 'LONDON London'),
+  (2, 'Big Computers', 'SEATTLE Seattle'),
+  (3, 'Blue Semiconductor', 'LONDON London'),
+  (4, 'Fantastic Laptops', 'ROMA Roma'),
+  (5, 'Tall Manufacturing', 'AUSTIN Austin');
+```
+
+- Run the following to insert into INVOICE_TYPE_LOOKUP table 
+
+```sql
+INSERT INTO INVOICE_TYPE_LOOKUP (invoice_type_id, invoice_type) VALUES (1, 'CREDIT');
+INSERT INTO INVOICE_TYPE_LOOKUP (invoice_type_id, invoice_type) VALUES (2, 'RETAINAGE RELEASE');
+INSERT INTO INVOICE_TYPE_LOOKUP (invoice_type_id, invoice_type) VALUES (3, 'STANDARD');
+INSERT INTO INVOICE_TYPE_LOOKUP (invoice_type_id, invoice_type) VALUES (4, 'EXPENSE REPORT');
+```
+- Create the following tables in the client/business db:
+    - [Create Receivables Tables](../../../clientApp/metadata/receivables.sql)
+    - [Populate Receivables Tables](../../../sql/receivables/)
+
+    - [Create Supply Chain Tables](../../../clientApp/metadata/supplychain.sql)
+    - [Populate Supply Chain Tables](../../../sql/supply_chain/)
+
+> **Note** Any example data that coincides with real businesses is coincidental. 
+
 - Provision one database for trust db 
     - [Create Trust DB Tables](../../../sql/nl2sql_datamodel_schema.sql)
     - TRUST_LIBRARY table will be used by business and trust applications
@@ -41,3 +67,5 @@ For basic instructions on deploying an autonomous database, see [Autonomous Data
 
 #### Access
 Should be done through a public load balancer. See [Private LB for ADW](../deployment/apex-private-adw-lb.md)
+
+## [Return home](../../../README.md)

@@ -1,0 +1,52 @@
+name: "System.MainFlow"
+trackingId: "7443DAF1-CF74-40A0-B2E5-D2E934664DCF"
+type: "main"
+version: "2.0"
+public: false
+interface: {}
+configuration:
+  requiresAuthorization: false
+variables:
+- name: "system.nlpresult"
+  type: "nlpresult"
+  description: "Variable used to store the nlp result from the intent component"
+  system: true
+- name: "system.intent.utterance"
+  type: "string"
+  description: "When this variable has a value, the intent component will use this value for intent matching instead of the last user message"
+  system: true
+- name: "system.event"
+  type: "map"
+  description: "When one of the standard events is mapped in the main flow or a sub flow, this variable holds event properties you can use to handle the event. Check out the documentation for the property names available with each event type."
+  system: true
+- name: "system.rb"
+  type: "resourcebundle"
+  description: "Variable that can be used to access language resource bundle entries"
+  system: true
+- name: "moduleVar"
+  type: "entity"
+  entityName: "Modules"
+  description: ""
+  metadata:
+    isFreeMarker: false
+  trackingId: "09b90b2e-24e5-4ed1-8573-d931008e9ab6"
+  system: false
+eventMappings:
+- eventName: "system.intent.unresolvedIntent"
+  flowName: "backendFlow"
+  trackingId: "af6a4977-e242-4f4e-a401-d09e906d2e0f"
+- eventName: "system.intent.Greetings"
+  flowName: "greetingsFlow"
+  trackingId: "c4c55408-7851-49ac-8210-6a4887f4643b"
+- eventName: "system.intent.Exit"
+  flowName: "exitFlow"
+  trackingId: "40dd2d6c-d99c-4f87-b7b7-64168c84b735"
+- eventName: "system.intent.Payables"
+  flowName: "backendFlow"
+  inputParameters:
+  - name: "hint"
+    required: false
+  trackingId: "36cc5365-8779-44e4-a3a3-fd2b83ea27d0"
+- eventName: "system.intent.Receivables"
+  flowName: "backendFlow"
+  trackingId: "038ddb1f-37f9-4ff5-806c-68190c5df4e1"

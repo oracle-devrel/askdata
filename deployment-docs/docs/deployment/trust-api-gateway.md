@@ -42,3 +42,5 @@ This page assumes the following resources are running:
 7. Make a note of the endpoint for the deployment once configured. This will be used as the backend REST service to your APEX application as illustrated in [Configure APEX](../deployment/apex-trust.md#step-2-update-value-of-rest_api-property-to-the-proper-endpoint-and-click-apply-changes)
 
 ![Trust API Gateway Deployment](../deployment/trust-api-gw/rest-deployment.png)
+
+## [Return home](../../../README.md)

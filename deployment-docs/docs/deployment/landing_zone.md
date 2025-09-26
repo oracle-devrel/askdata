@@ -175,3 +175,5 @@ NOTE: While deploying the Landing Zone, either use the tenancy administrator acc
 
 
 19. After the apply job is completed, you will have the base landing zone ready for AskData Deployment.
+
+## [Return home](../../../README.md)

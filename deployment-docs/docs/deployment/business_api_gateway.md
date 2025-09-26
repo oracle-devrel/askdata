@@ -158,7 +158,7 @@ IDCS baseurl can be found at this location.
 
 > <https://identity.oraclecloud.com/>
 
-> <https://idcs-server.identity.oraclecloud.com>
+> <https://your-idcs-server.identity.oraclecloud.com>
 
 > Add each item on a separate line)
 
@@ -279,6 +279,20 @@ IDCS baseurl can be found at this location.
 
 ![Configure Variable](./business_media/media/create-deployment7.png)
 
+Fill in the following for the remaining routes 
+
+- 6	/getojet	ANY	YES	HTTP	http://10.1.1.xxx:8000/getojet	60	300	300
+- 7	/iprompt	POST	YES	HTTP	http://10.1.1.xxx:8000/iprompt	60	300	300
+- 8	/conversation/recent	GET	YES	HTTP	http://10.1.1.xxx:8000/conversations/recent	60	300	300
+- 9	/conversations/frequent	GET	YES	HTTP	http://10.1.1.xxx:8000/conversations/frequent	60	300	300
+- 10 /conversations/bookmarks	GET, POST, DELETE	YES	HTTP	http://10.1.1.xxx:8000/conversations/bookmarks	60	300	300
+- 11 /conversations/bookmark  POST http://10.0.1.xxx:8000/conversations/bookmark 60	300	300
+- 12 /conversations/bookmark/{id} DELETE http://10.0.1.xxx:8000/conversations/bookmark 60	300	300
+- 13 /agent/actions	GET	YES	HTTP	http://10.1.1.xxx:8000/agent/actions	60	300	300
+- 14 /agent/submit	POST	YES	HTTP	http://10.1.1.xxx:8000/agent/submit	60	300	300
+- 15 /iprompt/data	GET	YES	HTTP	http://10.1.1.xxx:8000/iprompt/data	60	300	300
+- 16 /iprompt/graph	POST	YES	HTTP	http://10.1.1.xxx:8000/iprompt/graph	60	300	300
+
 16. Select **Next** to review the details you entered for the new API deployment.
 
 4.  Select **Create** to create the new API deployment.
@@ -286,3 +300,5 @@ IDCS baseurl can be found at this location.
 <br>
 
 ![Configure Variable](./business_media/media/finish-deployment.png)
+
+## [Return home](../../../README.md)

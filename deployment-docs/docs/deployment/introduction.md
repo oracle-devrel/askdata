@@ -24,3 +24,5 @@ The following activities are covered as part of this document,
 | Oracle Digital Assistant | The solution utilizes ODA to provide chat-based interactions between business end users and the bot. User-entered prompts are routed to the backend LLM component, and the responses are displayed within the chat widget. |
 | VBCS | VBCS (Visual Builder Cloud Service) provides an enhanced user experience through interactive elements such as dynamic tables and rich graphical visualizations, enabling users to engage with data more effectively. The VBCS pages are secured with built-in authentication and role-based access control, ensuring that only authorized users can access or interact with the application. |
 | VM1 | The Compute VM hosts the core backend logic developed in Python, which supports key functionalities such as Natural Language to SQL (NL2SQL) processing, enrichment of backend data, and querying or persisting data within backend tables. |
+
+## [Return home](../../../README.md)

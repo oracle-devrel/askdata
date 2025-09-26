@@ -1,0 +1,17 @@
+{
+  "botPrompts" : [ ],
+  "customSettings" : {
+    "number" : {
+      "version" : "1.0",
+      "userLocaleEnabled" : true
+    }
+  },
+  "entityGazetteers" : [ ],
+  "fuzzyMatch" : false,
+  "multiValue" : false,
+  "name" : "NUMBER",
+  "promptForDisambiguation" : true,
+  "trackingId" : "E8A0695D-B602-4B02-AAFF-661A86A183F1",
+  "type" : "SYSTEM",
+  "validationRules" : [ ]
+}

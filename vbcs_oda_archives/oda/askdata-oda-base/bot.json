@@ -4,13 +4,13 @@
   "category" : "null",
   "description" : "calls Rest EP-MVP1(from v5g - APIGW(.252), auth, group, domain, odaclarify, EH+, FBFmtd, CC, dm_spc)",
   "dialogVersion" : "2.0",
-  "displayName" : "callGenAiSQLEndPointv5h",
+  "displayName" : "callGenAISQLEndpoint",
   "intentTrainer" : "Sakura",
   "multilingualMode" : "NATIVE",
-  "name" : "callGenAiSQLEndPointv5h",
-  "platformVersion" : "25.04",
+  "name" : "callGenAISQLEndpoint",
+  "platformVersion" : "25.06",
   "primaryLanguageTag" : "en",
   "requiresAutoCompleteTraining" : false,
-  "trackingId" : "F59CDEF3-58DE-4895-B72F-824DE1EF2EDC",
+  "trackingId" : "d22113a9-78cc-4bfe-af8e-a6880820dd79",
   "version" : "1.0"
 }

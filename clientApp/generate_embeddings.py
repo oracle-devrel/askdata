@@ -14,12 +14,36 @@ config.read('ConfigFile.properties')
 def create_str_embedding(input_str: str ):
     compartment_id = config.get('OCI', 'serviceendpoint.ocid')
     CONFIG_PROFILE = "DEFAULT"
-    ociconfig = oci.config.from_file('~/.oci/config', CONFIG_PROFILE)
+    #ociconfig = oci.config.from_file('~/.oci/config', CONFIG_PROFILE)
+
+    try:
+        ociconfig = oci.config.from_file('~/.oci/config', CONFIG_PROFILE)
+        oci.config.validate_config(ociconfig)
+    except Exception as e:
+        ociconfig = None 
+        print("Error loading OCI configuration:", e)
+
+
     # Service endpoint
     endpoint = config.get('OCI', 'serviceendpoint.url')
     #endpoint="https://inference.generativeai.sa-saopaulo-1.oci.oraclecloud.com"
 
-    generative_ai_inference_client = oci.generative_ai_inference.GenerativeAiInferenceClient(config=ociconfig, service_endpoint=endpoint, retry_strategy=oci.retry.NoneRetryStrategy(), timeout=(10,240))
+    if ociconfig is not None: 
+        generative_ai_inference_client = oci.generative_ai_inference.GenerativeAiInferenceClient(
+            config=ociconfig, service_endpoint=endpoint, 
+            retry_strategy=oci.retry.NoneRetryStrategy(), 
+            timeout=(10,240)
+            )
+    else:
+        signer = oci.auth.signers.InstancePrincipalsSecurityTokenSigner()
+        generative_ai_inference_client = oci.generative_ai_inference.GenerativeAiInferenceClient(
+                    config={},
+                    signer = signer,
+                    service_endpoint=endpoint,
+                    retry_strategy=oci.retry.NoneRetryStrategy(),
+                    timeout=(10,240)
+                    )
+    
     inputs = [input_str]
     embed_text_detail = oci.generative_ai_inference.models.EmbedTextDetails()
     embed_text_detail.serving_mode = oci.generative_ai_inference.models.OnDemandServingMode(model_id="cohere.embed-english-v3.0")

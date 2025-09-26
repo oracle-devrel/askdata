@@ -1,0 +1,16 @@
+{
+  "type" : "USER",
+  "autoCompleteTrainingStatus" : "NO_DATA",
+  "category" : "null",
+  "description" : "MVP1(from v5h - APIGW(.252), auth, group, domain, odaclarify, EH+, FBFmtd, CC, dm_spc, FnCC)",
+  "dialogVersion" : "2.0",
+  "displayName" : "callGenAiSQLEndPointv5k",
+  "intentTrainer" : "Sakura",
+  "multilingualMode" : "NATIVE",
+  "name" : "callGenAiSQLEndPointv5k",
+  "platformVersion" : "25.04",
+  "primaryLanguageTag" : "en",
+  "requiresAutoCompleteTraining" : false,
+  "trackingId" : "25A93FD8-C986-46FC-8627-F9A674A55DE5",
+  "version" : "1.0"
+}

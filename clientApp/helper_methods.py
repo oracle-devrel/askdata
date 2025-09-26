@@ -16,6 +16,7 @@ import matplotlib.pyplot as plt
 import io
 from datetime import datetime, date
 import difflib
+import json
 
 logger = logging.getLogger("app_logger")
 config = configparser.RawConfigParser()
@@ -86,15 +87,19 @@ def initialize_query_variables(model_id, user_key, prompt, reworded, session_id,
     db_error_txt = ""
     is_authorized = 1
     parentid = 0
-    user_feedback_code = ""
-    user_feedback_txt = ""
+    latency_generate_sql = None
+    latency_exec_sql = None
+    is_dynamic_instr = 0
+    is_autocertify = None
+    is_parent_corrected = None 
+    template_id = None
     return (
         is_retry, is_followup, followup_parent_txt, followup_txt, match_status,
         trust_id, is_trusted, is_prompt_equiv, is_template_equiv, is_clarify,
         is_action, action_type, llm_id, user_id, trust_score, user_prompt,
         convo_prompt, convo_id, convo_seq_num, generated_sql, executed_sql,
-        db_error_code, db_error_txt, is_authorized, parentid, user_feedback_code,
-        user_feedback_txt
+        db_error_code, db_error_txt, is_authorized, parentid, latency_generate_sql, 
+        latency_exec_sql, is_dynamic_instr, is_autocertify, is_parent_corrected, template_id
     )
 
 # set chat cache
@@ -118,6 +123,10 @@ def get_conversation_cache(sid):
     conversation = rediscache_obj.get(getmd5hash("conversation" + sid))
     return conversation
 
+# reset chat cache
+def reset_conversation_cache(sid):
+    rediscache_obj.delete(getmd5hash("conversation" + sid))
+
 # set session data
 def set_session_data(sid, data):
     rediscache.set(getmd5hash("sessiondata" + sid),data,ex=queryttl)
@@ -137,18 +146,6 @@ def set_prompt_conversation_cache(sid, conversation):
     logger.debug("md5 hash" + getmd5hash("prompt_conversation" + sid))
     rediscache_obj.set(getmd5hash("prompt_conversation" + sid),conversation,ex=queryttl)
 
-# set redis cache
-def set_query_cache(qryprompt, text):
-    rediscache.set(getmd5hash(qryprompt),text,ex=queryttl)
-
-# get redis cache
-def get_query_cache(qryprompt):
-    returnsql = rediscache.get(getmd5hash(qryprompt))
-    if returnsql is not None:
-        return returnsql
-    else:
-        return ""
-
 # set graph cache
 def set_graph_cache(gid, json_data):
     rediscache.set(gid,json_data,ex=queryttl)
@@ -157,13 +154,72 @@ def set_graph_cache(gid, json_data):
 def get_graph_cache(gid):
     return rediscache.get(gid)
 
-# set idata cache
-def set_idata_cache(idataid, iquery):
+# set iquery cache
+def set_iquery_cache(idataid, iquery):
     rediscache.set(idataid,iquery,ex=queryttl)
 
-# get idata cache
-def get_idata_cache(idataid):
+# get iquery cache
+def get_iquery_cache(idataid):
     return rediscache.get(idataid)
+
+def get_idata_step_counter(idataid) -> int:
+  step = 0
+  step_counter_key = f"idata:{idataid}:step_counter"
+  current_step = rediscache_obj.get(step_counter_key)
+  if current_step is not None:
+    step = int(current_step)
+  return step
+
+# set idata cache
+def set_idata_cache(idataid, dtype, data, step=0):
+  step_key = f"idata:{idataid}:{dtype}:{step}"
+  latest_key = f"idata:{idataid}:{dtype}:latest"
+  history_key = f"idata:{idataid}:{dtype}:history"
+
+  rediscache_obj.set(step_key, data, ex=queryttl)
+  rediscache_obj.set(latest_key, data, ex=queryttl)
+  if step == 0:
+    rediscache.delete(history_key)
+  rediscache.rpush(history_key, step_key)
+  rediscache.expire(history_key, queryttl)
+
+  rediscache_obj.set(f"idata:{idataid}:step_counter", step)
+
+# get idata cache
+def get_idata_cache(idataid, dtype, step=None):
+  if step is not None:
+    key = f"idata:{idataid}:{dtype}:{step}"
+  else:
+    key = f"idata:{idataid}:{dtype}:latest"
+  data = rediscache_obj.get(key)
+  return data
+
+# reset idata cache
+def reset_idata_cache(idataid, step=0):
+  for dtype in ['idata', 'igraph', 'isummary']:
+    step_key = f"idata:{idataid}:{dtype}:{step}"
+    latest_key = f"idata:{idataid}:{dtype}:latest"
+    history_key = f"idata:{idataid}:{dtype}:history"
+
+    data = rediscache_obj.get(step_key)
+    if data:
+      rediscache_obj.set(latest_key, data, ex=queryttl)
+      rediscache.delete(history_key)
+      rediscache.rpush(history_key, step_key)
+      rediscache.expire(history_key, queryttl)
+      # delete the older entries
+      for key_r in rediscache_obj.scan_iter(match=f"idata:{idataid}:{dtype}:*"):
+          key = key_r.decode() if isinstance(key_r, bytes) else key_r
+          if key.endswith("latest") or key.endswith("history"):
+              continue
+          try:
+              step_num = int(key.rsplit(":", 1)[-1])
+              if step_num > step:
+                  rediscache_obj.delete(key)
+          except ValueError:
+              continue
+
+  rediscache_obj.set(f"idata:{idataid}:step_counter", step)
 
 # string utility method
 def check_substring_single_space(main_string, sub_string):
@@ -328,6 +384,26 @@ def remove_quotes(s):
         return s[2:-2]
     return s
 
+# Takes a df column and returns True if it contains Integer or Float type of data
+def is_numeric_column(series):
+    # remove commas
+    series = series.astype(str).str.replace(',', '', regex=False)
+    # return False if the column is blank
+    non_null_count = series.dropna().shape[0]
+    if non_null_count == 0:
+        return False
+    try:
+        # convert to numeric, string values would become NaN
+        numeric_series = pd.to_numeric(series, errors='coerce')
+        numeric_count = numeric_series.dropna().shape[0]
+        # return True if atleast 80% of the values are converted
+        if numeric_count / non_null_count >= 0.8:
+            return True
+        else:
+            return False
+    except:
+        return False
+
 def convert_to_numeric_if_possible(df):
     for col in df.select_dtypes(include=['object']).columns:
         logger.debug(col)
@@ -409,7 +485,7 @@ def is_integer(value):
 def is_numeric(value):
     if value is None:
        return "Null"
-    if isinstance(value, (pd.Timestamp, datetime, date)):
+    if isinstance(value, (pd.Period, pd.Timestamp, datetime, date)):
         return False
     try:
         float(value)
@@ -428,6 +504,8 @@ def format_number(value):
 def format_date(value):
     if pd.isnull(value):
         return "Null"
+    if isinstance(value, pd.Period):
+        return str(value)
     if isinstance(value, (pd.Timestamp, datetime)):
         return value.strftime('%Y-%m-%d')
     return value
@@ -438,6 +516,162 @@ def apply_formatting(col):
         return col.apply(lambda x: format_number(x) if is_numeric(x) else format_date(x))
     else:
         return col
+
+def extract_schema(df, max_rows=5):
+    def normalize_type(val):
+        if pd.isna(val):
+            return None
+        elif isinstance(val, (datetime, pd.Timestamp)):
+            return "datetime"
+        elif isinstance(val, date):
+            return "date"
+        elif isinstance(val, dict):
+            return "dict"
+        elif isinstance(val, list):
+            return "list"
+        else:
+            return type(val).__name__
+
+    def merge_keys(dicts):
+        keys = set()
+        for d in dicts:
+            if isinstance(d, dict):
+                keys.update(d.keys())
+        return list(keys)
+
+    def flatten_schema(schema, parent_key=''):
+        flat_schema = {}
+        for key, value in schema.items():
+            full_key = f"{parent_key}.{key}" if parent_key else key
+            if isinstance(value, dict) and value.get("type") == "dict":
+                nested = value.get("keys", {})
+                nested_flat = flatten_schema(nested, full_key)
+                flat_schema.update(nested_flat)
+            else:
+                flat_schema[full_key] = value.get("type", "unknown")
+        return flat_schema
+
+    if df.empty or df.shape[1] == 0:
+        return {}
+
+    schema = {}
+    for col in df.columns:
+        sample_values = df[col].head(max_rows).tolist()
+        non_na_values = [val for val in sample_values if not pd.isna(val)]
+
+        if not non_na_values:
+            schema[col] = {"type": "unknown"}
+            continue
+
+        if any(isinstance(val, dict) for val in non_na_values):
+            nested_dicts = [val for val in non_na_values if isinstance(val, dict)]
+            nested_keys = merge_keys(nested_dicts)
+            nested_schema = {}
+
+            for k in nested_keys:
+                inner_vals = [d.get(k, None) for d in nested_dicts]
+                inner_types = set(normalize_type(v) for v in inner_vals if v is not None)
+                nested_schema[k] = {"type": list(inner_types) or ["unknown"]}
+
+            schema[col] = {
+                "type": "dict",
+                "keys": nested_schema
+            }
+        else:
+            inferred_types = set(normalize_type(val) for val in non_na_values if val is not None)
+            schema[col] = {
+                "type": list(inferred_types) or ["unknown"]
+            }
+
+    flattened_schema = flatten_schema(schema)
+    return flattened_schema
+
+def extract_schema_old(df, max_rows=5):
+    def flatten_schema(nested_schema, parent_key=''):
+        flat_schema = {}
+        for key, value in nested_schema.items():
+            full_key = f"{parent_key}.{key}" if parent_key else key
+            if value.get("type") == "dict" and "keys" in value:
+                for subkey in value["keys"]:
+                    flat_schema[f"{full_key}.{subkey}"] = "unknown"
+            else:
+                flat_schema[full_key] = value["type"]
+        return flat_schema
+
+    schema = {}
+    for col in df.columns:
+        sample_values = df[col].head(max_rows).tolist()
+        sample_values = ['' if pd.isna(val) else val for val in sample_values]
+        sample_type = set(type(val).__name__ for val in sample_values)
+
+        if any(isinstance(val, dict) for val in sample_values):
+            # Handle nested dictionaries
+            nested_keys = set()
+            for val in sample_values:
+                if isinstance(val, dict):
+                    nested_keys.update(val.keys())
+            schema[col] = {
+                "type": "dict",
+                "keys": list(nested_keys)
+            }
+        else:
+            schema[col] = {
+                "type": list(sample_type)
+            }
+
+    # Flatten the schema before returning
+    flattened_schema = flatten_schema(schema)
+    return flattened_schema
+
+class CustomJSONEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, pd.Period):
+            return str(obj)
+        if isinstance(obj, (pd.Timestamp, datetime, date)):
+            return obj.strftime('%Y-%m-%d')
+        return super().default(obj)
+
+def preprocess_for_llm(df):
+    df = df.copy()
+
+    # Convert object columns with dictionaries to JSON strings
+    for col in df.select_dtypes(include='object').columns:
+        if df[col].apply(lambda x: isinstance(x, dict)).any():
+            df[col] = df[col].apply(lambda x: json.dumps(x, default=str) if isinstance(x, dict) else x)
+
+    # Convert datetime columns to ISO format strings
+    for col in df.select_dtypes(include=['datetime', 'datetimetz']).columns:
+        df[col] = df[col].apply(lambda x: x.strftime('%Y-%m-%dT%H:%M:%S.000') if pd.notnull(x) else '1900-01-01T00:00:00.000')
+
+    # Try to convert numeric-looking object columns to numbers
+    for col in df.columns:
+        if df[col].dtype == 'object':
+            sample_vals = df[col].dropna().astype(str).head(10).tolist()
+
+            # If it looks like numbers with commas, attempt to clean and convert
+            if any(',' in val for val in sample_vals):
+                cleaned = df[col].astype(str).str.replace(',', '', regex=False)
+                numeric = pd.to_numeric(cleaned, errors='coerce')
+
+                # Only replace if conversion makes sense
+                if numeric.notnull().sum() > 0:
+                    df[col] = numeric
+                    continue  # Skip string casting below
+
+            # If not converting, ensure strings
+            df[col] = df[col].astype(str)
+
+    # Convert float columns that are all integers to int safely
+    for col in df.select_dtypes(include='float').columns:
+        non_na = df[col].dropna()
+        if not non_na.empty and np.all(np.mod(non_na, 1) == 0):
+            df[col] = df[col].fillna(0).astype(int)
+
+    # Final cleanup: ensure all object columns are strings
+    for col in df.select_dtypes(include='object').columns:
+        df[col] = df[col].astype(str)
+
+    return df
     
 def check_substrings_in_string(substrings, string_to_check):
     substring_list = [s.strip() for s in substrings.split(',')]

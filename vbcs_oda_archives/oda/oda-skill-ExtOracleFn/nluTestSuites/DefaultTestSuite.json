@@ -1,0 +1,8 @@
+{
+  "displayName" : "Default Test Suite",
+  "enabled" : true,
+  "includeInExport" : true,
+  "name" : "DefaultTestSuite",
+  "nluTestCases" : [ ],
+  "trackingId" : "50B66C9A-8346-345A-BE33-D3A93A83E713"
+}

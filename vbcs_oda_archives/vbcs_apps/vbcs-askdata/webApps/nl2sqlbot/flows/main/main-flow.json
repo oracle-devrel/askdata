@@ -4,5 +4,6 @@
   "defaultPage": "main-start",
   "services": {},
   "types": {},
-  "variables": {}
+  "variables": {
+  }
 }

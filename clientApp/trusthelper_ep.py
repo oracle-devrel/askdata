@@ -13,6 +13,7 @@ from database_ops   import get_user_id_by_email, get_model_id, persist_log_data,
 from helper_methods import setup_logger, remove_limit_fetch, generate_diff_string, check_substrings_in_string, clean_query, remove_quotes, starts_with_delete_or_truncate
 from database_conn_pool import get_connection
 from sqlalchemy import text
+from dynamic_prompt_injection import get_hints4llm
 
 config = configparser.RawConfigParser()
 config.read('ConfigFile.properties')
@@ -38,7 +39,13 @@ async def getprompt(request: Request):
     metadata  = config.get('METADATA', 'schema.ddl')
     schemaddl = read_file_to_string(metadata)
     dialect = config.get('GenAISQLGenerator', 'sql.dialect')
-    sqlprompt = get_sql_prompt(schemaddl,prmpt,dialect)
+    hints = ""
+    if config.getboolean('FeatureFlags', 'feature.dynamicprompt'):
+        logger.debug(f"retrieving hints for dynamic prompt...")
+        hints = get_hints4llm(prmpt)
+        if hints:
+            logger.debug(f"dynamic prompt to be injected is:\n {hints}")
+    sqlprompt = get_sql_prompt(schemaddl,prmpt,dialect,hints)
     return Response(content=sqlprompt, media_type="text/plain")
 
 @app.post("/getsql")

@@ -2,9 +2,8 @@
     "profiles": [
         {
             "displayName": "Base configuration",
-            "description": "Default development profile in VBCS",
             "id": "base_configuration",
-            "disabled": false
+            "description": "Default development profile in VBCS"
         }
     ],
     "defaults": {

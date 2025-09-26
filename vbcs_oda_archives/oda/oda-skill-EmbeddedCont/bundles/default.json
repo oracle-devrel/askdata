@@ -1,0 +1,1050 @@
+{
+  "extensionType" : null,
+  "keys" : {
+    "displayEnd.button.keywords" : {
+      "annotation" : null,
+      "extensionType" : null,
+      "message" : "End",
+      "trackingId" : "A8BAE44F-D9FF-4A42-8DF2-DEC085C86AED"
+    },
+    "displayEnd.button.label" : {
+      "annotation" : null,
+      "extensionType" : null,
+      "message" : "End",
+      "trackingId" : "A617ADE5-4DC3-457C-831D-5B031C832089"
+    },
+    "displayGood.button.keywords" : {
+      "annotation" : null,
+      "extensionType" : null,
+      "message" : "good,great,Awesome,awesome,Super,Very Good,Good,Excellent",
+      "trackingId" : "51456C3C-D1E8-406F-81C2-4BEACFFFCC1C"
+    },
+    "displayGood.button.label" : {
+      "annotation" : null,
+      "extensionType" : null,
+      "message" : "👍",
+      "trackingId" : "C6FB3ABC-63DE-4EC5-8D6C-EEC908543E52"
+    },
+    "displayNewConv.button.label" : {
+      "annotation" : null,
+      "extensionType" : null,
+      "message" : "New Conversation",
+      "trackingId" : "EBD8FA35-7528-47D0-9A2E-EBCA4401CF3C"
+    },
+    "displayNo.button.keywords" : {
+      "annotation" : null,
+      "extensionType" : null,
+      "message" : "No,Nope,Not,Never,Nay",
+      "trackingId" : "A8205FC8-077D-407C-8DCE-89C3FB4064E1"
+    },
+    "displayNo.button.label" : {
+      "annotation" : null,
+      "extensionType" : null,
+      "message" : "No",
+      "trackingId" : "B047572C-336D-4246-A434-45B21D02EF73"
+    },
+    "displayYes.button.keywords" : {
+      "annotation" : null,
+      "extensionType" : null,
+      "message" : "Yes,Yep,Yeah",
+      "trackingId" : "A41B7AB3-056E-4171-B02C-33C11F175598"
+    },
+    "displayYes.button.label" : {
+      "annotation" : null,
+      "extensionType" : null,
+      "message" : "Yes",
+      "trackingId" : "5484AE46-1EF6-4978-8682-992AA021B516"
+    },
+    "displaynotGood.button.keywords" : {
+      "annotation" : null,
+      "extensionType" : null,
+      "message" : "Bad,Not Good, not good,Very bad,bad",
+      "trackingId" : "4DABEDFE-5021-43C3-B041-D2659CD10471"
+    },
+    "displaynotGood.button.label" : {
+      "annotation" : null,
+      "extensionType" : null,
+      "message" : "👎",
+      "trackingId" : "2BD050B6-95A4-4545-9E5B-12FC9AABFB05"
+    },
+    "displayskip.button.keywords" : {
+      "annotation" : null,
+      "extensionType" : null,
+      "message" : "skip,pass,not now",
+      "trackingId" : "D1181633-FBC3-41B0-A135-AD18CE390029"
+    },
+    "displayskip.button.label" : {
+      "annotation" : null,
+      "extensionType" : null,
+      "message" : "Skip",
+      "trackingId" : "D3C75880-188A-4833-BD31-327B84F36BB5"
+    },
+    "random.badfeedback.prompt" : {
+      "annotation" : null,
+      "extensionType" : null,
+      "message" : "My apologies. Would you like to leave a brief feedback?",
+      "trackingId" : "F91D1EBF-55C9-42E7-9C3C-78732419EBDD"
+    },
+    "random.feedback.prompt" : {
+      "annotation" : null,
+      "extensionType" : null,
+      "message" : "<font style=\"color:gray;\">We're interested in knowing if this helped. A thumbs up or down will help us improve our answers.</font>",
+      "trackingId" : "0004C9FB-FBED-46AB-8985-B03921F6B390"
+    },
+    "random.feedbackCaptureError.label" : {
+      "annotation" : null,
+      "extensionType" : null,
+      "message" : "There is an issue capturing your feedback.",
+      "trackingId" : "6EFFC7BF-202E-4761-ADCD-023234EBC8DA"
+    },
+    "systemComponent_AgentConversation_conclusionMessage" : {
+      "annotation" : "The message shown to the user when human agent ends the chat.",
+      "extensionType" : null,
+      "message" : "Chat session ended. Thanks for chatting with us.",
+      "trackingId" : "926282BE-4725-4D5C-8E59-7B9AAD2AAB4A"
+    },
+    "systemComponent_AgentConversation_errorMessage" : {
+      "annotation" : "The message shown to the user when Digital Assistant experiences errors with the agent chat system.",
+      "extensionType" : null,
+      "message" : "Chat session error. The reason is: {0}.",
+      "trackingId" : "D83F0A9D-36E7-4D02-A6A3-58CD8DC39E09"
+    },
+    "systemComponent_AgentConversation_exitKeywords" : {
+      "annotation" : "Comma-delimited list of keywords the user can use to end the chat with the agent.",
+      "extensionType" : null,
+      "message" : "bye, take care, see you, goodbye",
+      "trackingId" : "5706155D-6BF8-4C5A-834C-58ECF3CA9CD3"
+    },
+    "systemComponent_AgentConversation_expiryMessage" : {
+      "annotation" : "The message shown to the user when the chat session expires.",
+      "extensionType" : null,
+      "message" : "Chat session expired. Thanks for chatting with us.",
+      "trackingId" : "4648DA2F-FE22-496A-88AD-6E9F3E610278"
+    },
+    "systemComponent_AgentConversation_userLeftMessage" : {
+      "annotation" : null,
+      "extensionType" : null,
+      "message" : "User left the chat.",
+      "trackingId" : "80213404-5D75-47EE-A364-451288A064F4"
+    },
+    "systemComponent_AgentConversation_waitExpiryMessage" : {
+      "annotation" : "The message shown to the user when the chat expires while waiting for an agent.",
+      "extensionType" : null,
+      "message" : "The request for live chat expired while waiting for an agent.",
+      "trackingId" : "2F5D1572-5E54-4A78-BCF2-3350CC3A4091"
+    },
+    "systemComponent_AgentInitiation_agentActionsMessage" : {
+      "annotation" : "Message preceding the list of agent actions.",
+      "extensionType" : null,
+      "message" : "\\n Here are the available actions that you can send to transfer the conversation back to the bot. Prepend the action with a forward slash (for example, /actionName).\\n",
+      "trackingId" : "92C0E70D-0254-48A5-A64A-109294381AFF"
+    },
+    "systemComponent_AgentInitiation_errorMessage" : {
+      "annotation" : "The message shown to user when system error occurs during chat initiation with agent.",
+      "extensionType" : null,
+      "message" : "Error transferring to agent. The reason is: {0}.",
+      "trackingId" : "8D6864AC-C3A4-4789-896E-367395CDC370"
+    },
+    "systemComponent_AgentInitiation_rejectedMessage" : {
+      "annotation" : "The message shown to the user when human agent rejects the chat request.",
+      "extensionType" : null,
+      "message" : "Agent rejected.",
+      "trackingId" : "7B6F54FB-DB30-4508-B84C-D87B61601E1A"
+    },
+    "systemComponent_AgentInitiation_resumedMessage" : {
+      "annotation" : "The message shown to the user when the chat with human agent is resumed.",
+      "extensionType" : null,
+      "message" : "Resuming chat with agent",
+      "trackingId" : "08C84FC2-477E-46A8-89A3-0B8C4C8AA80D"
+    },
+    "systemComponent_AgentInitiation_waitingMessage" : {
+      "annotation" : "The message that's shown to users when they are waiting for a human agent.",
+      "extensionType" : null,
+      "message" : "Agent chat session established, Waiting for agent to join.",
+      "trackingId" : "F6041FA6-39E4-40C0-B8D1-D35992A95F34"
+    },
+    "systemComponent_AgentTransferCondition_errorMessage" : {
+      "annotation" : "The message shown to the user when Digital Assistant experiences trouble checking agent status with the agent chat system.",
+      "extensionType" : null,
+      "message" : "We were unable to check the status of other agents because there was a system error.",
+      "trackingId" : "4B5F720E-D9BF-43B0-AFEE-9641E8916F6F"
+    },
+    "systemComponent_AgentTransfer_acceptedMessage" : {
+      "annotation" : "The message that's shown to the users whenever a human agent accepts the chat request.",
+      "extensionType" : null,
+      "message" : "The chat has been transferred to another agent.",
+      "trackingId" : "AFA404C0-312A-4707-800B-BE6431FD3D68"
+    },
+    "systemComponent_AgentTransfer_errorMessage" : {
+      "annotation" : "The message shown to the user when Digital Assistant experiences trouble with the agent chat system.",
+      "extensionType" : null,
+      "message" : "We were unable to transfer you to another agent because there was a system error.",
+      "trackingId" : "9236DD72-3E7F-4001-8C02-125F20929224"
+    },
+    "systemComponent_AgentTransfer_rejectedMessage" : {
+      "annotation" : "The message that's shown to the users whenever a human agent rejects the chat request, 'maxEngagementsInQueue' is exceeded, the 'allowTransferIf' condition is not met, or the estimated wait time exceeds 'maxWaitSeconds'.",
+      "extensionType" : null,
+      "message" : "Agent rejected.",
+      "trackingId" : "844DBAF8-982F-40B0-80B4-85205BBCD6B8"
+    },
+    "systemComponent_AgentTransfer_waitingMessage" : {
+      "annotation" : "The message that's shown to users when they're transferred to a human agent.",
+      "extensionType" : null,
+      "message" : "Agent chat session established, Waiting for agent to join.",
+      "trackingId" : "DD52F2FD-B97D-4788-9E84-7F8D844C676E"
+    },
+    "systemComponent_CommonResponse_formTitle" : {
+      "annotation" : "Default title shown in form dialog when using table-form message type on Slack.",
+      "extensionType" : null,
+      "message" : "View details",
+      "trackingId" : "24C000E8-F323-43D7-8873-ECFED4CDEB2F"
+    },
+    "systemComponent_CommonResponse_showFormButtonLabel" : {
+      "annotation" : "Button label to open form when using a table-form layout.",
+      "extensionType" : null,
+      "message" : "View",
+      "trackingId" : "DE6CB3E2-5A54-4592-860A-7CF46D7B8D87"
+    },
+    "systemComponent_DataQueryResponse_feedbackCategories" : {
+      "annotation" : "The categories shown in the feedback dialog for SQL Dialog responses.",
+      "extensionType" : null,
+      "message" : "Inaccurate Interpretation,Inaccurate Result,Other",
+      "trackingId" : "8EAE2CBF-AE65-487F-B82C-835AE73B0E2A"
+    },
+    "systemComponent_Feedback_feedbackPrompt" : {
+      "annotation" : "It is the prompt shown to the user to select rating for the conversation.",
+      "extensionType" : null,
+      "message" : "How would you rate this conversation?",
+      "trackingId" : "6D68BF10-19CE-4B6C-B92F-CC12D2758223"
+    },
+    "systemComponent_Feedback_invalidValuePrompt" : {
+      "annotation" : "It is the prompt shown to the user to select rating for the conversation after user inputs an invalid value for rating.",
+      "extensionType" : null,
+      "message" : "Value submitted for feedback rating is invalid. Please try again",
+      "trackingId" : "25D774BA-E5F3-4927-A540-B4885BDF7C2D"
+    },
+    "systemComponent_Feedback_ratingButtonLabels" : {
+      "annotation" : "Comma separated list of labels displayed on rating buttons in feedback component.",
+      "extensionType" : null,
+      "message" : "1,2,3,4,5",
+      "trackingId" : "AA63BBBE-174F-4BDA-905A-B3B288C392CD"
+    },
+    "systemComponent_Feedback_skipLabel" : {
+      "annotation" : "The label of the skip button to skip the feedback.",
+      "extensionType" : null,
+      "message" : "Skip",
+      "trackingId" : "220CB73C-5E9A-443A-81FB-0EBA6F9B4B40"
+    },
+    "systemComponent_Feedback_textFeedbackPrompt" : {
+      "annotation" : "Prompt shown to user asking them to provide text feedback when they give a rating below threshold.",
+      "extensionType" : null,
+      "message" : "Any feedback?",
+      "trackingId" : "81D7CF45-0020-41E9-B4C1-3EA3FCEE5AFF"
+    },
+    "systemComponent_Feedback_thankYouPrompt" : {
+      "annotation" : "It is the prompt shown to the user when transition set by user is not defined in dialog flow.",
+      "extensionType" : null,
+      "message" : "Thank you",
+      "trackingId" : "779C6A64-C4BA-40F6-B8FB-7E23E294D37F"
+    },
+    "systemComponent_IncidentCreation_successMessage" : {
+      "annotation" : "The message that's shown to users when an incident is created successfully",
+      "extensionType" : null,
+      "message" : "Incident created successfully. Incident number : {0} .",
+      "trackingId" : "0D5944EE-9292-4916-B6BC-E959A10DB732"
+    },
+    "systemComponent_IntelligentAdvisor_answerNotValid" : {
+      "annotation" : "Message that's displayed for Intelligent Advisor interview inputs of type Masked when the user's answer doesn't conform to the specified input mask.",
+      "extensionType" : null,
+      "message" : "The answer is not in the correct format. Try again.",
+      "trackingId" : "998C72BA-EA31-48E6-872D-4E9E59F6E88A"
+    },
+    "systemComponent_IntelligentAdvisor_defaultValue" : {
+      "annotation" : "Text that's added to a question when the Intelligent Advisor interview input has a default value.",
+      "extensionType" : null,
+      "message" : "Suggested value is {0}.",
+      "trackingId" : "DD3AFA84-AD5C-4D89-8F59-90E07F1565F2"
+    },
+    "systemComponent_IntelligentAdvisor_doneHelp" : {
+      "annotation" : "Help message that's displayed for Intelligent Advisor interview inputs of type Upload.",
+      "extensionType" : null,
+      "message" : "When you are done with the upload, say {0}.",
+      "trackingId" : "5C81A928-9CB7-4E8E-9F9A-B41DCAFCDB47"
+    },
+    "systemComponent_IntelligentAdvisor_doneLabel" : {
+      "annotation" : "The text that users have to type to indicate that they are done uploading a file.",
+      "extensionType" : null,
+      "message" : "/done",
+      "trackingId" : "12C24595-6811-4972-9F91-02F8E4908279"
+    },
+    "systemComponent_IntelligentAdvisor_endLabel" : {
+      "annotation" : "The label that is shown in the chat at the end of the interview.",
+      "extensionType" : null,
+      "message" : "Interview ended",
+      "trackingId" : "CF4633C3-45D4-4CD8-9053-37532BAF0BB9"
+    },
+    "systemComponent_IntelligentAdvisor_exitLabel" : {
+      "annotation" : "The text that users have to type to indicate that they want to exit the interview.",
+      "extensionType" : null,
+      "message" : "/exit",
+      "trackingId" : "D7F8D317-31D9-410C-BC83-923739C2A914"
+    },
+    "systemComponent_IntelligentAdvisor_explanationAskLabel" : {
+      "annotation" : "The question that is asked when showExplanation is set to 'ask'.",
+      "extensionType" : null,
+      "message" : "Do you want to see the explanation?",
+      "trackingId" : "F07A9422-44A3-45B0-A4BD-80F05724431E"
+    },
+    "systemComponent_IntelligentAdvisor_maskLabel" : {
+      "annotation" : "Text that's added to a question to display the expected format for Intelligent Advisor interview inputs of type Masked Text Box.",
+      "extensionType" : null,
+      "message" : "Answer format: {0}",
+      "trackingId" : "C85AC599-D519-4648-983E-C6B1456D71EF"
+    },
+    "systemComponent_IntelligentAdvisor_noLabel" : {
+      "annotation" : "The label to use to represent Boolean FALSE values.",
+      "extensionType" : null,
+      "message" : "No",
+      "trackingId" : "BB5DCB0C-DB6A-437C-8E70-6B101CF73424"
+    },
+    "systemComponent_IntelligentAdvisor_numberMinMax" : {
+      "annotation" : "Message that's displayed when the user enters a value outside of the specified range for an Intelligent Advisor interview input of type Slider.",
+      "extensionType" : null,
+      "message" : "Enter a number between {0} and {1}.",
+      "trackingId" : "CF00BA47-D754-42CB-A5E0-642F4AC4AE41"
+    },
+    "systemComponent_IntelligentAdvisor_outOfOrderMessage" : {
+      "annotation" : "Error message that's displayed when the user taps a button in a previous Intelligent Advisor interview message.",
+      "extensionType" : null,
+      "message" : "You have already answered this question. When you want to step backwards to change a previous answer, say {0}.",
+      "trackingId" : "5D9B1B32-1F92-4031-8213-6568E9884ABD"
+    },
+    "systemComponent_IntelligentAdvisor_resetLabel" : {
+      "annotation" : "The text that users have to type to indicate that they want to go back to the first question.",
+      "extensionType" : null,
+      "message" : "/reset",
+      "trackingId" : "171A1A51-2AE0-494B-87C9-A76106F50F05"
+    },
+    "systemComponent_IntelligentAdvisor_resumeSessionPrompt" : {
+      "annotation" : "Question that is asked if the user starts an interview that they had previously left before the interview completed.",
+      "extensionType" : null,
+      "message" : "Do you want to restart the interview from where you previously left?",
+      "trackingId" : "936285BE-54B8-4152-8624-ECEFA40588C7"
+    },
+    "systemComponent_IntelligentAdvisor_suggestionText" : {
+      "annotation" : "The label that's displayed when the Intelligent Advisor interview input has a default value and the showSuggestion property is true.",
+      "extensionType" : null,
+      "message" : "Give your answer or press the button to use the suggested value.",
+      "trackingId" : "7ED58D4A-1492-432F-A8F1-ACC7FA691C96"
+    },
+    "systemComponent_IntelligentAdvisor_uncertainLabel" : {
+      "annotation" : "The label that appears for optional values and is what the user can type if they don't know the value.",
+      "extensionType" : null,
+      "message" : "Uncertain",
+      "trackingId" : "14C3DC29-753B-41B0-8E40-FBA8912CBA53"
+    },
+    "systemComponent_IntelligentAdvisor_undoLabel" : {
+      "annotation" : "The text that users have to type to indicate that they want to go back to the previous question.",
+      "extensionType" : null,
+      "message" : "/back",
+      "trackingId" : "4EB5F656-0421-4801-86FC-35811E1A923B"
+    },
+    "systemComponent_IntelligentAdvisor_yesLabel" : {
+      "annotation" : "The label to use to represent Boolean TRUE values.",
+      "extensionType" : null,
+      "message" : "Yes",
+      "trackingId" : "3B90982B-083D-4810-9FC4-A67890188935"
+    },
+    "systemComponent_IntelligentAdvisor_yesNoMessage" : {
+      "annotation" : "Message that's displayed when the user enters an invalid answer for Intelligent Advisor interview inputs of type Boolean Radio Button.",
+      "extensionType" : null,
+      "message" : "Enter either {0} or {1}",
+      "trackingId" : "FB62645A-17A0-4BB1-BE16-73CE26A3F2A9"
+    },
+    "systemComponent_Intent_optionsPrompt" : {
+      "annotation" : "The prompt shown to the user when there are multiple top intents within the confidence win margin.",
+      "extensionType" : null,
+      "message" : "Do you want to",
+      "trackingId" : "198F5951-77FF-4510-8D1C-C9A534EF8433"
+    },
+    "systemComponent_Intent_optionsQnaLabel" : {
+      "annotation" : "The label of the action in the options (see optionsPrompt) that will take the user to the QnA component to display the matches.",
+      "extensionType" : null,
+      "message" : "View Answers",
+      "trackingId" : "3C165F0D-A50D-4530-A7A9-4FF0150A38DD"
+    },
+    "systemComponent_KnowledgeDialogs_feedbackCategories" : {
+      "annotation" : "The categories shown in the feedback dialog for knowledge-generated responses.",
+      "extensionType" : null,
+      "message" : "Inaccurate,Inappropriate,Irrelevant,Other",
+      "trackingId" : "779C9BE5-ED81-443F-8F53-82E1CC1F11D7"
+    },
+    "systemComponent_KnowledgeDialogs_generateLabel" : {
+      "annotation" : "The label of the button to generate answer using KnowledgeDialogs.",
+      "extensionType" : null,
+      "message" : "Show answer",
+      "trackingId" : "31A80D0F-73C7-40CD-848B-0FB9EDE3657D"
+    },
+    "systemComponent_KnowledgeDialogs_generateResponseInfo" : {
+      "annotation" : "The explanatory label displayed next to KnowledgeDialogs button.",
+      "extensionType" : null,
+      "message" : "Related answer in \"{0}\"",
+      "trackingId" : "803F3544-0D07-4875-96E2-5DA79F855386"
+    },
+    "systemComponent_KnowledgeDialogs_llmGeneratedInfo" : {
+      "annotation" : "A text field used to indicate that the content of the message was generated by an LLM.",
+      "extensionType" : null,
+      "message" : "AI generated from \"{0}\"",
+      "trackingId" : "AC55AABB-6E31-47FD-A727-E4AA51E137BD"
+    },
+    "systemComponent_KnowledgeDialogs_notAnswerable" : {
+      "annotation" : "Message to inform the user that a document with some relevance has been located",
+      "extensionType" : null,
+      "message" : "I've found a document that appears to have some relevance, but unfortunately, it doesn't fully address your original question.",
+      "trackingId" : "A0B63DE3-4E4D-4916-B6C6-937AB9E12118"
+    },
+    "systemComponent_KnowledgeDialogs_pageNumberNotAvailable" : {
+      "annotation" : "The value in the reference table column in cases where the page number is unavailable.",
+      "extensionType" : null,
+      "message" : "n/a",
+      "trackingId" : "30859CE1-C01B-4FBD-A402-BB4E6D833182"
+    },
+    "systemComponent_KnowledgeDialogs_rewrittenPendingMessage" : {
+      "annotation" : "Message during KnowledgeDialogs response wait when context rewriter rewrites query.",
+      "extensionType" : null,
+      "message" : "Generating an answer for : \"{0}\"",
+      "trackingId" : "65DEC371-2101-47F7-823E-FC9E8493C12D"
+    },
+    "systemComponent_KnowledgeDialogs_showSourcesLabel" : {
+      "annotation" : "The label of the button to generate references for KnowledgeDialogs.",
+      "extensionType" : null,
+      "message" : "Show sources",
+      "trackingId" : "9723824C-193E-422C-9A3E-827C3D428454"
+    },
+    "systemComponent_KnowledgeSearch_defaultAttachmentLabel" : {
+      "annotation" : "The default label to use for the result card's URL action that is linked with an attachment of the search result if that attachment does not have a display name configured already.",
+      "extensionType" : null,
+      "message" : "Download",
+      "trackingId" : "BB5C4E58-107D-41B8-99E0-DA35D1FAA64C"
+    },
+    "systemComponent_KnowledgeSearch_noResultText" : {
+      "annotation" : "The text to output when no search result is available.",
+      "extensionType" : null,
+      "message" : "Sorry, no result was found in the knowledge search.",
+      "trackingId" : "54CF84D3-022D-4DDD-AA5E-5FEF8842FBD0"
+    },
+    "systemComponent_KnowledgeSearch_resultLinkLabel" : {
+      "annotation" : "The label to use for the result card's URL action linked to the web version of the knowledge article. If the resultLinkLabel component property is set to an empty or blank string, the card URL is hidden and the card description shows the full article.",
+      "extensionType" : null,
+      "message" : "View Details",
+      "trackingId" : "5E91BFD5-8CD3-4E33-B72F-8B23BC4B749F"
+    },
+    "systemComponent_KnowledgeSearch_searchLinkLabel" : {
+      "annotation" : "For B2C, the label to use for the card message payload action that's linked to the web page with the full search result list. For B2B, the label to use for the card message payload action that's linked to the home search page.",
+      "extensionType" : null,
+      "message" : "Open Page with All Answers",
+      "trackingId" : "3EC90A11-86EA-451E-A5AF-7FF02EA1EF33"
+    },
+    "systemComponent_KnowledgeSearch_searchPrelude" : {
+      "annotation" : "The text to output before the search result is displayed.",
+      "extensionType" : null,
+      "message" : "Here's what I found:",
+      "trackingId" : "241FF3CE-FDBB-49F4-8BE4-045CFED4070E"
+    },
+    "systemComponent_LLM_entityNotSpecifiedPrompt" : {
+      "annotation" : "Retry prompt sent to the LLM when an entity is not matched in the LLM response.",
+      "extensionType" : null,
+      "message" : "The {0} is not specified in the response.",
+      "trackingId" : "3CB50D21-8F6F-47AF-977D-C199A6E14380"
+    },
+    "systemComponent_LLM_feedbackCategories" : {
+      "annotation" : "The categories shown in the feedback dialog for LLM-generated responses.",
+      "extensionType" : null,
+      "message" : "Inaccurate,Inappropriate,Irrelevant,Other",
+      "trackingId" : "4F139212-22DE-46F6-B88B-007179CE57AB"
+    },
+    "systemComponent_LLM_invalidJsonError" : {
+      "annotation" : "Error message sent to the LLM when the LLM response is not valid JSON.",
+      "extensionType" : null,
+      "message" : "Response is not a valid JSON object: {0}.",
+      "trackingId" : "3DAB4970-A597-42DC-9DC9-A44DEFA8B59A"
+    },
+    "systemComponent_LLM_invalidJsonResponsePrompt" : {
+      "annotation" : "Retry prompt sent to the LLM when the response causes JSON validation errors.",
+      "extensionType" : null,
+      "message" : "The response doesn't comply with the JSON Schema, the following errors are found:\\n###\\n{0}\\n###\\nThe following is a revised response with a valid JSON Object that fixes the errors and complies with the JSON schema:\\n",
+      "trackingId" : "B12BE5FC-0203-468D-AFC7-DE2F64D9CD86"
+    },
+    "systemComponent_LLM_invalidResponsePrompt" : {
+      "annotation" : "Retry prompt sent to the LLM when the response causes validation errors.",
+      "extensionType" : null,
+      "message" : "The response is invalid, the following errors are found::\\n###\\n{0}\\n###\\n\\nThe following is a revised response that fixes the errors:\\n",
+      "trackingId" : "92C6DBC4-9958-43F6-B380-170C1082D1D6"
+    },
+    "systemComponent_LLM_jsonSchemaInstruction" : {
+      "annotation" : "System prompt sent to the LLM when the LLM response should comply with the JSON schema provided.",
+      "extensionType" : null,
+      "message" : "You are a service that translates user requests into a JSON object according to the following JSON Schema:\\n\\n###\\n{0}\\n###\\n\\nThe following is the user request:\\n''''''\\n{1}\\n''''''\\n\\nThe following is the user request translated into a JSON object with 2 spaces of indentation and no properties with the value undefined:\\n",
+      "trackingId" : "71EC05B1-5712-4A4A-A240-F1AAFB9BC371"
+    },
+    "systemComponent_LLM_llmGeneratedInfo" : {
+      "annotation" : "A text field used to indicate that the content of the message was generated by an LLM.",
+      "extensionType" : null,
+      "message" : "Response generated using artificial intelligence.",
+      "trackingId" : "29D0B3C3-D518-44AC-ACFD-DA98FA5FEE23"
+    },
+    "systemComponent_OAuth2AccountLink_cancelLabel" : {
+      "annotation" : "The label for the cancel button that lets users leave the state without invoking the authentication dialog.",
+      "extensionType" : null,
+      "message" : "Cancel",
+      "trackingId" : "ED78052B-2174-4F0D-B990-33352DF493DD"
+    },
+    "systemComponent_OAuth2AccountLink_consentNeverFinalConfirmationNoLabel" : {
+      "annotation" : "The label for the \"No\" button that appears after the prompt to confirm that the user wants to opt out of having their channel account permanently associated with a unified identity.",
+      "extensionType" : null,
+      "message" : "Cancel",
+      "trackingId" : "41C9F42D-F0DD-4761-8DC2-51DFCA6A6410"
+    },
+    "systemComponent_OAuth2AccountLink_consentNeverFinalConfirmationPrompt" : {
+      "annotation" : "The message that asks users to confirm that they want to opt out of having their account associated with a unified identity.",
+      "extensionType" : null,
+      "message" : "Please confirm that this channel account should never be associated with your unified identity.",
+      "trackingId" : "B23723F4-ECDC-43E5-927D-54EC2C097126"
+    },
+    "systemComponent_OAuth2AccountLink_consentNeverFinalConfirmationYesLabel" : {
+      "annotation" : "The label for the \"Yes\" button that appears after the prompt to confirm that the user wants to opt out of having their account permanently associated with a unified identity.",
+      "extensionType" : null,
+      "message" : "Confirm",
+      "trackingId" : "002E4034-E2A0-4499-90EA-E98D79085455"
+    },
+    "systemComponent_OAuth2AccountLink_consentNeverFinalPrompt" : {
+      "annotation" : "The prompt that asks users to confirm that they want to opt out of having their account associated with a unified identity.",
+      "extensionType" : null,
+      "message" : "Any user identity data that is associated with this {0} channel account {1} will not be stored by Oracle Digital Assistant as part of a unified identity. As such, if you later sign in to this assistant through a different channel, you will not be recognized as the same user by Digital Assistant. If you change your mind, please contact your system administrator.",
+      "trackingId" : "DA65A800-9CBC-4478-AD58-3D2EF2AC5AEE"
+    },
+    "systemComponent_OAuth2AccountLink_consentNeverLabel" : {
+      "annotation" : "The label for the \"Never\" button that appears after the prompt that asks if the user wants to associate their channel account with a unified identity.",
+      "extensionType" : null,
+      "message" : "Never link this account",
+      "trackingId" : "73099F65-2CCE-47AC-9A0A-E84F050EBDC5"
+    },
+    "systemComponent_OAuth2AccountLink_consentNotNowFinalPrompt" : {
+      "annotation" : "The message that confirms to users that they have temporarily declined to associate their channel account with a unified identity.",
+      "extensionType" : null,
+      "message" : "This {0} channel account {1} will not be associated with your unified Digital Assistant user identity at this time.",
+      "trackingId" : "681E8EDC-5436-4E44-B47B-05C50DC70DA0"
+    },
+    "systemComponent_OAuth2AccountLink_consentNotNowLabel" : {
+      "annotation" : "The label for the \"Not Now\" button that appears after the prompt that asks if the user wants to associate their channel account with a unified identity.",
+      "extensionType" : null,
+      "message" : "Not at this time",
+      "trackingId" : "3180E4A0-B6A4-48C7-B071-53496A4F1C65"
+    },
+    "systemComponent_OAuth2AccountLink_consentNotifyPrompt" : {
+      "annotation" : "The message that informs users that their channel identity will be associated with the authenticated user identity.",
+      "extensionType" : null,
+      "message" : "This {0} channel account {1} is now associated with your unified Digital Assistant user identity.",
+      "trackingId" : "D5660307-5F3A-4125-A393-EF7BAD92A55A"
+    },
+    "systemComponent_OAuth2AccountLink_consentPrompt" : {
+      "annotation" : "The prompt that asks users to choose if they consent to associating their channel account with the authenticated user identity.",
+      "extensionType" : null,
+      "message" : "Would you like to link this channel account to a Digital Assistant unified user identity? This will allow you to have conversations with your digital assistant across multiple channels and be recognized as the same user.",
+      "trackingId" : "BA6F96EC-1AD8-4069-9C06-F270B4FDCD71"
+    },
+    "systemComponent_OAuth2AccountLink_consentYesLabel" : {
+      "annotation" : "The label for the \"Yes\" button that appears after the prompt that asks if the user wants to associate their channel account with a unified identity.",
+      "extensionType" : null,
+      "message" : "Associate account",
+      "trackingId" : "4D5B06A8-0088-47C9-B42B-7B1050F86248"
+    },
+    "systemComponent_OAuth2AccountLink_linkLabel" : {
+      "annotation" : "The label for the button that invokes the authentication dialog.\nGet Access Token",
+      "extensionType" : null,
+      "message" : "Continue",
+      "trackingId" : "18D4395B-4374-4C18-8AD6-EB7D876725B3"
+    },
+    "systemComponent_OAuth2AccountLink_prompt" : {
+      "annotation" : "The message that tells users to sign in now.\nPlease sign in",
+      "extensionType" : null,
+      "message" : "Please tap on the link to proceed (token missing!)",
+      "trackingId" : "94AB68A5-A5CE-47DF-A5BC-CE9CB36137BD"
+    },
+    "systemComponent_OAuthAccountLink_cancelLabel" : {
+      "annotation" : "The label for the cancel button that lets users leave the state without invoking the authentication dialog.",
+      "extensionType" : null,
+      "message" : "Cancel",
+      "trackingId" : "2B388277-1339-4059-AA44-323919E1F56F"
+    },
+    "systemComponent_OAuthAccountLink_linkLabel" : {
+      "annotation" : "The label for the button that invokes the authentication dialog.",
+      "extensionType" : null,
+      "message" : "Log In",
+      "trackingId" : "32E01642-863F-49D0-B667-0B74B8025ED6"
+    },
+    "systemComponent_OAuthAccountLink_prompt" : {
+      "annotation" : "The message that tells users to sign in now.",
+      "extensionType" : null,
+      "message" : "Please tap on the link to proceed",
+      "trackingId" : "BE9279A3-543D-4AEE-BF02-C54B23FBE0E0"
+    },
+    "systemComponent_Planner_cannotProcessRequest" : {
+      "annotation" : "It's the message shown to the user when the planner cannot process the user request.",
+      "extensionType" : null,
+      "message" : "Sorry, I am unable to process your request.",
+      "trackingId" : "F3F4BF19-585F-4B60-8D73-938F10CE49B5"
+    },
+    "systemComponent_QnA_answersLabel" : {
+      "annotation" : "The label for the action to view answers in a particular category.",
+      "extensionType" : null,
+      "message" : "Answers",
+      "trackingId" : "C483810C-C8B4-4E7A-BF68-5050AE0EDF16"
+    },
+    "systemComponent_QnA_categoriesLabel" : {
+      "annotation" : "The label for the action to display the categories that match the user utterance.",
+      "extensionType" : null,
+      "message" : "Categories",
+      "trackingId" : "BEBA2B2C-CE7A-4D79-A9BD-486F7218F63F"
+    },
+    "systemComponent_QnA_exitLabel" : {
+      "annotation" : "The label for the exit questions action.",
+      "extensionType" : null,
+      "message" : "Exit Questions",
+      "trackingId" : "E19FE2F3-D3C3-4841-BB93-B2A3837C76AF"
+    },
+    "systemComponent_QnA_moreAnswersLabel" : {
+      "annotation" : "The label for the action to paginate to next set of answers.",
+      "extensionType" : null,
+      "message" : "More Answers",
+      "trackingId" : "43B32D6D-3E7C-4E6E-9789-5D3B2DCFD662"
+    },
+    "systemComponent_QnA_moreCategoriesLabel" : {
+      "annotation" : "The label for the action to paginate to next set of categories.",
+      "extensionType" : null,
+      "message" : "More Categories",
+      "trackingId" : "925ABC40-D5BD-41A4-AF50-6BE1A4C87093"
+    },
+    "systemComponent_QnA_subCategoriesLabel" : {
+      "annotation" : "The label for the action to display sub-categories within a given category.",
+      "extensionType" : null,
+      "message" : "Sub-Categories",
+      "trackingId" : "7A517C16-22B5-419D-BCE1-8053B956CEF7"
+    },
+    "systemComponent_QnA_viewAnswerLabel" : {
+      "annotation" : "The label for the action to view answer details.",
+      "extensionType" : null,
+      "message" : "View",
+      "trackingId" : "E75D1ADF-70E3-451D-8C15-6A1ADD393083"
+    },
+    "systemComponent_ResolveActionParameters_headerText" : {
+      "annotation" : "Header text used when prompting for missing action parameters",
+      "extensionType" : null,
+      "message" : "Please provide the missing required information",
+      "trackingId" : "9F73A2A4-B348-4CD6-A8F5-4FF10E10B772"
+    },
+    "systemComponent_ResolveActionParameters_submitLabel" : {
+      "annotation" : "The label of the form submission button",
+      "extensionType" : null,
+      "message" : "Submit",
+      "trackingId" : "AB4FFFA6-FCF5-42C1-AF74-66C03F8BE6F4"
+    },
+    "systemComponent_ResolveEntities_bagItemsDisambiguationPrompt" : {
+      "annotation" : "The prompt used for disambiguation if an entity match applies to more than one composite bag item.",
+      "extensionType" : null,
+      "message" : "Which item do you want to set to ''{0}''?",
+      "trackingId" : "9379A718-11EF-4008-A8CD-21D0A3845846"
+    },
+    "systemComponent_ResolveEntities_defaultDisambiguationPrompt" : {
+      "annotation" : "Default message shown when the user entered ambiguous input causing multiple entity matches.",
+      "extensionType" : null,
+      "message" : "Please select one value for {0}",
+      "trackingId" : "8E11BE8A-4408-462F-BD61-7CF90178C8AD"
+    },
+    "systemComponent_ResolveEntities_defaultPrompt" : {
+      "annotation" : "Default message shown to prompt the user for input.",
+      "extensionType" : null,
+      "message" : "Please enter {0}",
+      "trackingId" : "6FCC7AD1-E651-4D71-8256-531BBC63F131"
+    },
+    "systemComponent_ResolveEntities_showMoreLabel" : {
+      "annotation" : "The label used for the forward pagination button when the number of enumeration values, or disambiguation matches exceeds the 'Enumeration Range Size' property of the composite bag item.",
+      "extensionType" : null,
+      "message" : "Show More",
+      "trackingId" : "C54EE45B-01B7-4F19-B438-E06465EC414E"
+    },
+    "systemComponent_ResolveEntities_showPreviousLabel" : {
+      "annotation" : "The label used for the backward pagination button when the number of enumeration values, or disambiguation matches exceeds the 'Enumeration Range Size' property of the composite bag item.",
+      "extensionType" : null,
+      "message" : "Show Previous",
+      "trackingId" : "29788390-7524-4872-98F5-9CA4E746DB2C"
+    },
+    "systemComponent_SelectCalendarEvent_acceptedLabel" : {
+      "annotation" : "The text used to indicate that the invite was accepted.",
+      "extensionType" : null,
+      "message" : "Accepted",
+      "trackingId" : "11FB7D8E-7F6E-4647-8FD2-2763497D7C18"
+    },
+    "systemComponent_SelectCalendarEvent_allDayLabel" : {
+      "annotation" : "The text used to indicate all-day events.",
+      "extensionType" : null,
+      "message" : "All day",
+      "trackingId" : "010BA4D8-5CBE-4E63-BEB8-E4FFDD734D45"
+    },
+    "systemComponent_SelectCalendarEvent_declinedLabel" : {
+      "annotation" : "The text used to indicate that the invite was declined.",
+      "extensionType" : null,
+      "message" : "Declined",
+      "trackingId" : "6D2149D5-DADB-4F4D-B64B-95E29C547B6F"
+    },
+    "systemComponent_SelectCalendarEvent_pendingLabel" : {
+      "annotation" : "The text used to indicate that the invite status is still pending.",
+      "extensionType" : null,
+      "message" : "Pending",
+      "trackingId" : "C5B36E64-3B67-45D2-B9CF-32F922D6D8B2"
+    },
+    "systemComponent_SelectCalendarEvent_prompt" : {
+      "annotation" : "The text that appears before the list of events.",
+      "extensionType" : null,
+      "message" : "You have the following meeting(s):",
+      "trackingId" : "1735022E-4562-40C3-98CC-1A1DC8277CDF"
+    },
+    "systemComponent_SelectCalendarEvent_recurringLabel" : {
+      "annotation" : "The text used to indicate recurring events.",
+      "extensionType" : null,
+      "message" : "Recurring",
+      "trackingId" : "E320223C-6B67-474D-8CDE-002B25C9D363"
+    },
+    "systemComponent_SelectCalendarEvent_tentativeLabel" : {
+      "annotation" : "The text used to indicate that the invite was tentatively accepted.",
+      "extensionType" : null,
+      "message" : "Tentative",
+      "trackingId" : "15C0D12C-40B9-4442-959F-65DC46929E21"
+    },
+    "systemComponent_Webview_cancelLabel" : {
+      "annotation" : "The label of the cancel button to leave this state without invoking the webview.",
+      "extensionType" : null,
+      "message" : "Cancel",
+      "trackingId" : "2109F25C-83D5-44A3-8C2E-28D897013F63"
+    },
+    "systemComponent_Webview_linkLabel" : {
+      "annotation" : "The label of the button to invoke the webview.",
+      "extensionType" : null,
+      "message" : "Tap to continue",
+      "trackingId" : "F57CDCC8-4D12-4A7D-A286-E282CC6FD0AC"
+    },
+    "systemComponent_Webview_prompt" : {
+      "annotation" : "The message for the user to tap on the link to invoke the webview.",
+      "extensionType" : null,
+      "message" : "<p style=\"font-size:small;color:gray;\">Please tap on the link to proceed</p>",
+      "trackingId" : "0CCEE352-0A6B-44D6-868C-F4D82E73C76E"
+    },
+    "systemConfiguration_SQLIntent_authFailedMessage" : {
+      "annotation" : "Your query requires authorization from DB but failed.",
+      "extensionType" : null,
+      "message" : "Authentication Failed",
+      "trackingId" : "43AF4B60-1025-40C8-89B2-273C60A4E6E6"
+    },
+    "systemConfiguration_SQLIntent_interpretationMessage" : {
+      "annotation" : "The message shows SQL intent query interpretation for user's input message.",
+      "extensionType" : null,
+      "message" : "I think you want to see: {0}",
+      "trackingId" : "A81BF654-2895-405C-9715-263A33D03C2C"
+    },
+    "systemConfiguration_SQLIntent_noResultMessage" : {
+      "annotation" : "The message displayed when SQL intent query returns no result.",
+      "extensionType" : null,
+      "message" : "No result found",
+      "trackingId" : "DE672FE7-084B-41DB-91CC-C2AD50FC9ED1"
+    },
+    "systemConfiguration_autoNumberPrefixSeparator" : {
+      "annotation" : "The separator used between the number prefix and the postback action label.",
+      "extensionType" : null,
+      "message" : ".",
+      "trackingId" : "9750EC0E-A6AC-49C0-9EAA-6F6F7B59F025"
+    },
+    "systemConfiguration_autoNumberPrefixes" : {
+      "annotation" : "The prefixes used for auto-numbering postback action labels.",
+      "extensionType" : null,
+      "message" : "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
+      "trackingId" : "52532E84-CFB6-435E-A769-B911645C130A"
+    },
+    "systemConfiguration_conversationHistoryActionInvalidPrompt" : {
+      "annotation" : "Message to display when a user clicks on a choice in the conversation history that can no longer be processed.",
+      "extensionType" : null,
+      "message" : "Sorry, this choice is no longer available.",
+      "trackingId" : "0BE2AC05-4E60-4318-B748-14330F091C9A"
+    },
+    "systemConfiguration_document_reference_authorLabel" : {
+      "annotation" : "The label for the Author column header in the document reference table.",
+      "extensionType" : null,
+      "message" : "Author",
+      "trackingId" : "DBABDD8B-0FF1-4431-87C9-AC4EE20720FF"
+    },
+    "systemConfiguration_document_reference_dateLabel" : {
+      "annotation" : "The label for the Date column header in the document reference table.",
+      "extensionType" : null,
+      "message" : "Date",
+      "trackingId" : "8C0CC9D0-B4AA-4A73-97C9-389C00A5E627"
+    },
+    "systemConfiguration_document_reference_titleLabel" : {
+      "annotation" : "The label for the Title column header in the document reference table.",
+      "extensionType" : null,
+      "message" : "Title",
+      "trackingId" : "9CCD57CA-25BA-4BFE-8A8C-0E5032539AFC"
+    },
+    "systemConfiguration_document_reference_unknownLabel" : {
+      "annotation" : "The label for the unknown date label in the document reference table.",
+      "extensionType" : null,
+      "message" : "Unknown",
+      "trackingId" : "5A863959-A567-44CE-8352-8FB43951B965"
+    },
+    "systemConfiguration_errorExpiredSessionPrompt" : {
+      "annotation" : "The message when the session has expired.",
+      "extensionType" : null,
+      "message" : "Your session has expired.  Please start again.",
+      "trackingId" : "39ED6F0C-CB04-47B7-A266-EBD398EA92E5"
+    },
+    "systemConfiguration_errorMaxStatesExceededPrompt" : {
+      "annotation" : "The message when the bot appears to be in an infinite loop.",
+      "extensionType" : null,
+      "message" : "Your session appears to be in an infinite loop.",
+      "trackingId" : "E311731D-9065-4621-9EC0-AB132AF841AE"
+    },
+    "systemConfiguration_errorUnexpectedErrorPrompt" : {
+      "annotation" : "The message when there is an unexpected error.",
+      "extensionType" : null,
+      "message" : "Oops I'm encountering a spot of trouble. Please try again later...",
+      "trackingId" : "0BFB723E-BF53-4B3C-BD51-C51B124098D2"
+    },
+    "systemConfiguration_feedbackAsk" : {
+      "annotation" : "Message asking for additional feedback when negative feedback has been provided.",
+      "extensionType" : null,
+      "message" : "I'm sorry the answer wasn't helpful. Can you please provide feedback to help me improve?",
+      "trackingId" : "B5E4B75C-D685-4C83-9066-5DD2CB82DCA0"
+    },
+    "systemConfiguration_feedbackConfirmationNegative" : {
+      "annotation" : "Confirmation message shown to the user when negative feedback has been provided.",
+      "extensionType" : null,
+      "message" : "Thanks for your feedback. Your input is appreciated.",
+      "trackingId" : "8F648D1D-6BF9-4B38-9F93-8DB8862D2199"
+    },
+    "systemConfiguration_feedbackConfirmationPositive" : {
+      "annotation" : "Message shown to the user when positive feedback has been provided.",
+      "extensionType" : null,
+      "message" : "Thank you for the feedback.",
+      "trackingId" : "C21DCA6E-5E3D-4DF9-867B-DEA71706B021"
+    },
+    "systemConfiguration_feedbackDialogCancelLabel" : {
+      "annotation" : "The label of the cancel button in the user feedback dialog.",
+      "extensionType" : null,
+      "message" : "Cancel",
+      "trackingId" : "EC17F9D5-7C69-4C9A-AAA7-20EC0188C67F"
+    },
+    "systemConfiguration_feedbackDialogCommentsFieldPlaceholder" : {
+      "annotation" : "The placeholder text shown in the comments field of the user feedback dialog.",
+      "extensionType" : null,
+      "message" : "Additional feedback",
+      "trackingId" : "11E2C47A-8A69-4C76-B47D-FEF719C40D91"
+    },
+    "systemConfiguration_feedbackDialogHeaderText" : {
+      "annotation" : "The header text of the user feedback dialog.",
+      "extensionType" : null,
+      "message" : "What was the issue with this response?",
+      "trackingId" : "1A31F241-69B6-41C1-94FE-3BF1F987F99C"
+    },
+    "systemConfiguration_feedbackDialogOpenLabel" : {
+      "annotation" : "The label of the button that opens the user feedback dialog.",
+      "extensionType" : null,
+      "message" : "Give Feedback",
+      "trackingId" : "AD417F2F-F5BE-4321-9FAA-22F14068D9B9"
+    },
+    "systemConfiguration_feedbackDialogSubmitLabel" : {
+      "annotation" : "The label of the submit button in the user feedback dialog.",
+      "extensionType" : null,
+      "message" : "Submit Feedback",
+      "trackingId" : "50C5B7C2-BE86-42BD-9E1F-595900BF5C47"
+    },
+    "systemConfiguration_feedbackDialogTitle" : {
+      "annotation" : "The title of the user feedback dialog.",
+      "extensionType" : null,
+      "message" : "Give your feedback",
+      "trackingId" : "87E7990D-A062-427D-89F4-6D27BA96874D"
+    },
+    "systemConfiguration_feedbackPrompt" : {
+      "annotation" : "Prompt used to solicit user feedback for a message shown to the user.",
+      "extensionType" : null,
+      "message" : "Is this answer helpful?",
+      "trackingId" : "6E1B4CC9-9D78-4E90-8C17-D1B1BCC986D2"
+    },
+    "systemConfiguration_graphQL_schema" : {
+      "annotation" : "GraphQL schema used in Clinical AI API agent action.",
+      "extensionType" : null,
+      "message" : "schema '{'\\n  query: ClinicalSemanticGraph\\n'}'\\n\\n\"Clinical AI - Semantic Graph Schema\"\\ntype ClinicalSemanticGraph '{'\\n  \"The current conversation context\"\\n  context: Context\\n  \"Electronic Health Records\"\\n  ehr: EHRDatabase\\n  \"The knowledge base\"\\n  knowledge: KnowledgeGraph\\n'}'\\n\\n\"Condition\"\\ntype Condition '{'\\n  \"The condition status\"\\n  clinicalStatus: String\\n  \"The generic condition concept\"\\n  condition: ConditionConcept\\n  \"\"\"\\n  The primary date property of this object. When querying any properties of this object, always\\n  include 'date'. Include the primary 'date' even if you are also querying for other date properties.\\n  \"\"\"\\n  date: String\\n  \"A summary of the condition's history as it relates to the patient.\"\\n  historySummary: Summary\\n  \"The id of this object. When querying any properties of this object, always include this property.\"\\n  id: ID\\n  \"The name of this object. When querying any properties of this object, always include this property.\"\\n  name: String\\n  \"The time this condition started\"\\n  onsetDateTime: String\\n'}'\\n\\n\"Generic information about a Condition or Problem\"\\ntype ConditionConcept '{'\\n  \"The id of this object. When querying any properties of this object, always include this property.\"\\n  id: ID\\n  \"The name of this object. When querying any properties of this object, always include this property.\"\\n  name: String\\n'}'\\n\\n\"The current conversation context\"\\ntype Context '{'\\n  \"The current patient. When querying this object, always include the 'id' property.\"\\n  currentPatient: Patient\\n'}'\\n\\n\"A Clinical Document, such as a visit note\"\\ntype Document '{'\\n  \"The 'Assessment & Plan' section, briefly referred to as 'A&P'\"\\n  assessmentAndPlan: DocumentSection\\n  \"\"\"\\n  The primary date property of this object. When querying any properties of this object, always\\n  include 'date'. Include the primary 'date' even if you are also querying for other date properties.\\n  \"\"\"\\n  date: String\\n  \"The 'History of Present Illness' section, briefly referred to as 'HPI'\"\\n  historyOfPresentIllness: DocumentSection\\n  \"The id of this object. When querying any properties of this object, always include this property.\"\\n  id: ID\\n  \"Plain text of the entire document\"\\n  plainText: String\\n'}'\\n\\n\"A single section of a clinical document\"\\ntype DocumentSection '{'\\n  \"The id of this object. When querying any properties of this object, always include this property.\"\\n  id: ID\\n  \"Plain text version of the content\"\\n  plainText: String\\n'}'\\n\\ntype EHRDatabase '{'\\n  domain: String\\n  patientById(id: String): Patient\\n'}'\\n\\n\"Encounter\"\\ntype Encounter '{'\\n  \"The list of conditions diagnosed or treated during this encounter\"\\n  conditions(\\n    \"Filter by the specified condition names or categories\"\\n    names: [String]\\n  ): [Condition]\\n  \"\"\"\\n  The primary date property of this object. When querying any properties of this object, always\\n  include 'date'. Include the primary 'date' even if you are also querying for other date properties.\\n  \"\"\"\\n  date: String\\n  \"The type of this encounter (inpatient, outpatient, etc.)\"\\n  encounterType: [String]\\n  \"The end time\"\\n  end: String\\n  \"The id of this object. When querying any properties of this object, always include this property.\"\\n  id: ID\\n  \"\"\"\\n  A list of medications prescribed during this encounter.\\n\\n  When querying this property, always include the nested properties 'id', 'name' and 'date'.\\n  \"\"\"\\n  medications(\\n    \"Filter by the specified medication names or categories\"\\n    names: [String],\\n    \"Filter by the specified risks\"\\n    risks: [MedicationRiskInput]\\n  ): [MedicationRequest]\\n  \"The notes associated with this encounter, e.g. a visit SOAP note\"\\n  notes: [Document]\\n  \"The reason for visit\"\\n  reason: String\\n  \"The type of service performed\"\\n  serviceType: String\\n  \"A list of services ordered during this encounter\"\\n  services(\\n    \"Filter by the specified service names or categories\"\\n    names: [String]\\n  ): [ServiceRequest]\\n  \"The start time\"\\n  start: String\\n  \"The status\"\\n  status: String\\n'}'\\n\\n\"The knowledge base\"\\ntype KnowledgeGraph '{'\\n  \"Query the conditions\"\\n  conditions(\\n    \"Filter results by name\"\\n    names: [String]\\n  ): [ConditionConcept]\\n  \"Query the medications\"\\n  medications(\\n    \"Filter results by including the specified medication names or categories\"\\n    names: [String],\\n    \"Filter by list of conditions or condition categories for which the medication is typically prescribed\"\\n    relatedConditions: [String],\\n    \"Filter the results by the specified risks\"\\n    risks: [MedicationRiskInput]\\n  ): [MedicationConcept]\\n'}'\\n\\n\"Generic information about a Medication\"\\ntype MedicationConcept '{'\\n  \"The id of this object. When querying any properties of this object, always include this property.\"\\n  id: ID\\n  \"The name of this object. When querying any properties of this object, always include this property.\"\\n  name: String\\n  \"The associated risks\"\\n  risks: [MedicationRisk]\\n'}'\\n\\n\"Medication Request\"\\ntype MedicationRequest '{'\\n  \"Date this request was written\"\\n  authoredOn: String\\n  \"\"\"\\n  The primary date property of this object. When querying any properties of this object, always\\n  include 'date'. Include the primary 'date' even if you are also querying for other date properties.\\n  \"\"\"\\n  date: String\\n  \"Provides a summary of the medication's history as it relates to the patient\"\\n  historySummary: Summary\\n  \"The id of this object. When querying any properties of this object, always include this property.\"\\n  id: ID\\n  \"The medication being ordered\"\\n  medication: MedicationConcept\\n  \"The name of this object. When querying any properties of this object, always include this property.\"\\n  name: String\\n  \"The conditions this medication order is intended to treat\"\\n  relatedConditions: [ConditionConcept]\\n  \"The status\"\\n  status: String\\n'}'\\n\\n\"Describes a type of risk in using a medication\"\\ntype MedicationRisk '{'\\n  category: MedicationRiskCategory\\n  value: String\\n'}'\\n\\n\"Patient data\"\\ntype Patient '{'\\n  \"The birth date\"\\n  birthDate: String\\n  \"The list of conditions this patient has had, always returned in reverse chronological order.\"\\n  conditions(\\n    \"Only return conditions that may be caused by one of the specified list of conditions or categories\"\\n    causedBy: [String],\\n    \"Only return conditions that may cause one of the specified list of conditions or categories\"\\n    causing: [String],\\n    \"\"\"\\n    If specified, return at most this number of most recent conditions that satisfy\\n    other specified filters. Set this to 1 if asked about the 'last' time the patient\\n    had a certain condition.\\n    \"\"\"\\n    lastN: Int,\\n    \"\"\"\\n    Filter by the specified condition names or categories.\\n\\n    Use this filter when *directly* looking for a class of conditions, or a specific\\n    condition name. For example, if the doctor asks 'Does she have diabetes?', then use\\n    ```names: [\"diabetes\"]```.\\n\\n    Do NOT use this argument when filtering by *related* conditions. For example, if the\\n    doctor asks if the patient has symptoms related to diabetes, then to look up those\\n    symptoms use ```relatedConditions: [\"diabetes\"]```.\\n    \"\"\"\\n    names: [String],\\n    \"Only return conditions that are in any way related to at least one of the specified list of symptoms, conditions or categories.\"\\n    relatedConditions: [String],\\n    \"\"\"\\n    Filter conditions on clinical status (active/resolved) if appropriate.\\n\\n    Use ```ACTIVE``` for ongoing conditions and problems, e.g when the question refers to\\n    'active', 'current', or is asked in the present tense, e.g., 'Does she have issue X?'\\n    or 'Does she show symptoms of X?'.\\n\\n    Do not use ```ACTIVE``` if the question does not have these or similar keywords, or is not\\n    definitely asked in the present tense or has no verb. For example, if the question is\\n    phrased as 'Any conditions related to X?', then the ```resolvedOrActive``` filter should\\n    not be used.\\n\\n    Use ```RESOLVED``` ONLY when a question explicitly asks for 'resolved'\\n    problems/conditions. Otherwise, do NOT include this property if the question is about\\n    'past' or 'previous' conditions.\\n    \"\"\"\\n    resolvedOrActive: ResolvedOrActive\\n  ): [Condition]\\n  \"The patient's default name\"\\n  defaultName: String\\n  \"\"\"\\n  The list of encounters. When querying encounters, always include the 'id' and 'date\" properties.\\n\\n  Note about retrieving notes: only use the ```encounters``` query to retrieve notes if the question\\n  associates those notes with a specific encounter. For example, if the question is\\n  'Show my last visit notes', then use the ```encounters(LastN = 1,...)``` query to find the visit\\n  first, and then descend into the ```notes``` query under the ```Encounter``` type.\\n\\n  Conversely, if the question is about notes generally, e.g., 'What was my last note?'\\n  then use the ```notes``` query on the ```Patient``` type instead.\\n  \"\"\"\\n  encounters(\\n    \"\"\"\\n    Filter by the specified condition names or categories *mentioned by the patient*.\\n\\n    Only use this filter when the question explicitly refers to the patient mentioning a\\n    condition during the visit.\\n\\n    When using this filter, also query the encounter's ```notes``` property.\\n    \"\"\"\\n    conditionsMentionedByPatient: [String],\\n    \"If specified, return at most this number of most recent encounters that satisfy other specified filters. Set this to 1 if asked about the 'last' encounter.\"\\n    lastN: Int,\\n    \"\"\"\\n    Narrow the encounters down to those with the current or with *other*\\n    than current provider. Use this filter when the healthcare provider explicitly\\n    asks about their own treatments, prescriptions, notes, or diagnoses.\\n\\n    For example, set this filter to 'CURRENT_PROVIDER' when the provider asks about\\n    'my last note', 'my A&P', 'what have I prescribed', 'how did I treat here', etc.\\n    \"\"\"\\n    participatingProvider: WhichProvider,\\n    \"\"\"\\n    List of conditions or categories that were diagnosed or treated during this encounter,\\n    including the 'Reason For Visit (RFV)', and the recorded 'Chief Complaint (CC)'.\\n\\n    Use this filter when querying a patient's encounters if the related condition is known,\\n    for example, when answering questions about ED or hospital admission for a specific reason.\\n    \"\"\"\\n    relatedConditions: [String],\\n    \"Filter by encounter type.\"\\n    types: [EncounterType]\\n  ): [Encounter]\\n  \"The gender\"\\n  gender: String\\n  \"The id of this Patient. When querying any properties of Patient, always include the id.\"\\n  id: ID\\n  \"A list of medications the patient took in the past or is taking currently.\"\\n  medications(\\n    \"\"\"\\n    Filter medication on its status (active/completed) if appropriate.\\n    Use ACTIVE ONLY when asked about medications a patient is currently taking,\\n    e.g 'is taking', 'current', 'active'.\\n\\n    However, use COMPLETED ONLY when a question explicitly asks for 'completed' or 'resolved'.\\n    Do NOT include this property if asking about 'past' or 'previous' medications taken.\\n    \"\"\"\\n    completedOrActive: CompletedOrActive,\\n    \"\"\"\\n    If specified, return at most this number of most recent medication requests that satisfy\\n    other specified filters. Set this to 1 if asked, for example, about the last treatment for\\n    a specific condition.\\n    \"\"\"\\n    lastN: Int,\\n    \"Filter by including the specified medication names or categories\"\\n    names: [String],\\n    \"\"\"\\n    Narrow medication requests down to those authored by the current, or *other*\\n    than current, provider. Use this filter when the healthcare provider explicitly\\n    asks about their own treatments or prescriptions.\\n\\n    For example, use this filter when the provider asks about 'my last note', 'my A&P',\\n    'what have I prescribed', etc.\\n    \"\"\"\\n    prescribingProvider: WhichProvider,\\n    \"Filter by list of conditions or condition categories for which the medication was prescribed\"\\n    relatedConditions: [String],\\n    \"Filter by the specified risks\"\\n    risks: [MedicationRiskInput]\\n  ): [MedicationRequest]\\n  \"\"\"\\n  The clinical notes associated with this patient.\\n\\n  Always use this ```notes``` query for retrieving notes, or sections of notes, not associated with\\n  a specific encounter. For example, if the question is 'What was my last note?' or\\n  'Show me my last HPI (or A&P, etc.)', use this ```notes``` query on the ```Patient``` type.\\n\\n  Conversely, use the ```encounters``` query instead to retrieve notes, if the question refers to\\n  a specific encounter. For example, if the question is 'Show my last visit notes', then use the\\n  ```encounters(LastN = 1,...)``` query to find the visit first, and then descend into the\\n  ```notes``` query under the ```Encounter``` type.\\n  \"\"\"\\n  notes(\\n    \"\"\"\\n    Narrow the notes down to those authored by the current or with *other*\\n    than current provider. Use this filter when the healthcare provider explicitly\\n    asks about their own notes.\\n\\n    For example, set this filter to 'CURRENT_PROVIDER' when the provider asks about\\n    'my last note', 'my A&P', etc.\\n    \"\"\"\\n    author: WhichProvider,\\n    \"\"\"\\n    Filter by the specified condition names or categories *mentioned by the patient*.\\n\\n    Only use this filter when the question explicitly refers to the patient mentioning a\\n    condition.\\n    \"\"\"\\n    conditionsMentionedByPatient: [String],\\n    \"Filter by type of encounter with which the note is associated.\"\\n    encounterTypes: [EncounterType],\\n    \"\"\"\\n    If specified, return at most this number of most recent notes that satisfy other specified\\n    filters. Set this to 1 if asked about the 'last' note or section of a note.\\n    \"\"\"\\n    lastN: Int,\\n    \"Filter by type of note.\"\\n    noteTypes: [NoteType],\\n    \"List of conditions or categories that were mentioned in the note in any context.\"\\n    relatedConditions: [String]\\n  ): [Document]\\n  \"A list of services ordered for the patient.\"\\n  services(\\n    \"Filter services by active/completed.\"\\n    completedOrActive: CompletedOrActive,\\n    \"Filter by including the specified service names or categories\"\\n    names: [String],\\n    \"Filter by list of conditions or condition categories for which the service was ordered\"\\n    relatedConditions: [String]\\n  ): [ServiceRequest]\\n'}'\\n\\n\"Generic information about a Service\"\\ntype ServiceConcept '{'\\n  \"The id of this object. When querying any properties of this object, always include this property.\"\\n  id: ID\\n  \"The name of this object. When querying any properties of this object, always include this property.\"\\n  name: String\\n'}'\\n\\n\"Condition\"\\ntype ServiceRequest '{'\\n  \"The time this request was ordered\"\\n  authoredOn: String\\n  \"\"\"\\n  The primary date property of this object. When querying any properties of this object, always\\n  include 'date'. Include the primary 'date' even if you are also querying for other date properties.\\n  \"\"\"\\n  date: String\\n  \"The id of this object. When querying any properties of this object, always include this property.\"\\n  id: ID\\n  \"The name of this object. When querying any properties of this object, always include this property.\"\\n  name: String\\n  \"The priority of this request\"\\n  priority: String\\n  \"The generic service concept\"\\n  service: ServiceConcept\\n  \"The status of this request\"\\n  status: String\\n'}'\\n\\n\"A clinical summary.\"\\ntype Summary '{'\\n  \"\"\"\\n  The primary date property of this object. When querying any properties of this object, always\\n  include 'date'. Include the primary 'date' even if you are also querying for other date properties.\\n  \"\"\"\\n  date: String\\n  \"The id of this object. When querying any properties of this object, always include this property.\"\\n  id: ID\\n  \"The narrative\"\\n  narrative: DocumentSection\\n  \"The type of this summary.\"\\n  type: SummaryType\\n'}'\\n\\n\"Helps filter Medication and Service Requests by temporal applicability\"\\nenum CompletedOrActive '{'\\n  \"The request is a process that is presently occuring and is 'actionable', e.g., active medications, labs, or procedures.\"\\n  ACTIVE\\n  \"All actions that are implied by the request have occurred and completed, e.g., completed medications, labs, or procedures.\"\\n  COMPLETED\\n'}'\\n\\n\"Helps filter encounters by type\"\\nenum EncounterType '{'\\n  \"A visit to the emergency room.\"\\n  EMERGENCY\\n  \"A hospitalization.\"\\n  HOSPITALIZATION\\n  \"The wellness check-up.\"\\n  WELLNESS\\n'}'\\n\\n\"A category of medication risk\"\\nenum MedicationRiskCategory '{'\\n  \"A risk of interaction with other medications\"\\n  interaction\\n'}'\\n\\n\"Helps filter notes by type\"\\nenum NoteType '{'\\n  \"Admission note.\"\\n  ADMISSION\\n  \"Discharge summary.\"\\n  DISCHARGE\\n  \"History and Physical, also referred to as 'H&P'.\"\\n  HISTORY_AND_PHYSICAL\\n  \"Progress note.\"\\n  PROGRESS\\n'}'\\n\\n\"Helps filter condition chart data by temporal applicability\"\\nenum ResolvedOrActive '{'\\n  \"The subject is currently experiencing the condition or situation, e.g., such as active conditions or problems.\"\\n  ACTIVE\\n  \"The subject is not presently experiencing the condition or situation, e.g such as resolved conditions or problems.\"\\n  RESOLVED\\n'}'\\n\\n\"A standard summary type\"\\nenum SummaryType '{'\\n  \"A patient's history with a condition\"\\n  CONDITION_HISTORY\\n  \"A patient's history with a medication.\"\\n  MEDICATION_HISTORY\\n'}'\\n\\n\"Helps filter encounters, diagnoses, and medications by which healthcare provider participated in, diagnosed, or prescribed them, respectively.\"\\nenum WhichProvider '{'\\n  \"Only include encounters with, conditions diagnosed by, and medications prescribed by the current provider.\"\\n  CURRENT_PROVIDER\\n  \"Only include encounters with, conditions diagnosed by, and medications prescribed by providers *other* than the current one.\"\\n  OTHER_PROVIDER\\n'}'\\n\\n\"Describes a type of risk in using a medication\"\\ninput MedicationRiskInput '{'\\n  category: MedicationRiskCategory\\n  value: String\\n'}'",
+      "trackingId" : "DBE18B10-40E2-435C-93F2-33D22713A287"
+    },
+    "systemConfiguration_internalWelcomeMessage" : {
+      "annotation" : "The internal message sent to the skill when a channel handles the event that a new user has gotten access to the skill. The reply to the internal message is sent as welcome message to the new user.",
+      "extensionType" : null,
+      "message" : "help",
+      "trackingId" : "5D039B1B-F766-44B2-86FE-20EB367890DA"
+    },
+    "systemConfiguration_llm_actionResolverSystemPrompt" : {
+      "annotation" : "Prompt used by the function-based agent action planner",
+      "extensionType" : null,
+      "message" : "You are a physician's assistant whose job is to help select the right tool to use in order to answer the physician query.\\nThe physician you are helping is interacting with a multi-modal application that they can interact with using conversation or touch.\\nYou must adhere to the guidelines. Use the relevant context information if necessary.\\n\\nGuidelines:\\n- Utilize the tool description and given context information carefully to decide which tool to select and/or what argument values to populate.\\n- The Salutation tool is secondary and optional if the main intent is something other than salute.\\n- If the tool does not have any arguments provided, do not make up new arguments to pass.\\n- Do NOT make up an argument value if it is not explicitly provided by the user.\\n\\nCONTEXT INFORMATION:\\n- Current date and time: {0}\\n- Additional information that may be useful:\\n    {1}",
+      "trackingId" : "CB7F36C7-8C3D-4CC8-8C8A-BA41C247E94F"
+    },
+    "systemConfiguration_llm_actionResolverSystemPrompt_noteSearch" : {
+      "annotation" : "Prompt used by the function-based agent action planner",
+      "extensionType" : null,
+      "message" : "Persona: You are a physician's assistant whose job is to help select the right tools to use in order to answer the physician query. In addition to selecting the right tools, you will also fill out parameters value for each tool and enhance the user query by doing contextual query rewriting. The physician you are helping is interacting with a multi-modal application that they can interact with using conversation or touch. You must adhere to the guidelines. Use the relevant context information if necessary.\\n\\nGUIDELINES:\\n- Run the tool `CDA_QuerySemanticObject ` only when the query can be answered using structured data.\\n- Always run the tool `CDA_DocumentReferenceSearch`.\\n- If the provided query can be transformed or rewritten contextually to better fit the capabilities of the available tools, feel free to do so to enhance query resolution efficiency. Use `rewrittenQuery` parameter.\\n- Do not perform query rewrite for the first turn of the multi-turn conversation.\\n- Do not perform query rewrite for a complete user query that already has the necessary contextual information.\\n\\nCONTEXT INFORMATION:\\n- Current date and time: {0}\\n- Additional information that may be useful: {1}",
+      "trackingId" : "61ED1863-13FF-4538-9211-2BCAACD04211"
+    },
+    "systemConfiguration_llm_responseEnginePrompt_acknowledgement" : {
+      "annotation" : "Prompt used by the response engine to generate an acknowledgement message",
+      "extensionType" : null,
+      "message" : "You are a physician's assistant whose job is to generate a response message for a bot-physician conversation based on the previously selected tool and execution output for that tool. You must adhere to the guidelines. Use the relevant context information if necessary.\\n\\nGUIDELINES:\\n- The response should be human-like, concise and follow the natural flow of the conversation history\\n- NEVER mention in the response to consult with a healthcare provider or professional. The end user itself is a healthcare provider and this will be considered irrelevant.\\n- you generate an acknowledgement message indicating that the tools execution is complete. Do not try to provide any additional information or try to answer other questions. \\n- Use only the content of the results returned in the execution output to respond to the user query. NEVER generate any content that is not present in the execution output.\\n\\nEXAMPLE:\\nUser query: Show me my meetings for the next week\\nExecution Output: executeApplicationAction\\\\nCDA-Ambulatory\\\\ncustom\\\\nMeetings.filterMeetings\\\\nstartDate: 2024-04-29T00:00:00Z\\\\nendDate: 2024-05-05T23:59:59Z\\\\\\nYour Response: I have retrieved the list of your meetings for the next week.\\n\\nCONTEXT INFORMATION:\\n- Current date and time: {0}\\n- Additional information that may be useful:\\n    {1}",
+      "trackingId" : "DDE9398B-C955-4CBD-8527-2E881079E0AC"
+    },
+    "systemConfiguration_llm_responseEnginePrompt_documentChunks" : {
+      "annotation" : "Prompt used by the response engine to generate a header with document chunks in JSON format",
+      "extensionType" : null,
+      "message" : "You are a physicians assistant whose job it is to generate a response message answering a physician's query.\\nThe responses you provide will be used by the physician to make decisions about patient care, so any errors in your response can lead to patient safety issues.\\n\\nYou will answer the query by using the output of a 'CDA_DocumentReferenceSearch' function call, which will contain a list of physician note segments sorted by relevance to the physician's query.\\nTo answer the question, you will explain your thought process, choose the relevant chunks from the provided 'CDA_DocumentReferenceSearch' list, then generate an abstractive response to answer the physican query using the information contained in the chunks.\\nYou must adhere to the guidelines. Use the relevant context information if necessary.\\n\\nGUIDELINES:\\n- The response should be a JSON containing 'explanation', 'chunkIds', and 'header' keys following the schema below:\\n    - {0}\\n- The generated header will be an introductory abstractive message, which will be shown before the actual data is displayed\\n- The header will have different formatting based on the function called prior to 'CDA_DocumentReferenceSearch' in the conversation history:\\n    - If that function is 'querySemanticObject', the header will be following up in a previous response to the physician so use words like 'additionally' or 'moreover'\\n        - Do not restate information from the function output or 'querySemanticObject' or the previous assistant response\\n    - If that function is not 'querySemanticObject', the header should be a standalone response that answers the physician query\\n- The header may have one or more of the below properties based on the physician's query:\\n    - Introduce the actual data which will be displayed below.\\n    - Include a BRIEF summary of the relevant patient data if relevant. Do not present a large list of data in your response as it will be shown below your response, so it will be unnecessary.\\n    - Reasoning on the patient data based on the question (For example, Yes/No reasoning or comparative reasoning)\\n    - Follow a natural flow and appear cohesive relative to any previous responses\\n- The list of note chunks will be sorted by relevance, but queries about the 'latest' information should be answered using the most recent note temporally\\n- Include the date of the note used in the header message\\n - Do not include the date in the header if the query is about today\\n- NEVER mention in the response to consult with a healthcare provider or professional. The end user itself is a healthcare provider and this will be considered irrelevant.\\n- Do not try to provide any additional information or try to answer other questions if it isnt asked. \\n - Use only the content of the results returned in the execution output to respond to the user query. NEVER generate any content that is not present in the execution output.\\n - If the information isnt specifically requested, do not provide it\\n- The explanation will contain your thought process, based on the guidelines, about:\\n - is your header a follow up to a previous response for a 'querySemanticObject' function\\n - which chunks you think are relevant and why\\n\\nExample with 'querySemanticObject' output:\\nUser query: Did the patient ever report back pain?\\nExecution output 1 (function_name - querySemanticObject): ('items': [('score': '4.6521973', 'source': ('category': ('category': [('code': 'encounter-diagnosis', 'codingKey': 'http://terminology.hl7.org/CodeSystem/condition-category', 'text': 'Encounter Diagnosis'), ('code': '72311001', 'codingKey': 'http://snomed.info/sct', 'text': 'Musculoskeletal')]), 'classificationStatus': ('code': 'musculoskeletal', 'codingKey': 'https://fhir.cerner.com/nya9mWd9vqI_z1LcF5uLfCwewAGCVrY1/codeSet/12033', 'text': 'Musculoskeletal'), 'id': '695015392', 'code': ('code': '72402', 'codingKey': 'http://e-imo.com/products/problem-it', 'text': 'Lumbago (lower back pain)'), 'subject': ('patient': ('display': 'DOE, JANE', 'reference': 'Patient/5683741')), 'verificationStatus': ('code': 'confirmed', 'codingKey': 'http://terminology.hl7.org/CodeSystem/condition-ver-status', 'text': 'Confirmed'))), ('score': '6.1254389', 'source': ('category': ('category': [('code': 'encounter-diagnosis', 'codingKey': 'http://terminology.hl7.org/CodeSystem/condition-category', 'text': 'Encounter Diagnosis'), ('code': '72311001', 'codingKey': 'http://snomed.info/sct', 'text': 'Musculoskeletal')]), 'classificationStatus': ('code': 'musculoskeletal', 'codingKey': 'https://fhir.cerner.com/nya9mWd9vqI_z1LcF5uLfCwewAGCVrY1/codeSet/12033', 'text': 'Musculoskeletal'), 'id': '144205142', 'code': ('code': '72403', 'codingKey': 'http://e-imo.com/products/problem-it', 'text': 'Sciatica (lower back pain)'), 'subject': ('patient': ('display': 'DOE, JANE', 'reference': 'Patient/5683741')), 'verificationStatus': ('code': 'confirmed', 'codingKey': 'http://terminology.hl7.org/CodeSystem/condition-ver-status', 'text': 'Confirmed')))])\\nPrevious response: 'Yes, the patient had multiple diagnoses of back pain in the past, including lumbago (lower back pain) and sciatica (lower back pain).'\\nExecution output 2 (function_name - CDA_DocumentReferenceSearch): ('documents': [('score': '1.0', 'source': ('subject': ('reference': 'Patient/3542718', 'display': 'DOE, JANE'), 'author': [('reference': 'Practitioner/1315931', 'display': 'Ahmad MD, James'), ('reference': 'Practitioner/1409949', 'display': 'Wall MD, Phil')], 'contentEmbeddings': ('endOffset': 370, 'startOffset': 48, 'sectionHeader': 'History of Present Illness', 'text': 'The patient reports experiencing low back pain for the past three weeks, described as a constant dull ache with intermittent sharp, shooting sensations radiating down the left leg. Pain worsens with prolonged sitting, standing, and physical activity, and improves with rest and NSAIDs. The patient also notes occasional numbness and tingling in the left leg. There is a significant impact on daily activities, including difficulty sleeping and taking time off work.'), 'context': ('period': ('end': '2024-02-06T20:53:20Z')), 'documentId': '38105802', 'id': '38105802-0', 'title': 'Office Visit Note- New Patient', 'category': [('text': 'Clinical Note')], 'status': 'current')), ('score': '0.95298696', 'source': ('subject': ('reference': 'Patient/3542718', 'display': 'DOE, JANE'), 'author': [('reference': 'Practitioner/1409949', 'display': 'Wall MD, Phil')], 'contentEmbeddings': ('endOffset': 95, 'startOffset': 56, 'sectionHeader': 'Chief Complaint', 'text': 'Chief Complaint\\\\nLow back pain'), 'context': ('period': ('end': '2024-02-06T20:53:20Z')), 'documentId': '38105802', 'id': '38105802-1', 'title': 'Office Visit Note- Established Patient', 'category': [('text': 'Clinical Note')], 'status': 'current')), ('score': '0.80378599', 'source': ('subject': ('reference': 'Patient/3542718', 'display': 'DOE, JANE'), 'author': [('reference': 'Practitioner/1315931', 'display': 'Ahmad MD, James'), ('reference': 'Practitioner/1409949', 'display': 'Wall MD, Phil')], 'contentEmbeddings': ('endOffset': 415, 'startOffset': 370, 'sectionHeader': 'Review of Systems', 'text': 'Review of Systems\\\\nThe patient denies weight loss, fever, chills, headaches, chest pain, shortness of breath, abdominal pain, or urinary symptoms. No joint pain, stiffness, or neurological symptoms. Denies depression or anxiety.'), 'context': ('period': ('end': '2023-01-15T16:39:00Z')), 'documentId': '38105799', 'id': '38105799-2', 'title': 'Office Visit Note- New Patient', 'category': [('text': 'Clinical Note')], 'status': 'current'))], 'totalRecordCount': 3)\\nYour response: ('explanation': 'The physician's query was about the patient's history with back pain. The function call prior to 'CDA_DocumentReferenceSearch' was 'querySemanticObject', so the header should be a follow up response. The relevant chunks from the 'CDA_DocumentReferenceSearch' output include mentions of back pain in the patient's history, specifically the note from 2024-02-06.', 'chunkIds': ['38105802-0', '38105802-1'], 'header': 'Additionally, the patient's past clinical notes also include mentions of back pain.')\\n\\nExample without 'querySemanticObject' output:\\nUser query: 'Does she have a history of tobacco use?'\\nExecution output: '('documents':[('score':'0.9','source':('subject':('reference':'Patient/4572731','display':'PARKER, SAMANTHA'),'author':[('reference':'Practitioner/1409949','display':'Wall MD, Phil')],'contentEmbeddings':('endOffset':1427,'startOffset':1206,'sectionHeader':'Assessment/Plan','text':'Assessment/Plan\\n1. Urinary tract infection, site not specified\\nsimple UTI, will rx with macrobid and f/u in 1 week with repeat culture.\\n2. Tobacco use (Probable)\\npt wants to quit, will refer to cessation counselling.\\n[2]'),'context':('period':('end':'2024-02-06T20:53:20Z')),'documentId':'34572329','id':'34572329-4','title':'Office Visit Note- Established Patient','category':[('text':'Clinical Note')],'status':'current')),('score':'0.8','source':('subject':('reference':'Patient/4572731','display':'PARKER, SAMANTHA'),'author':[('reference':'Practitioner/1315931','display':'Ahmad MD, James')],'contentEmbeddings':('endOffset':2091,'startOffset':1967,'sectionHeader':'Problem List/Past Medical History','text':'Problem List/Past Medical History\\nOngoing\\nAnxiety\\nMigraines\\nTobacco use\\nHistorical\\nE-coli UTI\\nUTI (urinary tract infection)'),'context':('period':('end':'2023-08-19T16:17:00Z')),'documentId':'34568516','id':'34568516-5','title':'Office Visit Note- Annual exam','category':[('text':'Clinical Note')],'status':'current'))('score':'0.4','source':('subject':('reference':'Patient/4572731','display':'PARKER, SAMANTHA'),'author':[('reference':'Practitioner/1315931','display':'Ahmad MD, James'),('reference':'Practitioner/1409949','display':'Wall MD, Phil')],'contentEmbeddings':('endOffset':370,'startOffset':48,'sectionHeader':'History of Present Illness','text':'History of Present Illness\\n25\\nyear old female who presents to the clinic today complaining of burning with urination, urgency and frequency since returning from vacation.  She denies N/VF/D, No back pain.  Pt states symptoms started yesterday.  Urine dipstick positive for leukocytes and nitrites.\\nshe denies STD exposure'),'context':('period':('end':'2023-01-15T16:39:00Z')),'documentId':'34567496','id':'34567496-0','title':'Office Visit Note- New Patient','category':[('text':'Clinical Note')],'status':'current'))], 'totalRecordCount': 3)'\\nYour response: (explanation: 'The physician's query was about the patient's history of tobacco use. The function call prior to 'CDA_DocumentReferenceSearch' was not 'querySemanticObject', so the header should be a standalone response. The relevant chunks from the 'CDA_DocumentReferenceSearch' output include mentions of tobacco use in the patient's history. The most recent note is from 2024-02-06. Other notes also mention tobacco use, confirming a history of this condition.', 'chunkIds': ['34572329-4', '34568516-5'], 'header': 'Yes, tobacco use has been mentioned multiple times before, most recently on 2024-02-06.')\\n\\nCONTEXT INFORMATION:\\n- Current date and time: {1}\\n- Additional information that may be useful:\\n    {2}",
+      "trackingId" : "2C2007A8-5CC3-47FF-94E9-253F54F00FD0"
+    },
+    "systemConfiguration_llm_responseEnginePrompt_general" : {
+      "annotation" : "Prompt used by the response engine to generate a general response",
+      "extensionType" : null,
+      "message" : "You are a physician's assistant whose job is to generate a response message for a bot-physician conversation based on the previously selected tool and execution output for that tool. You must adhere to the guidelines. Use the relevant context information if necessary.\\n\\nGUIDELINES:\\n- The response should be human-like, concise and follow the natural flow of the conversation history\\n- NEVER mention in the response to consult with a healthcare provider or professional. The end user itself is a healthcare provider and this will be considered irrelevant.\\n- You ONLY use the results returned in the execution output to respond to the user query. NEVER generate any content that is not present in the execution output.\\n- If user query asks for performing any reasoning or inference on the data, make sure to also explain your reasoning in a concise manner.\\n\\nEXAMPLES:\\n1.\\nUser query: What are the side effects of Ibuprofen?\\nExecution Output: (((('dnum':'xxxxxx','items':[(((('item':'[(((('level_id':'1','syst_name':'general','clinical_text':'The most frequently reported adverse effects were gastrointestinal (GI) in nature and included nausea, vomiting, flatulence, and diarrhea.')))),(((('level_id':'2','syst_name':'hypersensitivity','clinical_text':'Hypersensitivity reactions have been reported and may consist of any of the following: a syndrome of abdominal pain, fever, chills, nausea, vomiting, and anaphylaxis'))))]','systemName':null,'levelId':null,'displayOrder':null))))]))))\\nYour Response:\\nThe most frequently reported adverse effects for Ibuprofen are gastrointestinal, including nausea, vomiting, flatulence, and diarrhea. Additionally, Hypersensitivity reactions have been reported as well, such as a syndrome of abdominal pain, fever, chills, nausea, vomiting, and anaphylaxis.\\n2.\\nUser query: How many meetings do I have today?\\nExecution Output: [(('start': '2024-06-11T9:00:00-05:00', 'description': 'Sync up with John', 'end': '2024-06-11T10:00:00-05:00', 'minutesDuration': 60, 'status': 'ACCEPTED')), (('start': '2024-06-11T9:30:00-05:00', 'description': 'Daily standup call', 'end': '2024-06-11T10:00:00-05:00', 'minutesDuration': 30, 'status': 'TENTATIVE')), (('start': '2024-06-11T11:00:00-05:00', 'description': 'Design Review for the project', 'end': '2024-06-11T11:45:00-05:00', 'minutesDuration': 45, 'status': 'ACCEPTED'))]\\nYour Response:\\nYou have 3 meetings scheduled today, all between 9 AM and 12 PM\\n\\nCONTEXT INFORMATION:\\n- Current date and time: {0}\\n- Additional information that may be useful:\\n    {1}",
+      "trackingId" : "21B8EF3E-583E-41EF-B649-7B67A5D4878F"
+    },
+    "systemConfiguration_llm_responseEnginePrompt_header" : {
+      "annotation" : "Prompt used by the response engine to generate a header text",
+      "extensionType" : null,
+      "message" : "You are a physician's assistant whose job is to generate a response message answering the physician's query.\\nThe responses you provide will be used by the physician to make decisions about patient care, so any errors in your response can lead to patient safety issues.\\n\\nYour response is based on the execution output for a selected tool.\\nThe tool is used to search and extract data from patient records based on the user query.\\nThe patient data is stored using FHIR derived objects like Observations, Conditions, Medications etc\\nYou must adhere to the guidelines. Use the relevant context information if necessary.\\n\\nGUIDELINES:\\n- The response should be a plain text message\\n- The response should not exceed 2 sentences\\n- It will be an introductory abstractive message, which will be shown before the actual data is displayed.\\n- The response may have one or more of the below properties based on the physician's query:\\n    - Introduce the actual data which will be displayed below.\\n    - Include a BRIEF mention of the relevant patient data if relevant. Do not present a large list of data in your response as it is shown below your response, so it's unnecessary.\\n    - Reasoning on the patient data based on the question (For example, Yes/No reasoning or comparative reasoning)\\n    - Follow a natural flow and appear cohesive relative to any previous responses\\n- NEVER mention in the response to consult with a healthcare provider or professional. The end user itself is a healthcare provider and this will be considered irrelevant.\\n- Do not try to provide any additional information or try to answer other questions if it isnt asked. \\n - Use only the content of the results returned in the execution output to respond to the user query. NEVER generate any content that is not present in the execution output.\\n - If the information isnt specifically requested, do not provide it\\n\\nEXAMPLES:\\n1. User query: Did the patient ever report back pain?\\nExecution output: ('count':2,'items': [('score': '4.6521973', 'source': ('category': ('category': [('code': 'encounter-diagnosis', 'codingKey': 'http://terminology.hl7.org/CodeSystem/condition-category', 'text': 'Encounter Diagnosis'), ('code': '72311001', 'codingKey': 'http://snomed.info/sct', 'text': 'Musculoskeletal')]), 'classificationStatus': ('code': 'musculoskeletal', 'codingKey': 'https://fhir.cerner.com/nya9mWd9vqI_z1LcF5uLfCwewAGCVrY1/codeSet/12033', 'text': 'Musculoskeletal'), 'id': '695015392', 'code': ('code': '72402', 'codingKey': 'http://e-imo.com/products/problem-it', 'text': 'Lumbago (lower back pain)'), 'subject': ('patient': ('display': 'DOE, JANE', 'reference': 'Patient/5683741')), 'verificationStatus': ('code': 'confirmed', 'codingKey': 'http://terminology.hl7.org/CodeSystem/condition-ver-status', 'text': 'Confirmed'))), ('score': '6.1254389', 'source': ('category': ('category': [('code': 'encounter-diagnosis', 'codingKey': 'http://terminology.hl7.org/CodeSystem/condition-category', 'text': 'Encounter Diagnosis'), ('code': '72311001', 'codingKey': 'http://snomed.info/sct', 'text': 'Musculoskeletal')]), 'classificationStatus': ('code': 'musculoskeletal', 'codingKey': 'https://fhir.cerner.com/nya9mWd9vqI_z1LcF5uLfCwewAGCVrY1/codeSet/12033', 'text': 'Musculoskeletal'), 'id': '144205142', 'code': ('code': '72403', 'codingKey': 'http://e-imo.com/products/problem-it', 'text': 'Sciatica (lower back pain)'), 'subject': ('patient': ('display': 'DOE, JANE', 'reference': 'Patient/5683741')), 'verificationStatus': ('code': 'confirmed', 'codingKey': 'http://terminology.hl7.org/CodeSystem/condition-ver-status', 'text': 'Confirmed')))])\\nYour response: Yes, the patient had 2 diagnoses of back pain in the past, which are displayed below.\\n\\n2. User query: Tell me about the patient's history of back pain?\\nExecution output: ('items': [('score': '4.6521973', 'source': ('category': ('category': [('code': 'encounter-diagnosis', 'codingKey': 'http://terminology.hl7.org/CodeSystem/condition-category', 'text': 'Encounter Diagnosis'), ('code': '72311001', 'codingKey': 'http://snomed.info/sct', 'text': 'Musculoskeletal')]), 'classificationStatus': ('code': 'musculoskeletal', 'codingKey': 'https://fhir.cerner.com/nya9mWd9vqI_z1LcF5uLfCwewAGCVrY1/codeSet/12033', 'text': 'Musculoskeletal'), 'id': '695015392', 'code': ('code': '72402', 'codingKey': 'http://e-imo.com/products/problem-it', 'text': 'Lumbago (lower back pain)'), 'subject': ('patient': ('display': 'DOE, JANE', 'reference': 'Patient/5683741')), 'verificationStatus': ('code': 'confirmed', 'codingKey': 'http://terminology.hl7.org/CodeSystem/condition-ver-status', 'text': 'Confirmed'))), ('score': '6.1254389', 'source': ('category': ('category': [('code': 'encounter-diagnosis', 'codingKey': 'http://terminology.hl7.org/CodeSystem/condition-category', 'text': 'Encounter Diagnosis'), ('code': '72311001', 'codingKey': 'http://snomed.info/sct', 'text': 'Musculoskeletal')]), 'classificationStatus': ('code': 'musculoskeletal', 'codingKey': 'https://fhir.cerner.com/nya9mWd9vqI_z1LcF5uLfCwewAGCVrY1/codeSet/12033', 'text': 'Musculoskeletal'), 'id': '144205142', 'code': ('code': '72403', 'codingKey': 'http://e-imo.com/products/problem-it', 'text': 'Sciatica (lower back pain)'), 'subject': ('patient': ('display': 'DOE, JANE', 'reference': 'Patient/5683741')), 'verificationStatus': ('code': 'confirmed', 'codingKey': 'http://terminology.hl7.org/CodeSystem/condition-ver-status', 'text': 'Confirmed')))])\\nYour response: Here are the records of back pain diagnoses for the patient.\\n\\n3. User query: What is her weight?\\nExecution output: ('items': [('score': '9.0357275', 'source': ('id': '35295473', 'category': [('text': 'Vital Signs', 'code': 'vital-signs', 'codingKey': 'http://terminology.hl7.org/CodeSystem/observation-category', 'userSelected': false)], 'code': ('text': 'Body Weight'), 'subject': ('patient': ('reference': 'Patient/5683741')), 'encounter': ('reference': 'Encounter/4762309'), 'effective': ('effectiveDateTime': ('seconds': '1665187200', 'nanos': '786000000')), 'issued': (), 'performer': ('practioner': [('reference': 'Practitioner/1409949')]), 'value': ('valueQuantity': ('simpleQuantity': ('value': 65, 'unit': 'kg', 'system': 'http://unitsofmeasure.org', 'code': 'kg'))), 'hasMember': (), 'component': [()]))])\\nYour response: The patient's weight as of May 14, 2024 is 65 kg.\\n\\n4. User query: What has her BP been for the last 2 months.\\nExecution output: ('items': [('score': '8.9', 'source': ('id': '45276345', 'category': [('text': 'Vital Signs', 'code': 'vital-signs', 'codingKey': 'http://terminology.hl7.org/CodeSystem/observation-category', 'userSelected': false)], 'code': ('text': 'Blood Pressure'), 'subject': ('patient': ('reference': 'Patient/5683741')), 'encounter': ('reference': 'Encounter/2045678'), 'effective': ('effectiveDateTime': ('seconds': '1718710972', 'nanos': '456000000')), 'issued': (), 'performer': ('practitioner': [('reference': 'Practitioner/6028275')]), 'value': ('valueQuantity': ('simpleQuantity': ('value': 115, 'unit': 'mmHg', 'system': 'http://unitsofmeasure.org', 'code': 'mm[Hg]'))), 'component': [('code': ('text': 'Systolic Blood Pressure'), 'valueQuantity': ('simpleQuantity': ('value': 115, 'unit': 'mmHg', 'system': 'http://unitsofmeasure.org', 'code': 'mm[Hg]'))), ('code': ('text': 'Diastolic Blood Pressure'), 'valueQuantity': ('simpleQuantity': ('value': 75, 'unit': 'mmHg', 'system': 'http://unitsofmeasure.org', 'code': 'mm[Hg]')))])), ('score': '8.5', 'source': ('id': '35295473', 'category': [('text': 'Vital Signs', 'code': 'vital-signs', 'codingKey': 'http://terminology.hl7.org/CodeSystem/observation-category', 'userSelected': false)], 'code': ('text': 'Blood Pressure'), 'subject': ('patient': ('reference': 'Patient/5683741')), 'encounter': ('reference': 'Encounter/1047682'), 'effective': ('effectiveDateTime': ('seconds': '1715706972', 'nanos': '786000000')), 'issued': (), 'performer': ('practitioner': [('reference': 'Practitioner/6028275')]), 'value': ('valueQuantity': ('simpleQuantity': ('value': 120, 'unit': 'mmHg', 'system': 'http://unitsofmeasure.org', 'code': 'mm[Hg]'))), 'component': [('code': ('text': 'Systolic Blood Pressure'), 'valueQuantity': ('simpleQuantity': ('value': 120, 'unit': 'mmHg', 'system': 'http://unitsofmeasure.org', 'code': 'mm[Hg]'))), ('code': ('text': 'Diastolic Blood Pressure'), 'valueQuantity': ('simpleQuantity': ('value': 80, 'unit': 'mmHg', 'system': 'http://unitsofmeasure.org', 'code': 'mm[Hg]')))])), ('score': '8.2', 'source': ('id': '45276349', 'category': [('text': 'Vital Signs', 'code': 'vital-signs', 'codingKey': 'http://terminology.hl7.org/CodeSystem/observation-category', 'userSelected': false)], 'code': ('text': 'Blood Pressure'), 'subject': ('patient': ('reference': 'Patient/5683741')), 'encounter': ('reference': 'Encounter/2045679'), 'effective': ('effectiveDateTime': ('seconds': '1718711972', 'nanos': '123000000')), 'issued': (), 'performer': ('practitioner': [('reference': 'Practitioner/6028276')]), 'value': ('valueQuantity': ('simpleQuantity': ('value': 118, 'unit': 'mmHg', 'system': 'http://unitsofmeasure.org', 'code': 'mm[Hg]'))), 'component': [('code': ('text': 'Systolic Blood Pressure'), 'valueQuantity': ('simpleQuantity': ('value': 118, 'unit': 'mmHg', 'system': 'http://unitsofmeasure.org', 'code': 'mm[Hg]'))), ('code': ('text': 'Diastolic Blood Pressure'), 'valueQuantity': ('simpleQuantity': ('value': 78, 'unit': 'mmHg', 'system': 'http://unitsofmeasure.org', 'code': 'mm[Hg]')))])), ('score': '8.0', 'source': ('id': '45276347', 'category': [('text': 'Vital Signs', 'code': 'vital-signs', 'codingKey': 'http://terminology.hl7.org/CodeSystem/observation-category', 'userSelected': false)], 'code': ('text': 'Blood Pressure'), 'subject': ('patient': ('reference': 'Patient/5683741')), 'encounter': ('reference': 'Encounter/2045680'), 'effective': ('effectiveDateTime': ('seconds': '1718712972', 'nanos': '789000000')), 'issued': (), 'performer': ('practitioner': [('reference': 'Practitioner/6028277')]), 'value': ('valueQuantity': ('simpleQuantity': ('value': 122, 'unit': 'mmHg', 'system': 'http://unitsofmeasure.org', 'code': 'mm[Hg]'))), 'component': [('code': ('text': 'Systolic Blood Pressure'), 'valueQuantity': ('simpleQuantity': ('value': 122, 'unit': 'mmHg', 'system': 'http://unitsofmeasure.org', 'code': 'mm[Hg]'))), ('code': ('text': 'Diastolic Blood Pressure'), 'valueQuantity': ('simpleQuantity': ('value': 82, 'unit': 'mmHg', 'system': 'http://unitsofmeasure.org', 'code': 'mm[Hg]')))]))])\\nYour response: Here is the patient's blood pressure data from the last 2 months.\\n\\nCONTEXT INFORMATION:\\n- Current date and time: {0}\\n- Additional information that may be useful:\\n    {1}",
+      "trackingId" : "155E2E40-5888-40E8-BAD8-DCA98FC00817"
+    },
+    "systemConfiguration_llm_responseEnginePrompt_jsonSummarize" : {
+      "annotation" : "Prompt used by the response engine to generate a summary in JSON format",
+      "extensionType" : null,
+      "message" : "You are a physician's assistant whose job is to generate a response message for a bot-physician conversation based on the previously selected tool and execution output for that tool. You must adhere to the guidelines. Use the relevant context information if necessary.\\n\\nGuidelines:\\n- The response should be human-like and follow the natural flow of the conversation history\\n- Do not mention in the response to consult with a healthcare provider or professional. The end user itself is a healthcare provider and this will be considered irrelevant.\\n- Based on the execution output content, you may either generate an acknowledgement message about the tools execution, or use the results returned in the execution output to respond to the user query\\n- If the execution output is of type 'executeApplicationAction' only generate an acknowledgement message indicating that the execution is complete. Do not try to provide any additional information or try to answer other questions. Here is an example of such an execution output: executeApplicationAction\\\\nCDA-Ambulatory\\\\ncustom\\\\ndoSomething\\n- Instead, if the execution output contains some results, such as 'clinical_text' from an API execution, then use only the content of the results returned in the execution output to respond to the user query.\\n\\nEXAMPLES:\\n1. \\nUser query: Show me my meetings for the next week\\nExecution Output: executeApplicationAction\\\\nCDA-Ambulatory\\\\ncustom\\\\nMeetings.filterMeetings\\\\nstartDate: 2024-04-29T00:00:00Z\\\\nendDate: 2024-05-05T23:59:59Z\\\\\\nYour Response: I have retrieved the list of your meetings for the next week.\\n\\n2. \\nUser query: What are the side effects of Ibuprofen?\\nExecution Output: ('dnum':'xxxxxx','items':[('item':'[('level_id':'1','syst_name':'general','clinical_text':'The most frequently reported adverse effects were gastrointestinal (GI) in nature and included nausea, vomiting, flatulence, and diarrhea.'),('level_id':'2','syst_name':'hypersensitivity','clinical_text':'Hypersensitivity reactions have been reported and may consist of any of the following: a syndrome of abdominal pain, fever, chills, nausea, vomiting, and anaphylaxis')]','systemName':null,'levelId':null,'displayOrder':null)])\\nYour Response:\\nThe most frequently reported adverse effects for Ibuprofen are gastrointestinal, including nausea, vomiting, flatulence, and diarrhea. Additionally, Hypersensitivity reactions have been reported as well, such as a syndrome of abdominal pain, fever, chills, nausea, vomiting, and anaphylaxis.\\n\\nCONTEXT INFORMATION:\\n- Current date and time: {0}\\n- Additional information that may be useful:\\n\\t{1}",
+      "trackingId" : "D661AA4C-B971-48CC-BC21-F797488B35C3"
+    },
+    "systemConfiguration_llm_responseEnginePrompt_messageConfig" : {
+      "annotation" : "Prompt used by the response engine to generate a message configuration in JSON format",
+      "extensionType" : null,
+      "message" : "You are a physician's assistant whose job is to generate a message instruction in JSON format for answering a physician query based on the previously selected tool and execution output for that tool. \\n\\nYour JSON response must comply with the following JSON Schema:\\n###\\n{0}\\n###\\n\\nYou must adhere to the guidelines included below. Use the relevant context information if necessary.\\n\\nGUIDELINES:\\t\\n- Based on the tools execution output and the user query, you decide which kind of message configuration is best to use to present the user with an answer. You can choose from 4 different message types:\\n1. text: use this type when you can answer the user's query with a simple text message. The response should be human-like, concise and follow the natural flow of the conversation history\\n2. form: use this type when you can answer the user's query with a form layout where you organize the item properties in one or more columns.\\n3. table: use this type when you need to present the user with multiple items, and where each item doesn't require more than 3 properties (or 2 properties with longer values)\\n4. tableForm: use this type when you need to present the user with multiple items, and where each item has more than 2-3 properties. A tableForm message allows for expansion of a row to disclose additional properties in a form layout, so you should put the most important 2-3 properties in the table, and additional properties in the form section of the expanded row.\\n- Always set the messageType property to the value you have chosen based on the description above.\\n- You should use Apache Freemarker expression language (https://freemarker.apache.org/) to traverse the JSON execution output document and extract the requested data.\\n- ONLY include properties from the execution output that are relevant to the user's query. \\n- The label of the column heading or form field should be user friendly and as short as possible yet descriptive\\n\\nCONTEXT INFORMATION:\\n- Current date and time: {1}\\n- Additional information that may be useful:\\n       {2}",
+      "trackingId" : "F5F6B7F7-E14B-471D-99B2-3996E71398AC"
+    },
+    "systemConfiguration_llm_responseEnginePrompt_salutation" : {
+      "annotation" : "Prompt used by the response engine to generate a salutation message",
+      "extensionType" : null,
+      "message" : "You are a physician's assistant whose job is to generate a response message for a bot-physician conversation based on the previously selected tool and execution output for that tool. You must adhere to the guidelines. Use the relevant context information if necessary.\\n\\nGUIDELINES:\\n- The response should be human-like, concise and follow the natural flow of the conversation history\\n- NEVER mention in the response to consult with a healthcare provider or professional. The end user itself is a healthcare provider and this will be considered irrelevant.\\n- you generate a salutation message in response to a greeting or farewell message. Do not try to provide any additional information or try to answer other questions. \\n- Use only the content of the results returned in the execution output to respond to the user query. NEVER generate any content that is not present in the execution output and the context.\\n\\nEXAMPLES:\\n1.\\nUser query: Hello\\nExecution Output: Greetings\\\\\\nYour Response: Hello <practitionerName>. How may I help you?\\n2.\\nUser query: Good morning\\nExecution Output: Greetings\\\\\\nYour Response: Good morning <practitionerName>. How may I assist you?\\n3.\\nUser query: Bye\\nExecution Output: Farewells\\\\\\nYour Response: Goodbye <practitionerName>.\\n4.\\nUser query: Exit\\nExecution Output: Farewells\\\\\\nYour Response: See you later <practitionerName>.\\n\\nCONTEXT INFORMATION:\\n- Current date and time: {0}\\n- Additional information that may be useful:\\n    {1}",
+      "trackingId" : "E8C11961-75F4-4608-8E2D-0EFD095FCA8F"
+    },
+    "systemConfiguration_llm_responseEnginePrompt_summarize" : {
+      "annotation" : "Prompt used by the response engine to generate a summary message",
+      "extensionType" : null,
+      "message" : "You are a physician's assistant whose job is to generate a response message for a bot-physician conversation based on the previously selected tool and execution output for that tool. You must adhere to the guidelines. Use the relevant context information if necessary.\\n\\nGUIDELINES:\\n- The response should be human-like, concise and follow the natural flow of the conversation history\\n- NEVER mention in the response to consult with a healthcare provider or professional. The end user itself is a healthcare provider and this will be considered irrelevant.\\n- Use only the content of the results returned in the execution output to respond to the user query. NEVER generate any content that is not present in the execution output.\\n- Do NOT try to provide any additional information or try to answer other questions.\\n- Do NOT include a reference to the document referenced in the metadata element of the execution output\\n- Make sure you nicely format your answer using HTML tags to enhance the readability. You can use the following HTML tags:\\n    - Headings: <h1>Heading 1</h1>, <h2>Heading 2</h2>, <h3>Heading 3</h3>\\n    -  Bulleted lists: <ul><li>bullet 1</li><li>bullet 2</li></ul>, \\n    -  Numbered list: <ol><li>item 1</li><LI>item 2</li></ol>, \\n    -  Emphasize important words or utterances using <b>bold</b> \\nor <i>italic</i>\\n- If user query asks for performing any reasoning or inference on the data, make sure to also explain your reasoning in a concise manner.\\n\\nEXAMPLES:\\n1.\\nUser query: What are the side effects of Ibuprofen?\\nExecution Output: (((('dnum':'xxxxxx','items':[(((('item':'[(((('level_id':'1','syst_name':'general','clinical_text':'The most frequently reported adverse effects were gastrointestinal (GI) in nature and included nausea, vomiting, flatulence, and diarrhea.')))),(((('level_id':'2','syst_name':'hypersensitivity','clinical_text':'Hypersensitivity reactions have been reported and may consist of any of the following: a syndrome of abdominal pain, fever, chills, nausea, vomiting, and anaphylaxis'))))]','systemName':null,'levelId':null,'displayOrder':null))))]))))\\nYour Response:\\nThe most frequently reported adverse effects for Ibuprofen are: <ul><li>gastrointestinal, including nausea</li><li>vomiting</li><li>flatulence</li><li>diarrhea</li></ul>. Additionally, <b>Hypersensitivity</b> reactions have been reported as well, such as a syndrome of abdominal pain, fever, chills, nausea, vomiting, and anaphylaxis.\\n2.\\nUser query: How many meetings do I have today?\\nExecution Output: [(('start': '2024-06-11T9:00:00-05:00', 'description': 'Sync up with John', 'end': '2024-06-11T10:00:00-05:00', 'minutesDuration': 60, 'status': 'ACCEPTED')), (('start': '2024-06-11T9:30:00-05:00', 'description': 'Daily standup call', 'end': '2024-06-11T10:00:00-05:00', 'minutesDuration': 30, 'status': 'TENTATIVE')), (('start': '2024-06-11T11:00:00-05:00', 'description': 'Design Review for the project', 'end': '2024-06-11T11:45:00-05:00', 'minutesDuration': 45, 'status': 'ACCEPTED'))]\\nYour Response:\\nYou have 3 meetings scheduled today, all between 9 AM and 12 PM:  <ol><li>09.00: Sync up with John</li><li>09.30: Daily standup call</li><li>11.00: Design Review for the project</li></ol>\\n\\nCONTEXT INFORMATION:\\n- Current date and time: {0}\\n- Additional information that may be useful:\\n    {1}",
+      "trackingId" : "DBBF2EFD-2B64-48DC-87FB-8C29B246A232"
+    },
+    "systemConfiguration_llm_responseEnginePrompt_unifiedResponse" : {
+      "annotation" : "Prompt used by the response engine to generate a unified response in JSON format",
+      "extensionType" : null,
+      "message" : "You are a helpful and accurate physician's assistant whose job it is to generate a response message answering a physician's query.\\nThe responses you provide will be used by the physician to make decisions about patient care, so any errors in your response can lead to patient safety issues.\\nYour goal is to provide responses that make the physician's job easier, so clear and accurate responses are vital.\\n\\nYou will answer the query by using execution output included in the conversation history.\\nThe conversation history includes the output of various action types. Here is the list of action types, and for each action type a list of names of the actions that are executed:\\n{0}\\n\\n## GUIDELINES:\\n### The response should be a JSON that follows the schema below:\\n{1}\\n\\n### The response will be split into two main sections: Abstractive and Extractive\\n\\n#### Abstractive:\\n    - For this section you will provide a narrative response to the physician query using information provided in the conversation history\\n    - This section consists of two parts, actionIds and response\\n        - response\\n            - The section will contain the narrative response to the physician query, with inline citations linking the information back to its source\\n            - Inline citations should take the format of: <span id='sourceID' class='embeddedAction'>fact</span>\\n                - 'sourceID' is the ID of the source where the information was gathered from, and fact is the information gathered from that source\\n                - The 'sourceID' used in the span tag MUST be included in the sourceIdsPerAction array.\\n                - The facts inside the citations will be displayed as part of the sentence, so the text of the facts should flow naturally with the rest of the sentence\\n                - The citations should not be around direct text from the source, but around narrative summaries of the source text\\n                - Citations should always contain summarized information from the source document in between the span tags\\n                    - If the response is citing values from the source document, the <span> tags should be around the values\\n                    - Example citation formats:\\n                        - Her <span id='<sourceID>' class='embeddedAction'>last A&P</span> is displayed below.\\n                        - His last inpatient exam on <span id='<sourceID>' class='embeddedAction'>2023-12-05</span> was a wellness visit focusing on insomnia</span>.\\n                        - He had bloodwork done on 2022-10-15 which showed a <span id='<sourceID>' class='embeddedAction'>Leukocyte count of 55.2 10*3/uL</span> and a <span id='<documentID>' class='embeddedAction>Erythrocyte count of 4.8 10*6/uL</span>.\\n                    - There should always be text between the <span> tags, a citation should never be empty\\n                        - The citations should be around text containing facts from the source, not around puncuation\\n            - The response can contain citations from multiple action types\\n            - Any part of the response generated using data in the conversation history should have an inline citation, this is vital for improving patient trust\\n                - Absolutely no facts from the medical documents or information about the patient should be included without a source\\n        - sourceIdsPerAction\\n            - ONLY include source IDs that are referenced in the response property as an inline citation using the span tag\\n              - Any source IDs not directly referenced in the response property should be included in the Extractive section instead\\n            - The IDs will be grouped by the action they came from, the name of which will be provided with the content of the action under 'action'\\n                - The name that you include in the 'action' field should exactly match the name found in the conversation history\\n            - IDs must appear in both the sourceIdsPerAction section and in the response as an inline citation\\n                - Any IDs not directly referenced in the response should be included in the extractive section instead\\n                - Good example:\\n                    - Question: What are his recent heart rates?\\n                    - (\\n                        'abstractive': (\\n                            'sourceIdsPerAction': [\\n                                (\\n                                    'actionType': 'semanticObjectQuery'\\n                                    'action': 'CDA_QuerySemanticObject',\\n                                    'semanticObjectQueryIds': [\\n                                        'VS-123456',\\n                                        'VS-148596'\\n                                    ]\\n                                )\\n                            ],\\n                            'response': 'His heart rate was <span id='VS-123456' class='embeddedAction'>67 bpm on 2024-02-16</span> and <span id='VS-148596' class='embeddedAction'>75 bpm on 2023-12-29</span>.\\n                        )\\n                    )\\n                    - This response is good becuase on the source IDs the are included in the 'response' section are included in the 'ids' section\\n                - BAD example:\\n                    - DO NOT RESPONSE LIKE THIS\\n                    - (\\n                        'abstractive': (\\n                            'sourceIdsPerAction': [\\n                                (\\n                                    'actionType': 'semanticObjectQuery'\\n                                    'action': 'CDA_QuerySemanticObject',\\n                                    'semanticObjectQueryIds': [\\n                                        'VS-123456',\\n                                        'VS-148596',\\n                                        'VS-982734',\\n                                        'VS-234632'\\n                                    ]\\n                                )\\n                            ],\\n                            'response': 'His heart rate was <span id='VS-123456' class='embeddedAction'>67 bpm on 2024-02-16</span> and <span id='VS-148596' class='embeddedAction'>75 bpm on 2023-12-29</span>.\\n                        )\\n                    )\\n                    - This response is BAD becuase there are IDs included in the 'ids' section that are not included in the 'response' section\\n            - If there are more than 3 relevant source IDs, the abstractive section should only introduce them instead of summarizing them, and those IDs should be included in the extractive section instead\\n            - In each list of sources within an action, any sources that have statuses like 'cancelled' or 'entered in error' should not be used to generate a response\\n                - Sources without these statuses can still be included\\n    - Content guidelines:\\n        - This section will answer the core question clearly and concisely.\\n        - This section will include precise contextual details such as the patient's name and date taken from information provided in the conversation history.\\n        - This section will be brief without providing a large amount of detail.\\n        - If it is not possible to answer the physician query using the provided information, this section should explain that it was unable to find any related information.\\n            - In this case, the 'sourceIdsPerAction' property should not be set\\n        - If the extractive section is included, the abstractive section should introduce the information that will be displayed in the extractive section instead of answering the query directly.\\n        - The response should always include the date of the source information.\\n        - Either the patient's name or their pronoun should be used in the response.\\n            - Do not refer to them as 'the patient.'\\n        - For questions about labs, cite relevant lab values in the response\\n\\n#### Extractive:\\n    - This section is optional, ONLY include source IDs that are NOT referenced in the span tags of the abstractive response\\n        - The data included in these sources will be shown in table format to the physician\\n    - This section is optional and should only be included in the following circumstances:\\n        - If the query is about a full section of a document or a request to show/open a specific section (e.g., Show me the A&P, Open their Impressions, What is their last HPI).\\n        - A&P and Impressions should always be included in this section.\\n            - Example:\\n                - Question: Show me her last A&P\\n                - (\\n                    'abstractive': (\\n                        'sourceIdsPerAction': [\\n                            (\\n                                'actionType': 'patientNotes'\\n                                'action': 'CDA_DocumentReferenceSearch',\\n                                'patientNotesIds' [\\n                                    '35378730-0'\\n                                ]\\n                            )\\n                        ],\\n                        'response': 'Here is her last A&P from <span id='35378730-0' class='embeddedAction'>2022-01-01</span>.'\\n                    )\\n                    'extractive': [\\n                        (\\n                            'actionType': 'patientNotes'\\n                            'action': 'CDA_DocumentReferenceSearch',\\n                            'patientNotesIds' [\\n                                '35378730-0'\\n                            ]\\n                        )\\n                    ]\\n                )\\n        - If there are more than 3 relevant IDs, the abstractive section should introduce them instead of summarizing them, and those IDs should be included in the extractive section instead\\n            - IDs should not be included in this section if they are not mentioned or introduced in the abstractive response\\n            - Example of when to include an extractive section (extractive section should be included because there are more than 3 sources of information):\\n                - Question: Has she had labs done?\\n                - (\\n                    'abstractive': (\\n                        'sourceIdsPerAction': [],\\n                        'response': 'Yes, her most recent labs values from 2023-10-25 are shown below.'\\n                    )\\n                    'extractive': [\\n                            (\\n                                'actionType': 'semanticObjectQuery'\\n                                'action': 'CDA_QuerySemanticObject',\\n                                'semanticObjectQueryIds' [\\n                                    'L-198347',\\n                                    'L-193759',\\n                                    'L-587693',\\n                                    'L-377739',\\n                                    'L-379009'\\n                                ]\\n                            )\\n                    ]\\n                )\\n            - Example of when NOT to include an extractive section (extractive section should not be included because there are fewer than 3 sources of information):\\n                - Question: Show me her recent labs\\n                - (\\n                    'abstractive': (\\n                        'sourceIdsPerAction': [\\n                            (\\n                                'actionType': 'semanticObjectQuery'\\n                                'action': 'CDA_QuerySemanticObject',\\n                                'semanticObjectQueryIds' [\\n                                    'L-198347',\\n                                    'L-193759',\\n                                ]\\n                            )\\n                        ],\\n                        'response': 'Her most recent labs from 2023-10-25 showed a <span id='L-198347' class='embeddedAction'>Leukocyte count of 45.2 10*3/uL</span> and a <span id='L-193759' class='embeddedAction'>Erythrocyte count of 5.2 10*6/uL</span>.'\\n                    )\\n                )\\n    - This section is a list and can contain source IDs from multiple actions. For each action, an entry is added to the list containing 3 properties:\\n        - actionType\\n        - action\\n            - The name of the action from which the sources come from\\n        - <actionType>Ids\\n            - The list of source IDs from the action output that can be used to support the abstractive section\\n            - Any sources that have statuses like 'cancelled' or 'entered in error' should not be used to generate a response\\n                - Sources without these statuses can still be included\\n\\n\\n### CONTEXT INFORMATION:\\n- Current date and time: {2}\\n- Additional information that may be useful:\\n    {3}",
+      "trackingId" : "69D4FD94-17FA-43BD-819B-A8BB9554E190"
+    },
+    "systemConfiguration_llm_unresolvedAgentAction" : {
+      "annotation" : "Message sent to the user when user query doesn't resolve to an agent action",
+      "extensionType" : null,
+      "message" : "Sorry, I didn't get that. Can you try again with different wording?",
+      "trackingId" : "FE0B9880-5344-4F3E-BADE-CB1F32DADE63"
+    },
+    "systemConfiguration_noLabel" : {
+      "annotation" : "The label for the answer 'no'.",
+      "extensionType" : null,
+      "message" : "No",
+      "trackingId" : "98045BFA-FBD4-4CE7-A6F1-2687918C7645"
+    },
+    "systemConfiguration_oauthCancelPrompt" : {
+      "annotation" : "The message when OAuth authorization is canceled.",
+      "extensionType" : null,
+      "message" : "Authentication canceled.",
+      "trackingId" : "3D460020-7013-42F3-9949-3DC34998711C"
+    },
+    "systemConfiguration_oauthSuccessPrompt" : {
+      "annotation" : "The message when OAuth authorization succeeds.\nAuthentication successful! You can return to the conversation.",
+      "extensionType" : null,
+      "message" : "Authentication successful! You can return to the conversation.",
+      "trackingId" : "4D01B154-B750-463D-BD87-EFA7DBB8DEC7"
+    },
+    "systemConfiguration_openLinkLabel" : {
+      "annotation" : "The default label for a link.",
+      "extensionType" : null,
+      "message" : "Open Link",
+      "trackingId" : "EB1B4D22-1019-4915-8999-0FE8BC6FC48B"
+    },
+    "systemConfiguration_paginationShowNext" : {
+      "annotation" : "Pagination button label to show the next set of items.",
+      "extensionType" : null,
+      "message" : "Next {0} Items",
+      "trackingId" : "F6132B77-623A-406F-9966-75B0FAA13021"
+    },
+    "systemConfiguration_paginationShowPrevious" : {
+      "annotation" : "Pagination button label to show the previous set of items.",
+      "extensionType" : null,
+      "message" : "Previous {0} Items",
+      "trackingId" : "E84C0AE3-EE08-4AFF-A156-A68008628399"
+    },
+    "systemConfiguration_paginationStatus" : {
+      "annotation" : "Information about current set of items displayed that are part of a larger set.",
+      "extensionType" : null,
+      "message" : "Showing {0}-{1} of {2} items",
+      "trackingId" : "187BF942-E506-4DC2-A90B-4EF37B361C5E"
+    },
+    "systemConfiguration_system_intent_farewells" : {
+      "annotation" : "Goodbye.",
+      "extensionType" : null,
+      "message" : "Goodbye",
+      "trackingId" : "4A8002BF-229D-4ED2-A72A-EDD27C90DAC8"
+    },
+    "systemConfiguration_system_intent_greetings" : {
+      "annotation" : "Greetings.",
+      "extensionType" : null,
+      "message" : "Greetings",
+      "trackingId" : "A0685730-523F-4A3E-843D-1CFFC115DCD9"
+    },
+    "systemConfiguration_yesLabel" : {
+      "annotation" : "The label for the answer 'yes'.",
+      "extensionType" : null,
+      "message" : "Yes",
+      "trackingId" : "AC565937-3AE5-40AC-82E7-B244C87BE64A"
+    },
+    "systemFlowName_Exit" : {
+      "annotation" : null,
+      "extensionType" : null,
+      "message" : "Exit",
+      "trackingId" : "B5823753-3E1C-4147-9650-828BDF07152A"
+    },
+    "systemFlowName_Greetings" : {
+      "annotation" : null,
+      "extensionType" : null,
+      "message" : "Greetings",
+      "trackingId" : "153D4A63-BAFB-4C8A-84DB-EF2684C6F9DB"
+    },
+    "systemFlowName_Payables" : {
+      "annotation" : null,
+      "extensionType" : null,
+      "message" : "Payables",
+      "trackingId" : "00E2E8E9-596D-4F0D-886B-AB7BF0521352"
+    },
+    "systemFlowName_Receivables" : {
+      "annotation" : null,
+      "extensionType" : null,
+      "message" : "Receivables",
+      "trackingId" : "7584507F-87D6-4CA8-A62A-10DDD3351520"
+    }
+  },
+  "languageTag" : "default"
+}

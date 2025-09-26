@@ -1,0 +1,478 @@
+{
+    "chartType": "line",
+    "chartDesc": "Total Amount Due for each Vendor",
+    "xLabel": "Vendor Name",
+    "yLabel": "Total Amount Due",
+    "chartData": [
+        {
+            "series": "Total Amount Due",
+            "data": [
+                {
+                    "series": "Total Amount Due",
+                    "group": "Advanced Network Devices",
+                    "value": 101470624.58
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Advantage Corp",
+                    "value": 24059553.37
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Allied Manufacturing",
+                    "value": 38034826.85
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "American Telephone and Telegraph",
+                    "value": 14266933.5
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Apt, Peter M.",
+                    "value": 3158.56
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Bailey, Sara",
+                    "value": 3752.97
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Bastid, Alain",
+                    "value": 113
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Bechtel",
+                    "value": 23850350.12
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Becker Supply and Services",
+                    "value": 72244.88
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Beckman, Lisa",
+                    "value": 2940
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Beckmann, Lisa",
+                    "value": 4492
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Beckworth, Mark Andrew",
+                    "value": 3572.72
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Berkelaar, Rob",
+                    "value": 467.7
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Berthier, Alain",
+                    "value": 102
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Bloemers, Piet",
+                    "value": 1475.4
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Blok, Angela",
+                    "value": 14467.52
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Bogini, Samuel",
+                    "value": 3326.42
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Boise Cascade",
+                    "value": 89035.8
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Boursin, Elisabeth",
+                    "value": 976
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Brown, Casey",
+                    "value": 3439.69
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Brown, Jane",
+                    "value": 8079.04
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Building Management Inc.",
+                    "value": 65060226.44
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Burnett, Mark",
+                    "value": 3326.34
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "CDS, Inc",
+                    "value": 4529
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Cagliastro, Joanne Lisa",
+                    "value": 4513.64
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Capp Consulting",
+                    "value": 5164
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Caroline, Bruno",
+                    "value": 878
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Compusa Management Company",
+                    "value": 1617416
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Consolidated Electric",
+                    "value": 42961180.06
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Consolidated Supplies",
+                    "value": 93606785.94
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Corporate Express Office Supply",
+                    "value": 299547.42
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Depardon, Raymond",
+                    "value": 2131
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Dupont, Alain",
+                    "value": 1568
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Eastern Industrial Products",
+                    "value": 10981719
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Erickson, Barry",
+                    "value": 4104.06
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Exelon Electric and Gas",
+                    "value": 2296687
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Faro, Patrick",
+                    "value": 13143.56
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Fernandez, Manny",
+                    "value": 4527.8
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "GE Capital",
+                    "value": 23431241.25
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "GE Plastics",
+                    "value": 1657373.86
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Gasquet, Christelle Elisabeth",
+                    "value": 159
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "General Electric",
+                    "value": 33835323.71
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Goldman, Pamela",
+                    "value": 3257
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Grainger",
+                    "value": 246700
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Heib, Christiane",
+                    "value": 23849
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Home Depot, Inc.",
+                    "value": 1240370.41
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Huber, Birgit",
+                    "value": 23905
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Industrial Dressler",
+                    "value": 35428283.85
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Internal-Vision Services",
+                    "value": 140117.18
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Internal-Vision Svcs R",
+                    "value": 70214.78
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Jackson, Kwame",
+                    "value": 4753.9
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Janse, Pieter",
+                    "value": 12902
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Jones, Gray, and Associates",
+                    "value": 36735.21
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Kasbergen, Cor",
+                    "value": 37700.08
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Katzberg, Susan",
+                    "value": 3626.54
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Kievit, Rolf",
+                    "value": 15063.5
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Kruithof, Piet",
+                    "value": 2913
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Lacroix, Armand",
+                    "value": 341
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Lamaury, Thibault",
+                    "value": 2273
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Lang, Inga R",
+                    "value": 3820.99
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Lewis, David",
+                    "value": 10083
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Lion, Sam",
+                    "value": 805
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "MCI",
+                    "value": 3407.58
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Marjolet, Didier Alain",
+                    "value": 1325
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Marsh, Chris",
+                    "value": 3524.86
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Martin, Fabienne",
+                    "value": 964
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Marty, Frederic",
+                    "value": 206
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "McGwire, Patrick",
+                    "value": 4313.91
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Next Generation Graphix (DBA, Art Wilde)",
+                    "value": 78425118.75
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Office Depot, Inc",
+                    "value": 1836964.5
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Office Max",
+                    "value": 2770991.38
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Office Supplies, Inc.",
+                    "value": 2179265.6
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Penguin Publisher",
+                    "value": 60750
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Pratt, John",
+                    "value": 635.4
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Providence Property and Casualty",
+                    "value": 12712722.08
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Rich, Lawrence Joseph",
+                    "value": 5143.66
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Ruijter, Eveline",
+                    "value": 15595.1
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Senaux, Martine Mirelle",
+                    "value": 2323
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Staffing Services Inc.",
+                    "value": 7000.8
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Staples",
+                    "value": 4013207.74
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Star Gate Ltd",
+                    "value": 15063633.63
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "TT Services",
+                    "value": 6449699.1
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Ulrich, Jeffery",
+                    "value": 9345
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "United Parcel Service",
+                    "value": 1341367.39
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Valencia, Marianne",
+                    "value": 1036
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Valérian, Pierre",
+                    "value": 293
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Vioget, Oliver Xavier",
+                    "value": 2009
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Vision",
+                    "value": 2996939.96
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Walcher, Bernhard",
+                    "value": 24572
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Webb, Jean",
+                    "value": 737
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Weinberg, Jerry",
+                    "value": 2930
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "Williams, Harrold",
+                    "value": 3579
+                },
+                {
+                    "series": "Total Amount Due",
+                    "group": "iPrint",
+                    "value": 6935412.15
+                }
+            ]
+        }
+    ]
+}

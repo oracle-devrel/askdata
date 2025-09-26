@@ -1,0 +1,31 @@
+name: "UnresolvedIntent"
+trackingId: "1E27EF64-1582-4F4E-96D1-171B27A4C376"
+type: "task"
+version: "2.0"
+description: "This starter skill has no intents yet, so the flow will be invoked when a user starts the chat."
+interface: {}
+variables:
+- name: "newHint"
+  type: "string"
+  defaultValue: " "
+  description: ""
+  metadata:
+    isFreeMarker: true
+  system: false
+defaultTransitions:
+  actions:
+    system.startTaskFlow: "unresolvedMessage"
+states:
+  unresolvedMessage:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - text: "Sorry, I didn't get that. Can you try again with different wording?"
+          type: "text"
+      keepTurn: true
+    transitions: {}
+    metadata:
+      virtualComponent: "Virtual.Output"
+      propertySheetIsFreeMarkerMap:
+        requiresAuthorization: false

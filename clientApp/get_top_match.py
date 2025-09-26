@@ -57,6 +57,12 @@ def return_validated_sql(prmpt):
     similarity_threshold = config.get('METADATA', 'librarymatch.threshold')
     similarity_threshold_upper = config.get('METADATA', 'librarymatch.upperthreshold')
     df_s = find_top_match(prmpt)
+
+    # when no data found
+    if df_s.empty:
+        logger.warning("return_validated_sql: No matching prompt found.")
+        return 0, "None Found", "None Found", 0, "None Found"
+
     df_s = df_s.iloc[0]
 
     # If df_s is a DataFrame
@@ -72,6 +78,7 @@ def return_validated_sql(prmpt):
     top_query = df_s["query"]
     top_s_pct = df_s["similarity"]
     top_row_id = df_s["id"]
+    logger.debug(f"top prompt rowid: {top_row_id}")
     logger.debug(f"top prompt: {top_prmpt}")
     logger.debug(f"top query: \n{top_query}")
     logger.debug(f"top similarity: {top_s_pct}")

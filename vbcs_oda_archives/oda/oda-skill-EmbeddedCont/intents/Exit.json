@@ -1,0 +1,52 @@
+{
+  "annotations" : [ ],
+  "autoCompleteData" : [ ],
+  "enabled" : true,
+  "exampleData" : [ {
+    "annotations" : [ ],
+    "contributor" : null,
+    "crowdJobId" : null,
+    "detectedLanguage" : null,
+    "developerId" : null,
+    "developerTag" : null,
+    "exampleEntities" : [ ],
+    "nativeLanguageTag" : "en",
+    "sentence" : "Bye",
+    "trackingId" : "5F4AECAE-1ACB-4A4B-9A32-01004425D7BC",
+    "translated" : null,
+    "translatedBy" : null,
+    "translatedLanguage" : null
+  }, {
+    "annotations" : [ ],
+    "contributor" : null,
+    "crowdJobId" : null,
+    "detectedLanguage" : null,
+    "developerId" : null,
+    "developerTag" : null,
+    "exampleEntities" : [ ],
+    "nativeLanguageTag" : "en",
+    "sentence" : "Exit",
+    "trackingId" : "737270F9-371B-4AE7-914D-873BBEF9453F",
+    "translated" : null,
+    "translatedBy" : null,
+    "translatedLanguage" : null
+  }, {
+    "annotations" : [ ],
+    "contributor" : null,
+    "crowdJobId" : null,
+    "detectedLanguage" : null,
+    "developerId" : null,
+    "developerTag" : null,
+    "exampleEntities" : [ ],
+    "nativeLanguageTag" : "en",
+    "sentence" : "Thank you",
+    "trackingId" : "F23A4920-05D9-4047-AEC6-ABC41C3D57E5",
+    "translated" : null,
+    "translatedBy" : null,
+    "translatedLanguage" : null
+  } ],
+  "intentParameters" : [ ],
+  "name" : "Exit",
+  "trackingId" : "C9C91B60-BB09-4545-9F8E-4382D6E9F0A7",
+  "type" : "NLPIntent"
+}

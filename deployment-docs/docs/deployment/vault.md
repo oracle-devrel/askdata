@@ -2,7 +2,7 @@
 
 ## Creating the Vault's Structure
 
-1.  This page assumes that the vault already exists. If it doesn't, see [Create a New Vault](https://docs.oracle.com/en-us/iaas/Content/KeyManagement/Tasks/managingvaults_topic-To_create_a_new_vault.htm#createnewvault)
+1.  This page assumes that the vault already exists. If not, see [Create a New Vault](https://docs.oracle.com/en-us/iaas/Content/KeyManagement/Tasks/managingvaults_topic-To_create_a_new_vault.htm#createnewvault)
 
 <br>
 
@@ -65,3 +65,5 @@
 ![Configure Variable](./business_media/media/create-vault-secret-2.png)
 
 With this, you will have the IDCS client Secret store (and accessible) in the Vault.
+
+## [Return home](../../../README.md)

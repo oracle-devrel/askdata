@@ -1,0 +1,24 @@
+{
+  "botPrompts" : [ {
+    "text" : "Please enter Clear",
+    "type" : "DEFAULT"
+  } ],
+  "enumValues" : [ {
+    "type" : "StaticEntityValue",
+    "canonicalName" : "Start a new Conversation",
+    "extensionType" : null,
+    "nativeLanguageTag" : "en",
+    "primaryLanguageCanonicalName" : "Start a new Conversation",
+    "scopeValue" : null,
+    "synonyms" : [ "Clear" ],
+    "trackingId" : "6F52DC06-08A6-4C80-A9F1-FD34761A7667"
+  } ],
+  "fuzzyMatch" : false,
+  "multiLingual" : false,
+  "multiValue" : false,
+  "name" : "Clear",
+  "promptForDisambiguation" : false,
+  "trackingId" : "9D109F43-6D20-4317-B644-32424E245134",
+  "type" : "ENUMVALUES",
+  "validationRules" : [ ]
+}

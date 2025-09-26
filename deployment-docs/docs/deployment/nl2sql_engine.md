@@ -5,17 +5,38 @@
 ### Prerequisites 
 
 This section assumes the following resources are configured: 
+* [Policies & Dynamic Groups](./generic.md#dynamic-groups)
 * [Business & Trust ADBs](./database.md)
 * [OCI Cache Cluster](https://docs.oracle.com/en-us/iaas/Content/ocicache/createcluster.htm#top) 
 * [VCN](https://docs.oracle.com/en-us/iaas/Content/Network/Tasks/quickstartnetworking.htm#Virtual_Networking_Quickstart)
-    - Ingress rules are added to security list allow traffic from public/private subnet on port 8000 & 8002 
-* [Policies & Dynamic Groups](./generic.md#dynamic-groups)
+    - Ingress rules are added to security list to allow traffic from public/private subnet on the following:
+        - port 8000 & 8001 (nl2sql & trusthelper)
+        - port 80 & 443 (http & https for API Gateway)
+        - port 6379 (SL automatically generated upon OCI Cache Redis creation)
+        - port 1521 (if using private db)
 
 > **Note** There is a partial dependency on the VB apps in the configuration file; however you can proceed for now without the VB apps and return later to populate the VB app endpoints. 
 
 #### Provision VM Instance
 
-1.  Go Instances and Create Instance:
+> **Note** The business vm (engine) is to be deployed on a private subnet. To access this instance, it's recommended to also create a jump host on the associated public subnet, and allow ssh access to the ingress on the private subnet. 
+
+>**Note** It can be helpful to use a VS Code extension like 'SSH - Remote' to connect to your instance in your private subnet. This assumes you have an ssh config entry in your local .ssh/config file such as below: 
+
+```
+Host askdata-dev-host
+    HostName <private-engine-host-ip>
+    User opc
+    IdentityFile <path-to-engine-key>
+    ProxyJump askdata-dev-jump
+
+Host askdata-dev-jump
+    HostName <askdata-jump-public-ip>
+    User opc
+    IdentityFile <path-to-jump-host-key>
+```
+
+1.  Go Instances and Create the following Instance in the private subnet of VCN created above:
 
 <br>
 
@@ -42,6 +63,8 @@ This section assumes the following resources are configured:
 ![Configure Variable](./business_media/media/image114.png)
 
 4.  Adjust shape 2 or more oCPUs, 16GB or more RAM
+
+> **Note**: oCPU = ~4 ECPUs 
 
 <br>
 
@@ -87,6 +110,12 @@ sudo xfs_growfs /
 
 Above command will display 2 options. Pick the option for python 3.11 (most probably you will be picking option 2)
 
+> **Note** If not working, try installing python 3.11 manually (OL8.8 or later)
+
+```bash
+$ sudo dnf install python3.11
+```
+
 5.  Correct pip version:
 
 ``` bash
@@ -102,12 +131,9 @@ in the command above make sure pipe version is also 3.11
 
 ``` bash
 sudo firewall-cmd --add-port=8000/tcp --permanent
+sudo firewall-cmd --add-port=8001/tcp --permanent
 sudo firewall-cmd --add-port=1521/tcp --permanent
 sudo firewall-cmd --add-port=6379/tcp --permanent
-sudo firewall-cmd --add-port=8001/tcp --permanent
-sudo firewall-cmd --add-port=8001/tcp --permanent
-sudo firewall-cmd --add-port=8002/tcp --permanent
-sudo firewall-cmd --add-port=8003/tcp --permanent
 sudo firewall-cmd --add-port=80/tcp --permanent
 sudo systemctl restart firewalld
 ```
@@ -148,7 +174,7 @@ sudo pip install simplejson
 sudo pip install sseclient-py
 ```
 
-8.  Add user auth keys
+8.  (Optional) Add user auth keys
 
 - Make directory called “.oci “ under /home/opc
 - cd .oci
@@ -167,6 +193,8 @@ key_file=
 
 add your pem file from auth key generation in oci console
 
+> **Note**: Instance principal authentication has been recently added to the engine, which will execute if api key is not provided.
+
 9.  Get Wallets
     1.  Wallet for ADW1 (solution/trust db)
     2.  Unzip into a directory under /home/opc
@@ -178,6 +206,15 @@ add your pem file from auth key generation in oci console
 ![Configure Variable](./business_media/media/image119.png)
 
 11. Enter custom values in Config.properties
+    - You can also provide a secret ocid for your database password. See [Create Vault Secret](./vault.md#vault---secret) for creating a new secret for your database passwords. 
+        - Create new secret for your client (business) database password 
+            - Provide client (business) db secret ocid as database.password_secret under [DatabaseSection] 
+        - Create new secret for your trust (solution) database password 
+            - Provide trust (solution) db secret ocid as password_secret under [DEFAULT]
+
+> **Note**: The code will first check if database password exists, then checks for database secret. Only one parameter (password or password secret) needs to be provided for each section (DatabaseSection and DEFAULT). 
+
+> **Note**: If providing a secret, the secret should be in a vault in the same region as the rest of the application. Using a vault in a different region can cause connection issues. 
 
 # Configuration File
 
@@ -189,6 +226,15 @@ console.level=DEBUG
 logs.path=./logs
 ```
 
+## [FeatureFlags]
+```
+feature.dynamicprompt=true
+feature.explain=false
+feature.intent=false
+feature.llmgraphcheck=false
+feature.chatgraph=false
+```
+
 ## [security]
 ```
 anonymous.flag=true
@@ -198,6 +244,7 @@ anonymous.flag=true
 ```
 database.user=askdata_bi_user
 database.password=xxxxxxxxx
+database.password_secret=xxx
 database.dsn=businessdb_low
 database.config=/home/opc/askdata_bi
 database.walletpsswd=xxxxxx
@@ -273,6 +320,20 @@ librarymatch.threshold=0.80
 librarymatch.upperthreshold=1.0
 ```
 
+## [SemanticMatch]
+```
+semantic.enabled=true
+semantic.fetchlimit=5
+semantic.additionalhint=Use ABS only when necessary.
+semantic.scorethreshold=0.6
+```
+
+## [SemiTrustedPath]
+```
+semitrusted.enabled=true
+semitrusted.fetchlimit=3
+```
+
 ## [DEFAULT] # trust db connection
 ```
 user=xxxxxx
@@ -286,13 +347,40 @@ wallet_password=xxxxx
 
 13. Test deployment 
 
-Run python3.11 nl2sql_app.py to begin service on port 8000
+Run 
+
+```bash 
+$ python3.11 nl2sql_app.py
+``` 
+
+to begin service on port 8000.
+
+To run in backround: 
+
+```bash
+nohup python3.11 nl2sql_app.py &
+nohup python3.11 trusthelper_ep.py &
+```
 
 ### Test Service 
 
 ```
 curl -d '{"question":"show total paybales amount", "sessionid" :"fjfjfjfjfjfdddj"}' -H "Content-Type: application/json" -X POST <http://localhost:8000/>
 ```
+
+Console logs will be printed to nohup.out and can be redirected to a custom file at the startup.
+Application logs will be redirected to <approot>/logs/nl2sql_app.log and <approot>/logs/trusthelper_ep.log.Additional details on logging:
+Log files are stored in the <approot>/logs directory.
+Logs are automatically rotated at service startup.
+Logging behavior is configured via the ConfigFile.properties file located in the <approot> directory.
+
+### Stop Service 
+
+Run the following command to find the PID
+ps -ef|grep nl2sql_app (OR) ps -ef|grep trusthelper_ep
+The following command to kill/stop the service
+kill -9 <pid>
+
 
 ## Installing to new VM
 
@@ -321,3 +409,5 @@ used to log into the NL2SQL Engine (VM-1)
 `$EDITOR /Users/my-user/.ssh/known_hosts`
 
 - remove last entries to reuse localhost
+
+## [Return home](../../../README.md)

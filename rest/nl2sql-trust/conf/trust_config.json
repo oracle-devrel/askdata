@@ -1,0 +1,50 @@
+{
+    "app": {
+        "db_datetime_format_nospace": "DDMONYYYY_hh24miss",
+        "datetime_format_nospace": "%d%b%Y_%H%M%S"
+    },
+    "oci": {
+        "tenancy_ocid": "ocid1.tenancy.oc1..xxx",
+        "compartment_ocid": "ocid1.compartment.oc1..xxx",
+        "namespace": "namespace",
+        "region": "us-chicago-1",
+        "ai": {
+            "url": "https://inference.generativeai.us-chicago-1.oci.oraclecloud.com",
+            "model_embed": "cohere.embed-english-v3.0",
+            "dac_endpoint": "https://inference.generativeai.us-chicago-1.oci.oraclecloud.com",
+            "dac_endpoint_model": "meta.llama-3.3-70b-instruct"
+        },
+        "engine": {
+            "get_sql_url": "http://<engine-ip>:8001/getsql",
+            "llm_prompt_url": "http://<engine-ip>:8001/getprompt",
+            "sqlparse": {
+                "enable": false
+            }
+        },
+        "vault": {
+            "db_secret_ocid": "ocid1.vaultsecret.oc1.us-chicago-1.xxx",
+            "region": "us-chicago-1"
+        },
+        "os": {
+            "bucket": "bucket-name",
+            "metadata": {
+                "file_name": "metadata_v2.json",
+                "os_path": "config/",
+                "local_path": "./conf"
+            }
+        }
+    },
+    "database": {
+        "wallet": "<full-path-to-local-db-trust-wallet",
+        "os_wallet": "wallet/trustdb.zip",
+        "user": "<user>",
+        "pwd": "<pw>",
+        "dns": "<adb>_low",
+        "datetime_format": "DD-MON-YYYY hh24:mi:ss",
+        "date_format": "DD-MON-YYYY"
+    },
+    "metrics": {
+        "start_date": "<DD-MON-YYYY>",
+        "python_format": "%d-%b-%Y"
+    }
+}

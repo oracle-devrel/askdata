@@ -8,56 +8,52 @@ Oracle AskData is a conversational AI platform powered by Oracle Generative AI. 
 
 The solution empowers both non-technical users and SQL experts by simplifying complex queries and freeing up time for deeper analysis and decision-making.
 
-
 ## Getting Started
 Please see the [Introduction](deployment-docs/docs/deployment/introduction.md) & [Architecture](deployment-docs/docs/deployment/architecture.md) 
 
-For policies see [Defining Policies](deployment-docs/docs/deployment/generic.md#dynamic-groups)
+For policies see [Defining Policies](deployment-docs/docs/deployment/generic.md#dynamic-groups).
+
+This solution is broken down into two separate apps, business and trust. It's recommended to start with the business app then build the trust app. 
 
 ### Prerequisites
+
 The CIS Landing Zone is optional but helps with providing a sandbox environment with best practices
 
 - [Deploy CIS LZ](deployment-docs/docs/deployment/landing_zone.md)
 
-
 This solution assumes you have access to an OCI tenancy with the admin ability to provision the following resources: 
 
-- IDCS/IAM Confidential App 
-    - [Deploy IAM App](deployment-docs/docs/deployment/business_idcs.md)
-- Vault
-    - [Deploy Vault](deployment-docs/docs/deployment/vault.md)
-- Business (Client) ADB database
-    - [Deploy Database](deployment-docs/docs/deployment/database.md)
-- Trust ADB database
-    - [Deploy Database](deployment-docs/docs/deployment/database.md)
-- OCI Cache 
-    - [Deploy OCI Cache Cluster](https://docs.oracle.com/en-us/iaas/Content/ocicache/createcluster.htm#top) 
-- VCN 
-    - Private Subnet
-    - Public Subnet 
-    - [Deploy a VCN](https://docs.oracle.com/en-us/iaas/Content/Network/Tasks/quickstartnetworking.htm#Virtual_Networking_Quickstart)
-- Two VMs
-    - Engine 
-        - [Deploy Engine Documentation](deployment-docs/docs/deployment/nl2sql_engine.md)
-    - Bastion/jump host
-        - To access engine in private subnet
-- API Gateway
-    - [Deploy API Gateway](deployment-docs/docs/deployment/business_api_gateway.md)
-    - (Optional) If deploying API Gateway privately, see [ADW API Gateway Private Access](deployment-docs/docs/deployment/adw_private.md)
-- VBCS 
-    - [Deploy VBCS](deployment-docs/docs/deployment/VBCS.md)
-- ODA
-    - [Deploy ODA](deployment-docs/docs/deployment/oda.md)
-## Deployment Steps
+### Business App
 
-1. Configure Business DB
-2. Configure Trust DB
-3. Configure IDCS App
-4. Configure OCI Cache
-4. Configure Engine 
-5. Configure API Gateway
-6. Configure ODA Skills
-7. Configure VB Apps 
+#### Deployment Steps
+
+1. [Deploy Business Database](deployment-docs/docs/deployment/database.md)
+2. [Deploy Trust Database](deployment-docs/docs/deployment/database.md)
+3. [Deploy Business IAM App](deployment-docs/docs/deployment/business_idcs.md)
+4. [Deploy OCI Cache Cluster](https://docs.oracle.com/en-us/iaas/Content/ocicache/createcluster.htm#top)
+5. [Deploy VCN](https://docs.oracle.com/en-us/iaas/Content/Network/Tasks/quickstartnetworking.htm#Virtual_Networking_Quickstart)
+6. [Deploy Engine Documentation](deployment-docs/docs/deployment/nl2sql_engine.md)
+7. [Deploy Vault](deployment-docs/docs/deployment/vault.md)
+8. [Deploy Business API Gateway](deployment-docs/docs/deployment/business_api_gateway.md)
+    - (Optional) If deploying API Gateway privately, see [ADW API Gateway Private Access](deployment-docs/docs/deployment/adw_private_config.md)
+9. [Deploy ODA](deployment-docs/docs/deployment/oda.md)
+10. [Deploy VBCS](deployment-docs/docs/deployment/VBCS.md)
+
+### Trust App 
+
+[Trust Service Overview](deployment-docs/docs/deployment/trust-service-overview.md)
+
+#### Deployment Steps 
+
+1. [Deploy Trust VM](deployment-docs/docs/deployment/trust-service.c.md)
+2. [Deploy IDCS/IAM APEX App](https://docs.oracle.com/en/learn/apex-identitydomains-sso/index.html#task-3-create-a-new-web-credential-in-your-oracle-apex-workspace)
+    - (Required) For IDCS security to the API Gateway, in addition to above configure the following: 
+        - Client Credentials: Enabled
+        - Allowed operations: Introspect
+3. [Deploy Trust API Gateway](deployment-docs/docs/deployment/trust-api-gateway.md)
+4. [Deploy APEX](deployment-docs/docs/deployment/apex-trust.md)
+    - (Optional) For using a private ADW with APEX, see [Configure Private ADW ACL](deployment-docs/docs/deployment/apex-private-adw-lb.md)
+    - (Optional) If using a private ADW, see [Deploy Private ADB Load Balancer](deployment-docs/docs/deployment/apex-private-adw-lb.md)
 
 ### Validation 
 

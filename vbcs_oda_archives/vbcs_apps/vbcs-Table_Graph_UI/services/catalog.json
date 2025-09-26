@@ -3,15 +3,12 @@
         "interactiveTables": {
             "servers": [
 {
-                    "url": "<api-gateway>/v1",
+                    "url": "https://xxx.apigateway.us-chicago-1.oci.customer-oci.com/v1",
                     "description": "APIGW",
                     "x-vb": {
                         "authentication": {
                             "authenticated": {
-                                "type": "oauth2_client_credentials",
-                                "clientIdCredentials": "<client-id>",
-                                "scope": "urn:opc:idm:__myscopes__",
-                                "authUrl": "<idcs-server>/oauth2/v1/token"
+                                "type": "oauth2_client_credentials"
                             }
                         },
                         "forceProxy": "cors"

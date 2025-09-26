@@ -5,7 +5,7 @@
             "displayLabel": "Id",
             "key": true,
             "name": "id",
-            "oid": "<id>",
+            "oid": "3620828d-6565-4840-979c-e963a858565b",
             "required": true,
             "type": "number",
             "unique": true
@@ -13,53 +13,53 @@
         {
             "displayLabel": "Created",
             "name": "creationDate",
-            "oid": "<id>",
+            "oid": "0d8da989-a2b3-476d-bdef-e5019139d243",
             "type": "datetime",
             "historyType": "timeCreated"
         },
         {
             "displayLabel": "Last Updated",
             "name": "lastUpdateDate",
-            "oid": "<id>",
+            "oid": "e1c9593f-b58e-4a6a-ae3c-f0b8ed0b8627",
             "type": "datetime",
             "historyType": "timeUpdated"
         },
         {
             "displayLabel": "Created By",
             "name": "createdBy",
-            "oid": "<id>",
+            "oid": "64bebced-eb13-47a9-b21c-73a25c92bb95",
             "type": "string",
             "historyType": "createdBy"
         },
         {
             "displayLabel": "Last Updated By",
             "name": "lastUpdatedBy",
-            "oid": "<id>",
+            "oid": "0e6c3715-a883-49bf-93ab-a90f833d361d",
             "type": "string",
             "historyType": "updatedBy"
         },
         {
             "displayLabel": "Version Number",
             "name": "abcsChangeNumber",
-            "oid": "<id>",
+            "oid": "7dfaed9b-1e51-4362-99a7-e8327ce08562",
             "type": "number",
             "historyType": "versionNumber"
         },
         {
             "name": "answer1",
-            "oid": "<id>",
+            "oid": "562a4b59-f458-4f3c-9fa0-c70ac98a5052",
             "displayLabel": "answer1",
             "type": "string"
         },
         {
             "name": "answer2",
-            "oid": "<id>",
+            "oid": "910bfaf5-2b6c-4b15-80b5-6a00d4531d72",
             "displayLabel": "answer2",
             "type": "string"
         }
     ],
     "name": "Data",
-    "oid": "<id>",
+    "oid": "122e653f-0aef-41ba-89a4-f2c04f6338d2",
     "security": {
         "type": "local",
         "acl": [

@@ -72,7 +72,7 @@ Example: genai-demos
 
 1. Sign in to Oracle Cloud.
 
-2. From the Infrastructure Console, click the navigation menu  !["Navigation menu icon"](./business_media/media/image71.png) in the top left corner, expand **Identity**, and then click **Domains**.
+2. From the Infrastructure Console, click the navigation menu  !["Navigation menu icon"](./business_media/media/image36.png) in the top left corner, expand **Identity**, and then click **Domains**.
 
 ![ ](./business_media/media/identity-domain.png)
 
@@ -339,3 +339,5 @@ Note that the private endpoint feature is not supported by the custom component 
 
 1. Graph isn't showing in Table Graph VB App
     - Solution: Make sure to assign user role to idcs group in app settings
+
+## [Return home](../../../README.md)

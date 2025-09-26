@@ -129,3 +129,53 @@ table caption {
     color: black !important;
 } */
 
+/* Make the input thinner and add a border */
+.filter-input1 {
+  height: 1.5rem; /* make it thinner */
+  border: 1px solid #ccc; /* light grey border */
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* Optional: reduce margin or width if needed */
+/* .filter-input {
+  max-width: 200px; /* or any fixed size */
+
+/* For "Additional Tools" */
+
+
+.small-collapsible > .oj-collapsible-header-wrapper {
+  background-color: transparent !important;
+  padding-left: 8px !important;
+  min-height: 22px !important; 
+  max-height: 22px !important; 
+}
+
+
+/* .small-collapsible span[slot='header'] {
+  /* font-size: 0.85rem !important; 
+  color: white !important;
+  font-weight: 500;
+  text-transform: none;
+} */
+
+.small-collapsible [slot='header'] {
+  color: black !important;
+}
+
+.small-collapsible > .oj-collapsible-header-wrapper > h4 {
+  color: black !important;
+  font-size: 0.85rem; /* optional: smaller size for thinner look */
+  font-weight: 500;   /* optional: less bold */
+  margin: 0;          /* optional: remove vertical margin */
+  padding: 2px 0;     /* optional: make it thinner */
+}
+
+
+
+.small-collapsible .oj-collapsible-header-icon {
+  color: black !important;
+  font-size: 24px;
+  margin-right: 0.4rem;
+}

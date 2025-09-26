@@ -9,21 +9,25 @@ from sqlalchemy.pool import QueuePool
 from contextlib import contextmanager
 import logging
 
+from connect_vector_db import load_config_db
+
 logger = logging.getLogger("app_logger")
 config = configparser.RawConfigParser()
 config.read('ConfigFile.properties')
 
+db_config = load_config_db("client", 'ConfigFile.properties')
 # Single global engine instance that maintains the connection pool
 global_engine = create_engine(
     f'oracle+oracledb://:@',
-    connect_args={
-        "user": config.get('DatabaseSection', 'database.user'),
-        "password": config.get('DatabaseSection', 'database.password'),
-        "dsn": config.get('DatabaseSection', 'database.dsn'),
-        "config_dir": config.get('DatabaseSection', 'database.config'),
-        "wallet_location": config.get('DatabaseSection', 'database.config'),
-        "wallet_password": config.get('DatabaseSection', 'database.walletpsswd'),
-    },
+    # connect_args={
+    #     "user": config.get('DatabaseSection', 'database.user'),
+    #     "password": config.get('DatabaseSection', 'database.password'),
+    #     "dsn": config.get('DatabaseSection', 'database.dsn'),
+    #     "config_dir": config.get('DatabaseSection', 'database.config'),
+    #     "wallet_location": config.get('DatabaseSection', 'database.config'),
+    #     "wallet_password": config.get('DatabaseSection', 'database.walletpsswd'),
+    # },
+    connect_args=db_config,
     poolclass=QueuePool,
     pool_size=5,
     max_overflow=10,

@@ -95,12 +95,14 @@ Authorization Endpoint URL: \<IDCS base url\>/oauth2/v1/authorize
 Client ID: \<Client Id from the IDCS confidential app\>
 Client Secret: \<Client Secret from the confidential app\>
 
-Scopes: urn:opc:idm:\_\_myscopes\_\_
+Scopes: urn:opc:idm:__myscopes__
 
 Subject Claims: sub
 
 Refresh Token Retention Period: 7
 ```
+
+> **Note** If your idcs app is using a custom scope, use that scope instead e.g. odatest
 
 - Provide Client ID of IDCS & secret from IDCS confidential app below
 
@@ -108,7 +110,7 @@ Refresh Token Retention Period: 7
 
 ![](./business_media/media/new-auth-service-2.png)
 
-> **Note** The scope will be the audience + scope defined in [Deploy IDCS Application](./business_idcs.md#adding-scopes)
+> **Note** The scope will be the audience + scope defined in [Deploy IDCS Application](./business_idcs.md#adding-scopes) e.g. odatest
 
 ### Deploy ODA Code – Skill
 
@@ -121,12 +123,28 @@ Refresh Token Retention Period: 7
 ![](./business_media/media/image47.png)
 
 
-- Click “Import Skill” (located right top corner):
+2. Click “Import Skill” (located right top corner):
 
 ![](./business_media/media/image48.png)
 
 
-> Zip and Import the skill provided in nl2sql-main/vbcs_oda_archives/oda/askdata-oda-base folder in the code:
+3. Zip and Import the skill provided in nl2sql-main/vbcs_oda_archives/oda/askdata-oda-base folder in the code:
+
+> **Note** The skills *oda-skill-EmbeddedCont* & *oda-skill-ExtOracleFn* are provided as a reference, in case you'd like to deploy the custom componet as an oracle function. If you would like to deploy the component as a function, see [Deploy Function Application](../deployment/function.md).
+
+For these instructions we'll be using the askdata-oda-base skill.
+
+- Navigate to [askdata-oda-base directory](../../../vbcs_oda_archives/oda/askdata-oda-base/)
+
+- Run the following 
+
+```bash
+zip -r genaisqlskill.zip .
+```
+
+- In ODA, navigate to Development > Skills > Import Skill
+
+- Upload zipped skill
 
 ![](./business_media/media/image49.png)
 
@@ -174,6 +192,28 @@ Refresh Token Retention Period: 7
 >
 > example:
 > <https://api-host.apigateway.us-chicago-1.oci.customer-oci.com/v1/prompt>
+
+#### Confirm queryBackendService Custom Component is Deployed
+
+1. Navigate to custom components and check to see if the custom component is deployed 
+
+![Custom Component](../deployment/oda/custom-component.png)
+
+2. If the custom component failed to deploy, navigate to [queryBackendSvc](../../../vbcs_oda_archives/oda/queryBackendSvc/) under /vbcs_oda_archives/oda and run 
+
+```bash 
+bots-node-sdk pack
+```
+
+> **Note** If bots-node-sdk is not installed on your machine, run the following:
+
+```bash
+    npm install -g @oracle/bots-node-sdk
+```
+
+Once packed select the pencil icon and upload the new package just created to redeploy the component. 
+
+For further instructions on installing, see [bots-node-sdk](https://github.com/oracle/bots-node-sdk)
 
 #### Update Read Timeout for the Custom Component
 
@@ -305,3 +345,5 @@ Edit Switch Activity to update routing
 **Remember to retrain the skill**
 
 ![](./business_media/media/image134.png)
+
+## [Return home](../../../README.md)

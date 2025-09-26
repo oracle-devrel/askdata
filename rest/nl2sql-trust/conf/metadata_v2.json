@@ -1,0 +1,33 @@
+{
+	"tables": [
+		{
+		"name": "Account Payables", "domain": ["account payables", "payables"],
+		"columns": [
+			{"name": "Account_Payables_Id", "type": "primarykey","domain": ["accounts payable id"]},
+			{"name": "Vendor_Id", "type": "foreignkey","domain": ["vendor id"]},
+			{"name": "Invoice_Number", "type": "label", "domain": ["invoice", "invoice_number"]},
+			{"name": "Invoice_Date", "type": "date", "domain": ["invoice date"]},
+			{"name": "GL_Date", "type": "date", "domain": ["GL date", "general ledger date"]},
+			{"name": "Invoice_Type_Id", "type": "foreignkey", "domain": ["invoice type", "invoice type id"]},
+			{"name": "Due_Date Date", "type": "date", "domain": ["due date", "date due"]},
+			{"name": "Past_Due_Days", "type": "quant", "domain": ["past due days", "days past due"]},
+			{"name": "Amount_Due", "type": "quant", "domain": ["amount due", "due amount"]}
+			]
+		},
+		{
+		"name": "Vendors", "domain": ["vendors"],
+		"columns": [
+			{"name": "Vendor_Id", "type": "primarykey", "domain": ["vendor id"]},
+			{"name": "Vendor_Name", "type": "label", "domain": ["vendor name", "vendor"]},
+			{"name": "Vendor_Site_Details", "type": "text", "domain": ["vendor site details", "vendor details"]}
+			]
+		},
+		{
+		"name": "Invoice Type Lookup", "domain": ["invoice type lookup"],
+		"columns": [
+			{"name": "Invoice_Type_Id", "type": "primarykey", "domain": ["invoice type id"]},
+			{"name": "Invoice_Type", "type": "label", "domain": ["invoice type", "type of invoice"]}
+			]
+		}
+	]
+}

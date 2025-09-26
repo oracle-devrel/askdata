@@ -66,10 +66,11 @@ Client type: Confidential
 
 <br>
 
-![ ](./business_media/media/config-conf-app.png)
+![Config](./business_media/media/config-conf-app.png)
 
 Add the resource server (idcs server) as the resource 
-![ ](./business_media/media/add-resource.png)
+
+![Add Resource](./business_media/media/add-resource.png)
 
 > **Note** If the resource server isn't appearing on the list, try submitting the configuration as is, editing the oauth config, and adding again.
 
@@ -85,3 +86,5 @@ Add the resource server (idcs server) as the resource
 <br>
 
 ![ ](./business_media/media/image7.png)
+
+## [Return home](../../../README.md)

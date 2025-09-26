@@ -1,6 +1,5 @@
 # Copyright (c) 2021, 2025 Oracle and/or its affiliates.
 # Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl/
-
 import pandas as pd
 import numpy as np
 from generate_embeddings import create_str_embedding, read_file
@@ -65,8 +64,9 @@ def similarity_search(input_string, df, top_n=2):
     return sorted_df.head(top_n)
 
 def find_top_match(input_string):
-    df_s = query_vdb(input_string,1)
-    df_s["similarity"] = df_s["similarity"].apply(lambda x: float(x[0]) if isinstance(x, np.ndarray) else float(str(x).strip('[]')) if pd.notna(x) else np.nan)
+    df_s = query_vdb(input_string,2)
+    if not df_s.empty:
+        df_s["similarity"] = df_s["similarity"].apply(lambda x: float(x[0]) if isinstance(x, np.ndarray) else float(str(x).strip('[]')) if pd.notna(x) else np.nan)
     return df_s
 
 def query_vdb(input_string, top_n=2):
@@ -75,14 +75,22 @@ def query_vdb(input_string, top_n=2):
     input_embedding_str = f"'[{', '.join(map(str, input_embedding[0]))}]'"
     query = (
         "SELECT ID, PROMPT_TXT, SQL_TXT, PROMPT_VECT, CERTIFIED_DATE, "
-        f"1 - COSINE_DISTANCE(PROMPT_VECT, TO_VECTOR({input_embedding_str})) AS similarity "
+        f"1 - COSINE_DISTANCE(PROMPT_VECT, TO_VECTOR({input_embedding_str})) AS similarity, "
+        "IS_CORRECTED "
         "FROM TRUST_LIBRARY "
-        "ORDER BY similarity DESC "
+        "WHERE CERTIFIED_DATE IS NOT NULL AND (IS_DEPRECATED IS NULL OR IS_DEPRECATED=0)"
+        "ORDER BY similarity DESC, ID DESC "
         f"FETCH FIRST {top_n} ROWS ONLY"
     )
-    column_names = ['id', 'prompt', 'query', 'embeddings', 'created_at', 'similarity']
+    column_names = ['id', 'prompt', 'query', 'embeddings', 'created_at', 'similarity', 'is_corrected']
+    df = fetch_data_from_db(query, column_names)
+    logger.debug(f"similar results:\n {df}")
+    # when no data found
+    if df.empty:
+        logger.warning(f"query_vdb: No rows returned for input string: {input_string}")
+        return pd.DataFrame(columns=column_names)
 
-    return fetch_data_from_db(query, column_names)
+    return df
 
 def find_similar_prompts(input_string):
     query = """
